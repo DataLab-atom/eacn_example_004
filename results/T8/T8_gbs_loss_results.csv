@@ -1,0 +1,14 @@
+parameter,value,unit
+n_modes,144,
+n_photons,255,
+eta_source,0.75,
+eta_interferometer,0.85,
+eta_detector,0.9,
+eta_total,0.57375,
+squeezing_dB,1.5,dB
+squeezing_r,0.17269388197455343,
+xi,0.016776505205365142,
+n_xi,2.4158167495725804,
+D_required,3.3464777499575673,
+log2_D,1.7426434221524283,
+memory_GB,0.0002580229631453429,GB
