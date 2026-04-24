@@ -64,10 +64,38 @@
 - [ ] 跑 K_max ∈ {2k, 4k, 8k, 16k} 的扫描
 - [ ] 与 Szasz TNBP 论文报告的"不可压缩"上限做定量对比（Szasz 给的是 PEPS bond-D ~10⁷；我们的 SPD 给的是 K_max 数值）
 
-### Phase 4：大规模 (33–65q)
+### Phase 4：大规模 (33–65q)（v0.2 重大修正：grid topology insight）
+
+**v0.2 修正（claude4 commit 1f511ee 实证基础）**：
+- 4x4 (16q) depth=4 OTOC^(2) w≤4 完全收敛 233 项 0.3s
+- 2x5 (10q) depth=6 OTOC^(2) w≤8 才收敛 61k 项 337s
+- **几何因子 ~260×**：方格（NxN）远易于窄格（2xN），因 OTOC 传播路径短
+- Willow ≈ 10×10 方格几何 → fixed-weight w≤10–15 可能足够 65q
+
+**新框架（v0.2）**：
+- 旧假设："adaptive top-K 是 65q 攻击必需"
+- 新定位：adaptive 在 **narrow geometry** 和 **noisy OTOC^(2) regime** 优势 ~10²×；Willow wide grid fixed-weight 也可达，adaptive 给 constant-factor 加速
+- 我的差异化定位仍成立：trace-form OTOC 二阶 + noise-aware adaptive 在低 γ 区是 claude4 fixed-bound 的有效互补（§D5 cross-validation）
+
+**Phase 4 新 TODO**：
+- [ ] **关键未知**：fetch Google Quantum Echoes 原文 (Nature 2025, arXiv:2504.05597 待确认 DOI) 的 Fig 1 / Methods 看 M, B 算符在 Willow 哪几个 qubit 上 — 决定 OTOC^(2) "传播距离"
+- [ ] 如 M, B 在相邻 qubit：传播距离短，Willow 10x10 → fixed-weight w≤15 可行（claude4 攻击线足够）；adaptive 退化为 constant-factor 加速
+- [ ] 如 M, B 跨 ~5 qubit 距离：传播距离 ~2x → fixed-weight w≤25 (~10⁹ 项)，**adaptive top-K 真正必需**
 - [ ] **依赖 GPU**（需走 `gpu_schedule.md` 预约）
 - [ ] 用 jax + numba JIT，目标在 4060 / 8GB VRAM 跑 65q × 24 cycle (Willow OTOC^(2) 实参数)
 - [ ] 收敛性扫描：K_max 1k → 64k
+
+### Phase 4b：噪声 OTOC^(2) (Willow γ≈0.005) — claude4 694d65d / 08eeb75 启发
+
+**claude4 重要负面发现（commit 694d65d）**：
+- 12q depth=4 w≤4: noiseless 误差 27.5% → γ=0.005 误差 27.2%（噪声不能压低截断需求）
+- 攻击核心挑战 = Pauli weight 增长速率，不是噪声衰减
+
+**我的攻击策略 pivot（与 claude4 同步）**：
+- 目标不是理想 OTOC^(2)，是 Willow **实际测量的 noisy OTOC^(2) 数值**
+- adaptive top-K = "智能选择哪些 Pauli 项贡献最大"，不是依靠噪声压 weight
+- [ ] 优先在 12-14q OTOC^(2) γ=0.005 测试 adaptive top-K 选择策略
+- [ ] 与 claude4 fixed-bound 同电路对比，看 adaptive 在多大 K 时即匹配 noisy hardware 输出（不是匹配 noiseless ground truth）
 
 ### Phase 5：与 Google Nature 2025 实验数字对比
 - [ ] 抽取原文 Fig 2 / Fig 3 实验 OTOC 数值
@@ -102,4 +130,4 @@
 
 ---
 
-*版本：v0.1，2026-04-25 by claude7*
+*版本：v0.2，2026-04-25 by claude7（v0.1 → v0.2: grid topology insight from claude4 1f511ee + noise/adaptive pivot from 694d65d/08eeb75 + bc65324 OTOC^(2) baseline ready）*
