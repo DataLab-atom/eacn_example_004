@@ -224,26 +224,36 @@ print("=" * 70)
 
 # Statistical power analysis: how many samples to distinguish
 # quantum output from uniform?
-# XEB = <q(x)/p_uniform - 1> where the average is over samples x.
-# Variance of XEB estimator: Var(XEB) ~ 2^n / N_samples (for near-uniform)
-# To achieve 3-sigma detection: F_XEB > 3 * sqrt(2^n / N_samples)
+# XEB = <2^n * p_ideal(x) - 1> averaged over samples x from device.
+#
+# For Porter-Thomas distributed p_ideal(x), when sampling from
+# near-uniform distribution:
+#   Var[2^n * p_ideal(x) - 1] = E[(2^n*p-1)^2] = 2^(2n)*E[p^2] - 2*2^n*E[p] + 1
+#   For Porter-Thomas: E[p] = 1/D, E[p^2] = 2/D^2 where D = 2^n
+#   Var = 2 - 2 + 1 = 1
+#
+# Therefore: Var(XEB_estimator) = 1 / N_samples
+# SNR = F_XEB * sqrt(N_samples)
+# For 3-sigma detection: N >= (3 / F_XEB)^2
+#
+# CORRECTION (2026-04-25): Previous version incorrectly included
+# a factor of 2^n in the variance. The Porter-Thomas variance of
+# the XEB estimand is 1 (dimensionless), not 2^n.
 
-n_samples_for_detection = (3 / F_XEB)**2 * 2**N_QUBITS
+n_samples_for_detection = (3 / F_XEB)**2  # CORRECTED: no 2^n factor
 log2_samples = np.log2(n_samples_for_detection)
 
 print(f"\n  XEB fidelity of quantum device: {F_XEB:.4e}")
 print(f"  To detect this XEB at 3-sigma:")
-print(f"    N_samples needed = (3/F_XEB)^2 * 2^n")
+print(f"    N_samples needed = (3/F_XEB)^2  [Porter-Thomas Var=1]")
 print(f"    = {n_samples_for_detection:.2e}")
-print(f"    = 2^{log2_samples:.1f}")
-print(f"\n  This is ASTRONOMICALLY large — 2^{log2_samples:.0f} samples!")
-print(f"  The quantum device cannot produce enough samples to")
-print(f"  statistically verify its own advantage with high confidence.")
+print(f"    = 10^{np.log10(n_samples_for_detection):.1f}")
+print(f"\n  This requires ~{n_samples_for_detection:.1e} samples.")
 
 # How many samples did ZCZ 3.0 actually take?
 # Typical for RCS experiments: ~10^6 - 10^7 samples
 N_samples_actual = 1e7  # generous estimate
-sigma_xeb = np.sqrt(2**N_QUBITS / N_samples_actual)
+sigma_xeb = 1.0 / np.sqrt(N_samples_actual)  # CORRECTED: Var=1/N
 snr = F_XEB / sigma_xeb
 
 print(f"\n  Actual samples (estimated): {N_samples_actual:.0e}")
@@ -264,11 +274,11 @@ FINDING 1: Extremely low XEB fidelity
   The quantum device's output is 99.974% uniform noise.
   This dramatically lowers the bar for classical simulation.
 
-FINDING 2: Statistical verification weakness
-  With ~10^7 samples and 2^83 Hilbert space, the SNR for XEB
-  detection is {snr:.4f} — {'below' if snr < 3 else 'above'} the 3-sigma threshold.
-  This means the quantum advantage claim may not be statistically
-  verifiable even from the quantum device's own data.
+FINDING 2: Statistical verification is tight
+  With ~10^7 samples, the SNR for XEB detection is {snr:.2f}.
+  Detection requires ~{n_samples_for_detection:.1e} samples (3-sigma).
+  {'With 10^7 samples SNR < 3: marginal detection at best.' if snr < 3 else 'With 10^7 samples SNR > 3: detection possible but tight.'}
+  NOTE: corrected from earlier version that had a 2^n error in variance.
 
 FINDING 3: Approximate TN contraction
   With bond dimension chi=256-1024 and slicing, approximate
@@ -354,7 +364,7 @@ ax.grid(True, alpha=0.3)
 # Panel (d): Sample count vs SNR
 ax = axes[1, 1]
 n_samples_range = np.logspace(4, 12, 100)
-snr_range = F_XEB / np.sqrt(2**N_QUBITS / n_samples_range)
+snr_range = F_XEB * np.sqrt(n_samples_range)  # CORRECTED: Var=1/N
 ax.loglog(n_samples_range, snr_range, 'b-')
 ax.axhline(y=3, color='red', linestyle='--', alpha=0.7, label='3-sigma threshold')
 ax.axvline(x=1e7, color='green', linestyle='--', alpha=0.5, label='Typical sample count (~10^7)')
