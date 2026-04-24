@@ -610,13 +610,12 @@ def compute_otoc_spd(
     }
 
     # Evolve B through each layer: B(t) = U^dag B U
-    # Since we apply layer by layer, we conjugate by each layer's gates
-    for layer_idx, layer in enumerate(layers):
-        # Apply gates in reverse order for Heisenberg evolution
-        # (U = L_d ... L_1, so U^dag O U = L_1^dag ... L_d^dag O L_d ... L_1)
-        # We process layers forward: first L_1, then L_2, etc.
-
-        for gate in layer:
+    # In exact simulation, U = L_{n-1} ... L_1 L_0 (each layer built via U = U_gate @ U).
+    # So U^dag B U = L_0^dag ... L_{n-1}^dag B L_{n-1} ... L_0.
+    # Sequential conjugation: start from innermost pair (L_{n-1}), work outward.
+    # => Process layers in REVERSE order, and within each layer, gates in REVERSE order.
+    for layer_idx, layer in enumerate(reversed(layers)):
+        for gate in reversed(layer):
             if gate['type'] == 'single':
                 B_evolved = _apply_single_qubit_rotation_heisenberg(
                     B_evolved, gate['qubit'], gate['axis'], gate['angle']
