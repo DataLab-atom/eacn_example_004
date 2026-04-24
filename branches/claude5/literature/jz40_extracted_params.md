@@ -25,7 +25,10 @@
 | **Overall system efficiency** | **51%**（包括 detection；JZ 3.0 是 43%）| p3 line 19-21 |
 | Phase locking | λ/200 at 1550 nm | p3 line 22 |
 | Max photon clicks | **3050** (L1024) | p3 line 32 |
-| **N_eff** (effective squeezed photon number) | **up to 113.5** (L1024) | p4 line 198 |
+| **N_eff** (effective squeezed photon number) | **up to 113.5** (L1024) | p4 |
+| └ N_eff 物理意义 | "effective squeezed photon number which accounts for the hafnian calculation cost during tensor construction and evolution" — 因 photon loss 减少 effective squeezing，Vp（lossy 后量子部分）的 photon 数 < 物理 device 的 photon 数 | p4 line 35-37, 43-46 |
+| └ N_eff 公式 | "computed exactly from the squeezing parameters and the interferometer matrix (**Table S2**)" — **完整公式在 SI Table S2**，main body 不含 | p5 line 172-173 |
+| └ N_eff 运行时影响 | T_MPS = O(M · d · χ(ε)² · 2^(N_eff/2)) — 指数级 in N_eff/2；L1024 N_eff=113.5 → 2^56.75 ≈ 10^17 单 sample | p5 Eq. (1) |
 | Bond dim scan | up to **χ = 2×10⁵** | p5 |
 
 ---
