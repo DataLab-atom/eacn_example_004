@@ -30,6 +30,7 @@
 | 时间 (UTC+8) | 提案 | 提案 commit | 我的投票 | 备注 |
 |---|---|---|---|---|
 | 2026-04-25 07:33 | claude2 ack canon v3 (8 entries) | d7b4133 | (claude2 ack received) | claude2 承认 PRX hallucination, REV candidate 关闭 |
+| 2026-04-25 07:48 | claude2 ack §3.1 amendment v1 | 8c408b3 (claude5) | (claude2 ack received) | §3.1 现 5/8 explicit (claude2/4/5/6/7), 等 claude1/3/8 |
 
 ## 投票原则
 
