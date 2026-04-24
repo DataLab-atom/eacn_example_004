@@ -1,247 +1,212 @@
 [
   {
-    "nrows": 2,
-    "ncols": 3,
-    "n_qubits": 6,
-    "depth": 8,
-    "error": "The index _265849AAAAo appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 6,
+    "d": 8,
+    "time": 0.3145,
+    "prob": 0.004731727697302554
   },
   {
-    "nrows": 2,
-    "ncols": 3,
-    "n_qubits": 6,
-    "depth": 12,
-    "error": "The index _265849AAADc appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 6,
+    "d": 12,
+    "time": 0.0368,
+    "prob": 0.025736070513000326
   },
   {
-    "nrows": 2,
-    "ncols": 3,
-    "n_qubits": 6,
-    "depth": 16,
-    "error": "The index _265849AAAHz appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 6,
+    "d": 16,
+    "time": 0.05,
+    "prob": 0.011269262407460831
   },
   {
-    "nrows": 2,
-    "ncols": 3,
-    "n_qubits": 6,
-    "depth": 20,
-    "error": "The index _265849AAAOF appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 6,
+    "d": 20,
+    "time": 0.0627,
+    "prob": 0.00128743864117047
   },
   {
-    "nrows": 2,
-    "ncols": 3,
-    "n_qubits": 6,
-    "depth": 24,
-    "error": "The index _265849AAAVu appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 6,
+    "d": 24,
+    "time": 0.0768,
+    "prob": 0.001854836529960867
   },
   {
-    "nrows": 2,
-    "ncols": 5,
-    "n_qubits": 10,
-    "depth": 8,
-    "error": "The index _265849AAAfv appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 8,
+    "d": 8,
+    "time": 0.0296,
+    "prob": 0.006854022914678828
   },
   {
-    "nrows": 2,
-    "ncols": 5,
-    "n_qubits": 10,
-    "depth": 12,
-    "error": "The index _265849AAAky appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 8,
+    "d": 12,
+    "time": 0.0426,
+    "prob": 0.002981906879142396
   },
   {
-    "nrows": 2,
-    "ncols": 5,
-    "n_qubits": 10,
-    "depth": 16,
-    "error": "The index _265849AAAtC appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 8,
+    "d": 16,
+    "time": 0.0664,
+    "prob": 0.0016443805635151616
   },
   {
-    "nrows": 2,
-    "ncols": 5,
-    "n_qubits": 10,
-    "depth": 20,
-    "error": "The index _265849AABEH appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 8,
+    "d": 20,
+    "time": 0.0866,
+    "prob": 0.008134441863936867
   },
   {
-    "nrows": 2,
-    "ncols": 5,
-    "n_qubits": 10,
-    "depth": 24,
-    "error": "The index _265849AABSN appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 8,
+    "d": 24,
+    "time": 0.1196,
+    "prob": 0.0005813556080191369
   },
   {
-    "nrows": 3,
-    "ncols": 4,
-    "n_qubits": 12,
-    "depth": 8,
-    "error": "The index _265849AABjf appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 10,
+    "d": 8,
+    "time": 0.0419,
+    "prob": 9.308168421327116e-05
   },
   {
-    "nrows": 3,
-    "ncols": 4,
-    "n_qubits": 12,
-    "depth": 12,
-    "error": "The index _265849AABqA appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 10,
+    "d": 12,
+    "time": 0.058,
+    "prob": 0.0004010444223249751
   },
   {
-    "nrows": 3,
-    "ncols": 4,
-    "n_qubits": 12,
-    "depth": 16,
-    "error": "The index _265849AACAO appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 10,
+    "d": 16,
+    "time": 0.0752,
+    "prob": 0.00022920065741924774
   },
   {
-    "nrows": 3,
-    "ncols": 4,
-    "n_qubits": 12,
-    "depth": 20,
-    "error": "The index _265849AACOV appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 10,
+    "d": 20,
+    "time": 0.12,
+    "prob": 0.0015122663343173982
   },
   {
-    "nrows": 3,
-    "ncols": 4,
-    "n_qubits": 12,
-    "depth": 24,
-    "error": "The index _265849AACgV appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 10,
+    "d": 24,
+    "time": 0.1535,
+    "prob": 0.0006320409632965047
   },
   {
-    "nrows": 3,
-    "ncols": 5,
-    "n_qubits": 15,
-    "depth": 8,
-    "error": "The index _265849AADCk appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 12,
+    "d": 8,
+    "time": 0.0548,
+    "prob": 0.00010918134963049702
   },
   {
-    "nrows": 3,
-    "ncols": 5,
-    "n_qubits": 15,
-    "depth": 12,
-    "error": "The index _265849AADKy appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 12,
+    "d": 12,
+    "time": 0.1395,
+    "prob": 5.757027480533317e-05
   },
   {
-    "nrows": 3,
-    "ncols": 5,
-    "n_qubits": 15,
-    "depth": 16,
-    "error": "The index _265849AADYK appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 12,
+    "d": 16,
+    "time": 0.1302,
+    "prob": 0.0002680503886961496
   },
   {
-    "nrows": 3,
-    "ncols": 5,
-    "n_qubits": 15,
-    "depth": 20,
-    "error": "The index _265849AADqU appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 12,
+    "d": 20,
+    "time": 0.1443,
+    "prob": 1.542171652307055e-05
   },
   {
-    "nrows": 3,
-    "ncols": 5,
-    "n_qubits": 15,
-    "depth": 24,
-    "error": "The index _265849AAENc appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 12,
+    "d": 24,
+    "time": 0.183,
+    "prob": 0.00010070302312832964
   },
   {
-    "nrows": 4,
-    "ncols": 5,
-    "n_qubits": 20,
-    "depth": 8,
-    "error": "The index _265849AAEqS appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 15,
+    "d": 8,
+    "time": 0.0778,
+    "prob": 1.4898656338823972e-05
   },
   {
-    "nrows": 4,
-    "ncols": 5,
-    "n_qubits": 20,
-    "depth": 12,
-    "error": "The index _265849AAFBw appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 15,
+    "d": 12,
+    "time": 0.1105,
+    "prob": 2.585494243087557e-06
   },
   {
-    "nrows": 4,
-    "ncols": 5,
-    "n_qubits": 20,
-    "depth": 16,
-    "error": "The index _265849AAFUV appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 15,
+    "d": 16,
+    "time": 0.1964,
+    "prob": 1.6184817570371097e-05
   },
   {
-    "nrows": 4,
-    "ncols": 5,
-    "n_qubits": 20,
-    "depth": 20,
-    "error": "The index _265849AAFtp appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 15,
+    "d": 20,
+    "time": 0.208,
+    "prob": 2.308296214276279e-05
   },
   {
-    "nrows": 4,
-    "ncols": 5,
-    "n_qubits": 20,
-    "depth": 24,
-    "error": "The index _265849AAGaE appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 15,
+    "d": 24,
+    "time": 0.292,
+    "prob": 4.895861726538951e-05
   },
   {
-    "nrows": 5,
-    "ncols": 5,
-    "n_qubits": 25,
-    "depth": 8,
-    "error": "The index _265849AAHNv appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 16,
+    "d": 8,
+    "time": 0.0769,
+    "prob": 1.6813808264710468e-05
   },
   {
-    "nrows": 5,
-    "ncols": 5,
-    "n_qubits": 25,
-    "depth": 12,
-    "error": "The index _265849AAHck appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 16,
+    "d": 12,
+    "time": 0.1127,
+    "prob": 1.1729924465505474e-05
   },
   {
-    "nrows": 5,
-    "ncols": 5,
-    "n_qubits": 25,
-    "depth": 16,
-    "error": "The index _265849AAIAR appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 16,
+    "d": 16,
+    "time": 0.2454,
+    "prob": 1.528438569486463e-05
   },
   {
-    "nrows": 5,
-    "ncols": 5,
-    "n_qubits": 25,
-    "depth": 20,
-    "error": "The index _265849AAIgq appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 16,
+    "d": 20,
+    "time": 0.2293,
+    "prob": 1.1903657685965896e-06
   },
   {
-    "nrows": 5,
-    "ncols": 5,
-    "n_qubits": 25,
-    "depth": 24,
-    "error": "The index _265849AAJWH appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 16,
+    "d": 24,
+    "time": 0.5883,
+    "prob": 8.723845039448058e-06
   },
   {
-    "nrows": 5,
-    "ncols": 6,
-    "n_qubits": 30,
-    "depth": 8,
-    "error": "The index _265849AAKVB appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 20,
+    "d": 8,
+    "time": 0.0996,
+    "prob": 4.18435189579122e-06
   },
   {
-    "nrows": 5,
-    "ncols": 6,
-    "n_qubits": 30,
-    "depth": 12,
-    "error": "The index _265849AAKnG appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 20,
+    "d": 12,
+    "time": 0.2674,
+    "prob": 1.2944081965027409e-06
   },
   {
-    "nrows": 5,
-    "ncols": 6,
-    "n_qubits": 30,
-    "depth": 16,
-    "error": "The index _265849AALQA appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 20,
+    "d": 16,
+    "time": 1.6814,
+    "prob": 7.963178941640924e-07
   },
   {
-    "nrows": 5,
-    "ncols": 6,
-    "n_qubits": 30,
-    "depth": 20,
-    "error": "The index _265849AAMDj appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 20,
+    "d": 20,
+    "time": 46.6916,
+    "prob": 3.6024871821717556e-07
   },
   {
-    "nrows": 5,
-    "ncols": 6,
-    "n_qubits": 30,
-    "depth": 24,
-    "error": "The index _265849AANCH appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+    "n": 20,
+    "d": 24,
+    "time": 5.1568,
+    "prob": 5.532097481962063e-07
   }
 ]
