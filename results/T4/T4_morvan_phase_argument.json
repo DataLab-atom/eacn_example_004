@@ -1,0 +1,62 @@
+{
+  "systems": {
+    "Sycamore (BROKEN)": {
+      "n": 53,
+      "d": 20,
+      "e_2q": 0.0062,
+      "n_2q": 520,
+      "lambda": 6.57,
+      "lc": 6.5,
+      "ratio": 1.01,
+      "broken": true,
+      "year": 2019
+    },
+    "ZCZ 2.0": {
+      "n": 56,
+      "d": 20,
+      "e_2q": 0.0041,
+      "n_2q": 560,
+      "lambda": 4.59,
+      "lc": 6.5,
+      "ratio": 0.71,
+      "broken": false,
+      "year": 2021
+    },
+    "ZCZ 2.1": {
+      "n": 60,
+      "d": 24,
+      "e_2q": 0.0038,
+      "n_2q": 720,
+      "lambda": 5.47,
+      "lc": 6.5,
+      "ratio": 0.84,
+      "broken": false,
+      "year": 2021
+    },
+    "ZCZ 3.0": {
+      "n": 83,
+      "d": 32,
+      "e_2q": 0.00375,
+      "n_2q": 1312,
+      "lambda": 10.09,
+      "lc": 6.5,
+      "ratio": 1.55,
+      "broken": false,
+      "year": 2025
+    },
+    "Willow RCS": {
+      "n": 67,
+      "d": 32,
+      "e_2q": 0.003,
+      "n_2q": 1056,
+      "lambda": 6.43,
+      "lc": 6.5,
+      "ratio": 0.99,
+      "broken": false,
+      "year": 2024
+    }
+  },
+  "lambda_critical": 6.5,
+  "zcz30_ratio": 1.55,
+  "conclusion": "ZCZ 3.0 deep in classical phase (lambda/lc=1.55)"
+}
