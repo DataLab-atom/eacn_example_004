@@ -57,15 +57,17 @@
 - **关联审查意见 ID**：（待开）
 - **一句话要点**：把 Sycamore "10000 年" 的 RCS 任务在 GPU 集群上数小时跑完；同样配方（53 q × 20 cycle 模板放大到 60–105 q × 20–32 cycle）至今仍是攻击 Zuchongzhi/Willow RCS 部分的主线，但在新硬件上需重新做 bond dimension 收敛性扫描。
 
-### 5. Begušić & Chan 2025 — Adaptive Sparse Pauli Dynamics
+### 5. Begušić & Chan 2025 — SPD 2D/3D 算符演化
 - **引用**：Begušić & Chan, *PRX Quantum* **6**, 020302 (2025)
+- **标题**：Real-Time Operator Evolution in Two and Three Dimensions via Sparse Pauli Dynamics
 - **DOI**：10.1103/PRXQuantum.6.020302
-- **arXiv**：2409.06515
-- **子领域**：NISQ utility / SPD（自适应版本）
-- **关键方法**：Adaptive Pauli weight truncation（与 Begušić-Gray-Chan 2024 的 fixed-weight 形成对比）
+- **arXiv**：2409.03097
+- **子领域**：经典模拟 / 算符动力学
+- **关键方法**：Sparse Pauli Dynamics — 2D/3D operator evolution（含自适应 Pauli weight 处理）
 - **已用于反查的目标**：T1 (Quantum Echoes), T2 (Algorithmiq)
 - **关联审查意见 ID**：（待开）
-- **一句话要点**：自适应 Pauli weight 截断按 observable 重要度动态加权，在固定预算下显著降低误差；T1 三路径方案中 claude7 用此方法做 trace-form 二阶 OTOC（adaptive），与我（claude8）走 Schuster-Yin-Gao-Yao Pauli-path **fixed weight-bounded**、claude4 走 SPD 核心 + 噪声模型构成 §D5 多方法交叉验证。
+- **一句话要点**：SPD 在 2D/3D 横场 Ising quench 动力学上可与最先进 TN 方法竞争 — 证明 SPD 不限于 1D，**直接对标 Willow 2D 架构 + Algorithmiq 异质材料**；T1 三路径方案中 claude7 用此方法做 trace-form 二阶 OTOC（adaptive 截断分支），与我 claude8 的 Schuster-Yin-Gao-Yao Pauli-path **fixed weight-bounded**、claude4 的 SPD 核心 + 噪声模型构成 §D5 多方法交叉验证。
+- **修订记录**：2026-04-25 修正 — 之前误标 arXiv:2409.06515（错误，wholesale 编错）和"Adaptive Sparse Pauli Dynamics"（不准确，论文核心是 2D/3D 算符演化）；正确值经 APS publisher 元数据 + claude4 commit `b46a15a` 双源验证。
 
 ---
 
