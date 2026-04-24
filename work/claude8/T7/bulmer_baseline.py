@@ -51,28 +51,47 @@ import numpy as np
 # comparison module can polymorphically consume both paths.
 # ---------------------------------------------------------------------------
 
-@dataclass
-class BulmerResult:
-    # ---- shared fields (1:1 with OhMPSResult) ----
-    click_marginal: np.ndarray                 # shape (M,)
-    total_click_distribution: np.ndarray       # shape (M+1,) probability over total click counts
-    tvd: float                                 # total variation distance vs ground truth
-    cross_entropy: float                       # H(p, q)
-    g2: np.ndarray                             # shape (M, M) two-mode click correlations
-    wall_clock_s: float
-    peak_vram_mb: float
-    n_samples: int
-    sample_seed: int
-    truncation_error: float                    # bipartite Schmidt truncation residual (Bulmer-side)
+try:
+    # Preferred path: shared dataclass authored by claude5 at commit 9950ebd on
+    # origin/claude5, lives at `infra/gbs/baseline_result.py`. Becomes available
+    # to all branches once the GBS shared infrastructure clears §5.2 review and
+    # is merged to `main`.
+    from infra.gbs.baseline_result import BaselineResult  # type: ignore[import-not-found]
+except ImportError:
+    # Fallback definition while `infra/gbs/` is not yet on `main` / not on
+    # `sys.path`. Mirrors claude5 commit 9950ebd schema verbatim so the same
+    # field names remain valid once the shared module is imported. Drop this
+    # block once §5.2 merge lands.
+    @dataclass
+    class BaselineResult:
+        # ---- shared fields (sampler-agnostic) ----
+        click_marginal: np.ndarray                                  # (M,)
+        total_click_distribution: np.ndarray                        # (M+1,)
+        tvd: float
+        cross_entropy: float
+        g2: np.ndarray                                              # (M, M)
+        wall_clock_s: float
+        peak_vram_mb: float
+        n_samples: int
+        sample_seed: int
+        truncation_error: float                                     # sampler-specific semantics, see docstring
+        sampler_method: Literal["oh_mps", "bulmer_phasespace", "thewalrus_check"] = "bulmer_phasespace"
 
-    # Path A (Oh-MPS) carries `bond_dim`; for Path B set to None.
-    bond_dim: Optional[int] = None
+        # ---- Path A (Oh-MPS) optional ----
+        bond_dim: Optional[int] = None
 
-    # ---- Bulmer-specific extensions (Path A sets these to None) ----
-    williamson_rank: Optional[int] = None              # symplectic rank of post-loss covariance
-    bipartite_schmidt_rank: Optional[int] = None       # max Schmidt rank across bipartite splits
-    sampler_method: Optional[Literal["phasespace", "thewalrus_check"]] = "phasespace"
-    hafnian_calls: Optional[int] = None                # telemetry: number of submatrix hafnians evaluated
+        # ---- Path B (Bulmer phase-space) optional ----
+        williamson_rank: Optional[int] = None
+        bipartite_schmidt_rank: Optional[int] = None
+        hafnian_calls: Optional[int] = None
+
+        # ---- shared metadata ----
+        circuit_meta: dict = field(default_factory=dict)
+
+
+# In-module alias kept for the (1) original BulmerResult symbol and (2)
+# documentation continuity. Prefer BaselineResult in new code.
+BulmerResult = BaselineResult
 
 
 # ---------------------------------------------------------------------------
@@ -187,7 +206,7 @@ def run_bulmer_attack(
 
 def _smoke():
     M = 4
-    fake = BulmerResult(
+    fake = BaselineResult(
         click_marginal=np.zeros(M),
         total_click_distribution=np.zeros(M + 1),
         tvd=0.0,
@@ -200,7 +219,9 @@ def _smoke():
         truncation_error=0.0,
     )
     assert fake.bond_dim is None
-    assert fake.sampler_method == "phasespace"
+    assert fake.sampler_method == "bulmer_phasespace"
+    # Aliasing check: BulmerResult must remain a synonym for BaselineResult.
+    assert BulmerResult is BaselineResult
 
     try:
         run_bulmer_attack(circuit=None, n_samples=-1, sample_seed=0)
