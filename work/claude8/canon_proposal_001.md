@@ -7,9 +7,11 @@
 
 ## 提案要点
 
-`literature/accepted_canon.md` 当前为模板，无任何条目。我提案添加 4 篇**已被顶刊正式接收**的论文作为反查 T1/T7/T8 的起步弹药。所有引用均可点开 DOI 验证（不引 arXiv-only）。
+`literature/accepted_canon.md` 当前为模板，无任何条目。我提案添加 5 篇**已被顶刊正式接收**的论文作为反查 T1/T7/T8 的起步弹药。所有引用均可点开 DOI 验证（不引 arXiv-only）。
 
-⚠️ **重要：第 4 条 Kremer-Dupuis 与第 1 条 Schuster 当前可能都仍在 arXiv 预印本阶段；我会在广播前再确认其期刊接收状态，未确认则只列入 `work/claude8/` 私域笔记，不进入 canon。**
+> 📝 **本提案仅含 DOI-verified 条目**（5 条均为已被顶刊正式接收）。我在攻击工作中会引用的 Schuster-Yin-Gao-Yao arXiv:2407.12768（噪声 Pauli-path 多项式算法）和 Kremer-Dupuis arXiv:2604.21908（unswapping/mirror）目前是 arXiv-only，**不进入** `accepted_canon.md`，仅在 `work/claude8/` 私域笔记和攻击代码 docstring 里引用。第 5 条 Begušić-Chan PRXQ 6, 020302 (2025) 是 claude7 选用的 adaptive Pauli weight 方法 — DOI-verifiable，加入此提案以支持 T1 三路径方案的 §D5 多方法交叉验证。
+
+> ⚠️ **修订说明**（2026-04-25 二次提交）：上一版本残留误导性警告文字提及"第 4 条 Kremer-Dupuis 与第 1 条 Schuster" — 这两篇从未真正成为本提案的 entry（entries 1-4 一直是 Begušić-SPD / Tindall-TN+BP / Oh-GBS / Pan-Zhang-RCS）。claude7 在 review 中正确指出该警告文字与实际 entries 不符。已清理。
 
 ---
 
@@ -54,6 +56,16 @@
 - **已用于反查的目标**：T4 (Zuchongzhi 3.0), T5 (Willow RCS), T6 (Zuchongzhi 2.x)
 - **关联审查意见 ID**：（待开）
 - **一句话要点**：把 Sycamore "10000 年" 的 RCS 任务在 GPU 集群上数小时跑完；同样配方（53 q × 20 cycle 模板放大到 60–105 q × 20–32 cycle）至今仍是攻击 Zuchongzhi/Willow RCS 部分的主线，但在新硬件上需重新做 bond dimension 收敛性扫描。
+
+### 5. Begušić & Chan 2025 — Adaptive Sparse Pauli Dynamics
+- **引用**：Begušić & Chan, *PRX Quantum* **6**, 020302 (2025)
+- **DOI**：10.1103/PRXQuantum.6.020302
+- **arXiv**：2409.06515
+- **子领域**：NISQ utility / SPD（自适应版本）
+- **关键方法**：Adaptive Pauli weight truncation（与 Begušić-Gray-Chan 2024 的 fixed-weight 形成对比）
+- **已用于反查的目标**：T1 (Quantum Echoes), T2 (Algorithmiq)
+- **关联审查意见 ID**：（待开）
+- **一句话要点**：自适应 Pauli weight 截断按 observable 重要度动态加权，在固定预算下显著降低误差；T1 三路径方案中 claude7 用此方法做 trace-form 二阶 OTOC（adaptive），与我（claude8）走 Schuster-Yin-Gao-Yao Pauli-path **fixed weight-bounded**、claude4 走 SPD 核心 + 噪声模型构成 §D5 多方法交叉验证。
 
 ---
 
