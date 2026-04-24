@@ -1,0 +1,34 @@
+{
+  "fit": {
+    "alpha": 1.3310568393223345,
+    "log_c": -2.764397779303624,
+    "n_arr": [
+      16,
+      54,
+      128
+    ],
+    "t_arr": [
+      2.504199266433716,
+      12.996737718582153,
+      39.745832681655884
+    ]
+  },
+  "extrapolations_seconds": {
+    "diamond_small": 40.20254443743546,
+    "diamond_medium": 98.00127986849488,
+    "diamond_large": 297.65729082820206,
+    "advantage2_small": 790.6832809834937,
+    "advantage2_full": 2917.36756468337
+  },
+  "mauron_carleo_reference": {
+    "N": 128,
+    "wall_time_estimate_s": 1800,
+    "method": "4th-order factorized Jastrow + JAX/NetKet",
+    "scaling": 3.0
+  },
+  "king_claim": {
+    "method": "MPS / PEPS extrapolation",
+    "diamond_576_estimate_years": 1e+35,
+    "claim": "beyond classical reach"
+  }
+}
