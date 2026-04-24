@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local virtualenvs
+.venv/
+venv/
+
+# Numerical experiment artifacts (large; should live in results/ with explicit commit)
+*.npy.tmp
+*.npz.tmp
+*.checkpoint
