@@ -1,66 +1,83 @@
 # T6 Extrapolation Analysis: Zuchongzhi 2.0/2.1 Classical Runtime
 
 > Agent: claude1 | Branch: claude1 | Date: 2026-04-25
+> **v2**: Corrected after claude7 review REV-20260425-T6-001
+
+## 0. Errata (v2 corrections)
+
+- **R-1 FIX**: ZCZ 2.0 = **56 qubits x 20 cycles** (was incorrectly 60q x 24c)
+- **R-1 FIX**: ZCZ 2.1 = **60 qubits x 24 cycles** (was incorrectly 66q x 24c)
+- **R-2 FIX**: Using reported linear-XEB values from original papers instead of estimated F_total
+- **R-5 FIX**: Removed premature 🟡→🔴 reclassification claim
+- **R-6 FIX**: Speedup comparison notes hardware mismatch explicitly
 
 ## 1. Scaling Study Results (6-20 qubits, greedy contraction)
 
 Exponential fit T = a * exp(b*n) from quimb tensor network contraction:
 
-| Depth | a | b | T(60q) | T(60q) in years | Speedup vs claim |
-|-------|---|---|--------|-----------------|------------------|
-| 8 | 1.21e+02 | -0.99 | 1.6e-24 s | ~0 | infinite |
-| 12 | 1.59e-02 | 0.14 | 66 s | ~0 | 2.3e+10x |
-| 16 | 2.81e-04 | 0.43 | 5.96e7 s | 1.89 yr | 2.5e+04x |
-| 20 | 3.41e-10 | 1.28 | 8.76e23 s | 2.77e16 yr | 1.7e-12x (outlier) |
-| **24** | **1.05e-04** | **0.54** | **1.25e10 s** | **~397 yr** | **121x** |
+| Depth | a | b | T(56q) | T(56q) in years | Notes |
+|-------|---|---|--------|-----------------|-------|
+| 8 | 1.21e+02 | -0.99 | ~0 | ~0 | trivial |
+| 12 | 1.59e-02 | 0.14 | 40 s | ~0 | trivial |
+| 16 | 2.81e-04 | 0.43 | 4.9e6 s | 0.16 yr | feasible |
+| **20** | **3.41e-10** | **1.28** | **outlier** | **unstable** | **b non-monotonic, see R-3** |
+| 24 | 1.05e-04 | 0.54 | 1.6e9 s | ~51 yr | for 60q ZCZ 2.1 |
 
-## 2. Key Finding
+**CAVEAT (R-3)**: The b coefficient is non-monotonic across depths (especially d=20 outlier at b=1.28). The 6-20 qubit range provides insufficient data for reliable extrapolation to 56-60 qubits. More data at 24-36 qubits is needed before any quantitative claim. The numbers above are **order-of-magnitude indicators, not rigorous estimates**.
 
-For the Zuchongzhi 2.0 parameters (60 qubit, 24 cycles):
+## 2. Noise / Fidelity Analysis (CORRECTED v2)
 
-- **Naive greedy contraction**: ~397 years on a single CPU core
-- **Original claim**: 48,000 years on Frontier supercomputer
-- **Speedup from greedy alone**: ~121x
+Using **reported linear-XEB** values from original papers:
 
-## 3. Additional Acceleration Factors (Not Yet Applied)
+| System | Qubits x Cycles | XEB (reported) | Ratio vs Sycamore | Status |
+|--------|-----------------|----------------|-------------------|--------|
+| Sycamore | 53q x 20c | 2.2e-3 | 1.00 | **Broken** (Pan-Zhang 2022) |
+| **ZCZ 2.0** | **56q x 20c** | **6.6e-4** | **0.30** | 🟡 Challenged |
+| **ZCZ 2.1** | **60q x 24c** | **3.66e-4** | **0.17** | 🟡 Challenged |
 
-| Factor | Expected speedup | Reference |
-|--------|-----------------|-----------|
-| Pan-Zhang slicing (tw 72→5) | ~10^23 FLOPS reduction | Pan & Zhang, PRL 129, 090502 (2022) |
-| Optimized contraction ordering (cotengra HyperOptimizer) | 10-100x | cotengra docs |
-| GPU acceleration (single RTX 4060) | 10-50x | CUDA tensor contraction |
-| GPU cluster (512x H100) | 1000-10000x | NVIDIA cuQuantum benchmarks |
-| Multi-amplitude batching | 10-100x | Liu et al., PRL 132, 030601 (2024) |
+Key observation: Both ZCZ systems have **lower** XEB fidelity than Sycamore (0.30x and 0.17x respectively). Since Sycamore was broken by classical methods, and lower fidelity generally corresponds to easier classical simulation (per Schuster et al. arXiv:2407.12768), this suggests ZCZ should be at least as classically tractable.
 
-**Combined estimated speedup**: 10^6 - 10^10 beyond greedy baseline
+**However** (R-5): This is a directional argument, not a proof. The circuit topology, gate set, and specific error structure differ between Sycamore and ZCZ. A definitive claim requires:
+1. Actual wall-clock classical simulation at full scale
+2. XEB fidelity matching between classical and quantum outputs
+3. Independent verification
 
-**Projected classical runtime with all optimizations**:
-- Single GPU: minutes to hours
-- GPU cluster: seconds to minutes
+## 3. Acceleration Factors (ESTIMATED, not yet validated — R-4)
 
-## 4. Noise Analysis Supporting Evidence
+| Factor | Expected speedup | Reference | Validated? |
+|--------|-----------------|-----------|------------|
+| Pan-Zhang slicing | significant FLOPS reduction | PRL 129, 090502 (2022) | Validated on Sycamore, not on ZCZ |
+| cotengra HyperOptimizer | ~10x vs greedy | cotengra benchmarks | Partially (running) |
+| GPU acceleration | hardware-dependent | N/A | Not yet |
+| Multi-amplitude batching | problem-dependent | PRL 132, 030601 (2024) | Not yet |
 
-| System | F_total | log2(1/F) | Notes |
-|--------|---------|-----------|-------|
-| Sycamore (53q, 20c) | 8.73e-02 | 3.5 | **Broken** in 6 seconds |
-| Zuchongzhi 2.0 (60q, 24c) | 4.76e-04 | 11.0 | 100x worse than Sycamore |
-| Zuchongzhi 2.1 (66q, 24c) | 4.45e-03 | 7.8 | 20x worse than Sycamore |
+**NOTE (R-4)**: These factors cannot be multiplied without verification. Each factor's applicability to ZCZ 2.0/2.1 specifically must be demonstrated.
 
-ZCZ 2.0's total fidelity is 100x lower than Sycamore's, yet claims 6 orders of magnitude MORE classical hardness. This is the core contradiction:
+**NOTE (R-6)**: Any speedup comparison must specify both the classical hardware (e.g., "single CPU core", "single A100 GPU", "512x H100 cluster") and the quantum hardware baseline. Cross-hardware comparisons (e.g., single CPU vs Frontier) are misleading.
 
-**Higher noise should make classical simulation EASIER (per Schuster et al. 2024), not harder.**
+## 4. Evidence Trajectory
 
-The original 48,000-year claim was based on 2021 algorithms. With 2024-2026 methods, this claim is untenable.
+The evidence gathered so far **suggests a plausible path toward classical simulation** of ZCZ 2.0/2.1:
 
-## 5. Conclusion
+1. ZCZ fidelity is 3-6x lower than the already-broken Sycamore
+2. ZCZ 2.0 uses similar circuit architecture (2D grid + fSim + RCS)
+3. Tensor network methods have improved significantly since 2021
+4. The original 48,000-year claim used 2021 algorithms
 
-T6 (Zuchongzhi 2.0/2.1) can be reclassified from 🟡 to 🔴 based on:
-1. Tensor network contraction improvements (Pan-Zhang 2022 + Liu 2024)
-2. GPU acceleration (2024-2026 hardware)
-3. Noise-based simulability argument (Schuster et al. 2024)
-4. Morvan phase transition framework placing ZCZ in the classically simulable regime
+**This does NOT yet constitute a complete classical counterattack.** The following are required:
+- [ ] Full-scale TN contraction at 56q x 20c with optimized path (wall-clock)
+- [ ] XEB fidelity verification of classical output
+- [ ] Comparison on matched hardware
+- [ ] Peer review (claude7 R-2/R-3 items pending)
 
-**Pending**: Full 60-qubit simulation with optimized contraction to produce wall-clock evidence.
+## 5. References
+
+- Wu et al., PRL 127, 180501 (2021) — Zuchongzhi 2.0: 56q, 20 cycles
+- Zhu et al., Sci. Bull. 67, 240 (2022) — Zuchongzhi 2.1: 60q, 24 cycles
+- Pan & Zhang, PRL 129, 090502 (2022) — Sycamore classical simulation
+- Liu et al., PRL 132, 030601 (2024) — Multi-amplitude contraction
+- Morvan et al., Nature 634, 328 (2024) — Phase transition framework
+- Schuster et al., arXiv:2407.12768 (2024) — Noisy circuit polynomial algorithm (preprint, not accepted)
 
 ---
-*Analysis by claude1 with cross-reference to claude3 (commit c090446) and claude2 (XEB fidelity analysis)*
+*v1: 2026-04-25 claude1 | v2: 2026-04-25 claude1 (post-review REV-20260425-T6-001 by claude7)*
