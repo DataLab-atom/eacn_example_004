@@ -31,16 +31,56 @@
 
 ## 条目（按 DOI 字母/数字序排列）
 
-<!-- 模板，添加条目时复制一份并取消注释：
-### <短标题：第一作者 + 年份>
-- **引用**：Tindall et al., PRX Quantum 5, 010308 (2024)
-- **DOI**：10.1103/PRXQuantum.5.010308
-- **arXiv**：2306.17839
-- **子领域**：张量网络经典模拟
-- **关键方法**：Tensor Network + Belief Propagation
-- **已用于反查的目标**：T3 (D-Wave), T9 (IBM Nighthawk)
-- **关联审查意见 ID**：REV-20260424-T3-001
-- **一句话要点**：在 heavy-hex 几何上，TN+BP 可以以多项式代价达到与 IBM Eagle utility 实验同量级精度——任何 heavy-hex / square lattice 的新量子声明都必须先排除这个基线。
--->
+### Begušić, Gray & Chan 2024 (SPD 打破 IBM Eagle)
+- **引用**: Begušić T, Gray J, Chan GK-L, Science Advances 10, eadk4321 (2024)
+- **DOI**: 10.1126/sciadv.adk4321
+- **arXiv**: 2308.05077
+- **子领域**: NISQ utility / 经典模拟
+- **关键方法**: Sparse Pauli Dynamics (SPD)
+- **已用于反查的目标**: T1 (Quantum Echoes), T2 (Algorithmiq), T9 (IBM Nighthawk)
+- **关联审查意见 ID**: —
+- **一句话要点**: SPD 在单核笔记本上比 IBM Eagle 127-qubit 实验快数个数量级——任何基于 Heisenberg 图景 observable estimation 的新量子声明都必须先排除 SPD 基线��
 
-*（本文件初始化时为空。第一个进入本仓库的反击/审查智能体应填入自己引用的第一条已中顶刊论文，并在 commit message 中写 `docs(canon): add <第一作者> <年份>`。）*
+### Begušić & Chan 2025 (SPD 2D/3D 算符演化)
+- **引用**: Begušić T, Chan GK-L, PRX Quantum 6, 020302 (2025)
+- **DOI**: 10.1103/PRXQuantum.6.020302
+- **arXiv**: 2409.03097
+- **子领域**: 经典模拟 / 算符动力学
+- **关键方法**: Sparse Pauli Dynamics (SPD)
+- **已用于反查的目标**: T1 (Quantum Echoes), T2 (Algorithmiq)
+- **关联审查意见 ID**: —
+- **一句话要点**: SPD 在 2D/3D 横场 Ising quench 动力学上与最先进 TN 方法竞争——证明 SPD 不限于 1D，可用于 2D 格子上的算符演化（与 Willow 2D 架构直接相关）。
+
+### Pan & Zhang 2022 (张量收缩打破 Sycamore)
+- **引用**: Pan F, Zhang P, PRL 129, 090502 (2022)
+- **DOI**: 10.1103/PhysRevLett.129.090502
+- **arXiv**: 2111.03011
+- **子领域**: RCS / 经典模拟
+- **关键方法**: Tensor Network RCS Contraction
+- **已用于反查的目标**: T4 (Zuchongzhi 3.0), T5 (Willow RCS), T6 (Zuchongzhi 2.0/2.1)
+- **关联审查意见 ID**: —
+- **一句话要点**: 经典 TN 收缩将 Sycamore 53-qubit RCS 从"10000年"降至可行范围——RCS 声明被打破是历史常态，此方法可直接升级用于 ZCZ3.0 和 Willow RCS。
+
+### Tindall et al. 2024 (TN+BP 打破 IBM Eagle)
+- **引用**: Tindall J et al., PRX Quantum 5, 010308 (2024)
+- **DOI**: 10.1103/PRXQuantum.5.010308
+- **arXiv**: 2306.17839
+- **子领域**: NISQ utility / 张量网络
+- **关键方法**: Tensor Network + Belief Propagation
+- **已用于反查的目标**: T3 (D-Wave), T9 (IBM Nighthawk)
+- **关联审查意见 ID**: —
+- **一句话要点**: 在 heavy-hex 几何上，TN+BP 可以以多项式代价达到与 IBM Eagle utility 实验同量级精度——任何 heavy-hex / square lattice 的新量子声明都必须先排除这个基���。
+
+### Oh et al. 2024 (GBS 经典欺骗)
+- **引用**: Oh C, Lim Y, Fefferman B, Jiang L, Nature Physics 20, 1647 (2024)
+- **DOI**: 10.1038/s41567-024-02535-8
+- **arXiv**: —
+- **子领域**: GBS / 经典模拟
+- **关键方法**: Boson Sampling 损耗利用
+- **已用于反查的目标**: T7 (九章 4.0), T8 (九章 3.0)
+- **关联审查意见 ID**: —
+- **一句话要点**: 利用光子损耗构造 MPS 经典采样器，打破了此前的 GBS 量子优势声明——九章系列每一版都有被打破的先例。
+
+---
+
+*最后更新: 2026-04-25 by claude4*
