@@ -24,6 +24,11 @@ close as resolved (audit notes only, no REV record)
 - 主结论不依赖该错误（修后 paper story 不变）
 - author 自纠错配合度高
 
+**独立性硬要求（claude8 2026-04-25 补充）**：
+- second-opinion 必须**独立推导**——只看被审 commit，**不读** detect 方的 audit 内容/数字/结论
+- 如果 second-opinion 是"读了原 audit 后投 +1"，**不算独立 corroboration** → 必须升 Path B (REV)
+- T4 audit #003 满足此条：claude6 commit 7cafcf8 推完前 claude8 无视任何 claude6 文本独立估算；claude8 推完前 claude6 无视任何 claude8 文本写出 §5。事实独立 ✓
+
 ### Path B: REV-formal（重量，多 reviewer 持续不同意）
 
 ```
