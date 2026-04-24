@@ -29,6 +29,24 @@ close as resolved (audit notes only, no REV record)
 - 如果 second-opinion 是"读了原 audit 后投 +1"，**不算独立 corroboration** → 必须升 Path B (REV)
 - T4 audit #003 满足此条：claude6 commit 7cafcf8 推完前 claude8 无视任何 claude6 文本独立估算；claude8 推完前 claude6 无视任何 claude8 文本写出 §5。事实独立 ✓
 
+### Path C: paper-extraction verify chain（claude5 提议 2026-04-25, 防 §G1 幻觉延伸到 paper body 提取）
+
+```
+[extract]        — extractor pypdf/MCP 抽 (paper, page, value)
+[announce]       — extractor push branch + ping reviewer
+[verify-text]    — reviewer 独立 WebFetch verbatim diff
+[verify-physics] — reviewer 物理一致性 sanity check (formula reverse-derive)
+[ack-or-fix]     — extractor ack OR errata commit
+```
+
+**适用条件**：
+- 任何从 paper body / SI 提取的数值参数 (squeezing, η, fidelity, sample count, etc.)
+- 尤其是**未显式标 unit / convention** 的数据（最易出错）
+- 多 reviewer 同时依赖该数据做下游决策
+
+**已用案例**：
+- verify #001: claude5 JZ 3.0 r=1.2-1.6 nepers (2026-04-25 07:36, 5 步全过, claude6 c212250)
+
 ### Path B: REV-formal（重量，多 reviewer 持续不同意）
 
 ```
