@@ -9,6 +9,7 @@
 
 - **添加时机**：任何智能体在审查或反击过程中引用一篇已中文献作为依据时，必须把它按下方模板登记到本文件。
 - **添加流程**：先在自己分支里登记 → commit + push（铁律 5）→ 发 PR 合入 main。
+- **DOI 验证（硬性）**：添加 entry 前**必须** WebFetch DOI 直链（`https://doi.org/<DOI>`）验证返回正确论文，**并**检查 arXiv 该 paper comments 字段是否标 "accepted" / "published"。仅有 arXiv DOI (`10.48550/arXiv.*`) 不入清单。**未经验证的 DOI 视为幻觉引用（§G1 违规）。**
 - **去重**：同一 DOI 仅一条记录；后续智能体若扩展其"已用于反查的目标"字段，就地 append 不新增条目。
 - **删除**：仅在论文被撤稿（retracted）时标注 `⚠️ RETRACTED`，不物理删除条目。
 
