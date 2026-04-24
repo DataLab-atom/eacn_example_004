@@ -157,6 +157,89 @@ class PauliOperator:
                 result += np.conj(coeff) * other.terms[paulis]
         return result
 
+    def multiply_single_pauli(self, qubit: int, pauli: int) -> 'PauliOperator':
+        """
+        Left-multiply by a single-qubit Pauli on the given qubit.
+        Returns M * self where M = P_{pauli} on qubit, I elsewhere.
+        Efficient: O(num_terms), doesn't change term count.
+        """
+        new_op = PauliOperator(self.n)
+        for paulis, coeff in self.terms.items():
+            p_existing = paulis[qubit]
+            phase_power, product = PAULI_MULT_TABLE[pauli, p_existing]
+            phase = 1j ** int(phase_power)
+            new_paulis = list(paulis)
+            new_paulis[qubit] = product
+            key = tuple(new_paulis)
+            new_op.terms[key] = new_op.terms.get(key, 0) + coeff * phase
+        new_op.terms = {k: v for k, v in new_op.terms.items() if abs(v) > 1e-15}
+        return new_op
+
+    def expectation_of_square_in_zero(self) -> complex:
+        """
+        Compute <0| self^2 |0> efficiently.
+
+        Instead of computing self*self (O(N^2) terms), we use:
+        <0| A^2 |0> = sum_{j,k} c_j c_k <0| P_j P_k |0>
+
+        <0| P_j P_k |0> is nonzero only when P_j * P_k has all I or Z.
+        For each qubit: P_j[q] * P_k[q] must be I or Z.
+        This means P_j[q] and P_k[q] must be identical (since P*P = I)
+        or one of {(I,Z), (Z,I), (X,X), (Y,Y)} (giving I or Z).
+
+        More precisely: P_a * P_b has result in {I,Z} iff:
+        - a==0, b in {0,3}: I*I=I, I*Z=Z
+        - a==3, b in {0,3}: Z*I=Z, Z*Z=I
+        - a==1, b==1: X*X=I
+        - a==2, b==2: Y*Y=I
+        - a==1, b==2: X*Y=iZ (has Z, <0|Z|0>=1) ✓
+        - a==2, b==1: Y*X=-iZ (has Z, <0|Z|0>=1) ✓
+
+        So for each qubit, we need P_j[q]*P_k[q] in {I, Z}.
+        This holds when: both in {I,Z}, or both the same in {X,Y}, or {X,Y}/{Y,X}.
+
+        We group terms by their "Z-signature" for efficient matching.
+        """
+        # Group terms by their "IZ-class": replace X->1, Y->2, I->0, Z->0
+        # Two terms P_j, P_k contribute iff for all qubits,
+        # P_j[q]*P_k[q] yields I or Z.
+        # This means: at each qubit, (P_j[q], P_k[q]) must be in the set:
+        # {(I,I),(I,Z),(Z,I),(Z,Z),(X,X),(Y,Y),(X,Y),(Y,X)}
+        #
+        # Equivalently: P_j[q] and P_k[q] must belong to the same "group":
+        # Group A = {I, Z} and Group B = {X, Y}
+        # Both must be in same group.
+
+        result = 0.0 + 0.0j
+
+        # Build index: group signature -> list of (paulis, coeff)
+        # Group signature: tuple where each qubit maps to 0 (if I or Z) or 1 (if X or Y)
+        from collections import defaultdict
+        groups = defaultdict(list)
+        for paulis, coeff in self.terms.items():
+            sig = tuple(0 if p in (0, 3) else 1 for p in paulis)
+            groups[sig].append((paulis, coeff))
+
+        # Only terms with same signature can pair
+        for sig, terms_list in groups.items():
+            for i, (pi, ci) in enumerate(terms_list):
+                for j, (pj, cj) in enumerate(terms_list):
+                    # Compute <0| P_i P_j |0>
+                    phase = 1.0 + 0.0j
+                    valid = True
+                    for q in range(self.n):
+                        pa, pb = pi[q], pj[q]
+                        ph_pow, prod = PAULI_MULT_TABLE[pa, pb]
+                        if prod != 0 and prod != 3:  # not I or Z
+                            valid = False
+                            break
+                        phase *= 1j ** int(ph_pow)
+                        # <0|I|0> = 1, <0|Z|0> = 1
+                    if valid:
+                        result += ci * cj * phase
+
+        return result
+
 
 # ============================================================
 # Gate implementations in Heisenberg picture
@@ -710,6 +793,164 @@ def compute_otoc_spd(
 
 
 # ============================================================
+# OTOC^(2) — Second-order OTOC (Google Quantum Echoes target)
+# ============================================================
+
+def compute_otoc2_spd(
+    n_qubits: int,
+    layers: list,
+    observable_qubit: int,
+    observable_pauli: int,
+    perturbation_qubit: int,
+    perturbation_pauli: int,
+    max_weight: int,
+    noise_gamma_2q: float = 0.0,
+    noise_gamma_1q: float = 0.0,
+    verbose: bool = False
+) -> Tuple[complex, dict]:
+    """
+    Compute second-order OTOC using SPD.
+
+    OTOC^(2) = <0| M B(t) M B(t) |0>
+             = <0| A^2 |0>  where A = M * B(t)
+
+    This is the quantity measured in Google's Quantum Echoes experiment.
+
+    Algorithm:
+    1. Evolve B -> B(t) = U^dag B U via SPD (with truncation)
+    2. Compute A = M * B(t) (single Pauli left-multiply, O(N) terms)
+    3. Compute <0| A^2 |0> efficiently using Pauli group matching
+
+    Step 3 is O(N^2) in the worst case but uses group-based
+    acceleration to skip incompatible pairs.
+
+    Args: same as compute_otoc_spd
+    Returns: (otoc2_value, diagnostics_dict)
+    """
+    t_start = time.time()
+
+    # Step 1: Evolve B -> B(t) via SPD
+    B_evolved = PauliOperator.single_pauli(
+        n_qubits, perturbation_qubit, perturbation_pauli
+    )
+
+    diagnostics = {
+        'n_terms_per_layer': [],
+        'truncated_norm_loss': []
+    }
+
+    for layer_idx, layer in enumerate(reversed(layers)):
+        for gate in reversed(layer):
+            if gate['type'] == 'single':
+                B_evolved = _apply_single_qubit_rotation_heisenberg(
+                    B_evolved, gate['qubit'], gate['axis'], gate['angle']
+                )
+                if noise_gamma_1q > 0:
+                    B_evolved = apply_gate_depolarizing_noise(
+                        B_evolved, [gate['qubit']], noise_gamma_1q
+                    )
+            elif gate['type'] == 'iswap_like':
+                q0, q1 = gate['qubits']
+                B_evolved = apply_iswap_like_heisenberg(
+                    B_evolved, q0, q1, gate['theta'], gate['phi']
+                )
+                if noise_gamma_2q > 0:
+                    B_evolved = apply_gate_depolarizing_noise(
+                        B_evolved, [q0, q1], noise_gamma_2q
+                    )
+
+        # Truncate
+        norm_before = B_evolved.norm_sq
+        B_evolved = B_evolved.truncate(max_weight)
+        norm_after = B_evolved.norm_sq
+        diagnostics['n_terms_per_layer'].append(B_evolved.num_terms)
+        diagnostics['truncated_norm_loss'].append(
+            (norm_before - norm_after) / max(norm_before, 1e-30)
+        )
+
+    if verbose:
+        print(f"  B(t): {B_evolved.num_terms} terms after evolution")
+
+    # Step 2: A = M * B(t)
+    A = B_evolved.multiply_single_pauli(observable_qubit, observable_pauli)
+
+    if verbose:
+        print(f"  A = M*B(t): {A.num_terms} terms")
+
+    # Step 3: <0| A^2 |0>
+    otoc2 = A.expectation_of_square_in_zero()
+
+    t_elapsed = time.time() - t_start
+    diagnostics['wall_time_s'] = t_elapsed
+    diagnostics['final_n_terms_Bt'] = B_evolved.num_terms
+    diagnostics['final_n_terms_A'] = A.num_terms
+
+    return otoc2, diagnostics
+
+
+def compute_otoc2_exact(
+    n_qubits: int,
+    layers: list,
+    observable_qubit: int,
+    observable_pauli: int,
+    perturbation_qubit: int,
+    perturbation_pauli: int,
+) -> complex:
+    """
+    Compute OTOC^(2) exactly: <0| M U^dag B U M U^dag B U |0>.
+    Only feasible for n <= ~14 qubits.
+    """
+    from scipy.linalg import expm
+
+    N = 2 ** n_qubits
+
+    # Build U
+    U = np.eye(N, dtype=complex)
+    for layer in layers:
+        for gate in layer:
+            if gate['type'] == 'single':
+                q = gate['qubit']
+                axis_mat = _PAULIS_1Q[gate['axis']]
+                u_1q = expm(-1j * gate['angle'] / 2 * axis_mat)
+                U_gate = _embed_1q_gate(u_1q, q, n_qubits)
+                U = U_gate @ U
+            elif gate['type'] == 'iswap_like':
+                q0, q1 = gate['qubits']
+                theta, phi = gate['theta'], gate['phi']
+                XX = np.kron(_X, _X)
+                YY = np.kron(_Y, _Y)
+                ZZ = np.kron(_Z, _Z)
+                H_2q = theta / 2 * (XX + YY) + phi * ZZ
+                u_2q = expm(-1j * H_2q)
+                U_gate = _embed_2q_gate(u_2q, q0, q1, n_qubits)
+                U = U_gate @ U
+
+    # Build M and B
+    M = _embed_1q_gate(_PAULIS_1Q[observable_pauli], observable_qubit, n_qubits)
+    B = _embed_1q_gate(_PAULIS_1Q[perturbation_pauli], perturbation_qubit, n_qubits)
+
+    # OTOC^(2) = <0| M U^dag B U M U^dag B U |0>
+    state = np.zeros(N, dtype=complex)
+    state[0] = 1.0
+
+    # |psi> = B(t) M B(t) |0> where B(t) = U^dag B U
+    # Step by step:
+    state = U @ state           # U|0>
+    state = B @ state           # BU|0>
+    state = U.conj().T @ state  # U^dag BU|0>
+    state = M @ state           # M U^dag BU|0>
+    state = U @ state           # U M U^dag BU|0>
+    state = B @ state           # BU M U^dag BU|0>
+    state = U.conj().T @ state  # U^dag BU M U^dag BU|0>
+    state = M @ state           # M U^dag BU M U^dag BU|0>
+
+    # <0| result>
+    state_0 = np.zeros(N, dtype=complex)
+    state_0[0] = 1.0
+    return state_0.conj() @ state
+
+
+# ============================================================
 # Exact simulation (for small systems, validation)
 # ============================================================
 
@@ -866,6 +1107,48 @@ if __name__ == '__main__':
                   f"terms={diag['final_n_terms']:6d}  "
                   f"time={diag['wall_time_s']:.3f}s")
 
+    # ============================================================
+    # OTOC^(2) validation (Google Quantum Echoes target)
+    # ============================================================
     print("\n" + "=" * 60)
-    print("Validation complete.")
+    print("OTOC^(2) Validation: Second-order correlator")
+    print("=" * 60)
+
+    for n_qubits in [4, 6, 8]:
+        if n_qubits <= 6:
+            rows, cols = 2, n_qubits // 2
+        else:
+            rows, cols = 2, 4
+            n_qubits = rows * cols
+
+        edges = build_2d_grid_connectivity(rows, cols)
+        n_layers = 4
+        layers = generate_random_circuit_layers(n_qubits, edges, n_layers, seed=42)
+
+        obs_q, obs_p = 0, 3
+        pert_q, pert_p = n_qubits - 1, 1
+
+        print(f"\n--- {n_qubits}q OTOC^(2) ({rows}x{cols}), {n_layers} layers ---")
+
+        # Exact OTOC^(2)
+        if n_qubits <= 12:
+            otoc2_exact = compute_otoc2_exact(
+                n_qubits, layers, obs_q, obs_p, pert_q, pert_p
+            )
+            print(f"Exact OTOC^(2): {otoc2_exact:.6f}")
+
+        # SPD OTOC^(2)
+        for max_w in [2, 4, 6, n_qubits]:
+            otoc2_spd, diag = compute_otoc2_spd(
+                n_qubits, layers, obs_q, obs_p, pert_q, pert_p,
+                max_weight=max_w, verbose=False
+            )
+            error = abs(otoc2_spd - otoc2_exact) if n_qubits <= 12 else float('nan')
+            print(f"SPD^(2) (w<={max_w:2d}): {otoc2_spd:.6f}  "
+                  f"|error|={error:.2e}  "
+                  f"A_terms={diag['final_n_terms_A']:5d}  "
+                  f"time={diag['wall_time_s']:.3f}s")
+
+    print("\n" + "=" * 60)
+    print("All validation complete.")
     print("=" * 60)
