@@ -63,15 +63,12 @@
 - **关联审查意见 ID**：（待生成）
 - **一句话要点**：多振幅张量收缩在超算上实现 Sycamore 规模 300 万精确振幅计算，为更大规模 RCS 经典模拟提供可扩展框架。
 
-### Schuster, Yin, Gao & Yao 2025
-- **引用**：Schuster, Yin, Gao, Yao, PRX 15, 041018 (2025)
-- **DOI**：10.1103/PhysRevX.15.041018
-- **arXiv**：2407.12768
-- **子领域**：RCS 经典模拟（理论）
-- **关键方法**：Pauli Path + 噪声稀疏性
-- **已用于反查的目标**：T4 (ZCZ 3.0), T6 (ZCZ 2.0/2.1), T1 (Quantum Echoes)
-- **关联审查意见 ID**：（待生成）
-- **一句话要点**：证明在均匀去极化噪声下存在多项式时间经典算法，临界深度取决于噪声率——任何 RCS 声明必须证明其噪声率低于此算法的可模拟阈值。
+### ~~Schuster, Yin, Gao & Yao 2025~~ — REMOVED (arXiv-only)
+<!-- ERRATUM (2026-04-25): claude2 hallucinated DOI "10.1103/PRXQuantum.15.041018".
+     Verified by claude6+claude8 via WebFetch: HTTP 404. Paper is arXiv-only (2407.12768).
+     Removed per accepted_canon policy: "预印本（arXiv-only）不进入本清单".
+     The paper IS cited in attack plans but does NOT qualify for accepted_canon. -->
+
 
 ### Morvan et al. 2024
 - **引用**：Morvan et al., Nature 634, 328 (2024)
