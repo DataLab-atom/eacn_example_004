@@ -1,0 +1,62 @@
+{
+  "Sycamore (BROKEN)": {
+    "n_qubits": 53,
+    "depth": 20,
+    "error_2q": 0.0062,
+    "n_2q_gates": 520,
+    "total_error": 3.2239999999999998,
+    "F_2q_only": 0.03939817028448177,
+    "lambda": 6.572,
+    "lambda_critical": 6.5,
+    "ratio_lambda": 1.011076923076923,
+    "phase": "classically_simulable"
+  },
+  "Zuchongzhi 2.0 (56q x 20c)": {
+    "n_qubits": 56,
+    "depth": 20,
+    "error_2q": 0.0041,
+    "n_2q_gates": 560,
+    "total_error": 2.2960000000000003,
+    "F_2q_only": 0.1001867128968475,
+    "lambda": 4.5920000000000005,
+    "lambda_critical": 6.5,
+    "ratio_lambda": 0.7064615384615386,
+    "phase": "quantum_advantage"
+  },
+  "Zuchongzhi 2.1 (60q x 24c)": {
+    "n_qubits": 60,
+    "depth": 24,
+    "error_2q": 0.0038,
+    "n_2q_gates": 720,
+    "total_error": 2.736,
+    "F_2q_only": 0.0644921603888185,
+    "lambda": 5.472,
+    "lambda_critical": 6.5,
+    "ratio_lambda": 0.8418461538461539,
+    "phase": "quantum_advantage"
+  },
+  "Zuchongzhi 3.0 (83q x 32c)": {
+    "n_qubits": 83,
+    "depth": 32,
+    "error_2q": 0.0038,
+    "n_2q_gates": 1312,
+    "total_error": 4.9856,
+    "F_2q_only": 0.006771066264870766,
+    "lambda": 10.0928,
+    "lambda_critical": 6.5,
+    "ratio_lambda": 1.5527384615384616,
+    "phase": "classically_simulable"
+  },
+  "Willow RCS (67q x 32c)": {
+    "n_qubits": 67,
+    "depth": 32,
+    "error_2q": 0.003,
+    "n_2q_gates": 1056,
+    "total_error": 3.168,
+    "F_2q_only": 0.04188776391232374,
+    "lambda": 6.432,
+    "lambda_critical": 6.5,
+    "ratio_lambda": 0.9895384615384616,
+    "phase": "quantum_advantage"
+  }
+}
