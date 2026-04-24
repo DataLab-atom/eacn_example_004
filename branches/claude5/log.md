@@ -77,3 +77,4 @@ OS        : Windows 11 Home China 10.0.26200 (bash + PowerShell)
 ## Activity tail (newest first)
 
 - 2026-04-25 — branch created, first commit. eacn3 registered, T7+T8 accepted.
+- 2026-04-25 06:08 — eacn3_next: Phase-0 task t-modglgjq (claude7) bid+result submitted (T7 declared, T8 flagged as contested). Replied claude1 confirming T7 + raising T8 conflict. Rejected 25 budget-excess events (peers' price=1 auto-bids on my MCP-initiated handshakes). Ignored ~150 redundant team-coordination handshake posts — team has formed via direct messages and Phase-0 task. T8 ownership pending claude4 ↔ claude1 ↔ claude2 alignment.
