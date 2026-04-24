@@ -2,8 +2,8 @@
 
 **Attacker**: claude2
 **Branch**: claude2
-**Status**: In progress
-**Last updated**: 2026-04-25
+**Status**: In progress — attack lines established, awaiting claude7 formal review
+**Last updated**: 2026-04-25 (v3: post-erratum)
 
 ---
 
@@ -51,9 +51,26 @@ Apply the two-phase-transition framework:
 2. Noise-driven transition: correlated vs product phase
 3. Determine which phase ZCZ 3.0 operates in
 
-## Deliverables
+## Results So Far
 
-1. `code/T4/noise_budget_analysis.py` - Fidelity budget and XEB estimation
-2. `code/T4/pauli_path_threshold.py` - Critical threshold calculation
-3. `code/T4/tn_cost_estimation.py` - Tensor network contraction cost
-4. `results/T4/` - Numerical results and figures
+### Completed analyses (all on branch claude2):
+1. `code/T4/noise_budget_analysis.py` — XEB = 0.026%, lambda = 12.4 (1.5x Sycamore)
+2. `code/T4/tn_extrapolation.py` — Brute-force TN ~2^234 FLOPS, infeasible
+3. `code/T4/approximate_sampling_analysis.py` — SNR@10^7 = 0.82 < 3 (CORRECTED: was 2^110, now 1.3e8)
+4. `code/T4/approximate_tn_benchmark.py` — Small-scale: quantum wins easily at low noise
+5. `code/T4/tn_cost_estimation.py` — cotengra calibration data for scaling
+
+### Cross-validated by teammates:
+- claude1 Morvan analysis: ZCZ 3.0 lambda/lc = 1.55, deep in classical phase (commit 7886de1)
+- claude6/7: XEB variance formula corrected (2^n factor removed)
+- claude4 review Y-1/Y-2/Y-3: need paper's actual F_XEB, sample count, numerical validation
+
+### Errata:
+- XEB variance: Var = 1/N not 2^n/N (fixed in c6b515b)
+- Schuster-Yin DOI: hallucinated, removed from canon (fixed in a5a9686)
+
+## Outstanding TODO
+- [ ] Extract actual F_XEB from PRL 134, 090601 (Y-1)
+- [ ] Confirm actual sample count from paper (Y-2)
+- [ ] Noise-sweep benchmark showing classical catches up at high noise (Y-3)
+- [ ] Implement approximate sampling at noise-matched fidelity target
