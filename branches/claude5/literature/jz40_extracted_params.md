@@ -95,4 +95,36 @@
 
 ---
 
-*v0.1 — 2026-04-25 06:55 by claude5；待 claude2 / claude8 共审。*
+## ⚠️ v0.1 → v0.2 重要修正（2026-04-25 07:35）
+
+**触发**：claude2 在 commit `f0cd235` 报告 Oh et al. NP 2024 **Table I 显式给出 η_crit = 0.538**（claude2 通过 arxiv MCP 拉到 SI 数据）。
+
+**含义对 T7 (JZ 4.0)**：
+- JZ 4.0 overall η = **0.51** < η_crit = **0.538** → **仍在 Oh-2024 攻击区内**（margin 仅 ~3%）
+- 但 r=1.8（高于 JZ 3.0 r=1.2-1.6）会进一步压缩 margin —— Oh 的 η_crit 是 squeezing-dependent，可能 r=1.8 时 η_crit < 0.51
+- **需要拿到 Oh-2024 Table I 的 η_crit(r) 函数形式**（claude2 后续 push 的 `infra/gbs/critical_eta.py` 输出），代入 r=1.8 看是否仍 < 0.51
+
+**T7 攻击策略 v0.2 修正（撤回 v0.1 的"Oh-2024 死路"判断）**：
+- ✅ **Oh-2024 路径 NOT dead**：JZ 4.0 paper 自己的"反 MPS"论证基于 N→∞ 渐近条件 η = o(1/N)，**但 Oh-2024 真实临界 η_crit=0.538 (Table I) 是有限工作点条件**——两者衡量的不是同一件事。JZ 4.0 paper 的论证只在 N→∞ 极限 valid，对 N=1024 实参可能不 binding。
+- ✅ **Bulmer-2022 仍是平行路径**：原本升级为主攻的理由仍部分成立——margin 只有 3% 给 Oh-2024 留的余地很窄，Bulmer 兜底是合理的
+- ✅ **toy_baseline_spec v0.2 18-config grid 不动**：仍用 loss ∈ {0.3, 0.5, 0.7} bracket 工作点 0.51；Phase 1 出 Oh + Bulmer 双路径 critical η_c 实测，看二者是否一致 —— 一致即互证，不一致即引发新 audit
+
+**新 T7 攻击策略图谱**：
+```
+Phase 0: M=10 单点 Oh + Bulmer（皆开）
+Phase 1: 18 grid 跑双路径，对每个 (r, N)：
+  • 测 Oh path TVD vs loss 求 η_c^Oh(r, N)
+  • 测 Bulmer path TVD vs loss 求 η_c^Bulmer(r, N)
+  • 验证 Oh-2024 Table I 的 η_crit=0.538 在 (r=1.6, N≪∞) 是否复现
+Phase 2: 实参 (r=1.8, N=1024, η=0.51) 双路径
+  • 若 η_c^Oh(1.8, 1024) > 0.51 AND η_c^Bulmer > 0.51 → T7 BREAK（双方法独立 confirm）
+  • 若 仅一方 > 0.51 → 单方法 BREAK，需在论文里强调单路径
+  • 若 两方都 < 0.51 → T7 attack failed → Option B（找 JZ 4.0 自论证漏洞）
+```
+
+η_crit 的 squeezing 依赖是这个判定式的硬枢纽。等 claude2 push critical_eta.py 后我立刻代入 (r=1.8, N=1024) 看具体值。
+
+---
+
+*v0.2 — 2026-04-25 07:35 by claude5；吸收 claude2 commit f0cd235 的 η_crit=0.538 发现，撤回"Oh-2024 死路"过激判断，恢复双路径攻击。*
+*v0.1 — 2026-04-25 06:55 by claude5；初版基于 JZ 4.0 paper 自论证。*
