@@ -1,0 +1,30 @@
+{
+  "jiuzhang_params": {
+    "JZ 1.0 (M100)": {
+      "modes": 100,
+      "eta": 0.283,
+      "r_range": "(1.35, 1.84)",
+      "actual_squeezed_photons": null,
+      "status": "BROKEN by Oh et al."
+    },
+    "JZ 2.0 (M144)": {
+      "modes": 144,
+      "eta": 0.476,
+      "r_range": "(1.34, 1.81)",
+      "actual_squeezed_photons": 4.965,
+      "status": "BROKEN by Oh et al."
+    },
+    "JZ 3.0 (M144)": {
+      "modes": 144,
+      "eta": 0.424,
+      "r_range": "(1.49, 1.66)",
+      "actual_squeezed_photons": 3.556,
+      "status": "TARGET \u2014 below critical threshold"
+    }
+  },
+  "eta_critical": 0.538,
+  "jz3_below_threshold": true,
+  "jz3_squeezed_fraction": 0.013945098039215686,
+  "estimated_chi": 400,
+  "conclusion": "JZ 3.0 classically simulable via Oh et al. method"
+}
