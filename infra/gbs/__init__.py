@@ -19,3 +19,9 @@ from .gbs_circuit import (  # noqa: F401
     apply_passive_unitary,
     apply_uniform_loss,
 )
+from .baseline_result import (  # noqa: F401
+    BaselineResult,
+    BulmerResult,
+    OhMPSResult,
+    SamplerMethod,
+)

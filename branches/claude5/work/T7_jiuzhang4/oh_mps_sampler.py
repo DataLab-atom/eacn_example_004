@@ -38,39 +38,7 @@ from typing import Optional
 import numpy as np
 from numpy.typing import NDArray
 
-from infra.gbs.gbs_circuit import GBSCircuit, build_circuit
-
-
-# ---------------------------------------------------------------------------
-# Result container
-# ---------------------------------------------------------------------------
-
-@dataclass
-class OhMPSResult:
-    """Output of one sweep at a fixed (config, χ).
-
-    Mirrors §5(a) of `branches/claude5/work/T7_jiuzhang4/toy_baseline_spec.md`
-    so that the cross-validation comparison with Bulmer outputs is mechanical.
-    """
-
-    # §5(a) distribution stats
-    click_marginal: NDArray[np.float64]            # shape (M,) per-mode click prob
-    total_click_distribution: NDArray[np.float64]  # shape (M+1,) histogram
-    tvd_to_ground_truth: Optional[float]           # None if M too large for exact
-    cross_entropy: Optional[float]
-    g2: NDArray[np.float64]                        # shape (M, M) second-order corr
-
-    # §5(a) execution
-    wall_clock_s: float
-    peak_vram_mb: Optional[float]                  # None for CPU-only
-
-    # §5(b) convergence (filled when running a chi sweep)
-    bond_dim: int
-    n_samples: int
-    truncation_error: Optional[float]              # measured at the bipartite cut
-
-    # provenance
-    circuit_meta: dict = field(default_factory=dict)
+from infra.gbs import BaselineResult, GBSCircuit, build_circuit
 
 
 # ---------------------------------------------------------------------------
@@ -135,7 +103,7 @@ def run_oh_mps_attack(
     chi: int,
     n_samples: int,
     sample_seed: int,
-) -> OhMPSResult:
+) -> BaselineResult:
     """End-to-end: covariance → MPS at bond χ → lossy contraction → samples → metrics."""
     t0 = time.time()
     rng = np.random.default_rng(sample_seed)
@@ -163,23 +131,24 @@ def run_oh_mps_attack(
 
     wall_clock = time.time() - t0
 
-    return OhMPSResult(
+    return BaselineResult(
         click_marginal=click_marginal,
         total_click_distribution=total_click_distribution,
-        tvd_to_ground_truth=None,   # filled when ground_truth comparator is in place
+        tvd=None,                   # filled when ground_truth comparator is in place
         cross_entropy=None,         # idem
         g2=g2,
         wall_clock_s=wall_clock,
         peak_vram_mb=None,
-        bond_dim=chi,
         n_samples=n_samples,
+        bond_dim=chi,
         truncation_error=trunc_err,
+        sampler_method="oh_mps",
         circuit_meta={
             "M": circuit.M,
             "eta": circuit.eta,
             "r_mean": float(np.mean(circuit.r)),
             "haar_seed": circuit.seed,
-            "version": "skeleton-v0.1",
+            "version": "skeleton-v0.2",
         },
     )
 
