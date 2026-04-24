@@ -1,5 +1,7 @@
 # 未被打破的量子优势声明与可能的反击切入点
 
+> **工作规范见 [`AGENTS.md`](./AGENTS.md)：怎么打 + 打到什么程度。本文档是"打什么"。**
+
 > **本表聚焦：仍"活着"的顶刊声明 + 其弱点分析 + 潜在反击方法**  
 > 已被完全打破（🔴）的声明不在本表讨论范围——它们是历史，不是机会。
 
@@ -35,7 +37,7 @@
 | **时间 / 硬件** | 2025.11 / IBM Heron 133 qubit |
 | **声明核心** | 异质量子材料的算子动力学模拟；**Flatiron Institute 独立验证经典困难性**；模型具有不同区域的局部性质，无序+不规则连接性支配信息流动 |
 | **已有反击尝试** | 目前追踪器上尚无成功反击；Flatiron 自己就是经典模拟权威，已验证过经典方法难以处理 |
-| **弱点 / 反击切入点** | ① 模型由 Algorithmiq 设计——**设计是否存在隐藏的可利用结构**？（类似 BlueQubit peaked circuits 被 unswapping 打破）<br>② 异质性 + 无序 = 可能存在局域化区域，**Neural Quantum States (NQS) 可能在某些参数区间表现良好**<br>② 算子动力学 → observable estimation → SPD 类方法可能适用<br>④ 由于是新设计的模型，**PEPS + belief propagation 的效果**尚未被完整测试 |
+| **弱点 / 反击切入点** | ① 模型由 Algorithmiq 设计——**设计是否存在隐藏的可利用结构**？（类似 BlueQubit peaked circuits 被 unswapping 打破）<br>② 异质性 + 无序 = 可能存在局域化区域，**Neural Quantum States (NQS) 可能在某些参数区间表现良好**<br>③ 算子动力学 → observable estimation → SPD 类方法可能适用<br>④ 由于是新设计的模型，**PEPS + belief propagation 的效果**尚未被完整测试 |
 | **攻击难度** | ⭐⭐⭐⭐（困难）|
 | **论文潜在影响** | PRX Quantum / Science Advances 级 |
 
@@ -79,7 +81,7 @@
 | **时间 / 硬件** | 2024.12 / Willow 105 qubit |
 | **声明核心** | 5 分钟完成经典 10²⁵ 年的 RCS 任务 |
 | **已有反击尝试** | Multiverse / DIPC 2024-2025 用 gPEPS 部分挑战 |
-| **弱点 / 反击切入点** | ① 同 T4（RCS 通用弱点）<br>② 相比 Zuchongzhi 3.0 规模略小，更容易攻击<br>③ Willow 主要卖点是 QEC，其 RCS 部分并非论文核心——**可能 Google 自己没有优化到极致** |
+| **弱点 / 反击切入点** | ① 同 T4（RCS 通用弱点）<br>② RCS 任务子规模相比 Zuchongzhi 3.0 略小（Willow RCS 部分所用 qubit × cycle 低于 ZCZ3.0 的 83 qubit × 32 cycle 配置），经典攻击窗口更宽<br>③ Willow 主要卖点是 QEC，其 RCS 部分并非论文核心——**可能 Google 自己没有优化到极致** |
 | **攻击难度** | ⭐⭐⭐（中等）|
 | **论文潜在影响** | PRL / Nature 级 |
 
@@ -139,6 +141,8 @@
 | **攻击难度** | ⭐⭐⭐（中等，待实验公布）|
 | **论文潜在影响** | 取决于具体声明 |
 
+> ⚠️ **攻击触发条件**：IBM Nighthawk 目前**仅有硬件公告、尚无正式论文**。在 IBM 发表正式 quantum-advantage 论文（arXiv 预印本或期刊投稿）**之前**，T9 一律**不开攻**——此阶段允许且仅允许**预研**：搭好 gPEPS / TN+BP 框架、准备基准代码、预注册攻击方案。论文一旦发布，立即从预研切换到反击，并按 `AGENTS.md` 目标 1 的标准动作执行。
+
 ---
 
 ## 📚 第三部分：经典反击方法工具箱（按攻击目标匹配）
@@ -191,4 +195,4 @@
 
 ---
 
-*最后更新：2026 年 4 月 25 日*
+*最后更新：2026 年 4 月 24 日*
