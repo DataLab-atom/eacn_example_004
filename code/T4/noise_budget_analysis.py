@@ -215,7 +215,8 @@ print("=" * 60)
 f2q_range = np.linspace(0.990, 0.999, 50)
 depths = [20, 24, 28, 32]
 
-results_dir = Path("../../results/T4")
+script_dir = Path(__file__).resolve().parent
+results_dir = script_dir.parent.parent / "results" / "T4"
 results_dir.mkdir(parents=True, exist_ok=True)
 
 fig, axes = plt.subplots(1, 3, figsize=(15, 5))
@@ -317,7 +318,7 @@ print(f"""
 
 # Save numerical results as CSV
 import csv
-csv_path = results_dir / 'T4_noise_budget_results.csv'
+csv_path = results_dir / "T4_noise_budget_results.csv"
 with open(csv_path, 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['parameter', 'value', 'unit'])

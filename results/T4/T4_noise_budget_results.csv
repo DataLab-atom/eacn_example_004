@@ -1,0 +1,14 @@
+parameter,value,unit
+n_qubits,83,
+n_cycles,32,
+F_1Q,0.999,
+F_2Q,0.9962,
+F_RO,0.9913,
+N_1Q_total,2656,gates
+N_2Q_total,1280,gates
+F_XEB,0.0002597337634604806,
+F_XEB_percent,0.02597337634604806,%
+lambda_noise,12.38400000000007,
+critical_depth_pauli,472.74942993881734,cycles
+sycamore_F_XEB,0.001029694113686193,
+sycamore_lambda,8.037999999999926,
