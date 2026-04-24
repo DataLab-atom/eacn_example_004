@@ -1,0 +1,41 @@
+{
+  "calibration_data": [
+    {
+      "label": "9q/8d",
+      "n": 9,
+      "d": 8,
+      "log2_flops": 15.7,
+      "width": 9.0
+    },
+    {
+      "label": "16q/10d",
+      "n": 16,
+      "d": 10,
+      "log2_flops": 24.7,
+      "width": 16.0
+    },
+    {
+      "label": "20q/12d",
+      "n": 20,
+      "d": 12,
+      "log2_flops": 29.8,
+      "width": 20.0
+    }
+  ],
+  "fit": {
+    "a": 0.08423338368580062,
+    "b": 10.147280966767374,
+    "model": "log2(FLOPS) = a * volume + b"
+  },
+  "zcz30": {
+    "volume": 2656,
+    "log2_flops": 233.87114803625383,
+    "width": 179.18731117824774,
+    "memory_gb": 1.395968085776528e+46,
+    "time_frontier_years": 4.709503792555073e+44
+  },
+  "sycamore_validation": {
+    "extrapolated_log2_flops": 99.43466767371602,
+    "literature_log2_flops": 43.0
+  }
+}
