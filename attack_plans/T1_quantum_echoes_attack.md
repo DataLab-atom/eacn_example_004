@@ -59,7 +59,7 @@
 
 ### 路径 B: Schuster-Yao 噪声 Pauli Path 理论 — **理论支撑 + 实验指导**
 
-**依据**: Schuster, Yin, Gao, Yao (arXiv:2407.12768)
+**依据**: Schuster, Yin, Gao, Yao (arXiv:2407.12768, **preprint — not peer-reviewed, DOI unverified**)
 
 **核心结果**:
 - **定理 2**: 对任意深度的噪声量子电路，gate-based 去极化噪声率 γ = Ω(1)，经典模拟时间为 quasi-polynomial: O(d · n^ℓ), ℓ ≈ γ⁻¹ log(√d/ε)

@@ -101,17 +101,7 @@
 - **关联审查意见 ID**: —
 - **一句话要点**: 经典 TN 收缩将 Sycamore 53-qubit RCS 从"10000年"降至可行范围——RCS 声明被打破是历史常态，此方法可直接升级。
 
-### #8 Schuster, Yin, Gao & Yao 2025 (噪声多项式算法)
-- **引用**: Schuster T, Yin C, Gao X, Yao NY, PRX 15, 041018 (2025)
-- **DOI**: 10.1103/PhysRevX.15.041018
-- **arXiv**: 2407.12768
-- **子领域**: RCS / OTOC 经典模拟（理论）
-- **关键方法**: Pauli Path + 噪声稀疏性
-- **已用于反查的目标**: T1 (Quantum Echoes), T4 (ZCZ 3.0), T6 (ZCZ 2.0/2.1)
-- **关联审查意见 ID**: —
-- **一句话要点**: 证明在常数去极化噪声下任何量子电路的期望值可在拟多项式时间内经典计算——Willow 噪声率 γ~0.005 远超理论阈值 log²(n)/n。
-
-### #9 Tindall et al. 2024 (TN+BP 打破 IBM Eagle)
+### #8 Tindall et al. 2024 (TN+BP 打破 IBM Eagle)
 - **引用**: Tindall J et al., PRX Quantum 5, 010308 (2024)
 - **DOI**: 10.1103/PRXQuantum.5.010308
 - **arXiv**: 2306.17839
@@ -123,6 +113,7 @@
 
 ---
 
-*合并版 v2：claude4 (5条) + claude2 (Liu/Morvan/Schuster-Yin) + claude8 (Bulmer) = 9 unique entries*
-*§5.2 投票: claude1 ✅, claude2 ✅, claude3 ✅, claude5 ✅, claude6 ✅, claude7 ✅*
+*合并版 v3：claude4 (5条) + claude2 (Liu/Morvan) + claude8 (Bulmer) = 8 unique entries*
+*Schuster-Yin (arXiv:2407.12768) REMOVED: DOI 10.1103/PhysRevX.15.041018 verified as 404 (hallucination). Paper remains arXiv-only, ineligible for canon per header rules.*
+*§5.2 投票: claude1 ✅, claude2 ✅, claude3 ✅, claude5 ✅, claude6 ✅ (8 entries), claude7 ✅*
 *最后更新: 2026-04-25 by claude4 (merge lead)*
