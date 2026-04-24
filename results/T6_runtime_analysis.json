@@ -1,0 +1,176 @@
+{
+  "target": "T6: Zuchongzhi 2.0/2.1",
+  "paper": "Wu et al., PRL 127, 180501 (2021)",
+  "original_claim_years": 48000.0,
+  "analysis_date": "2026-04-25",
+  "agent": "claude3",
+  "cost_analysis": {
+    "original_2021": {
+      "method": "original_2021",
+      "n_qubits": 60,
+      "n_cycles": 24,
+      "treewidth_raw": 72,
+      "treewidth_effective": 72,
+      "n_slices": 0,
+      "total_flops": 2.2300745198530623e+49,
+      "log10_flops": 49.34831937561329
+    },
+    "pan_zhang_2022": {
+      "method": "pan_zhang_2022",
+      "n_qubits": 60,
+      "n_cycles": 24,
+      "treewidth_raw": 72,
+      "treewidth_effective": 5,
+      "n_slices": 67,
+      "total_flops": 1.5474250491067253e+26,
+      "log10_flops": 26.189609622766366
+    },
+    "liu_2024_multi_amplitude": {
+      "method": "liu_2024_multi_amplitude",
+      "n_qubits": 60,
+      "n_cycles": 24,
+      "treewidth_raw": 72,
+      "treewidth_effective": 29,
+      "n_slices": 43,
+      "total_flops": 2.4758800785707605e+33,
+      "log10_flops": 33.39372960542229
+    }
+  },
+  "wall_times": {
+    "original_2021": {
+      "single_a100": {
+        "seconds": 1.1436279588990063e+36,
+        "hours": 3.1767443302750175e+32,
+        "days": 1.3236434709479238e+31,
+        "years": 3.62393831881704e+28
+      },
+      "single_h100": {
+        "seconds": 4.372695136966789e+35,
+        "hours": 1.2146375380463302e+32,
+        "days": 5.0609897418597095e+30,
+        "years": 1.3856234748418094e+28
+      },
+      "single_b200": {
+        "seconds": 3.097325722018142e+35,
+        "hours": 8.603682561161505e+31,
+        "days": 3.584867733817294e+30,
+        "years": 9.81483294679615e+27
+      },
+      "h100_cluster_512": {
+        "seconds": 8.577209691742547e+32,
+        "hours": 2.3825582477062633e+29,
+        "days": 9.927326032109429e+27,
+        "years": 2.7179537391127803e+25
+      },
+      "frontier": {
+        "seconds": 1.867734103729533e+31,
+        "hours": 5.188150288137592e+27,
+        "days": 2.1617292867239967e+26,
+        "years": 5.9184922292238097e+23
+      },
+      "frontier_sustained": {
+        "seconds": 4.4601490397061245e+31,
+        "hours": 1.2389302888072567e+28,
+        "days": 5.1622095366969034e+26,
+        "years": 1.4133359443386458e+24
+      }
+    },
+    "pan_zhang_2022": {
+      "single_a100": {
+        "seconds": 7935513072342.182,
+        "hours": 2204309186.7617173,
+        "days": 91846216.11507155,
+        "years": 251461.23508575372
+      },
+      "single_h100": {
+        "seconds": 3034166762954.3633,
+        "hours": 842824100.8206564,
+        "days": 35117670.86752735,
+        "years": 96146.94282690583
+      },
+      "single_b200": {
+        "seconds": 2149201457092.674,
+        "hours": 597000404.747965,
+        "days": 24875016.86449854,
+        "years": 68104.08450239163
+      },
+      "h100_cluster_512": {
+        "seconds": 5951634804.256636,
+        "hours": 1653231.8900712878,
+        "days": 68884.66208630365,
+        "years": 188.59592631431528
+      },
+      "frontier": {
+        "seconds": 129600087.86488487,
+        "hours": 36000.02440691246,
+        "days": 1500.001016954686,
+        "years": 4.106778964968339
+      },
+      "frontier_sustained": {
+        "seconds": 309485009.8213451,
+        "hours": 85968.05828370697,
+        "days": 3582.0024284877904,
+        "years": 9.806988168344395
+      }
+    },
+    "liu_2024_multi_amplitude": {
+      "single_a100": {
+        "seconds": 1.269682091574749e+20,
+        "hours": 3.526894698818747e+16,
+        "days": 1469539457841144.5,
+        "years": 4023379761372.059
+      },
+      "single_h100": {
+        "seconds": 4.8546668207269814e+19,
+        "hours": 1.3485185613130504e+16,
+        "days": 561882733880437.7,
+        "years": 1538351085230.4932
+      },
+      "single_b200": {
+        "seconds": 3.4387223313482785e+19,
+        "hours": 9552006475967440.0,
+        "days": 398000269831976.7,
+        "years": 1089665352038.266
+      },
+      "h100_cluster_512": {
+        "seconds": 9.522615686810618e+16,
+        "hours": 26451710241140.605,
+        "days": 1102154593380.8584,
+        "years": 3017534821.0290446
+      },
+      "frontier": {
+        "seconds": 2073601405838158.0,
+        "hours": 576000390510.5995,
+        "days": 24000016271.27498,
+        "years": 65708463.43949343
+      },
+      "frontier_sustained": {
+        "seconds": 4951760157141521.0,
+        "hours": 1375488932539.3113,
+        "days": 57312038855.80464,
+        "years": 156911810.69351032
+      }
+    }
+  },
+  "noise_analysis": {
+    "n_1q_gates": 1440,
+    "n_2q_gates": 1248,
+    "total_fidelity": 5.824186551009526e-05,
+    "f_xeb": 5.824186551009526e-05,
+    "eps_effective": 0.006748587893586899,
+    "phase": "low_fidelity"
+  },
+  "small_scale_validation": {
+    "n_qubits": 12,
+    "n_cycles": 8,
+    "grid": "3x4",
+    "exact_amplitude_real": 0.00018776518675194502,
+    "exact_amplitude_imag": 0.0003035829052943827,
+    "exact_probability": 1.2741834574297092e-07,
+    "time_exact_s": 0.018206357955932617,
+    "time_tn_s": 2.4296653270721436,
+    "contraction_cost_log10": 3.956552591917399,
+    "contraction_width": 12,
+    "agreement": true
+  }
+}
