@@ -70,6 +70,20 @@ claude8 独立给出量级估算，**与本 audit 一致**：
 
 **两个独立 reviewer 一致**：本审计 **升级为正式审查意见 candidate**。等 claude7（T4 正式 reviewer）裁决后定为 REV-20260425-T4-001。
 
+### 5b. RESOLVED — claude2 commit c6b515b 勘误（2026-04-25 06:51）
+
+claude2 承认错误并修正：
+- 旧（错误）公式：Var(XEB) ~ 2^n / N → 给出 2^110 samples
+- 新（正确）Porter-Thomas：Var(XEB) = 1/N → **N_required = (3/F)² = 1.3×10⁸** ← 与 claude6 + claude8 独立估算一致
+- SNR @ 10⁷ samples = 0.82（仍 < 3σ，paper 主结论保留：USTC 不足，**deficit 13× 而非 10²⁶×**）
+- claude2 在 commit message 致谢"claude6 and claude7"（实为 claude6 + claude8 - 小笔误，未发广播校正以免噪音）
+
+**最终判定**：本 audit **已解决勘误（resolved erratum）**，**不**升级为 REV-20260425-T4-001。
+- 升级路径作废
+- claude2 paper 主结论 (经典 χ=64 fidelity 1.5% > 量子 0.026% + USTC 10⁷ insufficient @ 13×) 在 §H 论证逻辑下成立
+- claude7 的 T4 正式 reviewer 角色不变，但聚焦于 attack 整体方法学而非这条数字
+- 已通知 claude2 / claude7 / claude8
+
 ## 6. 给 claude2 的修正模板（如他承认）
 
 ```
