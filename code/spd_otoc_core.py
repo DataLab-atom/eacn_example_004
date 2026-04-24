@@ -239,19 +239,16 @@ def apply_iswap_like_heisenberg(
         theta: XX+YY coupling angle (pi/2 for standard iSWAP)
         phi: ZZ coupling angle
     """
-    c = np.cos(theta)
-    s = np.sin(theta)
-    cz = np.cos(2 * phi)
-    sz = np.sin(2 * phi)
+    # Use precomputed lookup table for this (theta, phi)
+    table = precompute_iswap_table(theta, phi)
 
     new_op = PauliOperator(op.n)
 
     for paulis, coeff in op.terms.items():
         p0, p1 = paulis[q0], paulis[q1]
 
-        # Compute U^dag (P_{p0} x P_{p1}) U for the 2-qubit gate
-        # This produces a sum of at most 4 terms
-        transformed = _iswap_like_conjugate_2q(p0, p1, theta, phi)
+        # Lookup precomputed conjugation result
+        transformed = table[p0 * 4 + p1]
 
         for (new_p0, new_p1, phase) in transformed:
             new_paulis = list(paulis)
@@ -348,34 +345,9 @@ def _zz_rotation_conjugate(p0: int, p1: int, phi: float) -> list:
 def _xxyy_rotation_conjugate(p0: int, p1: int, theta: float) -> list:
     """
     Conjugate P0xP1 by exp(-i theta/2 (XX + YY)).
-
-    This is the core of the iSWAP-like gate.
-    The XX+YY interaction swaps excitations between the two qubits.
-
-    We use the exact 2-qubit transformation rules.
+    Uses precomputed lookup table for the given theta.
     """
-    c = np.cos(theta)
-    s = np.sin(theta)
-
-    # Special cases for efficiency
-    if p0 == 0 and p1 == 0:  # II
-        return [(0, 0, 1.0)]
-
-    if p0 == 3 and p1 == 3:  # ZZ — commutes with XX+YY
-        return [(3, 3, 1.0)]
-
-    # For the general case, we compute the full conjugation.
-    # The XX+YY Hamiltonian in the computational basis swaps |01> <-> |10>.
-    # In the Pauli basis, the transformation rules are:
-    #
-    # XI -> cos(theta) XI + sin(theta) YI * ... (this gets complicated)
-    #
-    # More systematic: use the fact that XX+YY = 2(S+S- + S-S+)
-    # where S+ = (X+iY)/2, S- = (X-iY)/2
-
-    # Instead of deriving all 16 cases analytically, compute numerically
-    # for the 2-qubit case using 4x4 matrices
-    return _xxyy_conjugate_numerical(p0, p1, theta)
+    return _get_xxyy_table(theta)[p0 * 4 + p1]
 
 
 # 4x4 Pauli matrices for 2-qubit system
@@ -385,35 +357,78 @@ _Y = np.array([[0, -1j], [1j, 0]], dtype=complex)
 _Z = np.array([[1, 0], [0, -1]], dtype=complex)
 _PAULIS_1Q = [_I, _X, _Y, _Z]
 
+# Cache for precomputed Pauli conjugation tables
+_XXYY_TABLE_CACHE = {}
+_ISWAP_TABLE_CACHE = {}
 
-def _xxyy_conjugate_numerical(p0: int, p1: int, theta: float) -> list:
-    """Numerically compute U^dag (P0 x P1) U for XX+YY rotation."""
-    # Build the 2-qubit operator P0 x P1
-    P = np.kron(_PAULIS_1Q[p0], _PAULIS_1Q[p1])
 
-    # Build the Hamiltonian H = (XX + YY) / 2
+def _get_xxyy_table(theta: float) -> list:
+    """
+    Get or compute the 16-entry lookup table for XX+YY conjugation.
+    Table maps (p0*4 + p1) -> list of (new_p0, new_p1, phase).
+    """
+    # Round theta to avoid floating point cache misses
+    key = round(theta, 12)
+    if key in _XXYY_TABLE_CACHE:
+        return _XXYY_TABLE_CACHE[key]
+
+    from scipy.linalg import expm
+
+    # Build U = exp(-i theta (XX+YY)/2)
     XX = np.kron(_X, _X)
     YY = np.kron(_Y, _Y)
     H = (XX + YY) / 2.0
-
-    # U = exp(-i theta H) = exp(-i theta/2 (XX+YY))
-    from scipy.linalg import expm
     U = expm(-1j * theta * H)
+    Ud = U.conj().T
 
-    # Conjugate: U^dag P U
-    result = U.conj().T @ P @ U
-
-    # Decompose back into Pauli basis
-    terms = []
+    # Precompute all 16 Pauli basis matrices
+    pauli_basis = []
     for a in range(4):
         for b in range(4):
-            basis = np.kron(_PAULIS_1Q[a], _PAULIS_1Q[b])
-            # Tr(basis^dag * result) / 4
-            coeff = np.trace(basis.conj().T @ result) / 4.0
-            if abs(coeff) > 1e-12:
-                terms.append((a, b, coeff))
+            pauli_basis.append(np.kron(_PAULIS_1Q[a], _PAULIS_1Q[b]))
 
-    return terms
+    table = []
+    for idx in range(16):
+        P = pauli_basis[idx]
+        result = Ud @ P @ U
+        terms = []
+        for out_idx in range(16):
+            coeff = np.trace(pauli_basis[out_idx].conj().T @ result) / 4.0
+            if abs(coeff) > 1e-12:
+                terms.append((out_idx // 4, out_idx % 4, coeff))
+        table.append(terms)
+
+    _XXYY_TABLE_CACHE[key] = table
+    return table
+
+
+def precompute_iswap_table(theta: float, phi: float) -> list:
+    """
+    Precompute the full 16-entry lookup table for the iSWAP-like gate
+    conjugation: U^dag (P0 x P1) U where U = exp(-i theta/2 (XX+YY)) exp(-i phi ZZ).
+
+    Returns table[p0*4 + p1] -> list of (new_p0, new_p1, phase).
+    """
+    key = (round(theta, 12), round(phi, 12))
+    if key in _ISWAP_TABLE_CACHE:
+        return _ISWAP_TABLE_CACHE[key]
+
+    table = []
+    for p0 in range(4):
+        for p1 in range(4):
+            # Use the decomposed conjugation
+            zz_terms = _zz_rotation_conjugate(p0, p1, phi)
+            merged = {}
+            for (pp0, pp1, zz_phase) in zz_terms:
+                xxyy_terms = _xxyy_rotation_conjugate(pp0, pp1, theta)
+                for (rp0, rp1, xxyy_phase) in xxyy_terms:
+                    k = (rp0, rp1)
+                    merged[k] = merged.get(k, 0) + zz_phase * xxyy_phase
+            terms = [(k[0], k[1], v) for k, v in merged.items() if abs(v) > 1e-15]
+            table.append(terms)
+
+    _ISWAP_TABLE_CACHE[key] = table
+    return table
 
 
 # ============================================================
