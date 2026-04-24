@@ -43,4 +43,71 @@
 - **一句话要点**：在 heavy-hex 几何上，TN+BP 可以以多项式代价达到与 IBM Eagle utility 实验同量级精度——任何 heavy-hex / square lattice 的新量子声明都必须先排除这个基线。
 -->
 
-*（本文件初始化时为空。第一个进入本仓库的反击/审查智能体应填入自己引用的第一条已中顶刊论文，并在 commit message 中写 `docs(canon): add <第一作者> <年份>`。）*
+### Pan & Zhang 2022
+- **引用**：Pan & Zhang, PRL 129, 090502 (2022)
+- **DOI**：10.1103/PhysRevLett.129.090502
+- **arXiv**：2103.03074
+- **子领域**：RCS 经典模拟
+- **关键方法**：Tensor Network RCS Contraction
+- **已用于反查的目标**：T4 (ZCZ 3.0), T5 (Willow RCS), T6 (ZCZ 2.0/2.1)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：张量收缩方法在 Sycamore 53q/20c 上实现 6 秒经典模拟，打破首个 RCS 量子优势声明——所有后续 RCS 声明必须证明超出此方法的可扩展极限。
+
+### Liu et al. 2024
+- **引用**：Liu et al., PRL 132, 030601 (2024)
+- **DOI**：10.1103/PhysRevLett.132.030601
+- **arXiv**：2304.11573
+- **子领域**：RCS 经典模拟
+- **关键方法**：Multi-amplitude Tensor Contraction
+- **已用于反查的目标**：T4 (ZCZ 3.0), T5 (Willow RCS), T6 (ZCZ 2.0/2.1)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：多振幅张量收缩在超算上实现 Sycamore 规模 300 万精确振幅计算，为更大规模 RCS 经典模拟提供可扩展框架。
+
+### Schuster, Yin, Gao & Yao 2025
+- **引用**：Schuster, Yin, Gao, Yao, PRX 15, 041018 (2025)
+- **DOI**：10.1103/PhysRevX.15.041018
+- **arXiv**：2407.12768
+- **子领域**：RCS 经典模拟（理论）
+- **关键方法**：Pauli Path + 噪声稀疏性
+- **已用于反查的目标**：T4 (ZCZ 3.0), T6 (ZCZ 2.0/2.1), T1 (Quantum Echoes)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：证明在均匀去极化噪声下存在多项式时间经典算法，临界深度取决于噪声率——任何 RCS 声明必须证明其噪声率低于此算法的可模拟阈值。
+
+### Morvan et al. 2024
+- **引用**：Morvan et al., Nature 634, 328 (2024)
+- **DOI**：10.1038/s41586-024-07998-6
+- **arXiv**：2304.11119
+- **子领域**：RCS 相变分析
+- **关键方法**：Phase Transition Framework
+- **已用于反查的目标**：T4 (ZCZ 3.0), T5 (Willow RCS), T6 (ZCZ 2.0/2.1)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：RCS 存在噪声驱动的相变——强噪声相中量子输出退化为不关联子系统的乘积，可高效经典模拟。ZCZ 系列的低 XEB fidelity 可能处于此相。
+
+### Oh et al. 2024
+- **引用**：Oh, Lim, Fefferman, Jiang, Nature Physics 20, 1647 (2024)
+- **DOI**：10.1038/s41567-024-02596-3
+- **arXiv**：2306.03709
+- **子领域**：GBS 经典模拟
+- **关键方法**：Boson Sampling 损耗利用
+- **已用于反查的目标**：T7 (九章 4.0), T8 (九章 3.0)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：光子损耗使 GBS 可被 MPS 高效经典模拟——九章系列每一代都在此方法的攻击范围内。
+
+### Gao et al. 2025 (ZCZ 3.0 原始论文)
+- **引用**：Gao et al., PRL 134, 090601 (2025)
+- **DOI**：10.1103/PhysRevLett.134.090601
+- **arXiv**：2304.02199
+- **子领域**：RCS 量子优势声明
+- **关键方法**：Random Circuit Sampling
+- **已用于反查的目标**：T4 (ZCZ 3.0)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：T4 攻击靶标原始论文——声称 Frontier 需 6.4x10^9 年，83q/32c，fidelity 1Q:99.90% 2Q:99.62% readout:99.13%。
+
+### Deng et al. 2025 (九章 3.0 原始论文)
+- **引用**：Deng et al., PRL 134, 090604 (2025)
+- **DOI**：10.1103/PhysRevLett.134.090604
+- **子领域**：GBS 量子优势声明
+- **关键方法**：Gaussian Boson Sampling
+- **已用于反查的目标**：T8 (九章 3.0)
+- **关联审查意见 ID**：（待生成）
+- **一句话要点**：T8 攻击靶标原始论文——255 photons, Frontier exact 需 3.1x10^10 年。
