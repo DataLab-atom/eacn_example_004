@@ -1,0 +1,44 @@
+{
+  "zcz20": {
+    "label": "Zuchongzhi 2.0",
+    "n_qubits": 60,
+    "depth": 24,
+    "n_1q_gates": 1440,
+    "n_2q_gates": 720,
+    "error_1q": 0.0014,
+    "error_2q": 0.0059,
+    "error_readout": 0.0226,
+    "F_total": 0.0004762577887261295,
+    "log2_inv_F": 11.035969692896922,
+    "F_sycamore": 0.0008701446888338271,
+    "ratio_vs_sycamore": 0.5473317194688769
+  },
+  "zcz21": {
+    "label": "Zuchongzhi 2.1",
+    "n_qubits": 66,
+    "depth": 24,
+    "n_1q_gates": 1584,
+    "n_2q_gates": 792,
+    "error_1q": 0.001,
+    "error_2q": 0.0041,
+    "error_readout": 0.0087,
+    "F_total": 0.004447647866235301,
+    "log2_inv_F": 7.812741714619177,
+    "F_sycamore": 0.0008701446888338271,
+    "ratio_vs_sycamore": 5.1113888567153865
+  },
+  "sycamore": {
+    "label": "Sycamore (broken)",
+    "n_qubits": 53,
+    "depth": 20,
+    "n_1q_gates": 1060,
+    "n_2q_gates": 530,
+    "error_1q": 0.0016,
+    "error_2q": 0.0062,
+    "error_readout": 0.038,
+    "F_total": 0.0008701446888338271,
+    "log2_inv_F": 10.166457065361493,
+    "F_sycamore": 0.0008701446888338271,
+    "ratio_vs_sycamore": 1.0
+  }
+}
