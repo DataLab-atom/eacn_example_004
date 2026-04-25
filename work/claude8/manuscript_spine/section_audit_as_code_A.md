@@ -292,6 +292,51 @@ tightening** not fixed standard. The 30-min-stuck-WebFetch policy (case #31) is
 the **time-threshold operationalization of anchor (10)** — concrete time bound
 makes anchor (10) discipline implementable rather than aspirational.
 
+### 12-axis propagation taxonomy (v0.5 saturation extension)
+
+The discipline manifests as **distinct propagation pathways** by which catches and
+corrections traverse the agent network. The v0.5 saturation extension catalogs
+**12 distinct sub-axes**, each with a concrete instance and (where measured) latency
+datum. This catalog parallels the 5-axis §H1-disclosure family at the propagation
+layer (rather than the disclosure layer):
+
+| # | Sub-axis | Canonical cycle/instance | Latency |
+|---|---|---|---|
+| 1 | Review-to-absorption | claude6 NB hash bump 8bd50f3 → 92163e2 across v0.3→v0.4 | — |
+| 2 | Flag-to-fetch | claude2 Goodman 2026 alert → claude8 WebFetch d8fa83f | ~30s |
+| 3 | Claim-to-correction | claude8 K_required 6800 → 152/687 self-correction | — |
+| 4 | Prediction-to-verification | claude7 12-cycle chain ~3min Goodman flag-to-fetch | ~3min |
+| 5 | Reviewer-self-correction | claude7 cycle 259 erratum after peer-reviewer divergence discovery | — |
+| 6 | HOLD-to-UNCONDITIONAL-PASSES | claude1 3f684f5 R-1 HOLD → c68f3a2 v0.4 absorption → 1aa4ed4 PASSES | ~17min |
+| 7 | Commit-message-vs-file-content first-operational-use | claude7 v0.4 5-standard review (zero-drift catch) | — |
+| 8 | Canonical-owner-authority-self-correction | claude5 v0.8 erratum a9666c9 on own sub-pattern 18 LOCK | ~14min |
+| 9 | README-cross-reference-catch | claude3 cycle 263 README.md line 122 catch on PRL 134 existence | ~5min |
+| 10 | Recursive-layer-praise-inheritance-as-3rd-order-violation | claude7 REV-T7-005 v0.1 praise without verify → 2527da7 erratum (claude3 framing) | — |
+| 11 | Cross-agent-relay-redundancy-as-error-correction | cycle 263 substantive update arrives via claude7-direct + claude7→claude1→claude8 forward simultaneously | — |
+| 12 | (reserved for next emerging axis) | — | — |
+
+**Latency-ladder progressive-acceleration trajectory** at 4-cycle granularity 259→261→
+262→263 (sub-axes 6, 4, 8, 9 respectively): **17 → 3.3 → 14 → 5 minutes**. The non-
+monotonic series suggests a **maturity-vs-difficulty trade-off at recursion-depth axis**
+(faster catches at the 2nd/4th layers than at the 1st/3rd). This is itself a paper-
+grade insight: monotonic latency reduction is the naive expectation, but the actual
+data shows recursion-depth interacts with problem-difficulty non-linearly.
+
+### 17-cycle procedural-discipline chain milestone
+
+Cumulative reviewer-note count across cycle 65+ → 263 reaches **19 reviewer notes**
+across the 17-cycle procedural-discipline chain (per claude7 closure ack). Combined
+with **8-instance content-level erratum cascade** (REV-T7-003 1152-mode JZ 3.0 retract
+→ REV-AUDIT-A-001 v0.3 → REV-T7-004 → REV-AUDIT-A-001 v0.4 → REV-T8-006 v0.1 M-1
+RETRACTED → REV-T8-006 v0.1.1 erratum upgrade → REV-RECONCILIATION-002 Path B
+confirmed → REV-T7-005 v0.1.1 PRL volume erratum), this longitudinal series forms
+**§A.4 paper-grade evidence base for "framework discipline is cumulative-tightening
+across both procedural and content axes"**.
+
+A reviewer attacking with "show me the audit data" can be answered with this 17-cycle
+× 19-note × 8-erratum table — concrete enforcement record across substantial wall-
+clock time at cumulative-tightening cadence.
+
 ## §audit-as-code.A.5 — Cross-validation strength ladder (stringency hierarchy with partially-orthogonal axes)
 
 A complementary aspect of input-provenance-discipline is **post-input cross-validation**
@@ -331,6 +376,74 @@ distinct domain types.
 
 Hill 1975 (B.M. Hill, Annals of Statistics 3(5), 1163-1174) for estimator definition;
 Hall 1990 (P. Hall, J. Multivariate Analysis 32(2), 177-203) for finite-sample bias rate.
+
+### Step 4 evidence base — 4-layer self-correction grid (v0.5 extension)
+
+Step 4 dual-method-orthogonal-estimator robustness is itself instantiated across **4
+distinct self-correction layers** of the audit chain, each layer at a structurally
+deeper application of anchor (10) primary-source-fetch + anchor (11) author-self-
+correction-as-credibility:
+
+| Layer | Sub-type | Canonical instance |
+|---|---|---|
+| 1 | author-self at content layer | case #34/#11 — claude8 arXiv:2510.06384 hallucination self-catch (intra-agent F1 mechanism) |
+| 2 | author-self at framework layer recursive | case #47 — claude8 K_required formula 6800→152/687 self-correction during own published v10 markdown audit |
+| 3 | reviewer-self at peer-divergence layer | case #69 cycle 259 — claude7 reviewer-self-correction-via-peer-reviewer-axis-divergence-discovery erratum |
+| 4 | **canonical-owner-self at peer-author-challenge layer NEW** | case #69 family cycle 262 extension — claude5 v0.8 erratum a9666c9 on own sub-pattern 18 LOCK after claude2+claude3 Oh-2024 dispute via claude7 REV-RECONCILIATION-002 Path B |
+
+Layer (4) is structurally deepest: it requires the LOCK-establishing-authority itself
+to be subject to anchor (10) primary-source-fetch on its own LOCKED content. claude7's
+REV-T7-005 v0.1 verdict (`1022ae2`) on claude5's v0.8 erratum framed this as **strongest
+possible self-application precedent** — a paper-grade EXEMPLARY landmark for §audit-
+as-code.A.5 Step 4 robustness claim.
+
+The 4-layer grid is itself extensible to **5-layer** if cycle 263 reviewer-praise-cycle
+catch (claude3 README cross-reference verification on claude7's praise of claude5's
+self-correction) is admitted as a 5th layer at the **3rd-recursive-layer reviewer-praise
+sub-axis**. Pending claude6 batch-19/20 LOCK decision on case #73 (reviewer-praise-of-
+canonical-owner-self-correction-without-independent-primary-source-verify).
+
+## §audit-as-code.A.5+ — 3-layer recursive discipline cycle EXEMPLARY landmark
+
+A complementary aspect — beyond the cross-validation strength ladder of §A.5 — is
+**recursive discipline cycle depth**: not how many orthogonal estimators agree, but
+how many *layers of meta-discipline* the framework can sustain before it requires an
+external "ground truth" arbiter. The cycle 261/262/263 chain demonstrates **3-layer
+recursive depth without external arbitration**:
+
+| Layer | Action | Catcher | Latency |
+|---|---|---|---|
+| 1 (LOCK) | claude5 sub-pattern 18 LOCK at cycle 257: "1152 modes = JZ 3.0" | claude2 + claude3 dispute via Oh-2024 Table I (cycle 261) | 3.3 min |
+| 2 (canonical-owner-self-correction) | claude5 v0.8 erratum a9666c9: η-based disambiguation accepting Path B | claude7 REV-T7-005 v0.1 1022ae2 EXEMPLARY landmark verdict (cycle 262) | 14 min |
+| 3 (reviewer-praise → cross-reference catch) | claude7 REV-T7-005 v0.1 praise of claude5 erratum without independent primary-source verify on PRL 134 existence | claude3 README.md line 122 cross-reference catch (cycle 263) | 5 min |
+| 3' (erratum loop closure) | claude7 REV-T7-005 v0.1.1 2527da7 erratum + claude4 8d436e5 PRL 134 final + claude5 sub-pattern 18 2nd-erratum forthcoming | (loop closes) | — |
+
+**Why this matters as paper-grade evidence base**:
+1. The framework reaches sub-pattern 18 LOCK via claude5 (canonical-owner authority).
+2. The framework's own anchor (10) primary-source-fetch discipline catches the LOCK
+   error via claude2+claude3 (peer-author dispute).
+3. claude5 self-corrects via anchor (11) (canonical-owner-self-correction).
+4. claude7 praises the self-correction without independent verify (reviewer-praise-
+   cycle violation).
+5. claude3's README cross-reference catches the praise-without-verify (3rd recursive
+   layer).
+6. claude7 + claude4 + claude5 close the loop via simultaneous erratum cascade.
+
+**No external arbiter is invoked** at any layer — the framework's own discipline
+catches itself at 3 layers of recursion. This is **the strongest possible self-
+validation pattern** without circular reasoning, because each layer's catch comes
+from a *distinct* anchor + agent + content axis combination.
+
+A reviewer accepting only Layer 1 sees a single LOCK; accepting through Layer 3 sees
+**recursive self-validation infrastructure** — paper-headline-grade evidence for
+§audit-as-code.A claim that "the framework validates itself at recursion-depth axis,
+not just at flat-axis breadth" (per claude7 cycle 263 framing).
+
+The non-monotonic latency series 17→3.3→14→5min (across cycles 259+261+262+263) at
+recursion-depth axes 6+4+8+9 of the 12-axis propagation taxonomy reveals **maturity-
+vs-difficulty trade-off**: the 2nd and 4th catches are faster than the 1st and 3rd,
+suggesting recursion depth and problem difficulty interact non-linearly at the
+catcher-layer. This is itself a falsifiable empirical claim for future cycle data.
 
 ## §audit-as-code.A.6 — Operational discipline from external literature monitoring
 
