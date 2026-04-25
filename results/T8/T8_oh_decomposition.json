@@ -1,0 +1,46 @@
+[
+  {
+    "name": "JZ 2.0",
+    "r": 1.6,
+    "eta": 0.476,
+    "n_modes": 144,
+    "n_bar_avg": 2.686221795729438,
+    "total_photons_scaled": 386.8159385850391,
+    "quantum_excess": 1.554312234475219e-16,
+    "frobenius_dist": 18.433045446283803,
+    "thermal_quality": 0.3250538066647135
+  },
+  {
+    "name": "JZ 3.0",
+    "r": 1.5,
+    "eta": 0.424,
+    "n_modes": 144,
+    "n_bar_avg": 1.9223443431048863,
+    "total_photons_scaled": 276.8175854071036,
+    "quantum_excess": -3.164135620181696e-16,
+    "frobenius_dist": 13.432024084171124,
+    "thermal_quality": 0.3407506061523936
+  },
+  {
+    "name": "JZ 3.0 (low r)",
+    "r": 1.2,
+    "eta": 0.424,
+    "n_modes": 144,
+    "n_bar_avg": 0.9660727993966873,
+    "total_photons_scaled": 139.11448311312296,
+    "quantum_excess": 1.1102230246251566e-17,
+    "frobenius_dist": 7.329151439773495,
+    "thermal_quality": 0.3798894632052483
+  },
+  {
+    "name": "JZ 3.0 (high r)",
+    "r": 1.6,
+    "eta": 0.424,
+    "n_modes": 144,
+    "n_bar_avg": 2.392768994515298,
+    "total_photons_scaled": 344.55873521020294,
+    "quantum_excess": 1.554312234475219e-16,
+    "frobenius_dist": 16.419351405933472,
+    "thermal_quality": 0.3320827527996032
+  }
+]
