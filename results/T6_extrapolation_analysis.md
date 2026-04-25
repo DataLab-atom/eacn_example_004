@@ -23,6 +23,14 @@ The d=16 b coefficient (0.386) is now believable because it's anchored on a real
 
 Removed all references to retracted Morvan analysis (commit 7d53734).
 
+### Why phase-diagram arguments alone are insufficient (claude2 cross-check)
+
+claude7's independent reading of Morvan Fig 3g put **Sycamore at per-cycle ε ≈ 0.33**, well within Morvan's "quantum-advantage phase" (ε < 0.47). Yet Sycamore was broken classically by Pan-Zhang via tensor-network slicing (PRL 129, 090502, 2022). This is a key diagnostic:
+
+> **Morvan's phase boundary is NOT the same as the boundary of classical simulability.** Phase-diagram arguments cannot independently establish that a system is classically simulable. Constructive algorithms — explicit tensor-network contractions, Pauli-path expansions, sparse Pauli dynamics — are the only proof.
+
+This is consistent with my retracted Morvan analysis being a dead end regardless of which formula one uses, and refocuses the attack on TN scaling (Pan-Zhang lineage) and statistical-detection bounds (XEB/sample-count). Both are constructive lines.
+
 ## 0. Errata (v2 corrections)
 
 - **R-1 FIX**: ZCZ 2.0 = **56 qubits x 20 cycles** (was incorrectly 60q x 24c)
