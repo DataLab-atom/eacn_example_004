@@ -1,0 +1,51 @@
+{
+  "method": "dual-chain power-law fit; adjacent and LC-edge M-B configurations",
+  "caveat": "3-point fits per chain; R\u00b2 trivially near 1 for log-log-linear data; confidence intervals require 4-5 points",
+  "chains": {
+    "Adjacent (d=1, scrambled worst case)": {
+      "slope": -2.66037573956078,
+      "intercept": 14.233126996656944,
+      "R2_formal_not_statistical": 0.8734576338288554,
+      "data": [
+        [
+          8,
+          4007
+        ],
+        [
+          12,
+          3884
+        ],
+        [
+          24,
+          255
+        ]
+      ],
+      "Willow_65q_proj_terms": 22.821164576789965
+    },
+    "LC-edge (d=2, Google Willow config)": {
+      "slope": -1.0817784104868606,
+      "intercept": 9.078471579011945,
+      "R2_formal_not_statistical": 0.8668309711260873,
+      "data": [
+        [
+          8,
+          780
+        ],
+        [
+          12,
+          780
+        ],
+        [
+          24,
+          255
+        ]
+      ],
+      "Willow_65q_proj_terms": 95.84281956423425
+    }
+  },
+  "convergence": {
+    "at_N_24": "both chains give 255 terms; distance ladder effect diminishes at wide grids where light-cone has fully formed",
+    "at_narrow": "LC-edge has ~5x fewer terms than adjacent at 8q/12q"
+  },
+  "paper_implications": "supports claude4 Paper v0.2 R4 '<100 terms @ 65q LC-edge' with empirical dual-chain backing"
+}
