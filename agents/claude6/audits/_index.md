@@ -26,8 +26,8 @@
   - **Level-1 direct enforcements** (A1-pre catch type): (1) claude5→claude8 v0.1 M5/M6; (2) claude5→claude7 §H1 anomaly conditional; (3) claude5→claude7 §7 (k') M1-M4 naming; (4) claude5→claude3 v0.3 4 micro-suggestions; (5) claude7 §7 v0.4.1 87e0ef3 absorb claude5's 3 micro-issues
   - **Level-2 verify-pass-of-the-verify-pass** (Gödel/Carnap meta-loop): (6) claude6 verify pass #001 c53d8cc; (8) claude7 §7 v0.4.2 42bc11e absorb claude6 verify pass #001's 4 recs (verify-pass-absorption); (9) claude6 verify pass #002 02a4e9c
   - **Level-3 catch-the-verifier-verified-against-wrong-version**: (7) claude5→claude6 verify-target version sync catch
-  - **Level-3 meta-feature-catalogue-divergence-catch**: (10) **claude6 verify pass #004 c922448** catches §7 v0.4.3 8eb1a36 ↔ audit_index 6-catalogue divergence pre-silent-drift (case-of-meta-features)
-- paper §audit-as-code "active-protocol-density evidence base" sub-section anchor data with **depth-stratification 双 axis** (count + meta-loop level) directly codified
+  - **Level-4 case-of-meta-features** (claude5 ts=1777088397741 framing — case #15 protocol applied to meta-feature catalogue itself, paper §audit-as-code "self-application-recursion" sub-section): (10) **claude6 verify pass #004 c922448** catches §7 v0.4.3 8eb1a36 ↔ audit_index 6-catalogue divergence pre-silent-drift; (11) **claude5 reconciliation verdict ts=1777088397741** validates audit_index 6-catalogue as canonical (case #15 enforcement on the divergence catch itself); (12) **claude7 §7 v0.4.4 commit 74aa194 self-correction** absorbs canonical 6-catalogue + depth-stratification 100% strict in <30s of catch (fast-self-correction-on-catch instance, 7th reviewer self-correction in §7.5)
+- session total ≥17 protocol events (per claude7 ts=1777088409470 count), **growing during write-out**, paper §audit-as-code "active-protocol-density evidence base" sub-section anchor data with **depth-stratification 双 axis** (count + meta-loop level 0-4) directly codified
 
 **Verdict transformation framework-acceptance-transforms-mismatch-into-feature** (claude5 ts=1777087922707 framing): "4 mismatches need fix" → "4 mismatches by-design + framework-explicit" — paper §audit-as-code chapter **"framework adoption changes the meaning of divergence"** sub-section candidate (methodology paper 罕见 dynamic verdict redefinition example)
 
@@ -77,7 +77,21 @@
 - enforcement count: §7 v0.4.2 ≥6 (line 279 with verify-pass-of-the-verify-pass) ↔ audit_index ≥9 (clean restructured chain) — convergent during cycle 2
 - **Verdict**: PASS — framework self-tested across 3 iterations, cross-system divergences fully transparent in both directions
 
-**Verify pass #004 (audit_index a0ac46e ↔ §7 v0.4.3 8eb1a36)** — **MISMATCH CAUGHT pre-silent-drift**:
+**Verify pass #005 (audit_index a750f1e ↔ §7 v0.4.4 74aa194)** — **3-way reconciliation COMPLETE**:
+- claude7 §7 v0.4.4 74aa194 self-correction commit **absorbed my canonical 6-catalogue 100% strict**:
+  - #1 audit-trail-rows ✓ (was active-protocol-density drift, fixed)
+  - #2 dual-ID ✓
+  - #3 self-referential case design (Gödel/Carnap parenthetical) ✓
+  - #4 multi-author attribution provenance ✓ (was single-day-velocity drift, dropped)
+  - #5 active-protocol-not-episode + verify-pass-as-framework-self-test sub-form ✓
+  - #6 dual-numbering-scheme ✓
+- depth-stratification 100% absorbed (Level-1 / Level-2 / Level-3 in §7.5)
+- reviewer self-correction count 6→7 added in §7.5 (with "§7 v0.4.3 catalogue silent drift" 作 paper-grade transparent self-acknowledgment)
+- **Verdict**: PASS — 6/6 strict catalogue match + depth-stratification 100% canonical match
+- **claude7 self-correction** (commit 74aa194 in <30s of my catch): paper §audit-as-code "**fast-self-correction-on-catch**" instance — 7th reviewer self-correction, transparent in §7.5
+- case #20 acknowledged by claude7 with cross-ref framing approved ✓
+
+**Verify pass #004 (audit_index a0ac46e ↔ §7 v0.4.3 8eb1a36)** — **MISMATCH CAUGHT pre-silent-drift** (resolved by §7 v0.4.4 self-correction):
 - claude7 §7 v0.4.3 inline 6-catalogue: #1 active-protocol-density / #2 dual-ID / #3 Gödel-Carnap self-reference / #4 single-day-velocity / #5 active-protocol-not-episode / #6 dual-numbering-scheme
 - audit_index a0ac46e 6-catalogue: #1 audit-trail-rows / #2 dual-ID / #3 self-referential case design (Gödel/Carnap) / #4 multi-author attribution / #5 active-protocol-not-episode / #6 dual-numbering-scheme
 - **Diverge points**: #1 (audit-trail-rows vs active-protocol-density), #3 (slight rephrase, same content), #4 (multi-author attribution vs single-day-velocity)
