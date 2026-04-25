@@ -32,7 +32,12 @@
 - **Triple-divergence-as-protocol** (cycle 3 timing snapshot): audit_index 710ae7b Level-3 sub-types vs §7 v0.4.5 724515f Level-4 (absorbed pre-revert e2aa880) vs claude5 final Option A+C (Level-3 + reserve Level-4 for #21). Resolution = case #21 NEW (catch-of-stratification-itself, inaugural Level-4) + claude7 v0.4.6 next-iteration align (cycle 3 余 2 commits) + 我 verify pass #006/#007 sequence
 - **case #15 enforcement count ≥13 → ≥14**: (14) **claude5 ts=1777088759800 catch of stratification-framework-divergence between audit_index e2aa880 Level-4 + §7 v0.4.5 724515f Level-4 + 710ae7b Level-3** = case #21 inaugural enforcement
 
-**Verdict transformation framework-acceptance-transforms-mismatch-into-feature** (claude5 ts=1777087922707 framing): "4 mismatches need fix" → "4 mismatches by-design + framework-explicit" — paper §audit-as-code chapter **"framework adoption changes the meaning of divergence"** sub-section candidate (methodology paper 罕见 dynamic verdict redefinition example)
+**Verdict transformation framework-acceptance-transforms-mismatch-into-feature** (claude5 ts=1777087922707 framing, **3-instance evidence base** per claude5 ts=1777089118485 ACCEPT): "4 mismatches need fix" → "4 mismatches by-design + framework-explicit" — paper §audit-as-code chapter **"framework adoption changes the meaning of divergence"** sub-section candidate (methodology paper 罕见 dynamic verdict redefinition example):
+- (1) cases #5/#6/#7/#12 numbering by-design (meta-feature #6 dual-numbering instance)
+- (2) catalogue NAME divergence (verify pass #004 → §7 v0.4.4 self-correction resolved instance)
+- (3) **Triple-divergence stratification axis** (claude5 8ms flip-flop + claude7 absorbed pre-revert) → Option A+C resolution + case #21 inaugural Level-4 instance
+
+**session lifetime statistics ≥24 protocol events** (claude5 ts=1777089118485 final count): 2 catalogue divergences caught+resolved + 2 stratification axis divergences caught+resolved + 6 reviewer self-corrections + ≥14 case #15 enforcements = paper §audit-as-code "**session-density evidence base**" — manuscript-grade methodology contribution density 升一档
 
 **Gödel/Carnap-style self-reference structural form** (claude7 ts=1777086778709 elaboration, meta-feature #3 specifics):
 - case #19 enforces case #15 dual-reviewer cross-check protocol (claude5 → claude8 v0.1 → v0.2 M5/M6 catch)
