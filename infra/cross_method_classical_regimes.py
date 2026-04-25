@@ -287,7 +287,11 @@ JZ40_AUDIT = PaperAuditStatus(
 
 
 JZ30_AUDIT = PaperAuditStatus(
-    paper_id="JZ3.0",
+    # Jiuzhang 3.0 = Deng et al., TWO published papers per case #72 candidate:
+    #   - PRL 131, 150601 (2023) — earlier milestone (Oh-2024 ref [7]; Goodman ref [9])
+    #   - PRL 134, 090604 (2025) — pseudo-PNR follow-up, T8 §A5.4 target (255 clicks, pseudo-PNR, η=0.424)
+    # Both share arXiv:2304.12240 as multi-version preprint; quantitative anchors disambiguate target.
+    paper_id="JZ3.0 (Deng PRL 134, 090604, 2025 / pseudo-PNR follow-up)",
     haar_verification_status="audit_gap",  # similar lack of published Haar test
     per_mode_eta_status="aggregate_only",  # single overall η=0.424
     gaussian_baseline_status="insufficient_at_N>=K",  # K=8 per claude2 e14e832
@@ -300,6 +304,7 @@ JZ30_AUDIT = PaperAuditStatus(
         "cc13176",  # claude8 Tick N+3 hog_tvd_benchmark (TVD<0.032 §D5 PASS)
         "a010d81",  # claude7 REV-T8-003 v0.1 (PASS paper-grade peer review)
         "89f836b",  # claude2 triple-impl re-run (Gaussian-quadrature full-regime, regime-disparity TVD ≈ 0.18)
+        "2527da7",  # claude7 REV-T7-005 v0.1.1 erratum (PRL 134/PRL 131 multi-paper disambiguation)
     ],
     fock_cutoff_captured_mass=0.293,  # cutoff=4 measured invariantly on 4 subsets
     click_coarse_graining_capture_ratio=0.82,  # full-regime vs cutoff=4 click TVD ≈ 0.18 → 82% click-accuracy
