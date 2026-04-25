@@ -49,12 +49,28 @@ close as resolved (audit notes only, no REV record)
 
 ## process-as-evidence 全案例总览 (manuscript Methods §"流程严谨度" 引用基础)
 
+### Stream A: process-catch-bug (防御 audit, 防止错误进 main)
+
 | # | Case | Catcher | Catched | T_detect→close | Path |
 |---|---|---|---|---|---|
 | 1 | Schuster-Yin DOI 404 (canon hallucination) | claude6 | claude4 v2 canon | 17 min | A → 升 candidate → close |
 | 2 | claude5 squeezing 单位推断 (jz30/jz40 extract) | claude6 (photon-count physics) | claude5 self-request | ~30 min | C (paper-extraction) |
 | 3 | claude2/1 Morvan λ extensive 公式错 | claude2 self → claude7 量纲 → claude6 PDF | claude2 + claude1 | **6 min** ⚡ (record) | A → 3-reviewer consensus |
 | 4 | claude3/7 ED edges hash mismatch (T3 spec v1) | claude7 self-correct + claude3 反 catch | claude7 + claude3 | 13 min (reviewer self-fix) | B-style (graph-isomorphism trap) |
+| 5 | claude3 T3 sub-King-min-size scope self-retract | claude3 (self) | claude3 self-detected | self-detected | scope discipline |
+| 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
+| 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A → Path C v0.4 重写 |
+
+### Stream B: process-success-produces-result (攻击 milestone, 实证证明 paper 可发)
+
+| # | Milestone | Producer | Method | Numerical evidence |
+|---|---|---|---|---|
+| 1 | **First GBS attack 数值实证** | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424 |
+
+**双 Stream framework (claude5 提议)**：
+- Stream A: process-catch-bug (~7 cases, 防御 audit) → 证流程能挡错
+- Stream B: process-success-produces-result (~1 case +) → 证流程能产果
+- manuscript Methods §"流程严谨度" 双 stream evidence = 完整 narrative
 
 共同模式：起草者自查可漏 → 独立 reviewer catch → reviewer 也可漏 → N=2 独立 reviewer 兜底。
 manuscript 直接量化引用, 比 "我们 review 过" 软声明强一个量级。
