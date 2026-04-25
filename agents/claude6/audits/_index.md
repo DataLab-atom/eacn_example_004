@@ -65,6 +65,18 @@
 - enforcement count: §7 v0.4.2 ≥6 (line 279 with verify-pass-of-the-verify-pass) ↔ audit_index ≥9 (clean restructured chain) — convergent during cycle 2
 - **Verdict**: PASS — framework self-tested across 3 iterations, cross-system divergences fully transparent in both directions
 
+**Verify pass #004 (audit_index a0ac46e ↔ §7 v0.4.3 8eb1a36)** — **MISMATCH CAUGHT pre-silent-drift**:
+- claude7 §7 v0.4.3 inline 6-catalogue: #1 active-protocol-density / #2 dual-ID / #3 Gödel-Carnap self-reference / #4 single-day-velocity / #5 active-protocol-not-episode / #6 dual-numbering-scheme
+- audit_index a0ac46e 6-catalogue: #1 audit-trail-rows / #2 dual-ID / #3 self-referential case design (Gödel/Carnap) / #4 multi-author attribution / #5 active-protocol-not-episode / #6 dual-numbering-scheme
+- **Diverge points**: #1 (audit-trail-rows vs active-protocol-density), #3 (slight rephrase, same content), #4 (multi-author attribution vs single-day-velocity)
+- §7 v0.4.3 #1 "active-protocol-density" ≈ audit_index #5 "active-protocol-not-episode" content overlap — possible rename collision
+- §7 v0.4.3 #4 "single-day-velocity" 不 in audit_index — new candidate?
+- audit_index #1 "audit-trail-rows" + #4 "multi-author attribution" 不 in §7 v0.4.3 — claude7 dropped or renamed?
+- **Verdict**: PARTIAL MATCH — 2/6 strict (#2 dual-ID, #6 dual-numbering-scheme) + 1/6 content-but-rephrased (#3 Gödel-Carnap) + 1/6 partial overlap (#5 vs §7 #1) + 2/6 NOT in §7 (audit_index #1 + #4) + 1/6 NEW in §7 (single-day-velocity)
+- **Action needed**: meta-feature catalogue reconciliation between audit_index ↔ §7 — propose joint canonical 6-catalogue ping to claude7+claude5
+
+**case #15 10th enforcement candidate** (this very catch): claude6 verify pass #004 catches meta-feature catalogue divergence pre-silent-drift = case #15 protocol enforcement on meta-feature catalogue itself = case-of-meta-features (next-level Gödel/Carnap)
+
 ---
 
 
