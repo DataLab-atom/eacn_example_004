@@ -76,7 +76,7 @@ close as resolved (audit notes only, no REV record)
 |---|---|---|---|---|---|
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
 | 2 | **B2-strict** (升级 from weak) | **First STRICT boundary-mapping 实证** (T3 RBM 5-diam non-monotonic wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth, 5-diameter complete table | diam=5-9, N=8-72: NON-MONOTONIC err landscape (N=40 peak +28.3% / N=48 dip +5.97% / failure pockets discrete); 多 mechanism interplay (geometry × inductive bias × parameter capacity); commits b168b43 (DMRG) + abbc61a (RBM); T3 paper pivot "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" |
-| 3 | **B1 multi-axis convergence** (case #16, claude7 锁定) | **T1 attacked-via-multi-axis-convergence** | claude4 SPD + claude7/8 SPD subattack | 三 axis 同方向 GO 收敛 + R7 PEPS-separation theoretical forward | N axis (commit c5b7565) + depth axis (commit ce81491) + distance axis (commits f6d1cac+ddb5c05+v6); R7 PEPS-separation theoretical forward; manuscript_section_candidacy=high (paper §3 + §6 + Discussion 三 cite); codification L1 |
+| 3 | **B1 multi-axis convergence** (case #16, claude7 锁定) | **T1 attacked-via-multi-axis-convergence** | claude4 (depth + distance 主) + claude7 (N + dual-chain integration) + claude8 (tail slope verification) — **§D5 multi-author cross-validation instance** | 三 axis 独立 author 同方向 GO 收敛 + R7 PEPS-separation theoretical forward | **N axis: claude7 c5b7565** (Path C v0.7 dual-chain Adjacent + LC-edge, Willow 65q ~3.7 hot / 23-96 terms); **depth axis: claude4 ce81491** (12q LC-edge d=4→d=6 = 2.4× growth); **distance axis: claude4 f6d1cac/ddb5c05 + claude8 v6 627afb7** (LC-edge 5× easier than adjacent); R7 PEPS-separation theoretical: claude4 v0.3 f2f0f55 §R7; manuscript_section_candidacy=high (paper §3 + §6 + Discussion 三 cite); codification L1 |
 
 **完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 10-pattern 覆盖含 2 composite + B0)**:
 
@@ -118,7 +118,7 @@ close as resolved (audit notes only, no REV record)
 
 | Attack | Platform | Outcome | Mechanism (data) |
 |---|---|---|---|
-| **T1** (case #16) | Willow OTOC (Quantum Echoes, 65 qubits) | **B1 multi-axis convergence** | claude4 SPD attacked 三 axis 同方向 GO 收敛 (N: c5b7565 / depth: ce81491 / distance: f6d1cac+ddb5c05) + R7 PEPS-separation theoretical forward — empirical × theoretical 双 angle reinforce |
+| **T1** (case #16) | Willow OTOC (Quantum Echoes, 65 qubits) | **B1 multi-axis convergence** | 三 axis 独立 author GO 收敛: N claude7 c5b7565 / depth claude4 ce81491 / distance claude4 f6d1cac+ddb5c05 + claude8 627afb7 + R7 PEPS-separation theoretical (claude4 f2f0f55 §R7) — **§D5 multi-author cross-validation** + empirical × theoretical 双 angle reinforce |
 | **T3** (case #8 strict) | D-Wave diamond spin glass | **B2-strict** structured non-monotonic wall | RBM α=4 expressivity insufficient + lattice geometry creates discrete failure pockets (peak N=40 +28%, dip N=48 +5.97%) |
 | **T7** (case #14 B0) | photonic JZ 4.0 (1024 SMSS, K_c=1016) | **B0** stands firm | Oh-MPS via N_eff revival DEMOTED (paper exact via interferometer matrix); Bulmer base sampler DEAD (2^508 sec/sample) |
 | **T8** (claude2) | photonic JZ 3.0 (144 modes, 255 photons) | **B1** full attack 实证 | Gaussian baseline classical sampler 12× faster Oh paper (10M samples in 5 min) |
