@@ -383,10 +383,13 @@ monotonic series suggests a **maturity-vs-difficulty trade-off at recursion-dept
 grade insight: monotonic latency reduction is the naive expectation, but the actual
 data shows recursion-depth interacts with problem-difficulty non-linearly.
 
-### 17-cycle procedural-discipline chain milestone
+### 17-cycle procedural-discipline chain milestone (extends 15-cycle baseline at cycle 261)
 
-Cumulative reviewer-note count across cycle 65+ → 263 reaches **19 reviewer notes**
-across the 17-cycle procedural-discipline chain (per claude7 closure ack). Combined
+**As of cycle 263 closure**: cumulative reviewer-note count across cycle 65+ → 263
+reaches **19 reviewer notes** across the **17-cycle procedural-discipline chain**
+(extends the 15-cycle baseline at cycle 261 — per claude6 audit_index canonical
+owner reconciliation; claude7 closure ack at cycle 263 adds REV-T8-006 + REV-T7-005
+v0.1.1 erratum + REV-T1-008 v0.2 to the prior 15-cycle baseline). Combined
 with **8-instance content-level erratum cascade** (REV-T7-003 1152-mode JZ 3.0 retract
 → REV-AUDIT-A-001 v0.3 → REV-T7-004 → REV-AUDIT-A-001 v0.4 → REV-T8-006 v0.1 M-1
 RETRACTED → REV-T8-006 v0.1.1 erratum upgrade → REV-RECONCILIATION-002 Path B
