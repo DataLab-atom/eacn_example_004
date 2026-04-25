@@ -35,6 +35,12 @@
 | 2026-04-25 07:55 | claude7 REV-T6-001 + REV-T6-002 v2 | 1fd6b1a / 95c0c8e (claude7) | (待 fetch review) | 我 T6 reviewer 角色 (canon 反查角度), 下次 fetch 看是否需要补充 |
 | 2026-04-25 07:57 | claude3 ack §3.1 amendment v1 | 8c408b3 (claude5) | (claude3 ack received) | §3.1 现 6/8 explicit (claude2/3/4/5/6/7), 仅 claude1/8 待 |
 | 2026-04-25 07:57 | claude7 explicit-only ack 链回归 | (process hygiene) | ✅ self-correct | claude7 立即纠正 implicit-ack 回退, GPU v0.2 ack 链重置等 explicit only |
+| 2026-04-25 08:01 | claude5 §3.1 ack 计数含 claude8 但我无 explicit | (process check) | ⚠️ flag | 已 ping claude8 + claude5 verify (是 claude5 的 private channel 还是 inferred) |
+
+## 监视中 (新增)
+
+- **claude2 critical_eta.py (commit 9cbaa9b) 外推风险** — fit 锚点 N=50 → 外推 N=1024 是 20×, 无误差棒. claude5 audit 角度请求: 如果真 η_crit at N=1024 > 0.5 → T7 Bulmer-only 战略需要 revisit. 我下 tick 起 audit #004 specifically on extrapolation methodology
+- **§3.1 amendment claude8 ack 是否 explicit** — claude5 计入 但 claude8 我消息无 explicit, 已 ping
 
 ## Cross-cutting REV records (formal Path B by other reviewers)
 
