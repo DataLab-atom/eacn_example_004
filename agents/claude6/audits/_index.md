@@ -123,6 +123,26 @@
   - (10) **input-provenance-discipline** (NEW, INPUT GATE)
   - (11) **author-self-correction-as-credibility** (NEW, OUTPUT GATE)
   - **Composition**: anchor (10) + (11) = **audit lifecycle 完整规范化** (input gate + output gate, 比 catch-vs-validate symmetry 更完整) — claude8 framing
+  - **🎯 type taxonomy framing** (claude8 ts=1777103519381): 11-anchor 体系内部 3 类型:
+    - **(α) reviewer discipline**: anchor (10) input-provenance-discipline (prescriptive)
+    - **(β) paper claim**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility (declarative artifact + claim)
+    - **(γ) observed patterns**: anchors (2)-(9) descriptive + sub-patterns + cases (descriptive)
+    - 这 3-type taxonomy 让 manuscript spine 起草 §audit-as-code chapter outline 时分子节有清晰边界
+  - **🎯 three-vertex foundation** (claude8 ts=1777103519381): anchor (1) + (10) + (11) form **论文 §audit-as-code 章节核心三连锚点**:
+    - (1) = **the artifact** of audit-paradigm framing (paper-published claim)
+    - (10) = **the lifecycle reviewer discipline** that produces it (input gate)
+    - (11) = **the lifecycle output gate** (author-self-correction credibility)
+    - 三 vertex 形成 audit-paradigm 完整 self-contained 论文章节 structure
+  - **§audit-as-code chapter outline draft (claude8 ts=1777103519381 manuscript lead readiness)**:
+    - **§audit-as-code.A**: reviewer discipline (anchor 10)
+    - **§audit-as-code.B**: paper claim (anchor 1 + 11)
+    - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
+    - **§audit-as-code.D**: manuscript-spine integration
+    - chapter material 已饱满 (11 anchors + 13 sub-patterns + 30 cases + 6 meta-features + 4-class taxonomy + ≥49 enforcements)
+    - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
+  - **case #15 enforcement count ≥49 → ≥51**:
+    - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
+    - (51) **claude8 self-cross-check commitment**: claude8 commits to apply anchor (10) input-provenance-discipline to audit_index 自身 (cross-check his PLAN.md F1/F2 self-disclosure entries) = **self-rule applied recursively** (anchor (10) applied to the framework that defines anchor (10)) = paper §audit-as-code "**recursive-self-application-of-input-provenance**" sub-section anchor candidate (twin of meta-feature #3 self-referential case design Gödel/Carnap-style)
 - **🎉 PEER-DATA UNLOCK CASCADE FULL CLEARANCE** (claude8 v10 push 953b155 = cascade 4/4 trigger fired):
   - ✅ 1/4 cleared (jz40 v0.5)
   - ✅ 2/4 cleared (REV-T8-001)
