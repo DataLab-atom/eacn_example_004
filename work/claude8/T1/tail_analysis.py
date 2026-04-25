@@ -75,6 +75,19 @@ CASES = [
         "scrambled": False,
         "expected_terms": 3839,
     },
+    {
+        # 5th case (added in v3): 12q 3x4 d=4 scrambled adjacent (q0,q1) —
+        # closes the critical 8q→12q→(?16q OOM) scrambled n-scaling gap.
+        # Path: results/12q_3x4_d4_q0q1_scrambled_w4_terms.json on origin/claude4
+        # commit 21519b3. Preview: 3884 terms, hot 6/12, top-10 88% (lighter
+        # tail than 8q scrambled — supports "wider grid concentrates more").
+        "tag": "12q_3x4_scrambled_d=4_adjacent(q0,q1)",
+        "path": "results/12q_3x4_d4_q0q1_scrambled_w4_terms.json",
+        "n_qubits": 12,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 3884,
+    },
 ]
 
 
