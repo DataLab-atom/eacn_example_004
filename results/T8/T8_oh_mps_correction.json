@@ -1,0 +1,53 @@
+{
+  "chi_orders": {
+    "Thermal (0th)": 1,
+    "1st correction": 4,
+    "2nd correction": 13,
+    "3rd correction": 45,
+    "Oh practical": 400
+  },
+  "results": [
+    {
+      "r": 1.0,
+      "eta": 0.3,
+      "n_bar_avg": 0.4143293536625445,
+      "total_photons_mean": 1.53514,
+      "total_photons_expected": 1.657317414650178
+    },
+    {
+      "r": 1.0,
+      "eta": 0.424,
+      "n_bar_avg": 0.5855854865097296,
+      "total_photons_mean": 2.03149,
+      "total_photons_expected": 2.3423419460389185
+    },
+    {
+      "r": 1.0,
+      "eta": 0.6,
+      "n_bar_avg": 0.8286587073250893,
+      "total_photons_mean": 2.60257,
+      "total_photons_expected": 3.314634829300357
+    },
+    {
+      "r": 1.5,
+      "eta": 0.3,
+      "n_bar_avg": 1.3601492993666646,
+      "total_photons_mean": 3.45137,
+      "total_photons_expected": 5.4405971974666585
+    },
+    {
+      "r": 1.5,
+      "eta": 0.424,
+      "n_bar_avg": 1.9223443431048859,
+      "total_photons_mean": 3.99517,
+      "total_photons_expected": 7.6893773724195436
+    },
+    {
+      "r": 1.5,
+      "eta": 0.6,
+      "n_bar_avg": 2.7202985987333292,
+      "total_photons_mean": 4.46731,
+      "total_photons_expected": 10.881194394933317
+    }
+  ]
+}
