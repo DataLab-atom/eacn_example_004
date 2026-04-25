@@ -1,7 +1,7 @@
 # §A5 — Limitations and method-class capacity boundaries (T1 + T3 joint draft v0.1)
 
 > Co-authored: claude3 (T3 owner) + claude4 (T1 owner).
-> Status: draft v0.1, claude3 first pass; awaits claude4 T1-side merge.
+> Status: draft v0.3, T1+T3 co-authored merged + alpha=32 anti-monotonic update.
 > Tracks claude7 §audit-as-code chapter (v0.4) cross-T# taxonomy:
 > T1+T8 = "regime-transition (scale-parameter-driven)";
 > **T3 = "capacity-bound (ansatz-engineering-driven)"** — distinct
@@ -54,19 +54,23 @@ classical limits, is the paper-grade interpretation.
 
 The two attacks then diverge in *how* the failure resolves.
 
-- **T3 — capacity-bound (paper-grade resolution within scope)**.
-  Increasing the RBM hidden-units multiplier from α=4 to α=16
-  (4× capacity, ~3.4× parameters) closes the gap on the very
-  disorder seeds that previously failed at N=48. On J=43 the
-  error drops from +18.22% to **+6.39%** (BREAK); on J=44 from
-  +12.03% to **+5.80%** (BREAK). All five J seeds tested at α=16
-  break (5/5; 95% Wilson CI [0.48, 1.0]). Commit `f1d09c9`. The
-  falsifiable prediction P1 of §4.2 ("deeper net fills the bistable
-  gap") is therefore **positively resolved within paper scope**:
-  the bistable-pocket structure at α=4 is *capacity-bound, not
-  optimizer-bound*. The classical-method boundary on diamond at
-  this lattice scale is a function of the *ansatz expressive
-  class*, not a hard physical limit.
+- **T3 — method-class intrinsic-limit ridge (paper-grade resolution
+  within scope)**. Increasing the RBM hidden-units multiplier from
+  alpha=4 to alpha=16 partially closes the gap at N=48 (5/5 break)
+  and N=54 (4/5 break), but at N=72 only 1/5 break, and **further
+  increase to alpha=32 anti-monotonically regresses to 0/5 break
+  with all 5 seeds getting worse**. This places the boundary as the
+  **method-class intrinsic limit at alpha~16** for this lattice scale
+  at the tested sample budget (n_samples=2048), not a parametric
+  capacity wall. Three candidate mechanisms remain to be
+  disambiguated: (i) Adam-without-SR optimizer fundamentally limits
+  at alpha>=16 (P6 tests via SR-equivalent gradient SNR with 4x
+  n_samples); (ii) n_samples=2048 insufficient SR-equivalent gradient
+  signal-to-noise (P6 dual-tests, overlap with mechanism (i));
+  (iii) RBM ansatz class intrinsic at this scale (P2 inductive-bias
+  test orthogonal to optimizer).
+  (commits: f1d09c9 P1 SUPPORTED + 58a2022 P2 N=54 4/5 + 4509c39
+  P3 N=72 1/5 + 9087c9b P-ext alpha=32 0/5 anti-monotonic)
 
 - **T1 — regime-transition (paper-grade resolution within scope)**.
   Rather than scaling the ansatz capacity, the resolution is to
@@ -91,15 +95,17 @@ These two distinct mitigation paths — **ansatz-engineering** vs
 cross-target meta-observation matrix maintained in §audit-as-code
 (claude7 v0.4 / cycle 21):
 
-| Driver | T1 | T3 | T7 | T8 |
-|---|---|---|---|---|
-| scale-parameter / regime | ✓ | – | – | ✓ |
-| ansatz-capacity / engineering | – | ✓ | (open) | – |
+| Class | Examples | Mechanism | Sub-pattern |
+|-------|----------|-----------|-------------|
+| Scale-parameter regime-transition | T1, T8 | natural evolution | d_crit phase transition |
+| Ansatz-engineering capacity-bound | T3 (RBM alpha) | designer-choice | **method-class intrinsic-limit ridge** (anti-monotonic regression) |
+| Hardware-capacity bounded | T6 (TN bond/slicing) | physical RAM/GPU | monotonic, plateau at hardware ceiling |
+| Transparency-vacuum | T7 | data-availability mismatch | M6 conditional |
 
-T3 and T1 are not the same finding. They are *complementary*:
+These four classes are *complementary, not collapsible*:
 attempts to compress them into a single "boundary mapping"
 narrative would erase the very physics that distinguishes the
-two attack classes.
+attack classes.
 
 ## A5.3  Common future-work bound
 
@@ -155,4 +161,4 @@ unattackable in principle.
 
 ---
 
-*[End §A5 v0.1 draft, ready for claude4 T1-side merge.]*
+*[End §A5 v0.3 draft. T1+T3 merge complete. alpha=32 anti-monotonic updated. 4-class table refreshed.]*
