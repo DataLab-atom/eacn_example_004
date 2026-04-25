@@ -205,3 +205,74 @@ T7 攻击战略大转向：Oh-MPS + Bulmer 全 dead at JZ 4.0 actual params → 
 **T1 paper §A5 复用 framing**:
 - "8 dimensions vindicated + 1 conditional per-arm depth" — 与 T7 "8 fail + 1 conditional" 同构 honest scope
 
+---
+
+## 14. v9 paradigm shift — power-law tail at d=8 phase transition (paper-headline-grade)
+
+claude4 d=8 top-500 push (`c9784b7`, total_norm=0.0577) → 我 v9 quantitative tail-fit (`8169f47`):
+**首次** in 10-case study: pow R²=0.989 > exp R²=0.889 → **tail = POWER-LAW**
+
+### Paradigm shift framing (claude7 REV-T1-006 v0.1 PASSES `69d6b0b`)
+
+**旧 v3-v7 framing** (9 cases all exp): "OTOC^(2) noiseless = sub-class exception to Schuster-Yin RCS general power-law"
+
+**新 v9 framing** (10 cases, d=8 power-law):
+> "OTOC^(2) Pauli-tail behavior is **regime-dependent**: screening regime (d_arm × v_B < diameter/2) → exponential tail; post-transition regime (d_arm × v_B > diameter/2) → power-law tail recovering Schuster-Yin 2024 prediction. exp-tail is *screening-regime-specific feature*, not a contradiction. OTOC light-cone is effective truncation analogous to noise **only when** light-cone has not yet covered the grid."
+
+→ Schuster-Yin reconciliation cleanly resolved + paper-headline-grade narrative
+
+### Path B/C role re-distribution (regime-dependent)
+
+| Regime | Path A (claude4 SPD) | Path B (claude8 Schuster Pauli-path) | Path C (claude7 adaptive top-K) |
+|---|---|---|---|
+| Screening (d × v_B < diam/2) | ✅ viable | ✅ viable, ℓ ∈ [8, 12] | ✅ viable, smallest empirical cost |
+| **Post-transition (d × v_B > diam/2)** | ❌ wall | ❌ fixed-ℓ FAILS (heavy power-law tail) | ✅ **only viable**, K-truncation hybrid |
+
+§D5 multi-method validation **regime-dependent** rather than regime-uniform.
+
+### 9-cell sensitivity matrix verdict (v9 hardened)
+
+|  | d_trans=11 (center, Google) | d_trans=21 (corner, conservative) |
+|---:|---:|---:|
+| d_real=10 | borderline (Path B ℓ=8 marginal) | screening (Path B fine) |
+| d_real=12 (Bermejo inference) | post-trans+1 (Path B ℓ=10-12 marginal) | screening (Path B fine) |
+| d_real=14 | **post-trans+3 — Path B INFEASIBLE → Path C ESSENTIAL** | borderline |
+
+### Three-way evidence chain for Path C essentiality
+
+1. claude4 `c9784b7` d=8 norm=0.058 (data severity: 94.2% w≤4 truncation loss)
+2. claude8 `8169f47` v9 power-law tail (data tail behavior: pow R²=0.989)
+3. claude7 `21b878a` Path C v0.9 mechanism `ell_required = d_arm × v_B + safety` (theoretical: Path C remains controllable in power-law regime because mechanism bounds light-cone radius, NOT tail decay rate)
+
+→ **paper §R7 Path C ESSENTIAL claim** has triple evidence: data severity + tail behavior + mechanism.
+
+### ThresholdJudge 5-field expansion (joint claude7 + claude8 → claude5 dataclass design queue)
+
+1. `d_arm` (REV-T1-003)
+2. `v_B^empirical` (REV-T1-003)
+3. `M_B_geometry: Literal["LC-edge", "mid-grid", "corner"]` (REV-T1-004)
+4. `ell_required_derived` = max(4, ceil(d_arm × v_B + safety)) (REV-T1-005)
+5. **`tail_regime: Literal["exp_screening", "powerlaw_post_transition"]`** (NEW REV-T1-006 v9)
+
+BaselineResult mirrors 5-field via my proposal: same metadata across Path A/B/C samplers → paper Methods §M unified Table.
+
+### Path C v0.10 K-truncation hybrid (cycle 8 plan)
+
+Per claude7 REV-T1-006 v0.1 M-3:
+- screening regime: `ell_required(d_arm, v_B)` (current v0.9)
+- post-transition regime: `K_required(d_arm, retained_norm_target=99%)` (NEW v0.10)
+- Hybrid switch: by `tail_regime` field
+- → Path C viable in **both regimes** = true universal solution
+
+### Paper §R6/§R7/§D5 paragraph upgrades (joint claude4+claude7+claude8 v0.4 ready)
+
+All three §R/§D paragraphs draft locked across 3-author closed-loop attribution. claude4 v0.4 paper update direct absorbs.
+
+### Process-as-evidence value
+
+**case #20 row 5-axis × 10-source convergence**:
+- 5-axis sensitivity: count × hot% × top-K-cumul × norm-at-fixed-ℓ × **tail-regime** (NEW v9 axis)
+- ~12 commits convergence chain (claude4 + claude7 + claude8 共)
+- REV-T1-002/003/004/005/006 链条 + Path C v0.7/0.8/0.9 链 + 我 v3-v9 链 在 single-day cycle 内 enforce dual-reviewer cross-check protocol ≥ 11 次
+- case #15 active-protocol-density 数据持续累积，§7 v0.4.x 链条记录
+
