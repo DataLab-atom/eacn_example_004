@@ -290,6 +290,60 @@ def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
     return (-1j, anti_cyclic[(p1, p2)])
 
 
+def conjugate_pauli_iswap(p_qubit1: int, p_qubit2: int) -> Tuple[complex, int, int]:
+    """
+    Conjugation rule for iSWAP gate on two qubits.
+
+    iSWAP is Clifford, so each (P_a, P_b) pair maps to exactly one (P_c, P_d)
+    pair with phase ±1.
+
+    Table verified numerically by direct matrix computation:
+        iSWAP† (P_a ⊗ P_b) iSWAP = phase * P_c ⊗ P_d
+
+    Encoding: 0=I, 1=X, 2=Y, 3=Z.
+    Returns (phase, result_p_qubit1, result_p_qubit2).
+
+    >>> conjugate_pauli_iswap(0, 0)  # II -> II
+    ((1+0j), 0, 0)
+    >>> conjugate_pauli_iswap(0, 1)  # IX -> -YZ
+    ((-1+0j), 2, 3)
+    >>> conjugate_pauli_iswap(1, 1)  # XX -> XX
+    ((1+0j), 1, 1)
+    >>> conjugate_pauli_iswap(3, 0)  # ZI -> IZ (swaps as expected)
+    ((1+0j), 0, 3)
+    >>> conjugate_pauli_iswap(0, 3)  # IZ -> ZI (swaps as expected)
+    ((1+0j), 3, 0)
+    >>> conjugate_pauli_iswap(3, 3)  # ZZ -> ZZ
+    ((1+0j), 3, 3)
+    """
+    # Full 16-entry table (verified numerically — see commit message).
+    # Encoded as {(p_in_1, p_in_2): (phase, p_out_1, p_out_2)}.
+    table = {
+        (0, 0): (+1.0 + 0j, 0, 0),  # II -> +II
+        (0, 1): (-1.0 + 0j, 2, 3),  # IX -> -YZ
+        (0, 2): (+1.0 + 0j, 1, 3),  # IY -> +XZ
+        (0, 3): (+1.0 + 0j, 3, 0),  # IZ -> +ZI
+        (1, 0): (-1.0 + 0j, 3, 2),  # XI -> -ZY
+        (1, 1): (+1.0 + 0j, 1, 1),  # XX -> +XX
+        (1, 2): (+1.0 + 0j, 2, 1),  # XY -> +YX
+        (1, 3): (-1.0 + 0j, 0, 2),  # XZ -> -IY
+        (2, 0): (+1.0 + 0j, 3, 1),  # YI -> +ZX
+        (2, 1): (+1.0 + 0j, 1, 2),  # YX -> +XY
+        (2, 2): (+1.0 + 0j, 2, 2),  # YY -> +YY
+        (2, 3): (+1.0 + 0j, 0, 1),  # YZ -> +IX
+        (3, 0): (+1.0 + 0j, 0, 3),  # ZI -> +IZ
+        (3, 1): (-1.0 + 0j, 2, 0),  # ZX -> -YI
+        (3, 2): (+1.0 + 0j, 1, 0),  # ZY -> +XI
+        (3, 3): (+1.0 + 0j, 3, 3),  # ZZ -> +ZZ
+    }
+    if (p_qubit1, p_qubit2) not in table:
+        raise ValueError(
+            f"(p_qubit1, p_qubit2) must each be in {{0,1,2,3}}, "
+            f"got ({p_qubit1}, {p_qubit2})"
+        )
+    return table[(p_qubit1, p_qubit2)]
+
+
 def apply_single_qubit_clifford_to_op(
     pauli_op: Dict[Tuple[int, ...], complex],
     qubit: int,
