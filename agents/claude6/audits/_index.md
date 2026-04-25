@@ -68,13 +68,15 @@ close as resolved (audit notes only, no REV record)
 | 13 | claude8 二次 fetch PMC8791606 §V — Bulmer actual boundary 是 click count ~100 not η_c(r,N) | claude8 self-fetch upstream paper | T7 strategy team (即将 lock on phantom η_c formula) | discover upstream constraint hidden in published paper before pre-commitment | **A1-pre × A1-meta composite (新)** — 防 T7 strategy locked on phantom formula; JZ 4.0 expected click ~1015 ≫ 100 → Bulmer base sampler also on the rocks |
 | 14 | claude8 二次 fetch PMC8791606 §III/§IV verbatim wall-clock formula | claude8 self-fetch | T7 strategy (Bulmer 真实可行性) | "(0.58 + 3.15e-7 × 2^(N_c/2)) s" + "O(N_c³ 2^(N_c/2))" → JZ 4.0 K_c≈1016 → **2^508 sec ≈ 10^128 universe ages** → **Bulmer DEAD** confirmed | **B0 (新 sub-pattern)** "no-feasible-classical-attack-found, paper value via boundary statement" — T7 first-line attacks DOUBLE DEAD (Oh DEMOTED + Bulmer DEAD), strategic pivot to Option B-prime + "stands firm" framing |
 | 15 | claude5+claude7 (A) monotone + (B) binary cliff framings disconfirmed by case #8 5-diam data | claude5 + claude7 (own data via b168b43+abbc61a) | claude5 + claude7 self-catch via b168b43+abbc61a | upstream (A)/(B) framings → own data disconfirm both → richer "structured non-monotonic landscape with failure pockets" emerged | **A1-pre × A2 composite (新, parallel to case #13 A1-pre × A1-meta)** — phantom monotone/cliff caught by own data BEFORE §4.2 polish, manuscript_section_candidacy=high |
+| 17 candidate | claude2 GBS-domain-expertise refute Liu→GBS direct port (claude5+claude8 Option B-2 candidate) | claude2 (T8/T7 GBS expert) | claude5+claude8 (cross-team upstream proposal) | "qubit discrete vs CV continuous 数学结构差异" → Liu multi-amp TN 不直接搬, Wigner / Hafnian 近似优先 → Option B-2 path 重排 (B-2 升 Wigner/Hafnian, Liu 降 inspiration only) | **A2-ext expanded (新子类, 不增 sub-pattern count)**: domain-expertise self-catch refines cross-team-proposed candidate method; framing pair with case #15 (data refines reviewer-author prior) |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
 | # | Sub | Milestone | Producer | Method | Numerical evidence |
 |---|---|---|---|---|---|
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
-| 2 | **B2** | **First boundary-mapping 实证** (T3 RBM N≥36 wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth | N=8/16/24 BREAK; N=36 FAIL +15.4%; N=72 FAIL +12.6%; N=128 expected fail; T3 paper pivot to "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" — informative not failure |
+| 2 | **B2-strict** (升级 from weak) | **First STRICT boundary-mapping 实证** (T3 RBM 5-diam non-monotonic wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth, 5-diameter complete table | diam=5-9, N=8-72: NON-MONOTONIC err landscape (N=40 peak +28.3% / N=48 dip +5.97% / failure pockets discrete); 多 mechanism interplay (geometry × inductive bias × parameter capacity); commits b168b43 (DMRG) + abbc61a (RBM); T3 paper pivot "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" |
+| 3 | **B1 multi-axis convergence** (case #16, claude7 锁定) | **T1 attacked-via-multi-axis-convergence** | claude4 SPD + claude7/8 SPD subattack | 三 axis 同方向 GO 收敛 + R7 PEPS-separation theoretical forward | N axis (commit c5b7565) + depth axis (commit ce81491) + distance axis (commits f6d1cac+ddb5c05+v6); R7 PEPS-separation theoretical forward; manuscript_section_candidacy=high (paper §3 + §6 + Discussion 三 cite); codification L1 |
 
 **完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 10-pattern 覆盖含 2 composite + B0)**:
 
@@ -87,6 +89,7 @@ close as resolved (audit notes only, no REV record)
 | **A1-pre × A2 composite (新, case #15)** | upstream framing + author self-catch via own data | **#15 claude5+claude7 (A) monotone + (B) binary cliff framings disconfirmed by 5-diam data → 第三 'structured non-monotonic landscape with failure pockets' emerged** |
 | **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / **#9 claude1 quimb (CONFIRMED real, post double-reversal)** |
 | **A2-extended scope-limited bug + honest uncertainty management** | bug confirmed real but scope-limited; reviewer-author co-manage with honest caveat | **#10 T6 v3.1 (#9 之 partner: physics-OK at 36q despite production bug)** |
+| **A2-extended expanded (新子类, case #17 candidate)** | domain-expertise self-catch refines cross-team-proposed candidate method | **#17 candidate claude2 GBS-domain-expertise refute Liu→GBS direct port (Wigner/Hafnian 优先, Liu 降 inspiration only)** — framing pair with case #15 (data refines reviewer-author prior) |
 | **A3 false-alarm-prevention (concept reserved)** | suspected bug → verify proves false → prevent unnecessary erratum | (no active case; 概念保留待未来真 false-alarm case) |
 | **A4 meta-audit (review-of-review)** | 跨 reviewer 信息流 stale-info detection + sync correction | **#11 claude7 stale-info hand-off self-correct (claude5 "DM-only ack cc audit channel" 协议延伸)** |
 | **B0 (新) no-feasible-attack-found AFTER explicit tests, paper boundary-statement value** | **distinguishing requirement**: must be "tested AND no feasible attack found" (contribution) — NOT "did not test" (omission). Paper claim required: "we ran method X at actual params [Y, Z], cost = [verbatim formula] → infeasible at threshold T". Without explicit-test evidence, B0 claim downgraded to limitation/omission section. | **#14 T7 Oh-MPS + Bulmer DOUBLE DEAD on JZ 4.0** (Oh via audit #007 N_eff verify, Bulmer via claude8 §III/§IV verbatim wall-clock formula → JZ 4.0 plug-in 2^508 sec) — both **explicit tests** with verbatim formula, qualifies B0 contribution |
@@ -111,10 +114,11 @@ close as resolved (audit notes only, no REV record)
 
 ## B2-strict trilogy mosaic (claude5 提议, post case #8 升级 + case #14 B0 + claude2 T8 B1):
 
-**manuscript §6 lead figure mosaic**: **3 different outcome types** on **3 different platforms** with **mechanism diversity**:
+**manuscript §6 lead figure mosaic**: **4 different outcome types** on **4 different platforms** with **mechanism diversity** (含 T1 multi-axis-convergence anchor):
 
 | Attack | Platform | Outcome | Mechanism (data) |
 |---|---|---|---|
+| **T1** (case #16) | Willow OTOC (Quantum Echoes, 65 qubits) | **B1 multi-axis convergence** | claude4 SPD attacked 三 axis 同方向 GO 收敛 (N: c5b7565 / depth: ce81491 / distance: f6d1cac+ddb5c05) + R7 PEPS-separation theoretical forward — empirical × theoretical 双 angle reinforce |
 | **T3** (case #8 strict) | D-Wave diamond spin glass | **B2-strict** structured non-monotonic wall | RBM α=4 expressivity insufficient + lattice geometry creates discrete failure pockets (peak N=40 +28%, dip N=48 +5.97%) |
 | **T7** (case #14 B0) | photonic JZ 4.0 (1024 SMSS, K_c=1016) | **B0** stands firm | Oh-MPS via N_eff revival DEMOTED (paper exact via interferometer matrix); Bulmer base sampler DEAD (2^508 sec/sample) |
 | **T8** (claude2) | photonic JZ 3.0 (144 modes, 255 photons) | **B1** full attack 实证 | Gaussian baseline classical sampler 12× faster Oh paper (10M samples in 5 min) |
