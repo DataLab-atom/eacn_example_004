@@ -151,3 +151,74 @@
 ---
 
 *版本：v0.3，2026-04-25 by claude7（v0.2 → v0.3: T1 战略 v3 定型 per claude8 message — fixed ℓ_global + hotspot adaptive refine; claude4 866eccc decision matrix 直接采用 — Path C 决胜区间 = ⚠️ ≤16 cycles + distant M-B cell）*
+
+---
+
+## v0.4 重写 (2026-04-25, **诚实 self-correction**)
+
+### v0.3 错误识别
+
+claude4 commit 3bb7ed2 (M-B distance study) 数据反转了 v0.3 的核心假设：
+
+| Configuration | Distance | OTOC^(2) | terms@w≤4 | conv? |
+|---|---|---|---|---|
+| q0-q1 (nearby) | 1 | 0.9392 | **12,357** | borderline |
+| q0-q15 (diagonal) | 6 | 1.0000 | **233** | YES (trivial) |
+
+**关键 insight (claude4)**: 真正决策变量不是 "M-B distance" 单独，而是 **depth / distance(M,B) 比**:
+- depth < distance(M,B): B(t) 未 scramble 到 M → OTOC ≈ 1, trivial, terms 少
+- depth ≥ distance(M,B): scrambling 已发生 → OTOC < 1, hard case, terms 多
+
+**v0.3 的 "Willow 9 hot sites" 投射对应 trivial regime** (4x4 d=4 distant, depth=4 < distance=6 → 未 scramble) — **NOT attack-relevant**。
+
+### v0.4 新框架
+
+**Path C 真正决胜区间 = scrambled regime** (depth ≥ distance(M,B)):
+- 4x4 d=4 q0-q1 nearby = scrambled (depth 4 ≥ distance 1)
+- 12,357 terms hot, 5.9% error at w≤4
+- light-cone = **near-full grid** (B 已传到 M 所在区域，hot cluster 包含 light-cone 内 ~all sites)
+
+**Willow scenarios** (assuming claude4 Szasz 推断 per-arm ~12-18 cycles):
+
+| Scenario | distance(M,B) | depth | depth/distance | Regime | Path C 价值 |
+|---|---|---|---|---|---|
+| Willow A: M,B nearby (~1-2 qubits apart) | 1-2 | 12-18 | 6-18 | scrambled | 高 — 真攻击 |
+| Willow B: M,B mid (~5 qubits apart) | 5 | 12-18 | 2.4-3.6 | scrambled | 高 — light-cone 有限 |
+| Willow C: M,B far (~10 qubits apart) | 10 | 12-18 | 1.2-1.8 | borderline | 中 |
+| Willow D: M,B max-dist diagonal | ~14 | 12-18 | <1.3 | trivial-ish | 低 — claude4 fixed-w 已够 |
+
+Willow Quantum Echoes 具体 M,B 位置仍 unknown (待 Nature paper 全文 access，blog 仅说 "single-qubit operation B applied to a qubit"，未给 placement)。**最可能** scenario A or B (近距离 + 大 depth = scrambled regime, 信号强), 因为 Google 选择有意义信号的实验配置。
+
+### v0.4 Path C 新定位
+
+**hot cluster ≠ 微集群**（v0.3 错的 9-site 投射），而是 **light-cone 内整片 sites**:
+- light-cone radius ~ depth (in lattice steps)
+- depth ≥ distance(M,B) 时 light-cone 包含 M-B 路径 + 周围 ball
+- 对 Willow 65q grid + depth ~15: light-cone ~ depth^2 / 2 ≈ 100+ sites if 2D 但 grid 只有 65q → **几乎全 grid 是 hot**
+- 真正可省的 cold sites 仅在 grid 边缘 / depth-cone 外，可能 5-15% 总量
+
+**Path C constant-factor speedup 修订**:
+- v0.3 (错): 65 / 9 = 7.2× speedup (基于 trivial regime hotspot)
+- v0.4 (修): 65 / 55 ≈ 1.2× speedup (基于 scrambled light-cone 5-15% 边缘可省)
+
+**Path C 真正价值 (修订)**:
+1. ~~"Willow 9 hot constant-factor 7×"~~ ✘ 撤回
+2. **active light-cone 边缘 K_max 自适应** ✓ — small constant factor (1.2-2×)，但物理 motivated
+3. **adaptive K_max dynamic redistribution** within light-cone — 更重要，hot 区内不同 site 的 |c_j|² weight 仍非均匀，K_max 可按 importance 重分配 → 这才是 Begušić-Chan PRXQ 6, 020302 (2025) 的真正 contribution
+
+### v0.4 后续 deliverable 修订
+
+- [ ] **claude4 6x6 d=6 nearby (scrambled regime) export** 等 (commit 即将出, OOM 已经 OK 了 6x6 d=4, 6x6 d=6 nearby 风险更大)
+- [ ] **5x5 d=6 nearby fallback** if 6x6 d=6 OOM
+- [ ] light-cone radius vs term-count 拟合 (确认 light-cone 几何假设)
+- [ ] adaptive K_max within light-cone vs uniform K_max - 实际 speedup 测量
+- [ ] **撤回 hotspot scaling slope=-0.585 投射** (commit 1aabf5b 数据基于 trivial regime, 不能用于 attack scope)
+
+### §H1 自检
+
+v0.3 → v0.4 是 **reviewer self-correction #2** (同 day): 我把 claude4 4x4 distant trivial 数据当作 attack-relevant Path C scaling backbone，是 **scope 错误**。物理 insight 正确 (hot cluster 集中) 但应用到了错误的 regime。修正路径 (claude4 nearby data 揭示) 正确。
+
+---
+
+*版本：v0.4，2026-04-25 by claude7 self-correction*
+*v0.3 → v0.4: scope 重写 — Path C 决胜在 scrambled regime (depth ≥ distance), 不在 trivial regime; constant-factor speedup 7× → 1.2-2× (修订下行); adaptive within light-cone redistribution 是真正 contribution*
