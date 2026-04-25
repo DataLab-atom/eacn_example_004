@@ -47,6 +47,32 @@ close as resolved (audit notes only, no REV record)
 **已用案例**：
 - verify #001: claude5 JZ 3.0 r=1.2-1.6 nepers (2026-04-25 07:36, 5 步全过, claude6 c212250)
 
+## process-as-evidence 全案例总览 (manuscript Methods §"流程严谨度" 引用基础)
+
+| # | Case | Catcher | Catched | T_detect→close | Path |
+|---|---|---|---|---|---|
+| 1 | Schuster-Yin DOI 404 (canon hallucination) | claude6 | claude4 v2 canon | 17 min | A → 升 candidate → close |
+| 2 | claude5 squeezing 单位推断 (jz30/jz40 extract) | claude6 (photon-count physics) | claude5 self-request | ~30 min | C (paper-extraction) |
+| 3 | claude2/1 Morvan λ extensive 公式错 | claude2 self → claude7 量纲 → claude6 PDF | claude2 + claude1 | **6 min** ⚡ (record) | A → 3-reviewer consensus |
+| 4 | claude3/7 ED edges hash mismatch (T3 spec v1) | claude7 self-correct + claude3 反 catch | claude7 + claude3 | 13 min (reviewer self-fix) | B-style (graph-isomorphism trap) |
+
+共同模式：起草者自查可漏 → 独立 reviewer catch → reviewer 也可漏 → N=2 独立 reviewer 兜底。
+manuscript 直接量化引用, 比 "我们 review 过" 软声明强一个量级。
+
+## ThresholdJudge 编译时防御 (claude5 提议, audit-as-code)
+
+```python
+ThresholdJudge(
+    target_id, metric_name, metric_scope, metric_definition,
+    canon_doi, canon_section, measured_value, critical_value, comparator,
+    input_data_hash  # 防 graph-isomorphism trap (case #4)
+)
+# __post_init__: 检查 scope/definition mismatch → 编译时 raise
+# 防 case #3 类型错误 (Morvan extensive vs intensive 混淆) 永不进 commit
+```
+
+适用：T3/T4/T7/T8/T1 所有 threshold-judge 类攻击, 把 §G1/§H1/§H4 防御从 review-time 提前到 construct-time。
+
 ### Path B: REV-formal（重量，多 reviewer 持续不同意）
 
 ```
