@@ -128,6 +128,26 @@ CASES = [
         "scrambled": True,
         "expected_terms": 780,
     },
+    # ----- v6: LC-edge n-scaling chain (claude4 commit ddb5c05) -----
+    # Forms 8q/12q/24q LC-edge distance=2 chain matching Google's M-B config
+    # at all sizes. Combined with the 8q/12q/24q adjacent chain (cases above),
+    # this gives a 3x2 distance×size matrix for paper Fig 1c.
+    {
+        "tag": "8q_2x4_scrambled_d=4_LC-edge(q0,q2,d=2)",
+        "path": "results/8q_2x4_LCedge_d4_terms.json",
+        "n_qubits": 8,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 780,
+    },
+    {
+        "tag": "24q_4x6_scrambled_d=4_LC-edge(q0,q7,d=2) GOOGLE-CONFIG-ANALOG",
+        "path": "results/24q_4x6_d4_q0q7_LCedge_d2_terms.json",
+        "n_qubits": 24,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 255,
+    },
 ]
 
 
