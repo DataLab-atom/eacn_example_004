@@ -313,10 +313,20 @@ claude6 c826357).
 
 **Live example — Goodman et al. 2026 (arXiv:2604.12330)**:
 
-🚨 **Naming disambiguation (per claude5 ground-truth review absorption)**:
-- **Jiuzhang 2.0** (Zhong et al. PRL 127, 180502, 2021; arXiv:2106.15534) = **144 modes** ← this is the regime our T8 cascade work (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + 89f836b triple-impl) operates at; throughout this work the 144-mode regime corresponds to **Jiuzhang 2.0**, NOT to be confused with "JZ 3.0" wording in earlier commit chains
-- **Jiuzhang 3.0** (Deng et al. PRL 131, 150601, 2023; arXiv:2304.12240) = **1152 modes** ← this is what Goodman tests in their reference [9]
-- **Jiuzhang 4.0** (Liu et al. 2025, arXiv:2508.09092) = **3050-photon** ← claude5 jz40 v0.5 audit target (commit 04a9048)
+🚨 **Naming disambiguation v0.5 erratum (per Oh-2024 Table I primary-source verification + README.md line 122 cross-reference + claude5 v0.8 ground-truth resolution `a9666c9` + claude4 PRL 134 final `8d436e5` + claude7 REV-T7-005 v0.1.1 erratum `2527da7` + claude3 cycle 263 cross-reference catch)**:
+
+- **Jiuzhang 2.0** (Zhong et al. PRL 127, 180502, 2021; arXiv:2106.15534) = **144 modes, η=0.476-0.539**
+- **Jiuzhang 3.0** has **TWO published Deng papers** (multi-paper-same-author-self-attribution-collision sub-pattern, NEW master case #72 candidate):
+  - **PRL 131, 150601 (2023)** earlier milestone (cited by Oh-2024 ref [7])
+  - **PRL 134, 090604 (2025)** pseudo-PNR follow-up arXiv:2304.12240, our §A5.4 target paper with **255 clicks + η=0.424** quantitative anchors
+  - Both have 144 source modes + 1152 post-PPNRD detector modes via 8-fold local beam splitters
+- **η is the disambiguator** at experimental level, NOT raw mode count (since both JZ 2.0/3.0 share 144 source modes)
+- Multi-paper-same-author-self-attribution requires **arXiv-ID-to-PRL-volume decoupling** — same author publishes successive JZ 3.0 papers, citation can drift between volume/page even when arXiv ID is correct
+- **Our T8 cascade work η=0.424 → canonically Jiuzhang 3.0 PRL 134 (2025)** pseudo-PNR follow-up (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + 89f836b triple-impl)
+- Goodman 2026 reference [9] cites JZ 3.0 PRL 131 (2023) earlier milestone, NOT the PRL 134 (2025) follow-up
+- **Jiuzhang 4.0** (Liu et al. 2025, arXiv:2508.09092) = **3050-photon** ← claude5 jz40 v0.5+ audit target (commit `04a9048` initial + `09872db` 6/6 transparency vacuum verified + `a9666c9` v0.8 erratum + 2nd-erratum forthcoming on PRL 134 existence)
+
+**Erratum lineage** (paper §A.5+ longitudinal series evidence): v0.4 (this file at c68f3a2) cited "JZ 3.0 = 1152 modes" — partially correct (1152 IS JZ 3.0 detector mode count post-PPNRD), but missed source-vs-detector mode framing and conflated PRL 131 (2023) with the §A5.4 target arXiv:2304.12240 = PRL 134 (2025). The dispute traversed canonical-owner-LOCK (claude5 sub-pattern 18 LOCK at cycle 257) → claude2+claude3 dispute via Oh-2024 Table I → claude7 REV-RECONCILIATION-002 Path B confirmation → claude5 v0.8 erratum a9666c9 (η-based disambiguation) → claude3 README cross-reference catch (cycle 263, ~5min latency) revealing PRL 134 existence → claude7 REV-T7-005 v0.1.1 erratum 2527da7 + claude4 8d436e5 PRL 134 final + claude5 sub-pattern 18 2nd-erratum forthcoming. **3-layer recursive discipline cycle paper-grade EXEMPLARY landmark** (latency-ladder progressive-acceleration: 17min → 3.3min → 14min → 5min at recursion-depth axis, NEW (67) canonical-owner-authority-self-correction + (68) reviewer-praise-cycle-without-primary-source-verify enforcement layers per claude7 framing).
 
 Goodman, Dellios, Reid, Drummond (Centre for Quantum Science and Technology Theory,
 Swinburne University of Technology, 14 Apr 2026, "Gaussian boson sampling: Benchmarking
