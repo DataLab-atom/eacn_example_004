@@ -856,15 +856,83 @@ def compute_metrics(
     pauli_strings: List[Tuple[Tuple[int, ...], complex]],
     weight_bound_l: int,
     grid_shape: Tuple[int, int],
-):
+) -> dict:
     """
     Step 5. Compute BaselineResult-shaped metrics from a list of (string, c) pairs.
 
-    Returns dict with keys: pauli_weight_bound_l, n_pauli_strings_kept,
-    residual_norm_outside_l (if oracle data available, e.g. comparing against
-    higher-ℓ run).
+    Parameters
+    ----------
+    pauli_strings : List[(pauli_string_tuple, complex_coefficient)]
+        Output of Step 3 heisenberg_evolve_pauli_path converted to list-of-tuples
+        (or equivalent .items() of operator dict).
+    weight_bound_l : int
+        The truncation bound used during Step 3 evolution.
+    grid_shape : (rows, cols)
+        Used to determine n_qubits.
+
+    Returns
+    -------
+    metrics : dict with keys:
+        - pauli_weight_bound_l: int (input echo)
+        - n_pauli_strings_kept: int (count of non-zero entries)
+        - frobenius_norm_sq: float (sum |c|^2)
+        - max_weight_observed: int (max pauli_weight over kept strings)
+        - mean_weight_observed: float (mean weight, 0 if empty)
+        - n_qubits: int (rows * cols)
+        - identity_fraction: float (|c_identity|^2 / total Frobenius norm^2,
+          captures the "diagonal" component fraction; useful as a sanity check
+          for OTOC^(2) computation since OTOC = identity_coefficient(MBMB) is
+          related)
+
+    >>> metrics = compute_metrics(
+    ...     [((1, 0, 0), 1.0+0j), ((0, 1, 0), 0.5+0j)],
+    ...     weight_bound_l=2,
+    ...     grid_shape=(1, 3),
+    ... )
+    >>> metrics['n_pauli_strings_kept']
+    2
+    >>> metrics['n_qubits']
+    3
+    >>> metrics['max_weight_observed']
+    1
+    >>> abs(metrics['frobenius_norm_sq'] - 1.25) < 1e-10  # 1^2 + 0.5^2
+    True
     """
-    raise NotImplementedError("Step 5: compute_metrics pending Phase 0b")
+    rows, cols = grid_shape
+    n_qubits = rows * cols
+    n_kept = len(pauli_strings)
+    if n_kept == 0:
+        return {
+            "pauli_weight_bound_l": weight_bound_l,
+            "n_pauli_strings_kept": 0,
+            "frobenius_norm_sq": 0.0,
+            "max_weight_observed": 0,
+            "mean_weight_observed": 0.0,
+            "n_qubits": n_qubits,
+            "identity_fraction": 0.0,
+        }
+
+    weights = [pauli_weight(s) for s, _ in pauli_strings]
+    coeff_norms_sq = [abs(c) ** 2 for _, c in pauli_strings]
+    frobenius_sq = sum(coeff_norms_sq)
+    identity_string = tuple([0] * n_qubits)
+    identity_coeff = next(
+        (c for s, c in pauli_strings if s == identity_string),
+        0.0 + 0j,
+    )
+    identity_fraction = (
+        (abs(identity_coeff) ** 2) / frobenius_sq if frobenius_sq > 0 else 0.0
+    )
+
+    return {
+        "pauli_weight_bound_l": weight_bound_l,
+        "n_pauli_strings_kept": n_kept,
+        "frobenius_norm_sq": frobenius_sq,
+        "max_weight_observed": max(weights),
+        "mean_weight_observed": sum(weights) / n_kept,
+        "n_qubits": n_qubits,
+        "identity_fraction": identity_fraction,
+    }
 
 
 # ---------------------------------------------------------------------------
