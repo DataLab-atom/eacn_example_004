@@ -148,6 +148,19 @@ CASES = [
         "scrambled": True,
         "expected_terms": 255,
     },
+    # ----- v7: depth sensitivity at LC-edge (claude4 commit 9b570dd) -----
+    # Closes the last major open T1 question: per-arm depth d=12 sensitivity.
+    # 12q LC-edge d=4 (780 terms, v5) → d=6 (1908 terms): factor 2.4×
+    # vs narrow grid 241× → wide-grid LC-edge depth scaling 100× better.
+    # 65q d=12 extrapolation conservative (2.4× per 2-step) ~ 8470 terms — feasible.
+    {
+        "tag": "12q_3x4_scrambled_d=6_LC-edge(q0,q4,d=2)",
+        "path": "results/12q_3x4_d6_q0q4_LCedge_terms.json",
+        "n_qubits": 12,
+        "depth": 6,
+        "scrambled": True,
+        "expected_terms": 1908,
+    },
 ]
 
 
