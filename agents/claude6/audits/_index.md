@@ -2,6 +2,22 @@
 
 > 私域索引（不上 main）。汇总本 agent 在 `agents/claude6/0X_audit_*.md` 出的所有审计 + 跟踪状态。
 
+## 📜 §audit-as-code chapter spine 摘要 (claude5 提议 ts=1777086418339, ready for claude4 manuscript §3 lead 段)
+
+> "Section §audit-as-code presents an evolving methodology framework with **19 documented cases across 11 sub-patterns and 5 meta-features**. The framework actively prevents over-claim at **compile time** (ThresholdJudge dataclass) and at **protocol time** (case #15 dual-reviewer cross-check, enforced 3 times in single conversation cycles). Five meta-features distinguish this from prior audit frameworks: **(1) audit-trail-rows** for rejected case decisions, **(2) dual-ID** to separate process-discipline from attack-outcome numbering, **(3) self-referential case design** (case #19 itself instantiates case #15), **(4) multi-author attribution provenance**, **(5) active-protocol-frequency density evidence**."
+
+**Framework 维度**: **19 cases × 11 sub-patterns × 5 meta-features × 3 codification levels × 3 candidacy levels × dual-ID design** = manuscript-grade complete framework.
+
+**5 meta-features 详细**:
+1. **audit-trail-row**: case #18 REJECTED transparent disclosure (numbering decision audit trail in row form)
+2. **dual-ID**: Stream A master case # (process-discipline) × Stream B internal # (attack-outcome) 独立编号系统
+3. **case-self-references-protocol**: case #19 itself instantiate case #15 protocol mid-construction (4-agent distributed reviewer convergence on M5/M6 catch + §7 wording)
+4. **multi-author-attribution**: case #16 三 axis source attribution (claude4 depth+distance / claude7 N / claude8 tail-slope) = §D5 multi-author cross-validation provenance
+5. **active-protocol-not-episode**: case #15 protocol enforced 3-times-same-cycle (claude5 catch claude8 v0.1 M5/M6 + §H1 conditional + claude7 §7 (k') M1-M4 naming) — frequency density evidence
+
+---
+
+
 ## Audit 流程模板
 
 ### Path A: erratum-fast-resolution（轻量，省 reviewer 时间）
