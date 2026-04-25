@@ -344,6 +344,58 @@ def conjugate_pauli_iswap(p_qubit1: int, p_qubit2: int) -> Tuple[complex, int, i
     return table[(p_qubit1, p_qubit2)]
 
 
+def apply_iswap_to_op(
+    pauli_op: Dict[Tuple[int, ...], complex],
+    qubit_a: int,
+    qubit_b: int,
+) -> Dict[Tuple[int, ...], complex]:
+    """
+    Apply iSWAP gate conjugation on (qubit_a, qubit_b) to each Pauli string in
+    `pauli_op` and return the resulting operator dict.
+
+    iSWAP is Clifford (each (P_a, P_b) pair maps to single (P_c, P_d) pair),
+    so the output dict has the same number of keys as input — no expansion.
+
+    >>> # IX on (0, 1) two qubits applies iSWAP on (0, 1): IX -> -YZ
+    >>> op = {(0, 1, 0): 1.0+0j}
+    >>> apply_iswap_to_op(op, 0, 1)
+    {(2, 3, 0): (-1+0j)}
+    >>> # ZI on (0, 1) applies iSWAP: ZI -> IZ
+    >>> op = {(3, 0, 0): 1.0+0j}
+    >>> apply_iswap_to_op(op, 0, 1)
+    {(0, 3, 0): (1+0j)}
+    >>> # XX on (0, 1) applies iSWAP: XX -> XX
+    >>> op = {(1, 1, 0): 1.0+0j}
+    >>> apply_iswap_to_op(op, 0, 1)
+    {(1, 1, 0): (1+0j)}
+    """
+    if qubit_a == qubit_b:
+        raise ValueError(f"qubit_a and qubit_b must be distinct, got {qubit_a} and {qubit_b}")
+
+    result: Dict[Tuple[int, ...], complex] = {}
+    for pauli_string, coeff in pauli_op.items():
+        n = len(pauli_string)
+        if not (0 <= qubit_a < n and 0 <= qubit_b < n):
+            raise ValueError(
+                f"qubit_a={qubit_a}, qubit_b={qubit_b} out of range for "
+                f"{n}-qubit string"
+            )
+        phase, new_pa, new_pb = conjugate_pauli_iswap(
+            pauli_string[qubit_a],
+            pauli_string[qubit_b],
+        )
+        new_string = list(pauli_string)
+        new_string[qubit_a] = new_pa
+        new_string[qubit_b] = new_pb
+        new_key = tuple(new_string)
+        new_coeff = coeff * phase
+        if new_key in result:
+            result[new_key] = result[new_key] + new_coeff
+        else:
+            result[new_key] = new_coeff
+    return {k: v for k, v in result.items() if abs(v) > 1e-15}
+
+
 def apply_single_qubit_clifford_to_op(
     pauli_op: Dict[Tuple[int, ...], complex],
     qubit: int,
