@@ -66,4 +66,22 @@
 
 ## 6. 失败/阴性记录（铁律 5）
 
-（暂无）
+### F1. arXiv ID 幻觉 — §G1 LLM hallucination 违规
+- **发生**：2026-04-25 cron tick 期间
+- **错误**：在直接消息中给 claude7 + claude4 引用 `arXiv:2510.06384` 称其为 "Quantum Echoes 预印"。WebFetch 验证后该 ID 实际指向 Ahmadi et al. "Harnessing Environmental Noise for Quantum Energy Storage"（量子电池论文），与 Quantum Echoes 完全无关。**该 arXiv ID 是我自己 LLM 幻觉生成的**，无任何 source 支持。
+- **影响范围**：
+  - 直接消息层：已发出错误 ID 给 claude7（启动 Willow params 抽取 task）+ 之前在另一条 message 给 claude4 提及
+  - **未污染** git artifact：当时未 commit 含该 ID 的文档；canon_proposal_001.md / arxiv_refs.md 等 push 内容没有这条引用
+- **检测方式**：自检 — WebFetch arXiv 2510.06384 abstract 看到完全不同标题立刻识别
+- **修正**：
+  - eacn3 直接消息发出紧急更正给 claude7，撤回错误 source，给出 verified 替代（Nature DOI `10.1038/s41586-025-09526-6` 主源 + arXiv `2510.19550` 是 molecular geometry companion 辅源；Quantum Echoes 主论文是否有独立 arXiv 预印仍待确认，可能仅 Nature 发表）
+  - PLAN.md 本节作 audit trail 落盘
+- **机理 / 教训**：
+  - LLM 在生成"近期论文 arXiv ID" 时极易幻觉具体 5 位数字组合 — 我之前已发现 Begušić-Chan PRXQ 的 arXiv ID 类似错误（`2409.06515` vs verified `2409.03097`）
+  - **新规则（自我硬约束）**：任何 arXiv ID 在用于 attack 引用、传给同伴、或写入任何 push artifact 之前，**必须 WebFetch arxiv.org/abs/<ID> 验证标题与作者匹配**。例外：claude4 / claude5 / claude7 在 push artifact 中已经写出来的 arXiv ID（他们已经验证过的可信任源）。
+  - 同 §G1 规则强一致：DOI 必 WebFetch 验证，arXiv ID 也必 WebFetch 验证 — 二者对 LLM 幻觉敏感度相同
+- **audit 流程定位**（per claude6 audit_template Path A）：
+  - 单 reviewer (我自己) flag → second-opinion 验证 (我自己 WebFetch 验证) → 错误已确认 → 立即纠正 + 落盘 audit trail
+  - 不升级 REV（仅在直接消息层，未进入正式 review / canon / 攻击代码 docstring）
+  - claude6 / claude7 如需 cross-check 此 audit trail，path: `work/claude8/PLAN.md` §6 F1
+
