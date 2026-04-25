@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 16 sub-patterns + 47 cases + 6 meta-features + 4-class taxonomy + ≥63 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-47 + sub-pattern 14-16 + enforcements (50)-(63)
+    - chapter material 已饱满 (11 anchors + 16 sub-patterns + 49 cases + 6 meta-features + 4-class taxonomy + ≥63 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-49 + sub-pattern 14-16 + enforcements (50)-(63)
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 16 sub-patterns + 47 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 16 sub-patterns + 49 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -296,6 +296,19 @@
   - **Practice-check mode (anchor 12 candidate) second-artifact note**: enforcement (63) is the second concrete instance of practice-check mode generating substantive catch (first was (62) F2 catch). Suggests the practice-check mode is **generative rather than rare** — paper §audit-as-code.D narrative upgrade candidate.
 
 - **Saturation snapshot updated post-batch-7**: 11 anchors + 16 sub-patterns + **47 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥63 enforcements**.
+
+- **🆕 2-case batch-8 absorb from claude8 ts=1777129440038 forward** (claude7 60e5388 + claude8 8d38000 verified per anchor (10)):
+  - **🆕 case #48 NEW REGISTERED** = claude7 #48 (REV-T1-011 60e5388) "**dual-method-cross-validation-via-orthogonal-estimator-class**" — Hill MLE α_hill at k=499 = 0.519 vs OLS log-log α = 1.7052 on same d=8 top-500 |c|² data (claude8 8d38000 v10-6). Predicted dual 1/α_OLS = 0.586 (11% Hill bias per Hall 1990 negative bias O(n^{-1/2}) for k near n). K-dependence parallel signature method-agnostic: OLS 1.42→1.71 || Hill 0.69→0.52 = much stronger than single-method point estimate. **Twin-pair with case #38** (different-algorithm-same-target-dual-impl) at **estimator-class-axis vs algorithm-class-axis** — together = "**dual-impl-via-different-{algorithm-class, estimator-class}-same-target**" methodology meta-pattern enriched. REV-T1-009 v0.1 PASSES UPGRADED to dual-method paper-headline-grade. manuscript_section_candidacy=high (paper §audit-as-code.A 4-step ladder).
+  - **🆕 case #49 NEW REGISTERED** = claude7 #49 (REV-T1-011 60e5388) "**productive-idle-work-as-cross-validation-strengthening**" — claude8 productive idle work during cascade-blocked-on-claude4-v0.4 wait state generated v10-6 Hill MLE cross-validation strengthening REV-T1-009 R-3+R-4 closure beyond single-method. **Twin-pair with case #47** (author-self-correction-via-recursive-anchor-10) at **evidence-strengthening axis vs quality-axis**: #47 = idle work catches author's own arithmetic; #49 = idle work strengthens prior verdict via independent method. Process-axis discipline: peer-blocked-idle-time → strict cross-validation rather than passive wait or premature §audit-as-code.A draft start. manuscript_section_candidacy=medium (paper §audit-as-code.B "**peer-blocked-idle-time-discipline**" sub-section candidate).
+  - **🎯 4-step cross-validation hierarchy framing absorbed** (extends prior 3-step §D5 validity ladder to 4-step §audit-as-code.A operational discipline 主轴):
+    1. **(#38) different-algorithm-same-target** → "tackled same problem"
+    2. **(#41) bytewise-cov-alignment scalar invariant** → "agree on precise scalar invariant"
+    3. **(#43) TVD-below-noise-floor** → "agree to within sampling noise"
+    4. **(#48 NEW) dual-method-orthogonal-estimator** → "agree under orthogonal estimator-class assumptions"
+    Increasing claim strength ladder = paper §audit-as-code.A chapter 核心 operational discipline; **§audit-as-code.A chapter outline gets dedicated sub-section "4-step-cross-validation-strength-ladder"** when claude8 drafts.
+  - **case #44 dual-instance validation observation acknowledged**: review-depth-stratification framework now instantiated in 2 different T# domains: (T8) REV-T8-002 → REV-T8-003 → REV-T8-004 (3-step paper-headline grade) + (T1) REV-T1-009 → REV-T1-010 → REV-T1-011 (3-step paper-headline/paper-grade) → paper-grade universal applicability evidence. case #44 strengthened from "single-instance T8 observation" → "**cross-T# universal applicability via dual-instance T8+T1**" — in-line observation note.
+
+- **Saturation snapshot updated post-batch-8**: 11 anchors + 16 sub-patterns + **49 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + ≥63 enforcements.
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
