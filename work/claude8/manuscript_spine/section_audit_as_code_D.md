@@ -33,12 +33,20 @@
 - §A.5 5-method T8 mosaic LOCKED → §A5.4 paper-grade picture (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + claude2 a843594 NEGATIVE + claude2 f940d7e positive-P+WC)
 - §C.2 sub-pattern 18 v0.6 naming-correction → T8 cascade target: Deng PRL 134, 090604 (2025) "Pseudo-PNR + QCA" canonical reference
 
-## §audit-as-code.D.3 — Cross-cite chain to §M Methods
+## §audit-as-code.D.3 — Cross-cite chain to §M Methods (v0.3 extension per claude7 M-2 + claude4 0d23478 §D Methods + claude3 ce6fe8b §D Methods)
 
-**Cross-cite from §audit-as-code chapter**:
-- §A.5 ladder Hill 1975 + Hall 1990 paper-citation-ready references → §M MLE methodology
-- §B.6 5-standard reviewer-discipline → §M reviewer-protocol-checklist appendix candidate
+**Anchor targets v0.3**:
+- claude4 T1 §D Methods 9-subsection chain: D1 SPD Heisenberg + D2 Gate model fSim iSWAP + D3 Circuit construction brickwall + D4 OTOC^(2) Pauli signature matching + D5 Noise model depolarizing γ ∈ [0.003,0.007] + D6 Validation exact state-vector ≤10q machine precision + D7 M-B placement Bermejo verbatim + **D8 Convergence cross-validation 3-path (Path A claude4 SPD + Path B claude8 Schuster Pauli-path ℓ=12 + Path C claude7 measurement-derived top-K f008622)** + D9 Reproducibility seed 42 — all in commit `0d23478`
+- claude3 T3 §D Methods + negative controls §E2 + reproducibility §F2 + P6 launch script (commit `ce6fe8b`) — paper-grade-infrastructure-pre-emptive-deployment per AGENTS.md §A-J checklist
+- claude4 §6 Discussion 5 sub-sections: Attack outcomes mosaic + 4 boundary types + Concurrent Goodman + PEPS vs Pauli-path separation + Schuster-Yin reconciliation regime-dependent
+
+**Cross-cite from §audit-as-code chapter (v0.3 updated)**:
+- §A.5 ladder Hill 1975 + Hall 1990 paper-citation-ready references → §M MLE methodology + Step 4 dual-method-orthogonal-estimator α=1.705 OLS + α_hill=0.519 cross-validation
+- §A.5 NEW Step 4 evidence base 4-layer self-correction grid (v0.5) → §M D8 convergence cross-validation expanded to 3-method-class orthogonal-cost-bound triangle (Path A SPD heavy-trunc + Path B Schuster Pauli-path + Path C measurement-derived top-K)
+- §B.6 5-standard → 6-standard reviewer-discipline (v0.2) → §M reviewer-protocol-checklist appendix candidate (with cycle 263 README cross-reference catch sub-axis as 6th)
 - §C.4 6-meta-features (dual-numbering-scheme, paired-anchor recursion, etc.) → §M reproducibility-protocol §
+- §A.6 Goodman 2026 ε > 1-tanh(r) thermal threshold → §6 Discussion concurrent literature framing (claude4 v0.6 §6 absorbed via claude7 REV-T1-008 v0.3 6e0c7ab)
+- §C.2 NEW Class (5) physical-mechanism-induced-classicality (v0.2.1 R-6 closure) → §6 4-boundary types regime-transition / ansatz-engineering / hardware-capacity / transparency-vacuum / physical-mechanism (5-class taxonomy LOCKED across §A.6 ↔ §C.2 ↔ §3 RCS T6 v0.1.2 d2676d4 ↔ §6 mosaic per claude7 REV-AUDIT-BCD-002 v0.1 3f65962 verification)
 
 ## §audit-as-code.D.4 — Cross-cite chain to §H1 honest-scope discipline
 
