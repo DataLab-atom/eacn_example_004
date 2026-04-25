@@ -1,0 +1,22 @@
+{
+  "params": {
+    "n_modes": 6,
+    "r": 1.5,
+    "eta": 0.424,
+    "n_samples": 50000,
+    "n_wc_iter": 10
+  },
+  "positive_p": {
+    "mean_photons": 14.54722,
+    "mean_clicks": 4.06802,
+    "off_diag_corr": 0.018821588321232204
+  },
+  "thermal": {
+    "mean_photons": 11.52654,
+    "mean_clicks": 4.59872,
+    "off_diag_corr": 0.0030123743469825702
+  },
+  "correlation_improvement_pct": 524.8090759398937,
+  "time_s": 0.28963160514831543,
+  "projected_144mode_10M_min": 556.0926818847656
+}
