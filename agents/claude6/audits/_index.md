@@ -98,8 +98,41 @@
   - (45) **owner-deferral-via-paper-stage-evidence** (4-class taxonomy, prior commit 4263a41)
   - (46) **claude1 T6 XEB FULL RETRACT + 2 NEW sub-pattern proposals** (A2-bench + shared-input-blind-spot) = **A2 + meta-feature #5 active-protocol-not-episode synergy** (user external feedback + shared-input-blind-spot detection + new sub-pattern emergence in single cycle)
 
-- **🆕 anchor (10) candidate (MONITORING per claude1 ts=1777102440232 forwarding claude7 proposal)**: "**reviewer-must-fetch-primary-source-for-input-data**" — **active mitigation pattern of shared-input-blind-spot sub-pattern 13**. Distinct from descriptive sub-patterns: this is **prescriptive discipline** (reviewer obligation, not descriptive case category). Owner verdict: **deferral pending claude7 direct push** for canonical absorption — claude7 forwarded via claude1 but has not directly proposed to me. Path forward: 待 claude7 canonical push OR §A5 paper-stage absorption reveal.
-- **case #15 enforcement (47) candidate**: **三家共识 (claude5 + claude7 + claude1) on framework grow** = paper §audit-as-code "**3-agent-consensus-driven-framework-evolution**" sub-section anchor candidate (twin of single-agent-architect-framework-evolution; framework health signal that growth is consensus-driven rather than single-agent-imposed)
+- **🎯 ACCEPT — Anchor (10) "input-provenance-discipline" REGISTERED** (claude8 ts=1777103163662 direct push satisfies prior MONITORING — was待 claude7 canonical push, now claude8 unified proposal subsumes claude7 + my sub-pattern 13 + claude8 F1 self-rule):
+  - **Statement**: 任何被 agent 承袭的 number/ID/parameter 必须自行从 primary-source PDF 重新 verify，不接受 reviewer secondary-relay 作输入
+  - **三 axes covered**: cited-numbers / arXiv-IDs / parameter-values
+  - **Triggering events**: claude8 F1 arXiv 2510.06384 hallucination self-disclosure + claude1 N=5e6→1.9e8 sample-count retract (ff6ae95)
+  - **Unifies**: claude8 F1 self-rule + claude6 sub-pattern 13 shared-input-blind-spot + claude7 prior 10th anchor proposal
+  - **Type**: prescriptive discipline (reviewer obligation), distinct from descriptive sub-patterns
+  - **Role**: **INPUT GATE** (what flows into audit channel)
+- **🎯 ACCEPT — Anchor (11) "author-self-correction-as-credibility" REGISTERED** (claude8 ts=1777103163662 direct push):
+  - **Statement**: agent self-catching own error (vs cross-team peer catching) 更稀有 paper-grade，因为不依赖 external check — 是 audit lifecycle output 端 robustness signal
+  - **Triggering events**: claude8 F1 self-disclosure + claude1 ff6ae95 T6 XEB-statistical retraction self-corrected + claude5 jz40 v0.5 transparency vacuum self-disclosure (audit-paradigm pivot trigger)
+  - **Family with**: A2 (own-data trigger) + A2-bench (external-feedback trigger) sub-patterns; also paired with anchor (1) transparency-gap-audit-as-paper-contribution (claude5 self-disclosure)
+  - **Role**: **OUTPUT GATE** (what flows out of audit channel)
+- **🎯 11-anchor framework EXTENDED** (was 9-anchor + 2 candidates DEFERRED → now 11-anchor ACCEPTED via 3-agent consensus from claude8 direct push):
+  - (1) transparency-gap-audit-as-paper-contribution
+  - (2) audit-paradigm-vs-attack-paradigm
+  - (3) method-side-vs-paper-side dataclass abstraction
+  - (4) cross-attack-peer-review-as-validation-not-just-catch
+  - (5) dual-implementation-§D5-pattern
+  - (6) synchronized-substantive-burst-post-user-feedback-correction
+  - (7) cross-T#-regime-transition-as-emergent-meta-pattern (scale-parameter-driven)
+  - (8) deferred-deliverable-closure-discipline
+  - (9) ansatz-engineering-driven cross-T# capacity-bound
+  - (10) **input-provenance-discipline** (NEW, INPUT GATE)
+  - (11) **author-self-correction-as-credibility** (NEW, OUTPUT GATE)
+  - **Composition**: anchor (10) + (11) = **audit lifecycle 完整规范化** (input gate + output gate, 比 catch-vs-validate symmetry 更完整) — claude8 framing
+- **🎉 PEER-DATA UNLOCK CASCADE FULL CLEARANCE** (claude8 v10 push 953b155 = cascade 4/4 trigger fired):
+  - ✅ 1/4 cleared (jz40 v0.5)
+  - ✅ 2/4 cleared (REV-T8-001)
+  - 🔄 3/4 (claude4 v0.4 paper update — final remaining only)
+  - ✅ 4/4 cleared (claude8 v10 953b155 power-law slope α Pareto fit + skeleton 4b1030a + 6/6 PASSES)
+- **claude1 verdict 42ccb8d 升级 conditionally PASSES** (claude7 REV-T1-009 commit `a55fc8a` double reviewer convergence) — case #15 enforcement (48) bidirectional T1 review chain converges
+- **case #15 enforcement count ≥46 → ≥49**:
+  - (47) 3-agent-consensus-driven-framework-evolution candidate (prior 25ce694)
+  - (48) **claude7 REV-T1-009 a55fc8a double reviewer convergence** = bidirectional T1 review chain final convergence (claude1 42ccb8d HOLD → conditionally PASSES via claude7 REV-T1-009)
+  - (49) **claude8 ts=1777103163662 direct anchor push** = anchor (10)+(11) registered + 11-anchor framework EXTENDED via input-output-gate composition
 - **case #15 enforcement count ≥42 → ≥44**:
   - (43) **§A5 joint draft v0.1 absorbed** (claude3+claude7 dual-author paper-stage realization of cross-T# taxonomy) = audit-as-code-realized-in-paper-section instance
   - (44) **T8 N=10 exact-Hafnian TIMEOUT cross-validation** (claude2 ae2124d empirical bound) = §A5 future-work-bound prediction validation
