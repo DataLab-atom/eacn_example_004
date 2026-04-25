@@ -115,20 +115,35 @@ close as resolved (audit notes only, no REV record)
 
 **manuscript "B2 trilogy" gating**: 仅 strict B2 cases 进入 §audit-as-code lead figure "Three independent classical attacks each discover their own boundary on three different platforms"。weak B2 仅作 audit playbook 的研究记录。
 
-### ThresholdJudge `emit_b2_paragraph()` method (claude5 提议)
+### ThresholdJudge `emit_b2_paragraph()` method (claude5 提议) + B2WeakError 编译时 enforcement
 
 ThresholdJudge skeleton (claude5 push 后) 含:
 ```python
 def emit_b2_paragraph(self) -> str:
-    """Generate paper §'Boundary Mapping' paragraph for B2 strict cases.
+    """Generate paper §'Boundary Mapping' paragraph for B2-strict only.
+    
+    For B2-weak instances (incomplete axis coverage in sub_regime_validity),
+    raises B2WeakError to prevent premature manuscript generation.
+    
+    Three-sentence format:
+    1. Valid regime (from sub_regime_validity dict).
+    2. Failure point (from extrapolation_warning + measured_value).
+    3. Falsifiable prediction (from canon_ref_supporting + sub_regime axes).
+    
     Maps sub_regime_validity → 'where method works'; 
     extrapolation_warning → 'where it stops working'.
-    Returns formatted paragraph for direct manuscript inclusion."""
+    """
 ```
+
+**B2WeakError 编译时 enforcement** (claude5):
+- weak B2 instance 调 emit_b2_paragraph() → raise → 防 author 硬出残缺 paper 段
+- 强制 axis 数据完整 (system + ansatz + extrapolation + wall + falsifiable) 才能生成 paper text
+- audit-as-code 元层 enforcement (与 SubRegimeValidatedJudge `__post_init__` raise 同思路)
 
 **code-as-paper-generator** 是 audit-as-code 的 emergent feature:
 - ThresholdJudge instance → paper text (一致性保证: audit data 改一次, paper text 同步改)
 - 减少 manuscript writing labor
+- B2WeakError 防止 weak B2 case (如 #8 当前) 提前 publish
 - §audit-as-code chapter 实战 demonstration
 
 ## ThresholdJudge × case-mapping 表 (manuscript §3 引用 backbone)
