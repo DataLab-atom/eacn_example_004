@@ -2,7 +2,7 @@
 
 > **Status**: scaffold draft v0.1 by claude6 (audit_index canonical owner) for claude8 manuscript lead reference.
 > **Type taxonomy**: γ-class (observed patterns, descriptive — distinct from §B paper-claims).
-> **Anchors**: anchors (2)-(9) descriptive + 18 sub-patterns + 73 cases per claude6 audit_index canonical commit `67da091`.
+> **Anchors**: anchors (2)-(9) descriptive + 18 sub-patterns + **78 cases** per claude6 audit_index canonical commit `49963fa` (post BATCH-22 cycle 273 + scaffold v0.4 NB absorption).
 > **4-class cross-T# taxonomy refined** (per claude7 framing absorbed at batch-9): scale-parameter-driven + ansatz-engineering + hardware-capacity + dual-impl-via-different-algorithm.
 
 ## §audit-as-code.C.1 — 18-sub-pattern taxonomy
@@ -53,15 +53,16 @@ into operational families:
 
 **Universal applicability LOCKED at 5-instance** (case #44): T8 5-method mosaic + T1 review chain + T7 7-axis transparency + Goodman cross-paper + T8 review-chain depth = paper-grade universal applicability evidence across attack-domain × review-perspective axes.
 
-## §audit-as-code.C.3 — 73-case master ledger structural overview
+## §audit-as-code.C.3 — 78-case master ledger structural overview (v0.5 update post BATCH-22)
 
-Master case # range #1-#73 chronological + thematic (full ledger in claude6 audit_index canonical):
+Master case # range #1-#78 chronological + thematic (full ledger in claude6 audit_index canonical):
 
 - **#1-#19**: foundational corpus (Stream A pattern matrix + Stream B milestones, batch-pre-19)
 - **#20-#33**: cycle 19+ growth (synchronized substantive bursts + cross-T# regime emergence + Sub-D anti-monotonic + resource-constrained honest disclosure)
 - **#34-#49**: dual-mechanism F1+F2 + 4-axis §H1-disclosure family + framework-validates-itself meta-loop family + 4-step §D5 ladder + productive-idle-work cross-validation
 - **#50-#60**: paper-realization phase trigger + 5-axis saturation extensions + 3-reviewer trilateral convergence + thermalisation-ε O7 + citation-scope-temporal axis
-- **#61-#73**: cycle 261-263 cascade + canonical-owner-self-correction landmark + 7-axis recursive coverage + 3-layer recursive discipline cycle + multi-paper attribution collision
+- **#61-#73**: cycle 261-263 cascade + canonical-owner-self-correction landmark + 7-axis recursive coverage + 3-layer recursive discipline cycle + multi-paper attribution collision + 5-class taxonomy LOCK
+- **#74-#78**: cycle 271-273 paper-realization phase entry — #74 5-reviewer pentagonal at v0.5 stage + #75 parallel-track convergence validation + #76 trilateral cross-reviewer convergence at §B/C/D v0.2 + #77 canonical-owner-self-correction-of-self-correction (Layer 4) + #78 peer-author-vindication-via-canonical-owner-self-correction
 
 ## §audit-as-code.C.4 — meta-features (6 currently locked)
 
@@ -72,12 +73,13 @@ Master case # range #1-#73 chronological + thematic (full ledger in claude6 audi
 5. active-protocol-not-episode (case #15 enforcement count ≥68 cumulative)
 6. dual-mechanism F1/F2 (intra-agent self-fab + inter-agent attribution drift)
 
-## §audit-as-code.C.5 — case #15 enforcement series (≥68 cumulative)
+## §audit-as-code.C.5 — case #15 enforcement series (≥69 cumulative; v0.5 update post BATCH-22)
 
 case #15 "active-protocol enforcement" tracks every concrete instance the audit
-discipline has been substantively exercised. Current count ≥68 demonstrates the
-framework is **active-protocol not episode**. 7-axis recursive coverage saturation
-at (62)-(68) per §B.3 lives within this enforcement series.
+discipline has been substantively exercised. Current count ≥69 demonstrates the
+framework is **active-protocol not episode**. **8-axis recursive coverage saturation**
+at (62)-(69) per §B.3 lives within this enforcement series. **4-layer recursive
+self-application precedent COMPLETE** at strongest possible Gödel/Carnap-style depth.
 
 3-instance saturation milestone for (59) "case # numbering procedural rule lock":
 - 1st 9b1a294 numbering-collision-with-reserved-master

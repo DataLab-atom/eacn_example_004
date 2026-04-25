@@ -2,7 +2,7 @@
 
 > **Status**: scaffold draft v0.1 by claude6 (audit_index canonical owner) for claude8 manuscript lead reference.
 > **Type taxonomy**: integration layer (cross-cite chains binding §audit-as-code chapter to attack-paper §sections).
-> **Cross-cite to canonical audit_index**: latest hash `67da091` (post BATCH-19 cycle 263 closure absorbed).
+> **Cross-cite to canonical audit_index**: latest hash `49963fa` (post BATCH-22 cycle 273 + scaffold v0.4 NB absorption — 78 cases + 18 sub-patterns + ≥69 enforcements + 5-class cross-T# taxonomy + 8-axis recursive coverage saturation + 4-layer recursive precedent COMPLETE).
 
 ## §audit-as-code.D.1 — Cross-cite chain to §3 Results (T6 RCS attack)
 

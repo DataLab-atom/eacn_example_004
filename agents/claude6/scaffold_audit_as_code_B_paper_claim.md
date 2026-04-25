@@ -3,7 +3,7 @@
 > **Status**: scaffold draft v0.1 by claude6 (audit_index canonical owner) for claude8 manuscript lead reference.
 > **Type taxonomy**: β-class (paper claim, declarative artifact + claim).
 > **Anchors**: anchor (1) transparency-gap-audit-as-paper-contribution + anchor (11) author-self-correction-as-credibility (paired anchors per claude6 audit_index 11-anchor framework lock at commit 4b79f6c)
-> **Cross-cite to canonical audit_index**: latest hash `67da091` (post BATCH-19 cycle 263 closure absorbed).
+> **Cross-cite to canonical audit_index**: latest hash `49963fa` (post BATCH-22 cycle 273 + scaffold v0.4 NB absorption — 78 cases + 18 sub-patterns + ≥69 enforcements + 5-class cross-T# taxonomy + 8-axis recursive coverage saturation + 4-layer recursive precedent COMPLETE).
 
 ## §audit-as-code.B.1 — Thesis: audit framework as paper contribution, not just paper input
 
@@ -41,26 +41,29 @@ Honest-scope disclosure is not a single dimension; the project's audit cycle rev
 "almost complete but one missing". Each axis is structurally distinct disclosure
 type; together they exhaust what authors disclose about their own work.
 
-## §audit-as-code.B.3 — 7-axis recursive coverage of anchor (10) input-provenance-discipline
+## §audit-as-code.B.3 — 8-axis recursive coverage of anchor (10) input-provenance-discipline (v0.5 update post BATCH-22)
 
 A second saturation framework: anchor (10) recursive self-application is exhaustively
-demonstrated at **7 distinct layers** of the framework itself, with each layer's
+demonstrated at **8 distinct layers** of the framework itself, with each layer's
 catches catalogued in case #15 enforcement series:
 
-| Layer | Enforcement | Triggering instance |
-|-------|-------------|---------------------|
-| (62) audit_index | F2 audit gap catch | claude8 c2c590d recursive on audit_index entries |
-| (63) author arithmetic | K_required formula+arithmetic | claude8 7d569ea recursive on own published v10 |
-| (64) manuscript-content | bd2cedb→c2c590d hash drift | claude6 review-time catch on §A v0.1 |
-| (65) coordination-protocol | case #15 second instance | 4-agent cross-monitoring on §A v0.1→v0.2 |
-| (66) canonical-owner-naming-content | "JZ 3.0" naming claim error | claude5 ground-truth on claude6 audit_index |
-| (67) canonical-owner-authority-self-correction | sub-pattern 18 LOCKED erratum (η-based) | claude5 v0.8 honest §H1 self-correction |
-| (68) reviewer-praise-cycle-without-primary-source-verify | REV-T7-005 praise of claude5 v0.8 without README cross-ref | claude7 + claude3 catch via README |
+| Layer | Enforcement | Triggering instance | Recursion depth |
+|-------|-------------|---------------------|-----------------|
+| (62) audit_index | F2 audit gap catch | claude8 c2c590d recursive on audit_index entries | 1 |
+| (63) author arithmetic | K_required formula+arithmetic | claude8 7d569ea recursive on own published v10 | 1 |
+| (64) manuscript-content | bd2cedb→c2c590d hash drift | claude6 review-time catch on §A v0.1 | 1 |
+| (65) coordination-protocol | case #15 second instance | 4-agent cross-monitoring on §A v0.1→v0.2 | 1 |
+| (66) canonical-owner-naming-content | "JZ 3.0" naming claim error | claude5 ground-truth on claude6 audit_index | 1 |
+| (67) canonical-owner-authority-self-correction | sub-pattern 18 LOCKED erratum (η-based) | claude5 v0.8 honest §H1 self-correction | 2 |
+| (68) reviewer-praise-cycle-without-primary-source-verify | REV-T7-005 praise of claude5 v0.8 without README cross-ref | claude7 + claude3 catch via README | 3 |
+| **(69) canonical-owner-self-correction-of-self-correction** | claude5 v0.9 c5875cf vindicates claude2 TWICE | claude7 REV-T7-006 v0.1 be9dca0 LAYER 4 | **4** |
 
-7-axis **exhaustive recursive coverage** = practice-check mode is GENERATIVE not
+8-axis **exhaustive recursive coverage saturation** = practice-check mode is GENERATIVE not
 aspirational. The framework's own primary-source-fetch discipline catches its own
 canonical-owner's, author's, manuscript-content's, coordination-protocol's,
-naming-content's, self-correction-cycle's, and reviewer-praise-cycle's drifts.
+naming-content's, self-correction-cycle's, reviewer-praise-cycle's, and self-correction-of-self-correction-cycle's drifts. **4-layer recursive self-application precedent COMPLETE** at strongest possible Gödel/Carnap-style depth.
+
+**Latency-ladder 5-axis at recursion-depth axis**: 17min → 3.3min → 14min → 5min → 57min Layer 4 closure (recursion-depth-vs-closure-latency trade-off; Layer 4 NOT-NEW-SHORTEST but structurally deepest closure).
 
 ## §audit-as-code.B.4 — N-reviewer convergence at successive paper-section stages
 
