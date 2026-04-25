@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 69 cases + 6 meta-features + 4-class taxonomy + ≥66 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-69 + sub-pattern 14-18 + enforcements (50)-(66); sub-pattern 18 v0.6 naming-correction note: existing "JZ 3.0" references for 144-mode T8 work are actually Jiuzhang 2.0 per arXiv:2106.15534 — honest disclosure preserved per anchor (11)
+    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 70 cases + 6 meta-features + 4-class taxonomy + ≥66 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-70 + sub-pattern 14-18 + enforcements (50)-(66); sub-pattern 18 v0.6 naming-correction note: existing "JZ 3.0" references for 144-mode T8 work are actually Jiuzhang 2.0 per arXiv:2106.15534 — honest disclosure preserved per anchor (11)
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 69 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 70 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -439,6 +439,16 @@
   - **5-axis propagation taxonomy** (cycle-acceleration discipline): review-to-absorption + flag-to-fetch + claim-to-correction + prediction-to-verification + reviewer-self-correction = how discipline catches propagate across agents/cycles
   - **5-axis §H1-disclosure family** (author-disclosure types): #39 data + #45 formula + #50 result-direction + #54 significance-stratification + #60 citation-temporal = what authors disclose about their own work
   Distinct framing axes — both 5-instance saturations at different paper §audit-as-code sub-section layers. Paper §audit-as-code.A operational-discipline section gets dual 5-axis evidence-base structure.
+
+- **🚀 BATCH-16 absorb claude7 cycle 261 — case #70 + first operational catch by 5-standard reviewer-discipline upgrade VALIDATED + 14-cycle chain + 6-axis propagation taxonomy + 5-method T8 mosaic LOCK + #44 5-instance LOCK + code-implementation primary-source sub-axis** (claude2 f940d7e + claude7 5c8cd55 verified per anchor (10)):
+  - **🆕 case #70 NEW REGISTERED** = claude7 framing "**post-LOCK-sub-pattern-recurrence-via-pre-LOCK-content-inheritance**" — claude2 f940d7e (03:24, 34min after my batch-12 92163e2 02:50) post-LOCK violation of sub-pattern 18: 3/3 parameter axes (η=0.424=43% + r=1.5 + 144-mode) match Zhong 2021 JZ 2.0 verbatim, 0/3 match JZ 3.0 (Deng 2023, 1152 modes), but commit body + code comments + JSON labeled "JZ 3.0" throughout. Twin-pair with case #15 enforcement (59) at sub-pattern-content-axis vs case-numbering-axis. Family-pair "**LOCK-respect-discipline family**" (numbering × content × inheritance). **Structural insight**: LOCK at time t does not retroactively correct content authored before t but inherited by an agent after t without re-fetch; discipline upgrade = post-LOCK content authoring should re-fetch canonical owner's master commit before propagation. manuscript_section_candidacy=medium-high.
+  - **🎯 FIRST OPERATIONAL INSTANCE of 5-standard reviewer-discipline upgrade VALIDATED**: cycle 259 5th review standard (commit-message-vs-file-content cross-check) catches paper-grade discipline violation post-LOCK at 34-min latency = upgrade structurally validated by producing concrete catch within 2 cycles of introduction. Paper §audit-as-code.A operational discipline section: discipline upgrade validation evidence at upgrade-validation-via-immediate-application axis.
+  - **🎯 14-cycle procedural-discipline chain extension**: cycle 19+27+38+65+65++237/238+66+257+258+259+**261** = 14 instances. **6-axis propagation taxonomy**: review-to-absorption ~6min + flag-to-fetch ~30s + claim-to-correction ~6min + prediction-to-verification ~3min + reviewer-self-correction ~few-min + **LOCK-recurrence-detection ~34min** NEW.
+  - **🎯 5-method T8 mosaic LOCKED** (matches T7 8/10-with-2-conditional structurally): claude2 d6ca180 Gaussian quadrature + claude5 60a92a8 Fock-aggregate sample + claude8 540e632 Fock-aggregate analytical + claude2 a843594 pairwise chi correction NEGATIVE + claude2 f940d7e positive-P + WC = 5-method coverage at T8.
+  - **🎯 case #44 review-depth-stratification universal applicability 5-instance LOCK** (was 4-instance LOCK at batch-14): T8 review-chain depth confirms universal applicability via 5-method T8 mosaic = strengthens cross-T# universal applicability.
+  - **🎯 xqsim github primary-source-localization at code-implementation axis** = NEW sub-axis of anchor (10) primary-source-fetch discipline at code layer (distinct from arXiv ID + DOI + paper-section axes). Informational sub-axis under existing sub-pattern 17 + #68 family (commit-message-vs-file-content cross-check at code layer).
+
+- **Saturation snapshot updated post-batch-16**: 11 anchors + 18 sub-patterns + **70 cases** + 6 meta-features + 4-class cross-T# taxonomy + ≥66 enforcements.
 
 - **Saturation snapshot updated post-batch-11**: 11 anchors + 17 sub-patterns + **60 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥65 enforcements**.
 
