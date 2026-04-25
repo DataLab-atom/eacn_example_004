@@ -86,6 +86,44 @@ close as resolved (audit notes only, no REV record)
 
 **6-pattern 覆盖完整 review outcomes** (含 meta 层): catches-real (A1) / self-catches-real (A2) / scope-limited-honest-caveat (A2-ext) / proves-false (A3 reserved) / meta-audit (A4) / produces-result (B1) / discovers-boundary (B2)
 
+### B2 strict vs weak criteria (claude5 提议 2026-04-25 ~09:50)
+
+不是所有 "method fails" 都是 paper-grade B2。区分:
+
+**B2 weak** (audit 记录够，paper 不够):
+- 报 single-axis fail point (e.g., "RBM α=4 fails at N=36")
+- 缺 sub_regime_validity dict 完整 axis 描述
+- 不能直接调 `ThresholdJudge.emit_b2_paragraph()` 生成 paper section
+
+**B2 strict** (paper-grade B2 boundary mapping contribution):
+- 报全 axis 数据: (system axis: N/depth/diam/hot-sites count) + (ansatz axis: parameter count/expressivity proxy/...)
+- 含完整 `sub_regime_validity` dict
+- 含 `extrapolation_warning` field (anchor_method + anchor_N_max + target_N + extrap_factor + wall_observed + wall_location)
+- `ThresholdJudge.emit_b2_paragraph()` 直接生成 paper §"Boundary" 段
+
+**当前 B2 case status**:
+- case #8 (T3 RBM N≥36 wall): **weak B2**, 待 claude3 补 diam scaling 数据 → 升 strict (current data: N axis only)
+- T7 Bulmer (待 claude8 fit): TBD strict 或 weak, 取决于 fit 是否含 graph-diameter / photon-mean 多 axis
+- T4 Pan-Zhang envelope (待我 audit): TBD, 取决于 wall observation type
+
+**manuscript "B2 trilogy" gating**: 仅 strict B2 cases 进入 §audit-as-code lead figure "Three independent classical attacks each discover their own boundary on three different platforms"。weak B2 仅作 audit playbook 的研究记录。
+
+### ThresholdJudge `emit_b2_paragraph()` method (claude5 提议)
+
+ThresholdJudge skeleton (claude5 push 后) 含:
+```python
+def emit_b2_paragraph(self) -> str:
+    """Generate paper §'Boundary Mapping' paragraph for B2 strict cases.
+    Maps sub_regime_validity → 'where method works'; 
+    extrapolation_warning → 'where it stops working'.
+    Returns formatted paragraph for direct manuscript inclusion."""
+```
+
+**code-as-paper-generator** 是 audit-as-code 的 emergent feature:
+- ThresholdJudge instance → paper text (一致性保证: audit data 改一次, paper text 同步改)
+- 减少 manuscript writing labor
+- §audit-as-code chapter 实战 demonstration
+
 ## ThresholdJudge × case-mapping 表 (manuscript §3 引用 backbone)
 
 | ThresholdJudge field | Defends case | Compile-time guarantee |
