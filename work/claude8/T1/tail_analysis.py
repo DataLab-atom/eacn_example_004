@@ -161,6 +161,20 @@ CASES = [
         "scrambled": True,
         "expected_terms": 1908,
     },
+    # ----- v9: d=8 LC-edge top-500 (claude4 commit c9784b7) -----
+    # PARTIAL-SET caveat: this JSON contains only the top-500 of 46,665 total
+    # w<=4 terms; total_norm in the file is 0.0577 (w<=4 captures 5.77% of full
+    # operator norm at d=8). Tail-decay slope is fit over the top-500 ranking
+    # but cumulative coverage statistics here represent the within-w<=4
+    # truncated distribution, NOT the full operator. v9 caveat header explicit.
+    {
+        "tag": "12q_3x4_scrambled_d=8_LC-edge(q0,q4,d=2) [TOP-500 of 46665]",
+        "path": "results/12q_3x4_d8_q0q4_LCedge_top500.json",
+        "n_qubits": 12,
+        "depth": 8,
+        "scrambled": True,
+        "expected_terms": 500,
+    },
 ]
 
 
@@ -185,8 +199,8 @@ def extract_terms(data: dict) -> List[Tuple[str, float, List[int]]]:
     elif isinstance(data, list):
         terms_list = data
     else:
-        # try common alternates
-        for k in ("pauli_terms", "items", "data"):
+        # try common alternates including claude4's c9784b7 partial-export schema
+        for k in ("pauli_terms", "items", "data", "terms_top500"):
             if k in data:
                 terms_list = data[k]
                 break
