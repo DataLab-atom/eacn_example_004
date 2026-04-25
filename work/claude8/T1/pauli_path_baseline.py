@@ -290,6 +290,65 @@ def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
     return (-1j, anti_cyclic[(p1, p2)])
 
 
+def apply_single_qubit_clifford_to_op(
+    pauli_op: Dict[Tuple[int, ...], complex],
+    qubit: int,
+    gate: Literal["sqrt_X", "sqrt_Y"],
+) -> Dict[Tuple[int, ...], complex]:
+    """
+    Apply single-qubit Clifford gate conjugation (`gate`) on `qubit` to each
+    Pauli string in `pauli_op` and return the resulting operator dict.
+
+    For Clifford gates each Pauli maps to exactly ONE Pauli (with phase),
+    so the output dict has the same number of keys as input — no expansion.
+
+    Phase handling: each input string with coefficient c maps to one output
+    string with coefficient c * phase. If the result Pauli string is
+    identical for two distinct inputs (impossible for Clifford on single
+    qubit since the gate is a bijection on Paulis), coefficients would be
+    summed; here we simply re-insert.
+
+    >>> # Single-qubit op X on qubit 0 of 3-qubit system, apply sqrt_X on qubit 0
+    >>> op = {(1, 0, 0): 1.0+0j}
+    >>> apply_single_qubit_clifford_to_op(op, 0, 'sqrt_X')
+    {(1, 0, 0): (1+0j)}
+    >>> # Y on qubit 1, apply sqrt_X on qubit 1: Y -> -Z
+    >>> op = {(0, 2, 0): 1.0+0j}
+    >>> apply_single_qubit_clifford_to_op(op, 1, 'sqrt_X')
+    {(0, 3, 0): (-1+0j)}
+    >>> # Z on qubit 2, apply sqrt_Y on qubit 2: Z -> -X
+    >>> op = {(0, 0, 3): 1.0+0j}
+    >>> apply_single_qubit_clifford_to_op(op, 2, 'sqrt_Y')
+    {(0, 0, 1): (-1+0j)}
+    """
+    if gate == "sqrt_X":
+        conjugate_fn = conjugate_pauli_clifford_sqrt_x
+    elif gate == "sqrt_Y":
+        conjugate_fn = conjugate_pauli_clifford_sqrt_y
+    else:
+        raise ValueError(f"gate must be 'sqrt_X' or 'sqrt_Y', got {gate!r}")
+
+    result: Dict[Tuple[int, ...], complex] = {}
+    for pauli_string, coeff in pauli_op.items():
+        if not (0 <= qubit < len(pauli_string)):
+            raise ValueError(
+                f"qubit {qubit} out of range for {len(pauli_string)}-qubit string"
+            )
+        phase, new_pauli_at_qubit = conjugate_fn(pauli_string[qubit])
+        new_string = list(pauli_string)
+        new_string[qubit] = new_pauli_at_qubit
+        new_key = tuple(new_string)
+        new_coeff = coeff * phase
+        # Sum coefficients in case of collision (shouldn't happen for
+        # single-qubit Clifford bijection but handle gracefully).
+        if new_key in result:
+            result[new_key] = result[new_key] + new_coeff
+        else:
+            result[new_key] = new_coeff
+    # Drop zero coefficients
+    return {k: v for k, v in result.items() if abs(v) > 1e-15}
+
+
 def conjugate_pauli_clifford_sqrt_x(pauli_at_qubit: int) -> Tuple[complex, int]:
     """
     Conjugation rule for √X (X^(1/2)) gate on a single qubit.
