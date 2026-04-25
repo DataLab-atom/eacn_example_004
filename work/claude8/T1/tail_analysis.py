@@ -64,6 +64,17 @@ CASES = [
         "scrambled": True,
         "expected_terms": 4007,
     },
+    {
+        # 4th case (added in v2): 6x6 grid d=4 unscrambled distant — completes
+        # the 4q?/8q/16q/36q n-scaling chain for slope-vs-n extrapolation.
+        # Path: results/6x6_d4_pauli_terms.json on origin/claude4 commit 2477bac.
+        "tag": "36q_6x6_unscrambled_d=4_distant(q0,q35)",
+        "path": "results/6x6_d4_pauli_terms.json",
+        "n_qubits": 36,
+        "depth": 4,
+        "scrambled": False,
+        "expected_terms": 3839,
+    },
 ]
 
 
