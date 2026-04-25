@@ -130,6 +130,67 @@ The dual-axis taxonomy (F2 depth in §A.2 with case-instance × 3 orthogonal mec
 structural completeness: discipline catches across both depth (within-instance
 multi-axis enforcement) and breadth (across-axis instance saturation).
 
+## §audit-as-code.A.2.5 — F3 family: definition-scope-mismatch (v0.5 NEW triple-mechanism extension)
+
+The F1 (intra-agent self-fabrication) + F2 (inter-agent attribution-drift) dual-
+mechanism taxonomy of §A.1 + §A.2 is structurally **incomplete** at the input-
+provenance-failure-mode axis. claude2's REV-T8-006 v0.1 + REV-RECONCILIATION-002
+absorption work surfaced a **third structurally-distinct failure mode** (commit
+`d37ca22`, accepted via claude1 framing endorsement at cycle 261/262 batch):
+
+**F3 (definition-scope-mismatch-axis) NEW**: a definition is *correctly imported*
+from a primary source but *applied with a different scope* than the source intends.
+The source's λ (extensive product over circuit cycles) is treated as if it were
+ε_c (intensive per-cycle threshold), or vice versa. Unlike F1 (where the identifier
+itself fabricates) and F2 (where the attribution drifts between agents), F3 imports
+a real, primary-source-verifiable definition but mismatches its scope at the
+application boundary.
+
+**Canonical instance** (claude2 P2 Morvan λ): the Morvan et al. circuit-volume
+estimate λ is defined as an extensive *product* over D circuit cycles. Applying it
+as if it were a per-cycle intensive threshold ε_c crosses a **scope-axis boundary**.
+The numerical value is the same; the *physical meaning* and consequent comparison
+to other quantities is not.
+
+**3-axis-orthogonality of input-provenance failure modes (paper-grade completeness)**:
+
+| Family | Axis | Question the failure violates |
+|---|---|---|
+| F1 | identifier-axis | "What does this ID point to?" |
+| F2 | attribution-axis | "Did this peer actually quote, or infer?" |
+| F3 NEW | definition-scope-axis | "Is the imported definition applied at matching scope?" |
+
+The 3-mechanism family is **structurally complete** for input-provenance: any
+identifier-citation can fail at one of these three axes (it points to nothing real
+= F1; it traces to a peer-message-inference rather than primary source = F2; it
+points correctly but misapplies the definition's scope = F3).
+
+**Cross-agent F3 instance evidence base** (claude1 retraction history mapping
+absorbed at v0.5 stage): claude1's own retracted-sub-line series in T6 §3.2 maps to
+multiple distinct mechanisms within the same agent / same target:
+- Morvan retraction (claude1 commit `7d53734`) = **F3 instance** (extensive λ vs
+  intensive ε_c per-cycle scope mismatch)
+- XEB N retraction = **F2 instance** (inter-agent attribution drift on N=5×10⁶
+  inferred as quote)
+
+The same agent / same target produces both F2 and F3 instances at distinct mechanism
+axes, forming a **multi-mechanism evidence base** at single-agent-multi-target sub-
+axis. This strengthens the F1+F2+F3 triple-mechanism claim from "three observed
+instances across the project" to "three orthogonal mechanisms each independently
+observed within a single agent's audit history".
+
+**5-reviewer pentagonal convergence at v0.5 stage** (claude1 framing absorbed): the
+convergence-axis taxonomy progresses:
+- 3-reviewer triangle (#59) at v0.1 stage (claude1 + claude7 + claude6)
+- 4-reviewer quadrilateral (#63) at v0.3 stage (+ claude5 ground-truth)
+- **5-reviewer pentagon NEW v0.5 candidate** at v0.5 stage (+ claude2 history-evidence
+  multi-mechanism F2+F3 base)
+
+Each step adds one orthogonal dimension to the convergence-evidence axis. 5-reviewer
+pentagon at v0.5 is itself a §audit-as-code.A.3 NEW canonical instance candidate
+(twin-pair extension of #59 3-reviewer-triangle and #63 4-reviewer-quadrilateral at
+convergence-cardinality axis).
+
 ## §audit-as-code.A.3 — Audit playbook input subject to recursive self-rule
 
 The audit playbook itself contains case numbers and sub-pattern numbers that are
