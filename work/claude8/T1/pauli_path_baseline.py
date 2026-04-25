@@ -385,6 +385,52 @@ def conjugate_pauli_iswap(p_qubit1: int, p_qubit2: int) -> Tuple[complex, int, i
     return table[(p_qubit1, p_qubit2)]
 
 
+def apply_sqrt_w_to_op(
+    pauli_op: Dict[Tuple[int, ...], complex],
+    qubit: int,
+) -> Dict[Tuple[int, ...], complex]:
+    """
+    Apply W^(1/2) non-Clifford gate conjugation on `qubit` to each Pauli string
+    in `pauli_op` and return the resulting operator dict.
+
+    UNLIKE Clifford composers, W^(1/2) maps each Pauli to a SUM of Paulis
+    (multi-entry expansion), so a single input string with coefficient c
+    produces multiple output strings each with coefficient c * c_i (where
+    c_i are the W^(1/2) expansion coefficients). The output dict typically
+    has MORE entries than input, and entries from different input strings
+    can collide on the same output string — coefficients are summed.
+
+    >>> # I@q0 -> I@q0 (single entry preserved)
+    >>> apply_sqrt_w_to_op({(0, 0): 1.0+0j}, 0)
+    {(0, 0): (1+0j)}
+    >>> # X@q0 expands to X/2 + Y/2 + Z/sqrt(2) on q0
+    >>> result = apply_sqrt_w_to_op({(1, 0): 1.0+0j}, 0)
+    >>> sorted(result.keys())  # 3 entries
+    [(1, 0), (2, 0), (3, 0)]
+    >>> abs(result[(1, 0)] - 0.5) < 1e-10  # X coefficient
+    True
+    >>> abs(result[(3, 0)] - 0.7071067811865476) < 1e-10  # Z coefficient
+    True
+    """
+    result: Dict[Tuple[int, ...], complex] = {}
+    for pauli_string, coeff in pauli_op.items():
+        n = len(pauli_string)
+        if not (0 <= qubit < n):
+            raise ValueError(f"qubit {qubit} out of range for {n}-qubit string")
+        expansion = conjugate_pauli_sqrt_w(pauli_string[qubit])
+        for new_pauli_at_qubit, expansion_coeff in expansion.items():
+            new_string = list(pauli_string)
+            new_string[qubit] = new_pauli_at_qubit
+            new_key = tuple(new_string)
+            new_coeff = coeff * expansion_coeff
+            if new_key in result:
+                result[new_key] = result[new_key] + new_coeff
+            else:
+                result[new_key] = new_coeff
+    # Drop zero coefficients
+    return {k: v for k, v in result.items() if abs(v) > 1e-15}
+
+
 def apply_iswap_to_op(
     pauli_op: Dict[Tuple[int, ...], complex],
     qubit_a: int,
