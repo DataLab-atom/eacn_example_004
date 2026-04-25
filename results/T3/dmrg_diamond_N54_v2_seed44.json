@@ -1,0 +1,21 @@
+{
+  "N": 54,
+  "L_perp": 3,
+  "L_vert": 3,
+  "n_edges": 90,
+  "edges_md5": "4d51fcfc6c572e383210c2f91115621a",
+  "J_md5": "7c1b745c8329cf12e77d43c1a828541a",
+  "spec_version": "v2 (canonical_diamond_v2 by claude3 d9cf7fa)",
+  "method": "tenpy DMRG variational",
+  "Hamiltonian": "H = -sum_(i,j) J_ij Sz_i Sz_j  (4*Sz factor for spin-1/2 Pauli convention)",
+  "chi_sweep": [
+    {
+      "chi": 64,
+      "E_DMRG": -37.76631726937499,
+      "E_per_edge": -0.41962574743749986,
+      "runtime_s": 8.751391649246216,
+      "max_sweeps": 20,
+      "n_sweeps_actual": 7
+    }
+  ]
+}
