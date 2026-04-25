@@ -200,12 +200,45 @@ def figure_Pext_anti_monotonic_N72():
     )
 
 
+def figure_E3_robustness_scan():
+    """E3 robustness scan: 8 perturbations of alpha=16 N=48 J=43 BREAK regime."""
+    p = json.loads((RESULTS / "T3_v2_robustness_E3_alpha16_N48_J43.json").read_text())
+    rows = []
+    for r in p["perturbations"]:
+        rows.append([
+            r["label"],
+            f"{r['lr']:.4f}",
+            r["n_samples"],
+            f"{r['E_final']:.4f}",
+            f"{r['rel_err']*100:.3f}",
+            r["verdict"],
+            f"{r['wall_s']:.1f}",
+        ])
+    write_csv(
+        OUT / "figure_E3_robustness_scan.csv",
+        ["perturbation", "lr", "n_samples", "E_final",
+         "rel_err_pct", "verdict", "wall_seconds"],
+        rows,
+        comments=[
+            "Source Data for §E3 robustness scan (Fig 5 / Table S4)",
+            "alpha=16 N=48 J=43 BREAK regime, 8 hyperparameter perturbations",
+            "Outcome: 2/8 BREAK preserved (lr_-10%, lr_+10%) — only narrow lr window",
+            "BASELINE itself FAILs at +11.327% rel_err, indicating BREAK verdict",
+            "is sensitive to stochastic variability of the Adam-no-SR optimiser.",
+            "This RESULT SUPPORTS the method-class intrinsic-limit ridge framing:",
+            "the BREAK regime is empirically narrow and fragile, not a robust",
+            "capacity-extending discovery. Source: T3_v2_robustness_E3_*.json",
+        ],
+    )
+
+
 if __name__ == "__main__":
     figure_main_table_N_decay()
     figure_P1_alpha16_N48()
     figure_P2_alpha16_N54()
     figure_P3_alpha16_N72()
     figure_Pext_anti_monotonic_N72()
+    figure_E3_robustness_scan()
     print(f"Source Data exported to {OUT}")
     for p in sorted(OUT.glob("*.csv")):
         print(f"  {p.relative_to(ROOT)}")

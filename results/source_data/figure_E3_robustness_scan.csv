@@ -1,0 +1,17 @@
+# Source Data for §E3 robustness scan (Fig 5 / Table S4)
+# alpha=16 N=48 J=43 BREAK regime, 8 hyperparameter perturbations
+# Outcome: 2/8 BREAK preserved (lr_-10%, lr_+10%) — only narrow lr window
+# BASELINE itself FAILs at +11.327% rel_err, indicating BREAK verdict
+# is sensitive to stochastic variability of the Adam-no-SR optimiser.
+# This RESULT SUPPORTS the method-class intrinsic-limit ridge framing:
+# the BREAK regime is empirically narrow and fragile, not a robust
+# capacity-extending discovery. Source: T3_v2_robustness_E3_*.json
+perturbation,lr,n_samples,E_final,rel_err_pct,verdict,wall_seconds
+baseline,0.0100,2048,-25.9631,11.327,FAIL,487.4
+lr_-50%,0.0050,2048,-26.2108,10.481,FAIL,469.7
+lr_-10%,0.0090,2048,-27.4287,6.322,BREAK,480.9
+lr_+10%,0.0110,2048,-27.5191,6.013,BREAK,481.6
+lr_+50%,0.0150,2048,-26.4388,9.703,FAIL,475.1
+n_samples_-50%,0.0100,1024,-25.5426,12.764,FAIL,243.5
+n_samples_+50%,0.0100,3072,-25.1274,14.182,FAIL,706.9
+n_samples_+100%,0.0100,4096,-26.4815,9.557,FAIL,939.1

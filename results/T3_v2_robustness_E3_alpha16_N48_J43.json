@@ -1,0 +1,95 @@
+{
+  "scan": "E3 robustness \u2014 alpha=16 N=48 J=43 BREAK regime",
+  "DMRG_truth": -29.279701,
+  "baseline_P1_rel_err": 0.06394928,
+  "alpha": 16,
+  "N": 48,
+  "J_seed": 43,
+  "n_iter": 250,
+  "perturbations": [
+    {
+      "lr": 0.01,
+      "n_samples": 2048,
+      "n_iter": 250,
+      "E_final": -25.96308093622974,
+      "rel_err": 0.1132736998841026,
+      "verdict": "FAIL",
+      "wall_s": 487.4066605567932,
+      "label": "baseline"
+    },
+    {
+      "lr": 0.005,
+      "n_samples": 2048,
+      "n_iter": 250,
+      "E_final": -26.21084461549707,
+      "rel_err": 0.10481173918076996,
+      "verdict": "FAIL",
+      "wall_s": 469.732861995697,
+      "label": "lr_-50%"
+    },
+    {
+      "lr": 0.009,
+      "n_samples": 2048,
+      "n_iter": 250,
+      "E_final": -27.428735161020533,
+      "rel_err": 0.06321669196620094,
+      "verdict": "BREAK",
+      "wall_s": 480.93652844429016,
+      "label": "lr_-10%"
+    },
+    {
+      "lr": 0.011,
+      "n_samples": 2048,
+      "n_iter": 250,
+      "E_final": -27.519066937162396,
+      "rel_err": 0.060131558817407435,
+      "verdict": "BREAK",
+      "wall_s": 481.5528039932251,
+      "label": "lr_+10%"
+    },
+    {
+      "lr": 0.015,
+      "n_samples": 2048,
+      "n_iter": 250,
+      "E_final": -26.438769081097913,
+      "rel_err": 0.09702735416943248,
+      "verdict": "FAIL",
+      "wall_s": 475.11824464797974,
+      "label": "lr_+50%"
+    },
+    {
+      "lr": 0.01,
+      "n_samples": 1024,
+      "n_iter": 250,
+      "E_final": -25.542558617830224,
+      "rel_err": 0.1276359475860008,
+      "verdict": "FAIL",
+      "wall_s": 243.45493578910828,
+      "label": "n_samples_-50%"
+    },
+    {
+      "lr": 0.01,
+      "n_samples": 3072,
+      "n_iter": 250,
+      "E_final": -25.127352938359877,
+      "rel_err": 0.14181661423523834,
+      "verdict": "FAIL",
+      "wall_s": 706.8800773620605,
+      "label": "n_samples_+50%"
+    },
+    {
+      "lr": 0.01,
+      "n_samples": 4096,
+      "n_iter": 250,
+      "E_final": -26.481476948226042,
+      "rel_err": 0.09556873725499987,
+      "verdict": "FAIL",
+      "wall_s": 939.1372344493866,
+      "label": "n_samples_+100%"
+    }
+  ],
+  "n_break_under_perturbation": 2,
+  "n_total": 8,
+  "robust": false,
+  "AGENTS_E3_compliance": "FAIL"
+}
