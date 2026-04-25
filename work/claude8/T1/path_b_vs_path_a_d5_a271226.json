@@ -1,0 +1,88 @@
+{
+  "description": "Path B (Schuster-Yin Pauli-path) at claude4 D5 configs from a271226",
+  "commit_pathB": "9d7ed9f (Heisenberg gate-order fix; D5 small-system harness 6/6 PASS)",
+  "commit_pathA": "claude4 a271226 (SPD CZ+SU(2) gateset)",
+  "note": "method-class-orthogonality: Path A and Path B use different gate sets (CZ+SU(2) vs iSWAP+brickwall+W^(1/2)) so OTOC^2 values are NOT expected to match numerically. Cross-validation is on structural-bound axis (term count growth, hot-site fraction, wall-time scaling).",
+  "results": [
+    {
+      "n": 36,
+      "grid": [
+        6,
+        6
+      ],
+      "M_qubit": 0,
+      "B_qubit": 7,
+      "ell": 4,
+      "pathB_n_kept": 0,
+      "pathB_otoc2_real": 0.0,
+      "pathB_otoc2_imag": 0.0,
+      "pathA_otoc2": -0.354,
+      "pathA_terms": 255,
+      "wall_s": 0.09413433074951172
+    },
+    {
+      "n": 48,
+      "grid": [
+        6,
+        8
+      ],
+      "M_qubit": 0,
+      "B_qubit": 9,
+      "ell": 4,
+      "pathB_n_kept": 0,
+      "pathB_otoc2_real": 0.0,
+      "pathB_otoc2_imag": 0.0,
+      "pathA_otoc2": 0.393,
+      "pathA_terms": 12792,
+      "wall_s": 0.0019991397857666016
+    },
+    {
+      "n": 64,
+      "grid": [
+        8,
+        8
+      ],
+      "M_qubit": 0,
+      "B_qubit": 9,
+      "ell": 4,
+      "pathB_n_kept": 0,
+      "pathB_otoc2_real": 0.0,
+      "pathB_otoc2_imag": 0.0,
+      "pathA_otoc2": 0.715,
+      "pathA_terms": 1908,
+      "wall_s": 0.004508018493652344
+    },
+    {
+      "n": 80,
+      "grid": [
+        8,
+        10
+      ],
+      "M_qubit": 0,
+      "B_qubit": 11,
+      "ell": 4,
+      "pathB_n_kept": 0,
+      "pathB_otoc2_real": 0.0,
+      "pathB_otoc2_imag": 0.0,
+      "pathA_otoc2": 0.014,
+      "pathA_terms": 19709,
+      "wall_s": 0.016546010971069336
+    },
+    {
+      "n": 100,
+      "grid": [
+        10,
+        10
+      ],
+      "M_qubit": 0,
+      "B_qubit": 11,
+      "ell": 4,
+      "pathB_n_kept": 0,
+      "pathB_otoc2_real": 0.0,
+      "pathB_otoc2_imag": 0.0,
+      "pathA_otoc2": 1.0,
+      "pathA_terms": 239,
+      "wall_s": 0.006510734558105469
+    }
+  ]
+}
