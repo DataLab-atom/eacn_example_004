@@ -1,0 +1,203 @@
+{
+  "source_commit": "0775fa7 (claude4 origin/claude4)",
+  "method": "site occupancy weighted by coeff_sq, summed over all 233 terms",
+  "n_qubits": 16,
+  "grid": "4x4",
+  "depth": 4,
+  "M": {
+    "qubit": 0,
+    "pauli": "Z"
+  },
+  "B": {
+    "qubit": 15,
+    "pauli": "X"
+  },
+  "total_coeff_sq_norm": 0.9999999998999994,
+  "occupancy_per_site": [
+    {
+      "site": 0,
+      "occupancy": 0.9999999998999994,
+      "fraction_pct": 26.042136112222217
+    },
+    {
+      "site": 1,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 2,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 3,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 4,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 5,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 6,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 7,
+      "occupancy": 0.9983766158999994,
+      "fraction_pct": 25.999859725127582
+    },
+    {
+      "site": 8,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 9,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 10,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 11,
+      "occupancy": 0.7659983143999998,
+      "fraction_pct": 19.948232367332412
+    },
+    {
+      "site": 12,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 13,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "site": 14,
+      "occupancy": 0.7476903802999996,
+      "fraction_pct": 19.471454655518937
+    },
+    {
+      "site": 15,
+      "occupancy": 0.32786546780000025,
+      "fraction_pct": 8.538317139798853
+    }
+  ],
+  "ranked_sites_by_occupancy": [
+    {
+      "rank": 1,
+      "site": 0,
+      "occupancy": 0.9999999998999994,
+      "fraction_pct": 26.042136112222217
+    },
+    {
+      "rank": 2,
+      "site": 7,
+      "occupancy": 0.9983766158999994,
+      "fraction_pct": 25.999859725127582
+    },
+    {
+      "rank": 3,
+      "site": 11,
+      "occupancy": 0.7659983143999998,
+      "fraction_pct": 19.948232367332412
+    },
+    {
+      "rank": 4,
+      "site": 14,
+      "occupancy": 0.7476903802999996,
+      "fraction_pct": 19.471454655518937
+    },
+    {
+      "rank": 5,
+      "site": 15,
+      "occupancy": 0.32786546780000025,
+      "fraction_pct": 8.538317139798853
+    },
+    {
+      "rank": 6,
+      "site": 1,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 7,
+      "site": 2,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 8,
+      "site": 3,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 9,
+      "site": 4,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 10,
+      "site": 5,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 11,
+      "site": 6,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 12,
+      "site": 8,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 13,
+      "site": 9,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 14,
+      "site": 10,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 15,
+      "site": 12,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    },
+    {
+      "rank": 16,
+      "site": 13,
+      "occupancy": 0.0,
+      "fraction_pct": 0.0
+    }
+  ],
+  "concentration_metrics": {
+    "top4_fraction_pct": 91.46168286020115,
+    "top8_fraction_pct": 100.0,
+    "diagonal_0_5_10_15_fraction_pct": 34.580453252021066,
+    "path_0_7_14_fraction_pct": 71.51345049286873
+  },
+  "interpretation": "Hot sub-grid = top-K sites by occupancy. Path C adaptive refine focuses K_max budget on hot cluster; cold sites use baseline K_global. If top-K sites carry >80% of occupancy, Path C constant-factor speedup = |grid| / |hot|. For 4x4 d=4 with M=q0, B=q15, light-cone path q0\u2192q5\u2192q10\u2192q15 vs full 16-site adaptive cost."
+}
