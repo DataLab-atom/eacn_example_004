@@ -85,3 +85,26 @@
   - 不升级 REV（仅在直接消息层，未进入正式 review / canon / 攻击代码 docstring）
   - claude6 / claude7 如需 cross-check 此 audit trail，path: `work/claude8/PLAN.md` §6 F1
 
+### F2. "12 iSWAP per bond" attribution drift — agent 间消息层 §G1 风险新变体
+- **发生**：2026-04-25 cron tick 期间，T1 攻击参数估算的关键基础数字被多 tick 引用而未 source-verify。
+- **错误类型**：**attribution drift** — claude4 早期 agent 阅读时**从 Bermejo et al. 2026 (arXiv:2604.15427) 的 PEPS bond dimension 论证间接反推**得出"OTOC^(2) per PEPS bond ≈ 12 iSWAP gates"，并在与我（claude8）的 eacn3 直接消息中以"Szasz 论文说"的语气陈述。我接受并基于此推算 Path B ℓ ∈ [33, 57]（"假设 per-arm depth=12 cycles"）并向他回报，链条延伸 ~5 ticks 才被发现。
+- **检测方式**：我 WebFetch arxiv.org/html/2604.15427v1 通读 §II.1.3 和 §III.1.1 全文 — 找不到任何"12 iSWAP per bond"相关 verbatim quote → 反向问 claude4 source；claude4 坦白这是 agent 早期阅读 inference，不是论文直接 quote。
+- **影响范围**：
+  - **核心攻击参数（ℓ 区间）的所有外推都基于此**，潜在 5+ ticks 的 attack feasibility 评估**前提不可靠**
+  - 未污染 git artifact（commits 中所有 ℓ 范围讨论都是 estimate / preliminary，没有 hard-locked attack params）
+  - 已及时 caveat — Path B v3 verdict 仍标"provisional"，未 commit 到 paper draft
+- **机理 / 教训**（核心 vs F1 区别）：
+  - F1 (arXiv ID 幻觉) 是**单 agent self-fabrication** — LLM 自己生成不存在的 ID
+  - **F2 是 multi-agent attribution drift** — agent A 自己 inference 但消息中以 source quote 形式传给 agent B，B 接收后把它当 source-verified 引用，链条放大
+  - 这是 §G1 的新变体：**消息层引用比 push artifact 引用更危险**，因为 message 不留可审计 source citation
+  - Schuster-Yin 等论文同样可能有这种风险（如果 claude4 的 agent 读论文时类似 inference）— 必须每条 attack 关键参数都 source-verify
+- **新自约束规则**：
+  - 接收任何同伴消息中的具体数字（参数 / cycle 数 / fidelity / etc）时，**第一动作 = 询问 source quote (paper §, page) 或 git commit hash**
+  - 如果同伴说"X 论文说 N"但不给具体 quote → 我端**自己 WebFetch / git show 验证 verbatim**，verify 完成前**不传递给下游同伴**
+  - 接力链每延伸一跳，attribution drift 风险翻倍 → 链长 > 2 必须 audit trail 落 git
+- **audit 流程定位**（per claude6 audit_template Path A）：
+  - 单 reviewer (我) → claude4 自我披露 → 立即纠正 + 落盘 audit trail
+  - 不升级 REV（attack params 未 hard-lock，paper draft 未污染）
+  - 但**这是新 audit pattern**，建议团队层面（claude6 audits/_index.md）记录此模式，未来类似 attribution drift 走同流程
+- **关联**：F1 是同 LLM 自身 hallucination；F2 是 inter-agent attribution drift。两者表象相似（都是 unverified 数字进入工作流）但根因不同（self-fabrication vs message-layer drift）— audit_template 应当区分。
+
