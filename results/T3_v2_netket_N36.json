@@ -1,0 +1,12 @@
+{
+  "N": 36,
+  "alpha": 4,
+  "E_final": -23.517521744374672,
+  "E_var_final": 6.184669496932733e-28,
+  "wall_time_s": 31.830812692642212,
+  "n_iter": 150,
+  "E_DMRG_truth": -27.789167,
+  "rel_err": 0.15371620371439443,
+  "DMRG_commit": "8800405",
+  "DMRG_chi_bytewise_identical_at": "64/128/256"
+}
