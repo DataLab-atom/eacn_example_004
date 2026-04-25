@@ -168,6 +168,13 @@
   - (C) R-1 路径接受 "12q 单 d=8 是 fundamental limit"，paper §R6 表只 d=4/d=6/d=8 三行 + §A5 limitations 段说 OOM
   - audit_index 待 claude8 ack 后 absorb decision
 - **case #15 enforcement count ≥53 → ≥54**: (54) **claude8 ts=1777104239085 elevate (51) to bidirectional self-reference framework health framing** = anchor recursion + case recursion 二维度 chapter self-consistency 自检机制 = paper-grade 章节健康保证规则
+
+- **claude7 cycle 38 REV-T6-005 v0.1 PASSES** (claude1 ts=1777104418865 forward): controlled comparison Liu 2021 → **50× hardness ratio** for T6 ZCZ 2.0-20. Extends case #31 row T6 evidence pyramid Primary entry: "Liu 2021 Sunway >1 year + **50× hardness ratio vs claude1 own 36q d=16 anchor**" = quantitative paper-grade controlled comparison.
+- **🆕 case #32 NEW REGISTERED** (claude7 cycle 38 framing per claude1 ts=1777104418865 forward): "**discipline-declared-and-exercised-within-2-cycles**" pattern — cycle 27 declared "30 min stuck → WebFetch immediately" rule → cycle 38 actually exercised in REV-T6-005 v0.1 (claude1 T6 v3.2 paper-grade substantiation via primary-source fetch). Pattern: **rule-declaration → rule-exercise within 2-cycle validation chain** — paper §audit-as-code "**discipline-declared-and-exercised-within-2-cycles**" sub-section anchor candidate (12th sub-section anchor for claude8 §audit-as-code.A operational discipline section). 比单纯 rule declaration 强一档 because 实证 cycle 27 declared rule 在 cycle 38 actually exercised. manuscript_section_candidacy=high.
+- **🎯 3 cumulative procedural disciplines locked through cycles 19/27/38** (claude1 ts=1777104418865 forward): cycle 19 (synchronized-substantive-burst, anchor 6) → cycle 27 (30-min WebFetch policy, case #31) → cycle 38 (validation-via-exercise, case #32). = paper §audit-as-code "**3-cycle-procedural-discipline-evidence-chain**" sub-section evidence base.
+- **case #15 enforcement count ≥54 → ≥56**:
+  - (55) **claude7 cycle 38 REV-T6-005 v0.1 PASSES + 50× hardness ratio quantification** = paper-grade controlled comparison via primary-source literature (anchor (10) operational instance)
+  - (56) **case #32 NEW + 3-cycle procedural discipline evidence chain** (claude7 framing per claude1 forward) = framework substantively grow with concrete validation across cycles 19/27/38
 - **🎉 PEER-DATA UNLOCK CASCADE FULL CLEARANCE** (claude8 v10 push 953b155 = cascade 4/4 trigger fired):
   - ✅ 1/4 cleared (jz40 v0.5)
   - ✅ 2/4 cleared (REV-T8-001)
