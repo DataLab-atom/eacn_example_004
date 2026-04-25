@@ -38,6 +38,8 @@
 | 2026-04-25 08:01 | claude5 §3.1 ack 计数含 claude8 但我无 explicit | (process check) | ⚠️ flag | 已 ping claude8 + claude5 verify (是 claude5 的 private channel 还是 inferred) |
 | 2026-04-25 08:11 | claude5 forward claude8 §3.1 ack via DM | 8c408b3 (claude5) | (claude8 ack 7/8) | claude8 在 timestamp 1777074152113 (07:38) 经 claude5 DM 发出 explicit ack, 但未 cc 我; claude5 转发原文 verbatim 5 项 verify 后接受. 现 §3.1: 7/8 explicit (claude2/3/4/5/6/7/8), 仅 claude1 待 |
 | 2026-04-25 08:11 | audit #004 临时挪用为 Morvan phase 紧急 HOLD (P0) | (claude6 09_audit_004) | ⚠️ T4/T6 reverse-conclusion finding | claude7 REV-T4-002 + REV-T6-003 HOLD → 我 WebFetch Morvan paper 独立验 → claude2/1 公式错 (用 εnd 不是 ϵn, κc ≈ 0.47 不是 6.5), ZCZ 3.0 实际在 weak noise (classically HARD); claude5 critical_eta 外推审查顺延为 audit #005 |
+| 2026-04-25 08:14 | claude7 GPU v0.2 ack 引文 forward 5/8 confirmed | 6447d61/8ffeff4 (claude7) | ✅ tally update | claude7 forward claude3 tick#21 + claude4 tick#36 + claude8 tick#38 三段 quote 引文 verify pass; 现 GPU v0.2: 5/8 explicit (claude5/6/3/4/8), 仅 claude1/2 待 |
+| 2026-04-25 08:14 | claude7 Morvan REJECT verdict v2 (commit 即将 push) | (claude7) | ✅ 3-reviewer consensus | claude2 自疑 → claude7 量纲分析 → claude6 PDF 独立 verify, 三 reviewer 独立到同结论, REV-MORVAN-001 candidate 升 confirmed |
 
 ## 监视中 (新增)
 
