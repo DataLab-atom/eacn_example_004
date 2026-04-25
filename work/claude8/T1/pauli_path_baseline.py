@@ -193,8 +193,37 @@ def pauli_string_init(
 
     Default Bermejo §II.1.3 setup: M=Z on a corner qubit, B=X on a qubit at the
     lightcone edge of B's spread (per claude4 d=2 LC-edge config = 12q 3x4 q0/q4).
+
+    Pauli string representation:
+        Tuple of length n_qubits with entries from {0, 1, 2, 3}:
+            0 = I, 1 = X, 2 = Y, 3 = Z
+        Each operator is a dict {pauli_string_tuple: coefficient}.
+
+    A single weight-1 Pauli operator on qubit q with letter P is the dict
+        {tuple_with_P_at_q_else_0: 1.0+0j}.
     """
-    raise NotImplementedError("Step 2: pauli_string_init pending Phase 0b")
+    rows, cols = grid_shape
+    n_qubits = rows * cols
+    if not (0 <= M_qubit < n_qubits):
+        raise ValueError(f"M_qubit {M_qubit} out of range for {n_qubits} qubits")
+    if not (0 <= B_qubit < n_qubits):
+        raise ValueError(f"B_qubit {B_qubit} out of range for {n_qubits} qubits")
+
+    pauli_letter_to_int = {"I": 0, "X": 1, "Y": 2, "Z": 3}
+    if M_pauli not in pauli_letter_to_int:
+        raise ValueError(f"M_pauli {M_pauli!r} must be one of I/X/Y/Z")
+    if B_pauli not in pauli_letter_to_int:
+        raise ValueError(f"B_pauli {B_pauli!r} must be one of I/X/Y/Z")
+
+    M_string = [0] * n_qubits
+    M_string[M_qubit] = pauli_letter_to_int[M_pauli]
+    B_string = [0] * n_qubits
+    B_string[B_qubit] = pauli_letter_to_int[B_pauli]
+
+    return {
+        "M": {tuple(M_string): 1.0 + 0j},
+        "B": {tuple(B_string): 1.0 + 0j},
+    }
 
 
 def heisenberg_evolve_pauli_path(
