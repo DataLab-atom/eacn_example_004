@@ -1,0 +1,8 @@
+{
+  "fixed": {
+    "error": "The index _a80d15AAACU appears more than twice! If this is intentionally a 'hyper' tensor network you will need to explicitly supply `output_inds` when contracting for example."
+  },
+  "random": {
+    "error": "math domain error"
+  }
+}

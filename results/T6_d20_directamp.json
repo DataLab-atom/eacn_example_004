@@ -1,0 +1,36 @@
+[
+  {
+    "n": 15,
+    "nrows": 3,
+    "ncols": 5,
+    "d": 20,
+    "time_s": 4.516536474227905,
+    "prob": 5.934945384670357e-06,
+    "method": "circ.amplitude(greedy)"
+  },
+  {
+    "n": 16,
+    "d": 20,
+    "error": "Unable to allocate 4.00 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2"
+  },
+  {
+    "n": 18,
+    "d": 20,
+    "error": "Unable to allocate 8.00 GiB for an array with shape (8, 16384, 4096) and data type complex128"
+  },
+  {
+    "n": 20,
+    "d": 20,
+    "error": "Unable to allocate 8.00 GiB for an array with shape (16, 32768, 1024) and data type complex128"
+  },
+  {
+    "n": 22,
+    "d": 20,
+    "error": "Unable to allocate 64.0 GiB for an array with shape (512, 16384, 512) and data type complex128"
+  },
+  {
+    "n": 25,
+    "d": 20,
+    "error": "Unable to allocate 256. GiB for an array with shape (32, 131072, 4096) and data type complex128"
+  }
+]

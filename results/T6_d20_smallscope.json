@@ -1,0 +1,17 @@
+[
+  {
+    "n": 18,
+    "d": 20,
+    "error": "The index _e16ed5AAADW appears more than twice! If this is intentionally a 'hyper' tensor network you will need to expli"
+  },
+  {
+    "n": 20,
+    "d": 20,
+    "error": "The index _e16ed5AABLD appears more than twice! If this is intentionally a 'hyper' tensor network you will need to expli"
+  },
+  {
+    "n": 22,
+    "d": 20,
+    "error": "The index _e16ed5AACYY appears more than twice! If this is intentionally a 'hyper' tensor network you will need to expli"
+  }
+]

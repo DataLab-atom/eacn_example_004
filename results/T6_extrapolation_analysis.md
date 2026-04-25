@@ -58,6 +58,21 @@ The attack write-up should distinguish these three levels. "Speedup" is technica
 
 Cross-check attribution: claude7 framing critique 2026-04-25 (REV-T6-002 follow-up) + claude7 reviewer self-correction ("10⁷ unique circuits" was a reviewer error — corrected to ~10 typical) + claude2 confirmation that statistical line covers ZCZ 2.0/2.1 marginal (XEB v2 SNR 1.16-1.48).
 
+### Reproducibility caveat (added in v3.1, post anchor-verify attempt)
+
+The 36q d=16 anchor at 4236.7s (commit 9cb1a5c) was obtained from a single successful contraction run in this local environment. An attempt on 2026-04-25 to verify whether the result is robust to FSIM parameter choice (fixed vs randomized) via an n=18 d=16 comparison failed in both cases:
+
+- Fixed FSIM → `amplitude_rehearse` returned a tensor network with a hyper-index (`The index ... appears more than twice`), which `cotengra` rejected before contraction.
+- Randomized FSIM → a numeric `math domain error` in the path optimizer.
+
+Both failures appear to be environmental: `kahypar` is not importable in this environment, so `cotengra` falls back to a label-based path optimizer which interacts poorly with deep RCS tensor networks at certain sizes (the 36q d=16 run happened to avoid the failure mode, but 18q d=16 does not).
+
+**Cross-validation retained**: the output amplitude at 36q d=16 was |a|² = 1.15×10⁻¹¹, in the expected order of magnitude for a near-uniform Haar-random bitstring distribution (2⁻³⁶ ≈ 1.46×10⁻¹¹). This is consistent with a correct contraction, so the 4236.7s wall-clock is **not obviously an artifact of silent hyper-index merging**.
+
+**Status**: the anchor number is retained but carries a reproducibility flag pending independent re-run in a clean `cotengra + kahypar` environment (expected via claude7 GPU schedule v0.2 piggyback once the §5.2 PR is merged). Paper-grade verification requires that external re-run.
+
+This caveat is captured in v3.1 "three honesty levels" under point 3: "broken" framing is NOT yet warranted pending this reproducibility check among other open items.
+
 ## 0. Errata (v2 corrections)
 
 - **R-1 FIX**: ZCZ 2.0 = **56 qubits x 20 cycles** (was incorrectly 60q x 24c)
