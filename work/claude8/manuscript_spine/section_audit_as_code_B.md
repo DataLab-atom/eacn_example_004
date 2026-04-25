@@ -76,9 +76,14 @@ The project's review cycle produced concrete trilateral convergence at v0.1 stag
 | v0.3 | quadrilateral (case #63) | + claude5 ground-truth |
 | v0.4 | quadrilateral UNCONDITIONAL PASSES | composite 4-reviewer state |
 | cycle 259 | 5-source bidirectional ack convergence (informational) | + claude8 author |
+| **v0.5 stage NEW** | **5-reviewer pentagonal (twin-pair extension of #59/#63 at convergence-cardinality axis)** | claude7 + claude6 + claude1 + claude5 + **claude2** (history-evidence multi-mechanism F2+F3 base) |
 
 Stronger than dual-method cross-validation (case #48) — N-reviewer convergence is at
-**reviewer-perspective axis** rather than estimator-class axis.
+**reviewer-perspective axis** rather than estimator-class axis. **5-reviewer pentagonal
+convergence at v0.5 stage** adds the convergence-cardinality axis as orthogonal
+saturation dimension: each successive paper-section stage adds one new reviewer
+perspective providing structurally-distinct evidence (claude2 multi-mechanism F2+F3
+within-single-agent-multi-target evidence base = paper-grade structural completeness).
 
 ## §audit-as-code.B.5 — Framework-validates-itself meta-loop family
 
@@ -92,10 +97,12 @@ as paper meta-paragraph:
 validates itself across **multi-agent coordination, cascade-closure, reviewer-
 integration-merge, and chapter-content-defining-its-own-discipline** layers.
 
-## §audit-as-code.B.6 — 5-standard reviewer-discipline framework (post cycle 259 upgrade)
+## §audit-as-code.B.6 — 5-standard → 6-standard reviewer-discipline framework (post cycle 259 + cycle 263 upgrades)
 
 Reviewer discipline upgraded from canonical 4-standard to 5-standard via cycle 259
-reviewer-self-correction:
+reviewer-self-correction, with a **6-standard candidate** introduced at cycle 263 via
+the multi-paper-same-author-self-attribution-collision discovery (claude3 README cross-
+reference catch chain):
 
 1. Three-layer-verdict (canonical)
 2. Morvan-trap-checklist (canonical)
@@ -103,20 +110,42 @@ reviewer-self-correction:
 4. Paper-self-significance (canonical)
 5. **Commit-message-vs-file-content cross-check** (NEW cycle 259, validated at
    ZERO-drift first operational use in REV-AUDIT-A-001 v0.4)
+6. **README-cross-reference catch + quantitative-anchor cross-validation candidate**
+   (NEW cycle 263 — pending claude6 batch-19/20 LOCK on case #73 reviewer-praise-
+   cycle-without-primary-source-verify) — addresses 3rd-recursive-layer review
+   pattern where reviewer-praise on a canonical-owner-self-correction can itself
+   inherit unverified content via the praise mechanism without a primary-source
+   re-fetch on the LOCKED claim. Anchor (10) extension proposal: "primary-source-
+   fetch on LOCKED content + target-specific quantitative anchor cross-validation"
+   (per claude3 framing absorbed at cycle 263)
 
 5-standard upgrade VALIDATED at zero-drift threshold + producing concrete catch
 within 2 cycles of introduction (case #70 post-LOCK violation catch by 5th standard).
+6-standard candidate validated at ~5min latency catch (claude3 README catch chain on
+claude7 REV-T7-005 v0.1 praise of claude5 v0.8 erratum without independent verify
+on PRL 134 existence; resulting in claude7 REV-T7-005 v0.1.1 erratum `2527da7` +
+claude4 PRL 134 final fix `8d436e5` + claude5 sub-pattern 18 2nd-erratum forthcoming).
+
+The latency-ladder progressive-acceleration trajectory across the 4-cycle 259→261→
+262→263 chain (17→3.3→14→5min) provides empirical evidence for the **maturity-vs-
+difficulty trade-off at recursion-depth axis**: the 2nd and 4th catches are faster
+than the 1st and 3rd, suggesting depth-of-recursion vs problem-difficulty interact
+non-linearly at the catcher-layer. This is itself a falsifiable empirical claim for
+future cycle data — paper §audit-as-code.B prediction-horizon for 6-standard
+candidate validation across additional cycles.
 
 ## Cross-cites to other chapters
 
-- §audit-as-code.A: thesis verbatim source + 5-axis §H1 + 7-axis recursive coverage
-- §audit-as-code.C: 18 sub-patterns + 73 cases (γ-type observed patterns)
-- §audit-as-code.D: cross-cite chains to §3 Results + §6 Discussion + §M Methods + §A5 Limitations
+- §audit-as-code.A v0.5 (claude8 commit `38b4483`): thesis verbatim source + 5-axis §H1 saturation + 7-axis recursive coverage (62)-(68) + 12-axis propagation taxonomy + 4-layer self-correction grid + 3-layer recursive discipline cycle EXEMPLARY landmark + F1+F2+F3 triple-mechanism (§A.2.5) + multi-paper-same-author-self-attribution-collision sub-pattern (§A.6).
+- §audit-as-code.C v0.1 (claude8 commit `d50220a` absorbed from claude6 6feb785): 18 sub-patterns + ≥73 cases (γ-type observed patterns) + 4-class cross-T# taxonomy + case #15 enforcement series with 3-instance saturation milestone.
+- §audit-as-code.D v0.1 (claude8 commit `d50220a`): cross-cite chains to §3 Results (claude1 §3 RCS T6 v0.1.1 `2578548`) + §6 Discussion (claude4 v0.5 `3259e79` + v0.6 `2f2492f` + Goodman disclosure) + §M Methods (Hill 1975 + Hall 1990 references for Step 4 dual-method-orthogonal-estimator) + §A5 Limitations (claude4 §A5.4 `69f91ff` JZ Oh canonical + `8d436e5` PRL 134 final).
 
 ## Status and next steps
 
-- v0.1 scaffold (this commit, claude6 pre-draft for claude8 manuscript lead reference).
-- v0.2 expansion pending claude8 manuscript-lead absorb decision; claude8 may take this
-  scaffold verbatim or restructure per chapter spine integration plan.
-- Post-paper-realization-phase: §B/C/D drafts triple-converge at composite N-reviewer
-  state for paper-grade publication readiness.
+- **v0.2 draft (in progress)**: this update extends v0.1 scaffold (claude6 6feb785) with §B.4 5-reviewer pentagonal convergence at v0.5 stage + §B.6 6-standard candidate (cycle 263 README cross-reference catch axis) + cross-cite chain extended to v0.5 absorption (claude8 §A 38b4483 + d50220a §B/C/D v0.1 + claude4 + claude1 + claude5 + claude7 commit hashes).
+- **v0.1 history**: claude6 pre-draft scaffold absorbed verbatim by claude8 manuscript-lead at commit `d50220a` per "continuous-advance mode" user directive.
+- **v0.3+ expansion plan** (claude8 manuscript-lead, parallel with §C/§D v0.2 extensions):
+  - §B.5 framework-validates-itself meta-loop family — extend from 4-instance (#34+#46+#52+#55) to 5-instance with cycle 261 canonical-owner-LOCK catch chain + cycle 263 reviewer-praise-cycle catch chain (cases #69 family extension)
+  - §B.7 NEW sub-section: cross-paper extension proof points (T1 SPD + T7 GBS + T8 hafnian + T6 RCS) demonstrating universal applicability beyond single-attack domain
+  - §B.4 cardinality-axis extension: 5-reviewer pentagon → 6-reviewer hexagon candidate at v0.6 stage if claude3 ground-truth reviewer perspective integrates as 6th
+- **Post-paper-realization-phase**: §B/C/D drafts triple-converge at composite N-reviewer state for paper-grade publication readiness.
