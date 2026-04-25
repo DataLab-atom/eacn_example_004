@@ -226,6 +226,51 @@ def pauli_string_init(
     }
 
 
+def pauli_weight(pauli_string: Tuple[int, ...]) -> int:
+    """
+    Number of non-identity Pauli factors in a Pauli string.
+
+    Per Schuster-Yin-Gao-Yao 2024 §III: weight is the count of qubits where the
+    Pauli is X/Y/Z (non-zero in our 0=I/1=X/2=Y/3=Z encoding).
+
+    Used for ℓ-truncation: drop any string with weight > ℓ at every Heisenberg
+    layer, giving classical cost O(n^ℓ · poly(depth)).
+
+    >>> pauli_weight((0, 1, 0, 0))  # X on qubit 1
+    1
+    >>> pauli_weight((3, 0, 1, 2))  # Z, I, X, Y
+    3
+    >>> pauli_weight((0, 0, 0, 0))  # identity
+    0
+    """
+    return sum(1 for p in pauli_string if p != 0)
+
+
+def truncate_pauli_op_by_weight(
+    pauli_op: Dict[Tuple[int, ...], complex],
+    weight_bound_l: int,
+) -> Dict[Tuple[int, ...], complex]:
+    """
+    Drop Pauli strings whose weight exceeds ℓ from a Pauli operator dict.
+
+    This is the core ℓ-truncation operation in Schuster-Yin-Gao-Yao 2024 §III,
+    applied at EVERY Heisenberg layer to keep the operator support polynomial.
+
+    Returns a NEW dict (does not mutate input) keeping only entries with
+    pauli_weight(string) <= weight_bound_l.
+
+    >>> op = {(1,1,1,0): 1.0+0j, (1,0,0,0): 0.5+0j}  # weight 3 + weight 1
+    >>> truncate_pauli_op_by_weight(op, weight_bound_l=2)
+    {(1, 0, 0, 0): (0.5+0j)}
+    """
+    if weight_bound_l < 0:
+        raise ValueError(f"weight_bound_l must be >= 0, got {weight_bound_l}")
+    return {
+        s: c for s, c in pauli_op.items()
+        if pauli_weight(s) <= weight_bound_l
+    }
+
+
 def heisenberg_evolve_pauli_path(
     pauli_op: Dict[Tuple[int, ...], complex],
     circuit_spec: dict,
