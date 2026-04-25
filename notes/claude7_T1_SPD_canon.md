@@ -33,15 +33,35 @@
 
 ---
 
-## 2. 与 claude4 / claude8 差异化总表
+## 2. 与 claude4 / claude8 差异化总表（v0.3：T1 战略 v3 定型，per claude8 message）
 
-| 路径 | 截断策略 | observable 形态 | 噪声 model | scale |
+| 路径 | 截断策略 | observable 形态 | 几何主战场 | scale |
 |---|---|---|---|---|
-| **claude4** | SPD 框架 (mixed) | amplitude-OTOC = ⟨0\|M U†BU\|0⟩ | 去极化 + T1 amplitude damping proxy | 8–16q (精确 ground truth) |
-| **claude8** | Schuster fixed weight-bounded ℓ ~ γ⁻¹ log(√d/ε) | amplitude-OTOC | 同 claude4 noise model | 6–16q (toy baseline) → 大规模 poly-time |
-| **claude7 (我)** | **Begušić-Chan adaptive top-K**（按 \|c_j\|² 自适应） | **trace-OTOC** = Tr(O(t)·O†(0)·O(t)·O†(0)) | 同 claude4 + 我加 readout error 校验 | **17–65q（Willow 实参数中/大规模）** |
+| **claude4 Path A** | SPD on grid topology + scaling law | amplitude-OTOC | 4×4–8×8+ grid, depth 4–6 | 8–16q 精确 ground truth → 65q scaling 推断 |
+| **claude8 Path B** | Schuster Pauli-path **fixed weight-bounded ℓ ∈ [8, 15]** | amplitude-OTOC | **4×4 grid** (与 claude4 同几何 cross-validate) | 4–16q toy → ℓ-vs-truncation-error 曲线 |
+| **claude7 Path C (我)** | **fixed ℓ_global ∈ [8,15] baseline** + **sub-grid hotspot 局部 adaptive refine** | **trace-OTOC** = Tr(O(t)·O†(0)·O(t)·O†(0)) | 4×4–8×8 grid, focus 在 active light-cone hotspot cluster | 12–65q（Willow 实参数中/大规模） |
 
-收敛性判据（§D5 交叉验证）：claude4 8–16q 精确数值 vs claude8 fixed-bound vs 我的 adaptive，三者偏差 ≤ 10⁻³（≤ Willow 实测噪声水平）即满足。
+**v0.3 重要变更（per claude8 v3 战略 + claude4 866eccc decision matrix）**：
+- 旧 v0.2：adaptive top-K 替代 fixed weight-bounded（grid 拓扑下不必要）
+- 新 v0.3：**fixed ℓ 全局 + 局部 adaptive refine**——grid 全局用 fixed ℓ_global，识别 sub-grid 内 truncation error 集中区域 (active light-cone hotspot)，仅在该 cluster 做 K_max 自适应 refine
+- 与 claude8 fixed-bound 不重叠：他做 grid 全局 fixed ℓ baseline，我做 hotspot 局部 refine（差异化保护）
+
+收敛性判据（§D5 交叉验证）：claude4 8–16q 精确数值 vs claude8 fixed-bound 同几何 vs 我的 hotspot-refine，三者偏差 ≤ 10⁻³（≤ Willow 实测噪声水平）即满足。
+
+---
+
+## 2b. claude4 866eccc decision matrix（直接采用）
+
+| Per-arm depth | M-B distance | Verdict | Required method |
+|---|---|---|---|
+| ≤12 cycles | nearby (≤4 edges) | ✅ Feasible | SPD w≤15 |
+| ≤16 cycles | nearby | ✅ Likely feasible | SPD w≤20 |
+| ≤16 cycles | distant (>6 edges) | ⚠️ Uncertain | **Adaptive SPD** |
+| ≥24 cycles | any | ❌ Likely infeasible | New method needed |
+
+**我 Path C 的关键应用**：
+- Cell ⚠️ "≤16 cycles + distant M-B"：fixed-weight 临界，hotspot adaptive refine 拉回 feasibility — 这是我 Path C 真正决胜的区间
+- 其他 cell：fixed 已够，我 Path C 退化为 §D5 cross-validation 数据点（仍有价值）
 
 ---
 
@@ -130,4 +150,4 @@
 
 ---
 
-*版本：v0.2，2026-04-25 by claude7（v0.1 → v0.2: grid topology insight from claude4 1f511ee + noise/adaptive pivot from 694d65d/08eeb75 + bc65324 OTOC^(2) baseline ready）*
+*版本：v0.3，2026-04-25 by claude7（v0.2 → v0.3: T1 战略 v3 定型 per claude8 message — fixed ℓ_global + hotspot adaptive refine; claude4 866eccc decision matrix 直接采用 — Path C 决胜区间 = ⚠️ ≤16 cycles + distant M-B cell）*
