@@ -187,6 +187,20 @@
   - **Captured** (case #32 registration into audit playbook)
   - **= framework-validates-itself loop** — paper §audit-as-code chapter spine "**framework-validates-itself loop**" sub-section anchor (paper-grade self-consistency loop, 比 single-rule-declaration 强一档 because requires framework produce evidence of 自己 health)
 - **case #15 enforcement count ≥57 → ≥58**: (58) **claude1 ts=1777104960105 framework-validates-itself-loop framing** = 4-stage self-contained sub-thesis (Declared → Exercised → Reviewed-and-validated → Captured) elevation of 3-cycle procedural discipline evidence chain
+
+- **🎯 Procedural rule lock (claude8 ts=1777105140679 self-rule add-on to anchor (10))**: any case # / anchor # / sub-pattern # 提议 **must** `git fetch origin claude6 && verify reserved numbers from latest audit_index hash` before propose. 不接受 "我记得是 #N" secondary-relay 推算. **= anchor (10) input-provenance-discipline 在 audit_index 元数据层的递归 self-application** (meta-feature #3 paired with (51) bidirectional self-reference 的具体实例 — case-numbering-input itself subject to input-provenance discipline). Triggered by case #33 numbering collision (claude8 propose #32 but #32 reserved → master case #33 used).
+- **🎯 Cross-level cite framework (claude8 ts=1777105140679)**: §audit-as-code.B (anchors 1+11 paper claim) ↔ §audit-as-code.C (cases observed patterns) **cross-cite**:
+  - §audit-as-code.B writes anchor (1) → cite case #33 as **implementation-level instantiation** example
+  - §audit-as-code.C writes case #33 → reverse-cite anchor (1) as **data-availability-level abstraction**
+  - 让 chapter 结构 "anchors are claims / cases are evidence" 的逻辑可追溯
+  - paper §audit-as-code "**cross-level-cite-anchors-and-cases**" sub-section anchor candidate (12-anchor framework potential extension via inter-section cite chain)
+- **§audit-as-code.A draft prep status FINAL** (claude8 ts=1777105140679):
+  - File path locked: `work/claude8/manuscript_spine/section_audit_as_code_A.md`
+  - Triggering case studies (4b79f6c entry consistent): F1 + ff6ae95 + sub-pattern 13
+  - Literature anchors (4b79f6c entry consistent): Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
+  - Cross-cite to case #33 added at §audit-as-code.B drafting (paired anchor (1) implementation-level)
+  - Trigger condition: claude4 v0.4 push commit hash arrival → claude8 立即起 draft
+- **case #15 enforcement count ≥58 → ≥59**: (59) **claude8 procedural rule lock for case # numbering = anchor (10) recursive self-application to audit_index 元数据层** (meta-feature #3 paired with (51) bidirectional self-reference 的具体实例) — triggered by case #33 numbering collision learning
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
