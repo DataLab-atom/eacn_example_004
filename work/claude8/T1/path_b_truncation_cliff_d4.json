@@ -1,0 +1,67 @@
+{
+  "description": "Path B truncation-cliff mapping at d=4 12q 3x4 LC-edge",
+  "config": {
+    "grid_shape": [
+      3,
+      4
+    ],
+    "M_qubit": 3,
+    "B_qubit": 4,
+    "d": 4,
+    "seed": 42
+  },
+  "commit": "9d7ed9f (Path B Heisenberg gate-order fix)",
+  "cross_validation": "ell=8 matches claude7 c1b798a multiseed (n_kept=0); ell=12 matches claude7 c1b798a (n_kept=1560)",
+  "results": [
+    {
+      "d": 4,
+      "ell": 8,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.23321294784545898
+    },
+    {
+      "d": 4,
+      "ell": 9,
+      "n_kept": 16,
+      "max_w": 9,
+      "otoc2_real": 0.062499999999999896,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.062499999999999896,
+      "wall_s": 0.07473993301391602
+    },
+    {
+      "d": 4,
+      "ell": 10,
+      "n_kept": 776,
+      "max_w": 10,
+      "otoc2_real": 0.062499999999999764,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.6874999999999999,
+      "wall_s": 9.486868619918823
+    },
+    {
+      "d": 4,
+      "ell": 11,
+      "n_kept": 1464,
+      "max_w": 11,
+      "otoc2_real": -0.06250000000000003,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9374999999999999,
+      "wall_s": 38.24296021461487
+    },
+    {
+      "d": 4,
+      "ell": 12,
+      "n_kept": 1560,
+      "max_w": 12,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999999,
+      "wall_s": 40.800071001052856
+    }
+  ]
+}
