@@ -112,20 +112,31 @@ the relevant paper does not explicitly verify." This is the §H1 standard.
 
 ---
 
-## Appendix A: d_transition sensitivity table (M-B placement reconcile)
+## Appendix A: d_transition sensitivity table (M-B placement reconcile) — v0.2 simplified
+
+> v0.2 revision per claude7 REV-T1-004 M-1: dropped the "boundary placement
+> ≈ 0.7 × diameter" row from v0.1 — the 0.7 factor was a casual interpolation
+> between center=0.5 and corner=1.0, NOT a derived physical model. Sycamore
+> hexagonal grids would give different mid-values. v0.2 keeps only the two
+> physically-grounded extremes.
 
 claude7 (Path C) computed empirical butterfly velocity v_B ≈ 0.65 from
 12q d=4/6/8 phase-transition fit. claude4 (Path A) and claude8 (Path B)
 initially had different d_transition extrapolations; reconcile via
-M-B placement geometry (claude4 message 2026-04-25 +89min):
+M-B placement geometry (claude4 reconcile message 2026-04-25):
 
 **Formula**: d_transition × v_B = R_required (in lattice units)
 
 | Scenario | M, B placement | R_required (relative to grid_diameter) | d_transition (Willow 65q, diam ≈ 14) |
 |---|---|---:|---:|
-| **center placement** (claude7) | M at edge of B's lightcone, B near grid center | diameter/2 ≈ 7 | **11** |
-| boundary placement | both M, B near grid edge | ≈ 0.7 × diameter ≈ 10 | ≈ 15 |
+| **center placement** (claude7, Google-applicable) | M at edge of B's lightcone, B near grid center per Bermejo §II.1.3 | diameter/2 ≈ 7 | **11** |
 | **corner placement** (claude8 conservative) | both M, B at grid corners | full diameter ≈ 14 | **21** |
+
+(Boundary placement intermediate: physically ambiguous since "M, B both
+on edge but not corner" gives Manhattan distance ranging from ≈ diameter/2
+to ≈ diameter depending on whether they sit on adjacent or opposite edges.
+For paper §A5 sensitivity reporting, this row is skipped in favor of the
+clean extremes.)
 
 **Google's actual choice** per Bermejo §II.1.3 verbatim quote:
 > "we therefore choose M to be near the edge of the physical lightcone of B, where we observe a maximum signal size"
@@ -140,6 +151,36 @@ This implies maximum-signal regime, which is the lightcone-edge ≈ R_required =
 This is a **borderline configuration**: just past the screening regime
 boundary, but not deeply in the phase-transition regime where Path B
 fixed-weight cost truly explodes.
+
+---
+
+## Appendix B': 9-cell d_real × d_transition double sensitivity matrix (per claude7 REV-T1-004 M-2)
+
+claude7 M-2 (paper-grade): per-arm d=12 itself is Bermejo PEPS bond inference
+(F2 audit attribution drift), not verbatim quote. Conservative band
+d_real ∈ {10, 12, 14} compounds with d_transition extreme band {11, 21}.
+9-cell matrix exposes the joint sensitivity:
+
+| | d_trans=11 (center, Google-applicable) | d_trans=15 (intermediate; not robust per A1) | d_trans=21 (corner, conservative) |
+|---:|---:|---:|---:|
+| d_real=10 | screening (margin -1) ✓ | screening (margin -5) ✓ | screening (margin -11) ✓ |
+| **d_real=12 (Bermejo inference)** | **borderline (+1, Path B feasible w/ ℓ=12)** | screening (margin -3) ✓ | screening (margin -9) ✓ |
+| d_real=14 | post-trans (+3, Path B INFEASIBLE → Path C only) | borderline (+1, Path B w/ ℓ=12) | screening (margin -7) ✓ |
+
+**Best case** (d_real=10, d_trans=21): comfortable feasible, ℓ=8 sufficient.
+**Worst case** (d_real=14, d_trans=11): post-transition by 3 steps, Path B
+fixed-weight cost ≥ O(65^14) ≈ 10^25 → INFEASIBLE → must pivot to Path C
+(claude7 adaptive top-K).
+**Most-likely case** (d_real=12, d_trans=11): borderline +1 step, the
+"current §A5 framing" target.
+
+**Implications for paper §A5 wording**:
+- Single-band conditional ("d_transition=11") is over-confident: ignores
+  d_real uncertainty
+- Single-band conditional ("d_transition=21") is over-conservative:
+  ignores Google's actual M-B placement choice
+- **9-cell matrix sensitivity** = §H1 honest scope, no over- or under-
+  claim on either axis
 
 ---
 
