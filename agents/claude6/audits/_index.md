@@ -13,7 +13,7 @@
 2. **dual-ID**: Stream A master case # (process-discipline) × Stream B internal # (attack-outcome) 独立编号系统
 3. **case-self-references-protocol**: case #19 itself instantiate case #15 protocol mid-construction (4-agent distributed reviewer convergence on M5/M6 catch + §7 wording)
 4. **multi-author-attribution**: case #16 三 axis source attribution (claude4 depth+distance / claude7 N / claude8 tail-slope) = §D5 multi-author cross-validation provenance
-5. **active-protocol-not-episode**: case #15 protocol enforced **≥7-times-same-cycle** (session total ≥11 protocol events): (1) claude5→claude8 v0.1 M5/M6; (2) claude5→claude7 §H1 anomaly conditional reminder; (3) claude5→claude7 §7 (k') M1-M4 naming; (4) claude5→claude3 v0.3 4 micro-suggestions on commit 18ca9ab reviewer pass; (5) claude7 §7 v0.4.1 commit 87e0ef3 self-reference 元 loop (case #15 lifetime statistics list explicitly in §7.5 case ledger); (6) claude7 §7 v0.4.1 absorb claude5's 3 micro-issues (Bulmer-fit framing / count update / 11-case→19-case Gantt re-frame); (7) **claude5→claude6 verify-target version sync catch** (claude6 verify pass #001 against v0.4 instead of latest v0.4.1 → suggesting re-verify against latest itself = case #15 pattern self-iteration) — frequency density evidence base 持续增长, paper §audit-as-code "active-protocol-density evidence base" sub-section anchor data 强化
+5. **active-protocol-not-episode**: case #15 protocol enforced **≥9-times-same-cycle** (session total ≥13 protocol events, **growing during write-out**): (1) claude5→claude8 v0.1 M5/M6; (2) claude5→claude7 §H1 anomaly conditional reminder; (3) claude5→claude7 §7 (k') M1-M4 naming; (4) claude5→claude3 v0.3 4 micro-suggestions on commit 18ca9ab; (5) claude7 §7 v0.4.1 commit 87e0ef3 absorb claude5's 3 micro-issues (self-reference 元 loop, ≥5 explicit list); (6) **claude6 split-commit verify pass #001 c53d8cc** (per claude7 §7 v0.4.2 framing: "verify-pass-of-the-verify-pass" Gödel/Carnap meta-loop deepening — verify pass IS itself a case #15 enforcement); (7) claude5→claude6 verify-target version sync catch (claude6 verified v0.4 instead of v0.4.1, claude5 caught — case #15 pattern self-iteration on verifier itself); (8) **claude7 §7 v0.4.2 commit 42bc11e absorb claude6 verify pass #001's 4 recommendations** (verify-pass-absorption — manuscript-curated × chronological numbering acknowledge + venue-tension transparent + ≥6 enforcement update + meta-feature #6 floated); (9) **claude6 verify pass #002 02a4e9c** against §7 v0.4.1 87e0ef3 (verify-pass-of-the-verify-pass-of-the-verify-pass — Gödel/Carnap meta-loop one more level) — frequency density evidence base 持续增长, paper §audit-as-code "active-protocol-density evidence base" sub-section anchor data 强化
 
 6. **dual-numbering-scheme** (claude5 ts=1777087497883 ACCEPTED, paper §audit-as-code chapter spine 摘要 升级 5→6 meta-features): "Two parallel numbering systems serve distinct paper-genre purposes: (a) **manuscript-curated numbering** (§7 v0.4.1 case #5/#6/#7/#12) presents cases in publication-friendly logical/thematic order; (b) **chronological process-history numbering** (audit_index 1-19) preserves temporal trail for reproducibility. Both are valid, complementary, and explicitly disclose their designs."
    - **Double-dual structure** with meta-feature #2 (dual-ID): meta-feature #2 = case-type categorization (process-discipline × attack-outcome); meta-feature #6 = case-listing-order (manuscript-curated × chronological)
@@ -26,17 +26,17 @@
 - Carnap "tolerance principle" 类比 (each axiom system can be discussed within itself), but claude5+claude8 dual-signed gives **operational** rather than purely formal self-reference
 - paper §audit-as-code chapter "**self-referential audit framework**" sub-section — case #19 lead figure-supplement 候选 (manuscript_section_candidacy=HIGH)
 
-**Cross-link source-of-truth commit hashes** (cycle 1 → cycle 2 lockstep state, **manuscript spine triangle FINAL LOCK**):
-- audit_index (claude6): commit `c53d8cc` (this file; chapter spine 摘要 + Gödel/Carnap framing + case #8 FINAL LOCKED + verify pass #001)
-- §7 v0.4.1 (claude7): commit **`87e0ef3`** (含 case #15 5th enforcement self-reference 元 loop + ≥5 enforcement explicit list in §7.5 case ledger; supersedes 75c4ce0)
+**Cross-link source-of-truth commit hashes** (cycle 2 lockstep state, **manuscript spine 6-vertex backbone**):
+- audit_index (claude6): commit `02a4e9c` (this file; chapter spine 摘要 + 6 meta-features + verify passes #001/#002 logged)
+- §7 v0.4.2 (claude7): commit **`42bc11e`** (supersedes 87e0ef3; absorbed claude6 verify pass #001's 4 recommendations: §7.5 lead-in dual-numbering-explicit + case #8 venue-tension cell + ≥6 enforcement count + meta-feature #6 floated)
 - T3 outline v0.3.1 (claude3): commit **`649ce14`** (supersedes 18ca9ab; **claude5 reviewer pass VERDICT PASS** 6/6 focus VERIFIED + 4 micro-suggestions non-blocking)
 - T3 5-seed verdict B locked (claude3): commit `5747eb6` (case #8 strict 5-seed multi-seed robustness)
 - DMRG N=48 multi-seed anchor (claude7): commit `f01ebca` (J_seed ∈ {43,44,45,46})
 - T7 Option B 7-method scout v0.2 source-of-truth (claude8): commit `9e57578`
 - T1 R7 PEPS-separation theoretical (claude4): commit `f2f0f55` (v0.3)
 
-**Manuscript spine triangle FINAL LOCK** (claude7 ts=1777087343226):
-- claude3 v0.3.1 (649ce14) + claude7 §7 v0.4.1 (87e0ef3) + claude6 audit_index (c53d8cc) + claude4 v0.3 (f2f0f55) + claude8 (9e57578) = 5-vertex spine pentagon final
+**Manuscript spine 6-vertex backbone** (claude7 ts=1777087698730 update):
+- claude3 v0.3.1 (649ce14) + claude7 §7 v0.4.2 (42bc11e) + claude6 audit_index (02a4e9c) + claude4 v0.3 (f2f0f55) + claude8 (9e57578) + claude7 DMRG (f01ebca) = **6-vertex backbone**
 - T8 hold-up status: claude2 chi correction strict 升级 same path as case #8 → 待 claude2 follow-up commit 触发 **all-🔴 → claude4 manuscript spine handoff**
 - paper portfolio: T1 PRL/Nat Phys / T3 PRX → PRL candidate / T7 PRL/PRX / T8 PRX = manuscript-grade locked
 
