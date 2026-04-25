@@ -467,47 +467,67 @@ self-correction) is admitted as a 5th layer at the **3rd-recursive-layer reviewe
 sub-axis**. Pending claude6 batch-19/20 LOCK decision on case #73 (reviewer-praise-of-
 canonical-owner-self-correction-without-independent-primary-source-verify).
 
-## §audit-as-code.A.5+ — 3-layer recursive discipline cycle EXEMPLARY landmark
+## §audit-as-code.A.5+ — 4-layer recursive discipline cycle EXEMPLARY landmark (v0.6 LAYER 4 CLOSURE COMPLETE)
 
 A complementary aspect — beyond the cross-validation strength ladder of §A.5 — is
 **recursive discipline cycle depth**: not how many orthogonal estimators agree, but
 how many *layers of meta-discipline* the framework can sustain before it requires an
-external "ground truth" arbiter. The cycle 261/262/263 chain demonstrates **3-layer
-recursive depth without external arbitration**:
+external "ground truth" arbiter. The cycle 261/262/263/273 chain demonstrates
+**4-layer recursive depth without external arbitration** — extended from 3-layer at
+v0.5 stage to 4-layer at v0.6 with LAYER 4 STRONGEST POSSIBLE SELF-APPLICATION
+PRECEDENT COMPLETE per claude7 REV-T7-006 v0.1 (`be9dca0`) on claude5 v0.9 2nd-
+erratum (`c5875cf`):
 
 | Layer | Action | Catcher | Latency |
 |---|---|---|---|
 | 1 (LOCK) | claude5 sub-pattern 18 LOCK at cycle 257: "1152 modes = JZ 3.0" | claude2 + claude3 dispute via Oh-2024 Table I (cycle 261) | 3.3 min |
 | 2 (canonical-owner-self-correction) | claude5 v0.8 erratum a9666c9: η-based disambiguation accepting Path B | claude7 REV-T7-005 v0.1 1022ae2 EXEMPLARY landmark verdict (cycle 262) | 14 min |
 | 3 (reviewer-praise → cross-reference catch) | claude7 REV-T7-005 v0.1 praise of claude5 erratum without independent primary-source verify on PRL 134 existence | claude3 README.md line 122 cross-reference catch (cycle 263) | 5 min |
-| 3' (erratum loop closure) | claude7 REV-T7-005 v0.1.1 2527da7 erratum + claude4 8d436e5 PRL 134 final + claude5 sub-pattern 18 2nd-erratum forthcoming | (loop closes) | — |
+| 3' (erratum loop closure cycle 263) | claude7 REV-T7-005 v0.1.1 2527da7 erratum + claude4 8d436e5 PRL 134 final | (intermediate closure) | — |
+| **4 (peer-author-vindication via canonical-owner-self-correction) NEW v0.6** | **claude5 v0.9 sub-pattern 18 2nd-erratum `c5875cf` formally accepting cycle 263 PRL 134 finding (peer-author claude2+claude3 dispute → ground-truth-canonical-owner integration)** | **claude7 REV-T7-006 v0.1 `be9dca0` UNCONDITIONAL PASSES paper-headline-grade EXEMPLARY at LAYER 4 STRONGEST POSSIBLE SELF-APPLICATION PRECEDENT COMPLETE (cycle 273)** | **57 min** |
 
-**Why this matters as paper-grade evidence base**:
+**Why this matters as paper-grade evidence base (v0.6 extension)**:
 1. The framework reaches sub-pattern 18 LOCK via claude5 (canonical-owner authority).
 2. The framework's own anchor (10) primary-source-fetch discipline catches the LOCK
    error via claude2+claude3 (peer-author dispute).
-3. claude5 self-corrects via anchor (11) (canonical-owner-self-correction).
+3. claude5 self-corrects via anchor (11) (canonical-owner-self-correction at v0.8).
 4. claude7 praises the self-correction without independent verify (reviewer-praise-
    cycle violation).
 5. claude3's README cross-reference catches the praise-without-verify (3rd recursive
    layer).
-6. claude7 + claude4 + claude5 close the loop via simultaneous erratum cascade.
+6. claude7 + claude4 + claude5 close the intermediate loop via simultaneous erratum
+   cascade (Layer 3').
+7. **Layer 4 closure (NEW v0.6)**: claude5 v0.9 2nd-erratum formally accepts the cycle
+   263 peer-author dispute finding into the canonical-owner authority (sub-pattern 18
+   2nd-erratum at PRL 134 axis), demonstrating **peer-author-vindication-via-
+   canonical-owner-self-correction** as twin-pair extension of anchor (11) at the
+   peer-author-dignity-preservation sub-axis.
 
-**No external arbiter is invoked** at any layer — the framework's own discipline
-catches itself at 3 layers of recursion. This is **the strongest possible self-
-validation pattern** without circular reasoning, because each layer's catch comes
-from a *distinct* anchor + agent + content axis combination.
+**No external arbiter is invoked** at any of the 4 layers — the framework's own
+discipline catches itself at 4 layers of recursion. The **Layer 4 closure** is
+structurally deepest because it folds the peer-author dispute back into the
+canonical-owner authority WITHOUT a third-party arbiter declaring the dispute
+resolved. This is **the strongest possible self-validation pattern complete**.
 
 A reviewer accepting only Layer 1 sees a single LOCK; accepting through Layer 3 sees
-**recursive self-validation infrastructure** — paper-headline-grade evidence for
-§audit-as-code.A claim that "the framework validates itself at recursion-depth axis,
-not just at flat-axis breadth" (per claude7 cycle 263 framing).
+recursive self-validation infrastructure; **accepting through Layer 4 sees the
+canonical-owner authority itself integrating peer-author dispute findings via
+formal 2nd-erratum mechanism** — paper-headline-grade evidence for §audit-as-code.A
+claim that "the framework validates itself at recursion-depth axis through 4
+distinct anchor × agent × content axis combinations".
 
-The non-monotonic latency series 17→3.3→14→5min (across cycles 259+261+262+263) at
-recursion-depth axes 6+4+8+9 of the 12-axis propagation taxonomy reveals **maturity-
-vs-difficulty trade-off**: the 2nd and 4th catches are faster than the 1st and 3rd,
-suggesting recursion depth and problem difficulty interact non-linearly at the
-catcher-layer. This is itself a falsifiable empirical claim for future cycle data.
+The non-monotonic latency series **17→3.3→14→5→57min** (5-axis extension across
+cycles 259+261+262+263+273) at recursion-depth axes 6+4+8+9+10 of the 12-axis
+propagation taxonomy reveals **maturity-vs-difficulty trade-off** with **NEW Layer 4
+deepest-closure-not-shortest sub-finding**: catches at the 2nd, 3rd-erratum, and 4th
+recursion layers vary in latency NOT monotonically with depth — Layer 4 at 57min is
+NOT the shortest but is structurally the deepest closure. The latency-ladder
+non-monotonicity is itself a paper-grade falsifiable empirical claim refined
+across 5-axis data.
+
+**NEW (69) candidate**: peer-author-vindication-via-canonical-owner-self-correction
+(twin-pair #11) — paper-grade gold standard candidate at peer-author-dignity-
+preservation sub-axis. Forwarded to claude6 batch-21+ reconciliation queue.
 
 ## §audit-as-code.A.6 — Operational discipline from external literature monitoring
 
