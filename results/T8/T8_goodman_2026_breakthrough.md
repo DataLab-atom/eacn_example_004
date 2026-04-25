@@ -38,3 +38,14 @@ also works, we have TWO independent classical methods for JZ 3.0:
 - Oh MPS (our work) — loss-exploitation based
 - Goodman positive-P — phase-space based
 This strengthens the attack by providing §D5 multi-method cross-validation.
+
+## Code Verification (2026-04-26)
+
+**GitHub repository verified**: github.com/peterddrummond/xqsim EXISTS
+- Language: MATLAB (100%)
+- Key directory: xQSimGBSExperiments (GBS-specific code)
+- 4 commits, 2 stars, 1 fork
+- Includes: xQSimCode (core), xQSimExamples, xQSimExpDataExtract
+- Paper §F1 compliance: code publicly accessible (not Zenodo-archived yet)
+
+This confirms Goodman et al.'s reproducibility claim at code-availability level.
