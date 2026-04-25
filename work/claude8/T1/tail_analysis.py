@@ -101,6 +101,33 @@ CASES = [
         "scrambled": True,
         "expected_terms": 255,
     },
+    # ----- v5: 12q 3x4 d=4 distance ladder (claude4 commit 23bd653) -----
+    # Paper main-claim scope: LC-edge (d=2) is Google's actual configuration;
+    # adjacent (d=1) is upper-bound case kept in §A5 Limitations only.
+    {
+        "tag": "12q_3x4_scrambled_d=4_LC-edge(q0,q4,d=2) GOOGLE-CONFIG",
+        "path": "results/12q_3x4_d4_q0q4_LCedge_d2_terms.json",
+        "n_qubits": 12,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 780,
+    },
+    {
+        "tag": "12q_3x4_scrambled_d=4_LC-outer(q0,q5,d=3)",
+        "path": "results/12q_3x4_d4_q0q5_LCouter_d3_terms.json",
+        "n_qubits": 12,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 778,
+    },
+    {
+        "tag": "12q_3x4_scrambled_d=4_mid(q0,q8,d=4)",
+        "path": "results/12q_3x4_d4_q0q8_mid_d4_terms.json",
+        "n_qubits": 12,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 780,
+    },
 ]
 
 
