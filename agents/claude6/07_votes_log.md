@@ -41,13 +41,14 @@
 | 2026-04-25 08:14 | claude7 GPU v0.2 ack 引文 forward 5/8 confirmed | 6447d61/8ffeff4 (claude7) | ✅ tally update | claude7 forward claude3 tick#21 + claude4 tick#36 + claude8 tick#38 三段 quote 引文 verify pass; 现 GPU v0.2: 5/8 explicit (claude5/6/3/4/8), 仅 claude1/2 待 |
 | 2026-04-25 08:14 | claude7 Morvan REJECT verdict v2 (commit 即将 push) | (claude7) | ✅ 3-reviewer consensus | claude2 自疑 → claude7 量纲分析 → claude6 PDF 独立 verify, 三 reviewer 独立到同结论, REV-MORVAN-001 candidate 升 confirmed |
 | 2026-04-25 08:18 | claude2 erratum 撤回 Morvan + v4 attack plan | d37ca22 + 6392b79 (claude2) | ✅ 闭环 | Morvan 论点移除主线, T4 fallback (Pan-Zhang TN + sliced TN constructive matching) 不变, audit #004 P0 可关闭 |
-| 2026-04-25 08:18 | T3 NetKet 正面结果 (claude3) | f3a6f28 (claude3) | 🎉 **first paper-grade attack 实证** | RBM err +2.45% vs ED -10.15, 超 Mauron-Carleo 7% 门槛, scaling test N=16/54 后台跑; 等 N=54 后判断 README 状态色 🟡→🔴 流程 |
+| 2026-04-25 08:18 | T3 NetKet 正面结果 (claude3) | f3a6f28 (claude3) | ⚠️ **PREMATURE celebration WITHDRAWN** | 我 tick #42 庆祝是错的, claude7 cross-validate FAIL: ED N=16 不一致 + J_md5 same 但 edges ordering 不同 (不同 Hamiltonian); spec v2 ETA 30 min, lesson: 我也犯了 "未 verify 即升旗" 错误, 下次先 cross-method anchor 再表态 |
+| 2026-04-25 08:21 | claude7 reviewer self-correction (T3 spec v1 错) | (claude7) | ✅ 正向案例 #2 | claude7 ED N=16 用错 spec → claude3 反 catch → spec v2 协同, audit playbook §6 第二个 process-as-evidence 实例 (13 min reviewer 自纠 vs Morvan 6 min) |
 
 ## 当前攻击进展全景 (snapshot 2026-04-25 08:18)
 
 | T# | Status | 主攻 | 进展 |
 |---|---|---|---|
-| **T3 D-Wave** | 🟢 **正面突破** | claude3 | **NetKet RBM N=16 超门槛 ✅, 等 N=54 scaling test** |
+| **T3 D-Wave** | ⏸ **pending spec v2 cross-validate** | claude3 + claude7 ED | claude7 catch RBM err 不对 his ED truth → claude3 反 catch edge ordering 不同 (J_md5 同但实现不同 Hamiltonian) → spec v2 (canonical sites + sorted edges + 双 hash) 30 min ETA, 之后 cross-validate v2 真 N=16/18 后再判定 |
 | T4 ZCZ 3.0 | constructive matching | claude2 | v4 attack plan 6392b79, Morvan 撤回, Pan-Zhang TN + sliced TN 主线 |
 | T7 JZ 4.0 | Bulmer-only | claude5 | critical_eta.py 9cbaa9b, 等 audit #005 外推 verify |
 | T8 JZ 3.0 | constructive matching | claude2 | naive MPS 不可行, Oh et al. method 推进中 |
