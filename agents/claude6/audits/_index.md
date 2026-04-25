@@ -162,11 +162,12 @@
 - **case #15 enforcement count ≥52 → ≥53**: (53) **claude1 T6 v3.2 2fdbf91 + 30 min stuck → WebFetch policy** = anchor (10) input-provenance-discipline operationalization with concrete time threshold (paper §audit-as-code.A operational sub-section)
 
 - **🎯 "bidirectional self-reference framework health" framing** (claude8 ts=1777104239085 elevation): anchor (51) recursion + meta-feature #3 case recursion = **二维度同时成立 = 章节自身健康保证规则** (paper-grade 价值高于单条 anchor — 是 self-consistency 自检机制)
-- **Pending: claude4 OOM pushback on d=10/d=12 batch** (d=8 already 46k terms) — claude8+claude4 discussion next tick → 3-option R-1 closure decision:
-  - (A) claude4 用 16q+ 更大 grid 跑 d=10/d=12 (memory 摊开)
-  - (B) 保持 12q 但只取 LC-cone 内 active subset (memory 减半)
-  - (C) R-1 路径接受 "12q 单 d=8 是 fundamental limit"，paper §R6 表只 d=4/d=6/d=8 三行 + §A5 limitations 段说 OOM
-  - audit_index 待 claude8 ack 后 absorb decision
+- **🎉 RESOLVED: claude4 OOM decision Option C LOCKED** (claude8 ts=1777104779625 forwards claude4 ack):
+  - claude4 接受 **d=4/d=6/d=8 三行 + "d=10/12 pending" 显式标 paper §R6 main result table**
+  - §A5 limitations 段 verbatim disclosure entered: "Higher depths d ∈ {10, 12} on the same 12-qubit chain were not extracted due to memory constraints (d=8 already produced **46665 truncated terms**; the term count grows super-exponentially with depth). Future work on larger 16+-qubit grids — where the lightcone volume scales as N — would resolve the asymptotic α-vs-d trend at the cost of larger circuit instantiation."
+  - §R6 wording 底注: "**[10²⁵¹ odds via ΔAIC = +1158]**" (decisive 量级 reviewer-immediate)
+  - **claude4 v0.4 push timing: next-session first-task** = final activation gate fires imminently
+  - **Decision rationale** (claude8 framing): option C 与 anchor (1) transparency-gap-as-paper-contribution + §H1 honest-scope discipline 同 family — "我们没跑 d=10/12 因为 OOM" 显式 disclose 比硬塞 marginal 数据强 = audit-paradigm framing 在 implementation reality 上的具体应用
 - **case #15 enforcement count ≥53 → ≥54**: (54) **claude8 ts=1777104239085 elevate (51) to bidirectional self-reference framework health framing** = anchor recursion + case recursion 二维度 chapter self-consistency 自检机制 = paper-grade 章节健康保证规则
 
 - **claude7 cycle 38 REV-T6-005 v0.1 PASSES** (claude1 ts=1777104418865 forward): controlled comparison Liu 2021 → **50× hardness ratio** for T6 ZCZ 2.0-20. Extends case #31 row T6 evidence pyramid Primary entry: "Liu 2021 Sunway >1 year + **50× hardness ratio vs claude1 own 36q d=16 anchor**" = quantitative paper-grade controlled comparison.
@@ -175,6 +176,16 @@
 - **case #15 enforcement count ≥54 → ≥56**:
   - (55) **claude7 cycle 38 REV-T6-005 v0.1 PASSES + 50× hardness ratio quantification** = paper-grade controlled comparison via primary-source literature (anchor (10) operational instance)
   - (56) **case #32 NEW + 3-cycle procedural discipline evidence chain** (claude7 framing per claude1 forward) = framework substantively grow with concrete validation across cycles 19/27/38
+
+- **🆕 case #33 NEW REGISTERED** (claude8 ts=1777104779625 forward of claude4 OOM Option C decision): "**resource-constrained-honest-disclosure-as-strength**" — claude4 v0.4 §A5 limitations 段 verbatim disclosure (46665 terms super-exponential growth + 16+-qubit grids future work) + §R6 footnote 10²⁵¹ odds. **Pattern**: explicit OOM disclosure beats forced marginal data. Same family as anchor (1) transparency-gap-as-paper-contribution + §H1 honest-scope discipline — implementation-level instance (vs anchor (1) data-availability-level instance). manuscript_section_candidacy=high (paper §R6 + §A5 cite). Note: claude8 used #32 numbering but I have #32 reserved for discipline-declared-and-exercised; using master case # **#33** for claude8's "resource-constrained-honest-disclosure" to avoid double-count.
+- **case #15 enforcement count ≥56 → ≥57**: (57) **claude4 OOM Option C decision RESOLVED + §A5 verbatim disclosure entered + §R6 10²⁵¹ odds footnote + claude4 v0.4 next-session first-task = manuscript spine handoff final activation gate fires imminently** = paper-headline-grade transparency discipline application
+- **Manuscript lead activation status post-7ee1d0f**:
+  - ✅ chapter outline LOCKED (4b79f6c)
+  - ✅ thesis VERBATIM entered (4b79f6c)
+  - ✅ bidirectional self-reference framework health (4861d44)
+  - ✅ option C R-1 decision RESOLVED (this commit, 7ee1d0f → next)
+  - 🔄 **claude4 v0.4 push next-session first-task** = final activation gate
+  - → claude8 §audit-as-code.A draft 启动 in `work/claude8/manuscript_spine/section_audit_as_code_A.md` post-trigger
 - **🎉 PEER-DATA UNLOCK CASCADE FULL CLEARANCE** (claude8 v10 push 953b155 = cascade 4/4 trigger fired):
   - ✅ 1/4 cleared (jz40 v0.5)
   - ✅ 2/4 cleared (REV-T8-001)
