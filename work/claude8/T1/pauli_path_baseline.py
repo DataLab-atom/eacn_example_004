@@ -965,18 +965,63 @@ def run_schuster_pauli_path_attack(
     if weight_bound_l <= 0 or weight_bound_l > grid_shape[0] * grid_shape[1]:
         raise ValueError("weight_bound_l must be in (0, n_qubits]")
 
-    # n_qubits = grid_shape[0] * grid_shape[1]
-    # circuit = build_iswap_brickwall_circuit(grid_shape, depth, seed)
-    # init = pauli_string_init(grid_shape, M_qubit, B_qubit)
-    # M_fwd  = heisenberg_evolve_pauli_path(init["M"], circuit, weight_bound_l, "forward")
-    # B_bwd  = heisenberg_evolve_pauli_path(init["B"], circuit, weight_bound_l, "backward")
-    # otoc2  = compute_otoc2(M_fwd, B_bwd, grid_shape)
-    # metrics = compute_metrics(list(M_fwd.items()) + list(B_bwd.items()),
-    #                           weight_bound_l, grid_shape)
-    # return BaselineResult(..., **metrics)
+    # End-to-end pipeline (Steps 1-5 all real-impl post f76071b commit).
+    circuit = build_iswap_brickwall_circuit(grid_shape, depth, seed)
+    init = pauli_string_init(grid_shape, M_qubit, B_qubit)
 
-    raise NotImplementedError(
-        "run_schuster_pauli_path_attack: pipeline not yet wired (Phase 0b TODO)"
+    # Step 3: forward Heisenberg evolution of M.
+    M_fwd = heisenberg_evolve_pauli_path(
+        init["M"], circuit, weight_bound_l, direction="forward"
+    )
+
+    # For OTOC^(2)(t) = Tr(M(t)·B·M(t)·B)/2^n we use the original B (not
+    # time-evolved). This is the simplified OTOC^(2); a full OTOC^(4) would
+    # also evolve B forward, then conjugate the result. For the cross-
+    # validation triangle (Path A/B/C) the simple OTOC^(2) is the published
+    # baseline metric.
+    B_orig = init["B"]
+
+    # Step 4: compute OTOC^(2) value.
+    otoc2 = compute_otoc2(M_fwd, B_orig, grid_shape)
+
+    # Step 5: structural metrics on the evolved M operator support.
+    metrics = compute_metrics(list(M_fwd.items()), weight_bound_l, grid_shape)
+
+    # BaselineResult fields are GBS-sampler-shaped (click_marginal, total_click_
+    # distribution, tvd, cross_entropy, g2, etc.) — these are not natural for an
+    # OTOC^(2) attack. We populate the Path B Schuster-Pauli-path-specific
+    # optional fields (pauli_weight_bound_l, n_pauli_strings_kept,
+    # residual_norm_outside_l) and place sampler-agnostic placeholders + OTOC^(2)
+    # in circuit_meta. A future shared-infra refactor (per claude5 9950ebd
+    # baseline_result.py) may add otoc2_value as a first-class field.
+    return BaselineResult(
+        click_marginal=np.array([]),
+        total_click_distribution=np.array([]),
+        tvd=0.0,
+        cross_entropy=0.0,
+        g2=np.array([]),
+        wall_clock_s=0.0,
+        peak_vram_mb=0.0,
+        n_samples=0,
+        sample_seed=seed,
+        truncation_error=0.0,
+        sampler_method="schuster_pauli_path",
+        pauli_weight_bound_l=weight_bound_l,
+        n_pauli_strings_kept=metrics["n_pauli_strings_kept"],
+        residual_norm_outside_l=None,
+        circuit_meta={
+            "grid_shape": grid_shape,
+            "depth": depth,
+            "seed": seed,
+            "M_qubit": M_qubit,
+            "B_qubit": B_qubit,
+            "n_qubits": grid_shape[0] * grid_shape[1],
+            "otoc2_value": otoc2,
+            "frobenius_norm_sq": metrics["frobenius_norm_sq"],
+            "max_weight_observed": metrics["max_weight_observed"],
+            "mean_weight_observed": metrics["mean_weight_observed"],
+            "identity_fraction": metrics["identity_fraction"],
+        },
     )
 
 
@@ -1018,20 +1063,25 @@ def _smoke():
     else:
         raise AssertionError("expected ValueError for weight_bound_l=-1")
 
-    try:
-        run_schuster_pauli_path_attack(
-            grid_shape=(4, 4),
-            depth=4,
-            M_qubit=0,
-            B_qubit=15,
-            weight_bound_l=6,
-        )
-    except NotImplementedError:
-        pass
-    else:
-        raise AssertionError("expected NotImplementedError once validation passes")
+    # Driver now real-impl post Path B 5/5 substantive completion (commit
+    # f76071b for Step 5 + this driver wiring commit). Smoke test verifies
+    # end-to-end execution without raising.
+    result = run_schuster_pauli_path_attack(
+        grid_shape=(2, 2),
+        depth=1,
+        M_qubit=0,
+        B_qubit=3,
+        weight_bound_l=4,
+        seed=0,
+    )
+    assert isinstance(result, BaselineResult)
+    assert result.sampler_method == "schuster_pauli_path"
+    assert result.pauli_weight_bound_l == 4
+    assert "otoc2_value" in result.circuit_meta
+    assert isinstance(result.circuit_meta["otoc2_value"], complex)
+    assert result.n_pauli_strings_kept is not None and result.n_pauli_strings_kept >= 0
 
-    print("pauli_path_baseline.py smoke test OK — schema + driver validation pass")
+    print("pauli_path_baseline.py smoke test OK — full pipeline executes end-to-end")
 
 
 if __name__ == "__main__":
