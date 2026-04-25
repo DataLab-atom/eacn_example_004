@@ -1,6 +1,6 @@
 # §6 Discussion Draft (for Nature/Science manuscript)
 
-> **Status**: Draft v0.1
+> **Status**: Draft v0.2 — absorbs claude5 T7-E1/E2/F1 + T8-E1/F1 + claude1 F-3 + claude7 Path C v0.10
 > **Author**: claude4 | **Scope**: Full Discussion section
 
 ---
@@ -43,12 +43,18 @@ class intrinsic at this scale.
 ### T7 (Jiuzhang 4.0)
 
 Stood firm against 8 of 10 surveyed classical methods at actual
-experimental parameters (M=1024, mean_n=9.5, eta=0.51). The 9th method
-(SVD-low-rank exploitation, M6) is conditional on independent
-verification of the implemented unitary's Haar-typicality, which the
-JZ 4.0 paper does not explicitly verify (transparency audit gap O2).
-The 10th method (Goodman et al. positive-P, arXiv:2604.12330, 2026)
-explicitly excludes JZ 4.0 due to scale.
+experimental parameters (1024 squeezed sources, 8176 output modes,
+mean_n=9.5, eta=0.51). The 9th method (SVD-low-rank exploitation, M6)
+is conditional on independent verification of the implemented
+unitary's Haar-typicality (transparency audit gap O2). The 10th
+method (Goodman et al. positive-P, arXiv:2604.12330, 2026) explicitly
+excludes JZ 4.0 due to scale, but introduces a new transparency-vacuum
+axis O7 (thermalisation epsilon > 1-tanh(r) ~ 0.095 at r=1.5). The
+two conditional methods (M6 + Goodman) pivot on orthogonal
+transparency-vacuum axes (O2 Haar + O7 thermalisation epsilon), so
+closing one does not close the other — the dual-conditional structure
+preserves T7 stands-firm verdict regardless of which axis is resolved
+first.
 
 ### T8 (Jiuzhang 3.0 / 144 modes)
 
@@ -57,6 +63,11 @@ Fock-aggregate thermal, exact Hafnian, pairwise chi correction
 [negative result], positive-P with whitening-coloring). Triple-impl
 cross-validation reveals two-tier TVD structure (cutoff=4
 self-consistency TVD < 0.032 vs cutoff-vs-full gap TVD ~ 0.18).
+The 0.18 TVD gap quantifies click-coarse-graining at cutoff=4:
+~82% click-distribution accuracy preserved despite only 29%
+probability mass capture, explaining why cutoff-truncated attacks
+remain comparable to full-regime methods despite operating on
+truncated Fock space.
 Negative control on JZ 4.0 gives 1086% deviation, correctly
 identifying the simulability boundary.
 
@@ -81,11 +92,33 @@ frontier across the attack portfolio:
    conditional on experimental data availability; transparency gaps
    prevent definitive assessment in either direction
 
-These four classes are complementary, not collapsible. The attack
-regime actually measured on Willow (lightcone-edge M-B placement)
-coincides with the regime most tractable for fixed-weight SPD — a
-finding that Google's choice of M-B placement for maximum quantum
-signal simultaneously minimizes classical simulation cost.
+These four classes are complementary, not collapsible. A potential
+5th class — physical-mechanism-induced-classicality (Goodman et al.
+positive-P algorithm-orthogonal axis) — is documented at the
+companion audit-as-code chapter (claude8 §A v0.4, commit c68f3a2)
+but not empirically demonstrated in this paper's attack portfolio.
+
+The attack regime actually measured on Willow (lightcone-edge M-B
+placement) coincides with the regime most tractable for fixed-weight
+SPD — a finding that Google's choice of M-B placement for maximum
+quantum signal simultaneously minimizes classical simulation cost.
+
+### Path B + Path C regime-complementary cost comparison
+
+At Willow 65q, the combined Path B (fixed-weight) + Path C (adaptive
+top-K) provides regime-dependent cost savings (claude7 v0.10, commit
+f008622):
+
+| d_arm | Regime | Path C K | Path B w<=ell | Compression |
+|-------|--------|----------|---------------|-------------|
+| 4 | screening | 5.6e7 | 5.6e7 | 1x (equivalent) |
+| 8 | marginal | 5.6e7 | 5.6e7 | 1x (still feasible) |
+| 12 | post-trans border | 5.6e7 | 2.06e9 (w<=5) | **37x** |
+| 14 | deep post-trans | 5.6e7 | 2.3e18 (w<=12) | **essential** |
+
+Path C is regime-complementary to Path B: equivalent in screening,
+37x compression at the transition boundary, and essential in the
+deep post-transition regime where Path B becomes infeasible.
 
 ## Concurrent literature
 
