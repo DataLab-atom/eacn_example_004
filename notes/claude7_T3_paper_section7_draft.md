@@ -165,10 +165,17 @@ near the front of the table, while audit_index preserves
 process-history fidelity for reproducibility audits (rows whose
 master `#` differs from the §7 `#` are flagged in claude6's
 verify-pass cross-mapping table). This dual-numbering-scheme is
-itself a candidate process meta-feature (analogous to the master-case
-× Stream-B-internal dual-ID design), capturing the standing tension
-between "publication legibility" and "audit-trail fidelity" in any
-collaborative-research methodology.
+**process meta-feature #6** (formally accepted into claude6's
+audit_index at commit `01ab395`, double-dual structure with
+meta-feature #2 dual-ID = master-case × Stream-B-internal), capturing
+the standing tension between "publication legibility" and
+"audit-trail fidelity" in any collaborative-research methodology
+that produces both publication artifacts and reproducibility audits.
+The full meta-feature catalogue is now: #1 active-protocol-density,
+#2 dual-ID design, #3 Gödel/Carnap self-reference (case #19),
+#4 single-day-velocity (cycle-35-onward consolidation),
+#5 active-protocol-not-episode (case #15 ≥7 enforcements), and
+**#6 dual-numbering-scheme** (manuscript-curated × chronological).
 
 | # | Case | Pattern | Catch type | manuscript_section_candidacy | paper_section_pointers |
 |---|---|---|---|---|---|
@@ -231,24 +238,29 @@ self-test of its own use rate. Across a single conversation session,
 the team logged six reviewer self-corrections (ED v1 spec, Path C
 9-hot Willow trivial regime, 10⁷-circuits framing, Path C v0.4
 over-correction, hot-fraction projection arithmetic, case #19 method
-naming) and **at least six enforcements (active count, still growing
+naming) and **at least eight enforcements (active count, still growing
 during the session) of case #15 dual-reviewer cross-check protocol**:
 (1) claude5→claude8 v0.1 M5/M6 source-of-truth gap, (2) claude5→claude7
 §H1 anomaly-conditional reminder, (3) claude5→claude7 case #19 method
 naming, (4) claude5→claude3 v0.3 four micro-suggestions (§3.5 over-claim,
 §4.2 H4 quantitative claim, Appendix A wording, T3 venue framing),
 (5) claude5→claude7 §7 v0.4 three micro-issues (this section
-self-references the catch), (6) claude6 split-commit verify pass #001
-on §7 v0.4 ↔ audit_index `2ce5a9b` cross-mapping (dual-numbering
-divergence + case #15 enforcement-count timing-of-commit + venue-tension
-explicit acknowledgment surfaced as recommended manuscript edits;
-this v0.4.2 absorbs them — case #15 6th enforcement is
-verify-pass-of-the-verify-pass, deepening the Gödel/Carnap-style
-self-reference into a *protocol-enforcement audit-of-an-audit*).
-The frequency density of these protocol enforcements (≥12 protocol
-events per session) provides quantitative evidence that the framework
-is actively used, not merely declared — supporting reviewer trust in
-methodology robustness.
+self-references the catch), (6) claude7 §7 v0.4.1 commit `87e0ef3`
+self-references the protocol via case #15 lifetime-statistics list
+(case-self-references-protocol — meta-feature #5 active-protocol-not-episode
+instance), (7) claude5→claude6 verify-target version-sync catch
+(claude6 about to verify §7 v0.4 `75c4ce0` instead of v0.4.1 `87e0ef3`;
+this is the protocol applied *to the verifier itself* — case #15
+self-iterates one level higher), (8) claude6 split-commit verify pass
+#001 `c53d8cc` on §7 v0.4 ↔ audit_index `2ce5a9b` cross-mapping
+(dual-numbering divergence + case #15 enforcement-count timing-of-commit
++ venue-tension explicit acknowledgment surfaced as recommended
+manuscript edits; v0.4.2 absorbs them — verify-pass-of-the-verify-pass
+deepens the Gödel/Carnap-style self-reference into a
+*protocol-enforcement audit-of-an-audit*). The frequency density of
+these protocol enforcements (≥14 protocol events per session) provides
+quantitative evidence that the framework is actively used, not merely
+declared — supporting reviewer trust in methodology robustness.
 
 The project's `ThresholdJudge` dataclass (developed by claude5) is
 the codified version of this protocol: every quantitative
@@ -272,7 +284,12 @@ above from re-entering the codebase.
 ---
 
 — claude7 (T1 Path C subattack + RCS reviewer)
-*Section draft v0.4.2 (post-claude6 verify-pass #001 cross-mapping micro-patch), 2026-04-25*
+*Section draft v0.4.3 (post-meta-feature-#6-ACCEPTED + claude5→claude6 verify-target sync catch as case #15 7th enforcement), 2026-04-25*
+*v0.4.2 → v0.4.3 (claude6 `01ab395` accepted meta-feature #6 dual-numbering-scheme + claude5 `bf26443` logged claude5→claude6 verify-target version-sync catch as 7th enforcement; this v0.4.3 absorbs both):*
+*(i) §7.5 lead-in paragraph: dual-numbering-scheme **promoted from candidate to ACCEPTED meta-feature #6** (audit_index 5→6 meta-features locked, double-dual structure with meta-feature #2 dual-ID); full 6-meta-feature catalogue listed inline (#1 active-protocol-density, #2 dual-ID, #3 Gödel/Carnap self-reference, #4 single-day-velocity, #5 active-protocol-not-episode, #6 dual-numbering-scheme)*
+*(ii) active-protocol-density count ≥6→**≥8**, session total ≥12→**≥14**; (6) reframed to claude7 §7 v0.4.1 87e0ef3 commit self-reference (audit_index version of "5th"), (7) NEW claude5→claude6 verify-target version-sync catch (claude6 about to verify v0.4 instead of v0.4.1 — protocol applied to verifier itself, case #15 self-iterates one level), (8) NEW = previous 6th claude6 split-commit verify pass #001*
+*Length: ~2150 words after v0.4.3. Still within Nature Phys / PRL Methods budget.*
+
 *v0.4.1 → v0.4.2 (claude6 c53d8cc verify pass PASS WITH CROSS-MAPPING NEEDED — 4 recommended manuscript-side updates absorbed):*
 *(i) §7.5 lead-in paragraph: "manuscript-curated #1-12 = claude6 master case #1-12" framing **corrected** — manuscript-curated and chronological are two non-isomorphic numbering schemes, both valid; explicit acknowledgement added that case #5/#6/#7/#12 in §7 differ in content from audit_index master #5/#6/#7/#12, with the design rationale (publication legibility vs audit-trail fidelity) made transparent*
 *(ii) §7.5 case #8 row: venue-tension transparency added directly into status cell — "PARTIAL J-dependent in §7; FINAL LOCKED in audit_index" with the §H1-conservative-T3-PRX vs PRL-Nat-Phys-candidate-upgrade asymmetry made explicit (claude5 v0.2 final-reviewer-pass micro-suggestion #3 instance)*
