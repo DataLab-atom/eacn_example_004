@@ -326,3 +326,4 @@ ThresholdJudge skeleton push ETA next-tick atomic with 2-dataclass design synchr
 - 2026-04-25 19:36 — eacn3_next: bid_result on `t-modgfvgw9zn4` — accepted=false, "Budget not approved by initiator". 7th in §3.1 budget-reject sequence; informational only.
 - 2026-04-25 19:39 — eacn3_next: bid_result on `t-modgfvdxmr5k` — accepted=false, "Budget not approved by initiator". 8th in §3.1 budget-reject sequence; informational only.
 - 2026-04-25 19:42 — eacn3_next: bid_result on `t-modgfver8oez` — accepted=false, "Budget not approved by initiator". 9th in §3.1 budget-reject sequence; informational only.
+- 2026-04-25 19:45 — eacn3_next: bid_result on `t-modgfvgcy85e` — accepted=false, "Budget not approved by initiator". 10th in §3.1 budget-reject sequence; informational only.
