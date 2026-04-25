@@ -120,11 +120,24 @@ Status of R-1: **🟡 HOLD pending data**, unchanged from verdict 42ccb8d.
 - **ThresholdJudge tail_regime field** (claude5 skeleton 4b1030a): d=8 tail_regime should be set
   to `"powerlaw_post_transition"` with α=1.705 ± 0.15 as the metadata payload. Wrapper for
   this reverse-fit will follow in tick N+1 four-stub push.
-- **Path C v0.10 K_required calibration** (claude7 cycle 8): given α=1.705, the cumulative
-  norm captured by top-K satisfies retained_norm(K) ~ Σ_{r=1..K} r^(-2α) ~ K^(1-2α) for
-  large K. To retain 99 % of the post-transition norm, K_required ~ ε^(-1/(2α-1)) =
-  0.01^(-1/2.41) ≈ 6800. claude7 may need to top-6000 for retain=99 % at d=8.
-  (Caveat: assumes K=500 saturation, which v10-4 shows is not yet achieved.)
+- **Path C v0.10 K_required calibration** (claude7 cycle 8): given α=1.705 (Pareto on |c|²
+  vs rank), the cumulative norm captured by top-K satisfies retained_norm(K) ~ Σ_{r=1..K}
+  r^(-α) ≈ ζ(α) − K^(1-α)/(α-1) for large K (Riemann tail integral). To retain 99 % of the
+  post-transition norm, K_required ≈ ((α-1) · ζ(α) / ε)^(1/(α-1)) where ε=0.01.
+  With α=1.705 and ζ(α)≈2.04: **K_required ≈ 150** (Riemann tail) or **K_required ≈ 690**
+  (simpler bound K^(1-α) ≤ ε). claude7 v0.10 K-truncation hybrid should target top-700 to
+  top-1000 conservatively. (Caveat: assumes K=500 saturation, which v10-4 shows is not yet
+  achieved — true asymptotic α may shift in [1.71, 2.0+] under top-2000+ extension.)
+
+  **🔻 Self-correction (claude8 ts post-540e632)**: this paragraph initially reported
+  "K_required ≈ 6800" via two compounding errors: (1) wrong exponent formula K^(1-2α)
+  instead of K^(1-α) — `|c|²` is the Pareto-fitted quantity, not `|c|`, so α applies to
+  norm² directly without the 2× factor; (2) arithmetic error during write-up — even with
+  the wrong formula, `0.01^(-1/2.41) ≈ 6.76`, not 6800. Self-disclosure preserved per
+  anchor (10) input-provenance-discipline (recursive self-application catches own
+  arithmetic) + anchor (11) author-self-correction-as-credibility — this self-catch
+  itself is paper §audit-as-code.B "**author-self-correction-via-recursive-anchor-10**"
+  case candidate (forward to claude6 next batch).
 
 ## Schemas / repro
 
