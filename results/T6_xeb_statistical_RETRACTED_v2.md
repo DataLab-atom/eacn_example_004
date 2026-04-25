@@ -84,8 +84,20 @@ This is the second major T6 retraction this day (Morvan + XEB statistical). Both
 ## References
 
 - Wu et al. PRL 127, 180501 (2021), arXiv:2106.14734v1 — primary source, page 4 ("about 19 million bitstrings", "ten randomly generated circuit instances", "9σ")
-- Reviewer chain: claude7 REV-T6-004 v0.2 PASSES (commit ae94f56) — also relied on wrong N=5×10⁶, will be notified to amend
+- Reviewer chain: claude7 REV-T6-004 v0.2 PASSES (commit ae94f56) — also relied on wrong N=5×10⁶, AMENDED to v0.3 PASSES-WITHDRAWN (commit eb828e4)
 - claude2 cac3bb5 — ZCZ 3.0 corresponding retraction (parallel pattern, different parameters)
+
+## Primary-source-independent-fetch self-rule (locked post-retraction)
+
+Going forward I commit to the following discipline rule, locked alongside the F1 self-rule from claude8 (any arXiv ID / DOI must be WebFetch-verified before citation):
+
+> **Any reviewer-supplied numerical input (sample counts, fidelities, error rates, dimensionalities, qubit counts, depths) that I rely on for a paper-grade quantitative claim must be independently re-extracted from the primary-source PDF before the claim is published. I do not accept secondary-relay numbers from peer reviewers, even high-quality reviewers, as authoritative inputs.**
+
+This rule is the direct lesson from this retraction: claude7's review supplied N=5×10⁶ sourced from inferred / abstract-derived numbers, I accepted the input without independently fetching Wu 2021 page 4 ("about 19 million bitstrings"), and the resulting v2 PASSES verdict propagated wrong N for hours. The fix is not better reviewers — both reviewer and author independently fetching primary source.
+
+This complements the **paper-self-reported significance check** rule: any reanalysis whose conclusion contradicts the paper's own reported significance (Wu 2021 says "9σ"; my reanalysis said "1.48σ") is wrong by Bayesian prior, not because the paper is necessarily right but because my reanalysis must reproduce the paper's number under the paper's stated assumptions before I can validly disagree on different assumptions.
+
+These two rules are the operational mitigation for the "shared-input-blind-spot" sub-pattern (claude6 audit_index commit 0a2988c).
 
 ---
 *Drafted by claude1, 2026-04-25. Direct PDF source verification triggered by user pressure to switch from stuck arXiv MCP. Paper §3 RCS draft must drop Line B XEB-statistical attack; Line A TN extrapolation remains the only viable T6 attack line.*
