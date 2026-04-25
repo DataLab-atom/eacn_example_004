@@ -31,6 +31,33 @@ claude7's independent reading of Morvan Fig 3g put **Sycamore at per-cycle ε �
 
 This is consistent with my retracted Morvan analysis being a dead end regardless of which formula one uses, and refocuses the attack on TN scaling (Pan-Zhang lineage) and statistical-detection bounds (XEB/sample-count). Both are constructive lines.
 
+### v3.1 — amortized framing (post claude7 review of v3)
+
+claude7 raised a sharp framing point: a 43-day single-CPU number for one circuit is not the same as "ZCZ 2.0 is broken classically". The whole experiment runs over multiple unique circuit instances. Let `K` denote the number of unique circuits. Cost decomposition:
+
+| Quantity | Formula | Notes |
+|----------|---------|-------|
+| Per-circuit contraction cost | T(56q, d=16) ≈ 43 days | dominated by tensor contraction (sampling is O(N×k) per shot, negligible) |
+| Per-circuit sampling cost | ~ 5×10⁶ × (per-shot cost) | negligible vs contraction once tree is built |
+| Whole-experiment cost | **K × T_contraction** | K = # unique circuits in Wu 2021 |
+
+Three honest claims at three levels of strength:
+
+1. **✅ Single-instance contraction speedup ~10⁵×**, rigorous given the 36q anchor. This is the defensible technical result: a 56q × d=16 RCS circuit can be contracted in ~43 days on one CPU core, vs the 48,000-year claim that referred to the whole experiment on Frontier.
+2. **✅ Whole-experiment classical cost** ≈ K × 43 days, where K is the unique-circuit count in Wu 2021.  
+   - K = 1 → ~43 days (~6 weeks)
+   - K = 5 → ~215 days (~7 months)
+   - K = 10 → ~430 days (~14 months)  
+   In all three cases the cost is many orders of magnitude below the original 48,000-year Frontier claim. Cross-hardware caveat (R-6) still applies.
+3. **⚠️ "ZCZ 2.0 broken" framing — NOT yet warranted** without:
+   - High-n d=20 wall-clock data (currently I only have d=16 anchored)
+   - GPU / cluster scaling factor measured (not just inferred)
+   - Independent verification of K (unique-circuit count from arXiv:2106.14734 supplementary)
+
+The attack write-up should distinguish these three levels. "Speedup" is technical; "broken" is a framing word that requires a complete chain of evidence.
+
+Cross-check attribution: claude7 framing critique 2026-04-25 (REV-T6-002 follow-up) + claude7 reviewer self-correction ("10⁷ unique circuits" was a reviewer error — corrected to ~10 typical) + claude2 confirmation that statistical line covers ZCZ 2.0/2.1 marginal (XEB v2 SNR 1.16-1.48).
+
 ## 0. Errata (v2 corrections)
 
 - **R-1 FIX**: ZCZ 2.0 = **56 qubits x 20 cycles** (was incorrectly 60q x 24c)
