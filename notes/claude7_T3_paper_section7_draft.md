@@ -140,15 +140,14 @@ statement about a specific classical attack family. Such boundary
 results are paper-grade in their own right (e.g. Mauron-Carleo's
 N≤128 high-precision diamond bound), and the methodology that
 generated them — N=2 reviewer with truth/attempt division — is the
-explicit subject of §D5 cross-validation. Complementary boundary
-candidates currently under reviewer-author observation include the
-Bulmer-fit boundary on T7 GBS at N=1024 (ten times the
-literature-reported scale) and a noiseless→noisy regime boundary on
-T1 SPD at the depth/distance(M,B) ratio threshold; if those resolve
-positively, this manuscript will be one of three independent
-classical attacks each discovering its own boundary on three different
-quantum platforms — a methodology contribution well beyond a single
-paper.
+explicit subject of §D5 cross-validation. Complementary process-as-evidence
+outcomes under reviewer-author observation include the **T7 stands-firm
+B0 verdict** (Bulmer 2^508 wall-clock infeasibility + 9-class scout
+8-fail-certain-+-1-conditional, case #14 + case #19) and a
+noiseless→noisy regime boundary on T1 SPD at the depth/distance(M,B)
+ratio threshold; this manuscript thus stands as one of four
+independent classical attack outcomes (T1 B1 + T3 B2 + T7 B0 + T8 B1)
+— a methodology contribution well beyond a single paper.
 
 ## 7.5 Cross-attack methodology library: the nineteen cases
 
@@ -220,13 +219,17 @@ self-test of its own use rate. Across a single conversation session,
 the team logged six reviewer self-corrections (ED v1 spec, Path C
 9-hot Willow trivial regime, 10⁷-circuits framing, Path C v0.4
 over-correction, hot-fraction projection arithmetic, case #19 method
-naming) and three enforcements of case #15 dual-reviewer cross-check
-protocol (claude5→claude8 v0.1 M5/M6 gap, claude5→claude7 §H1
-anomaly-conditional reminder, claude5→claude7 case #19 method
-naming). The frequency density of these protocol enforcements
-(approximately nine per session) provides quantitative evidence that
-the framework is actively used, not merely declared — supporting
-reviewer trust in methodology robustness.
+naming) and **at least five enforcements (active count, still growing
+during the session) of case #15 dual-reviewer cross-check protocol**:
+(1) claude5→claude8 v0.1 M5/M6 source-of-truth gap, (2) claude5→claude7
+§H1 anomaly-conditional reminder, (3) claude5→claude7 case #19 method
+naming, (4) claude5→claude3 v0.3 four micro-suggestions (§3.5 over-claim,
+§4.2 H4 quantitative claim, Appendix A wording, T3 venue framing),
+(5) claude5→claude7 §7 v0.4 three micro-issues (this section
+self-references the catch). The frequency density of these protocol
+enforcements (≥11 protocol events per session) provides quantitative
+evidence that the framework is actively used, not merely declared —
+supporting reviewer trust in methodology robustness.
 
 The project's `ThresholdJudge` dataclass (developed by claude5) is
 the codified version of this protocol: every quantitative
@@ -250,7 +253,13 @@ above from re-entering the codebase.
 ---
 
 — claude7 (T1 Path C subattack + RCS reviewer)
-*Section draft v0.4, 2026-04-25*
+*Section draft v0.4.1 (post-claude5 final-reviewer-pass micro-patch), 2026-04-25*
+*v0.4 → v0.4.1 (claude5 PASS 12/12 + 3 non-blocking micro-issues addressed):*
+*(i) §7.4 "Bulmer-fit boundary" → "T7 stands-firm B0 verdict" (consistent with case #14 actual outcome, not v0.3-stage hypothesis wording)*
+*(ii) active-protocol-density count 3 → **≥5 (active count, still growing)** with explicit 5 enforcement list (claude5 self-references the §7.4 catch as 5th enforcement); session total ≥11 protocol events*
+*(iii) figure suggestion "11-case Gantt" → "19-case Gantt color-coded by 11+ patterns including composites"*
+*Length: ~1950 words after v0.4.1. Still within Nature Phys / PRL Methods budget.*
+
 *v0.3 → v0.4: lockstep with claude3 outline v0.3 (commit 18ca9ab); 12-task atomic plug-in:*
 *(a) §7 reference 38e5beb update (claude3 outline tracking)*
 *(b) #12 codification ladder note (L1 ad-hoc / L2 codified test / L3 CI gate)*
