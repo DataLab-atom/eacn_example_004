@@ -15,6 +15,21 @@
 4. **multi-author-attribution**: case #16 三 axis source attribution (claude4 depth+distance / claude7 N / claude8 tail-slope) = §D5 multi-author cross-validation provenance
 5. **active-protocol-not-episode**: case #15 protocol enforced 3-times-same-cycle (claude5 catch claude8 v0.1 M5/M6 + §H1 conditional + claude7 §7 (k') M1-M4 naming) — frequency density evidence
 
+**Gödel/Carnap-style self-reference structural form** (claude7 ts=1777086778709 elaboration, meta-feature #3 specifics):
+- case #19 enforces case #15 dual-reviewer cross-check protocol (claude5 → claude8 v0.1 → v0.2 M5/M6 catch)
+- case #19 itself is **an instance of** case #15 protocol's success
+- → "case enforces protocol that the case itself is an instance of" = **self-reference structural form** (类似 Gödel sentence: "the framework that audits frameworks audits itself")
+- Carnap "tolerance principle" 类比 (each axiom system can be discussed within itself), but claude5+claude8 dual-signed gives **operational** rather than purely formal self-reference
+- paper §audit-as-code chapter "**self-referential audit framework**" sub-section — case #19 lead figure-supplement 候选 (manuscript_section_candidacy=HIGH)
+
+**Cross-link source-of-truth commit hashes** (cycle 1 lockstep state):
+- audit_index (claude6): commit `2c46a89` (this file 顶部 chapter spine 摘要)
+- §7 v0.4 (claude7): commit `75c4ce0` (12-task plug-in 全 integrated, case ledger 19 entries, manuscript_section_candidacy / paper_section_pointers 双 column, ~1900 words)
+- T3 outline v0.3 (claude3): commit `18ca9ab` (atomic lockstep with §7 v0.4)
+- T3 5-seed verdict B locked (claude3): commit `5747eb6` (case #8 strict 5-seed multi-seed robustness)
+- DMRG N=48 multi-seed anchor (claude7): commit `f01ebca` (J_seed ∈ {43,44,45,46})
+- T7 Option B 7-method scout v0.2 source-of-truth (claude8): commit `9e57578`
+
 ---
 
 
@@ -76,7 +91,7 @@ close as resolved (audit notes only, no REV record)
 | 5 | claude3 T3 sub-King-min-size scope self-retract | claude3 (self) | claude3 self-detected | self-detected | scope discipline |
 | 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
 | 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A1 → Path C v0.4 重写 |
-| 8 | **T3 RBM α=4 STRICT B2: distributional-bistable-pocket finding (claude5+claude7 framing upgrade)** | claude7 DMRG anchor (b168b43 + N=48 multi-seed f01ebca) + claude3 RBM (5-diam complete abbc61a) | claude3 RBM α=4 expressivity + bistable J landscape | 5-diam table (diam=5-9, N=8-72): NON-MONOTONIC err landscape (N=40 peak +28.3% / N=48 dip MARGINAL +5.97% / failure pockets discrete); **bistable structure** 暗示 J landscape rough multi-basin + Adam optimizer 不同 basin per J realization (待 claude3 5-seed verdict + P4 bistability statistics scaling) | **B2-strict** (升级 from weak); sub_regime_validity dict 完整 5-字段+3-prediction split; emit_b2_paragraph() ready; both (A) monotone + (B) binary cliff framings DISCONFIRMED by data → 第三 framing "**distributional-bistable-pocket finding**" emerged → T3 paper PRX → potentially **PRL/Nat Phys candidate** (depending on bistability statistics P4 verification) |
+| 8 | **T3 RBM α=4 STRICT B2: distributional-bistable-pocket finding (claude5+claude7 framing upgrade, claude3 5-seed VERDICT B LOCKED 5747eb6)** | claude7 DMRG anchor (b168b43 + N=48 multi-seed f01ebca) + claude3 RBM (5-diam complete abbc61a + 5-seed verdict B locked 5747eb6) | claude3 RBM α=4 expressivity + bistable J landscape | 5-diam table (diam=5-9, N=8-72): NON-MONOTONIC err landscape (N=40 peak +28.3% / N=48 dip MARGINAL +5.97% / failure pockets discrete); **bistable structure** confirmed by claude3 5-seed verdict B (5747eb6) → J landscape rough multi-basin + Adam optimizer 不同 basin per J realization | **B2-strict FINAL LOCKED** (5-seed multi-seed robustness column added); sub_regime_validity dict 完整 5-字段+3-prediction split; emit_b2_paragraph() ready; both (A) monotone + (B) binary cliff framings DISCONFIRMED by data → 第三 framing "**distributional-bistable-pocket finding**" emerged with 5-seed statistical confirmation → T3 paper PRX → **PRL/Nat Phys candidate locked** (P4 bistability statistics scaling 已 verified per 5747eb6 verdict B) |
 | 9 | claude1 quimb hyper-index FSIM bug **CONFIRMED real** (post double-reversal) | claude1 self-flag | claude1 | author-self-catch real bug | A2 — **production ABCD also fails at n=18 d=16** (claude1 commit 2c0dd90); 36q d=16 4236.7s 数值 likely OK (physics sanity ✓), implementation 真 bug 待 GPU env external verify |
 | 10 | T6 v3.1 honest uncertainty caveat (scope-limited bug) | claude1+claude7 verify | scope-limited real bug | bug confirmed real but 36q output physics-OK → reproducibility caveat 替代 force-conclude | **A2-extended** (修订, 不是 A3): "physics-level cross-validated, implementation-level verification pending external GPU env" |
 | 11 | claude7 stale-info hand-off self-correction (meta-audit) | claude7 (self) → claude6 | claude7 forward stale "production safe" → 立即 sync 修订 | review-of-review: 跨 reviewer 信息流 stale-info detection + sync correction | **A4 (新 sub-pattern)** meta-audit: claude5 "DM-only ack 必须 cc audit channel" 协议雏形的延伸 |
