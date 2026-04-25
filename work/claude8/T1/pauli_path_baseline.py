@@ -111,9 +111,71 @@ def build_iswap_brickwall_circuit(grid_shape: Tuple[int, int], depth: int, seed:
 
     Returns
     -------
-    circuit_spec : dict {layers: List[gate_layer], grid: shape, depth: int, seed: int}
+    circuit_spec : dict
+      {
+        "grid_shape": (rows, cols),
+        "n_qubits": rows*cols,
+        "depth": depth,
+        "seed": seed,
+        "cycles": List[cycle_dict],  # depth cycles
+      }
+    where each cycle_dict has:
+      {
+        "single_qubit_layer": List[(qubit_idx, axis_label)],  # axis_label in {"X^1/2","Y^1/2","W^1/2"} per Google
+        "two_qubit_sublayers": [
+          {"sublayer_type": "H-even"|"H-odd"|"V-even"|"V-odd",
+           "pairs": List[(q1, q2)]},
+          ...4 sublayers
+        ]
+      }
     """
-    raise NotImplementedError("Step 1: build_iswap_brickwall_circuit pending Phase 0b")
+    import numpy as np
+    rng = np.random.default_rng(seed)
+    rows, cols = grid_shape
+    n_qubits = rows * cols
+
+    def qid(r: int, c: int) -> int:
+        return r * cols + c
+
+    # Build the four brickwall sublayer pair sets.
+    h_even, h_odd = [], []  # horizontal bonds (within-row, columns c--c+1)
+    for r in range(rows):
+        for c in range(cols - 1):
+            pair = (qid(r, c), qid(r, c + 1))
+            (h_even if c % 2 == 0 else h_odd).append(pair)
+
+    v_even, v_odd = [], []  # vertical bonds (across-row, rows r--r+1)
+    for c in range(cols):
+        for r in range(rows - 1):
+            pair = (qid(r, c), qid(r + 1, c))
+            (v_even if r % 2 == 0 else v_odd).append(pair)
+
+    sublayers_template = [
+        ("H-even", h_even),
+        ("H-odd", h_odd),
+        ("V-even", v_even),
+        ("V-odd", v_odd),
+    ]
+
+    AXES = ("X^1/2", "Y^1/2", "W^1/2")
+
+    cycles: List[dict] = []
+    for d in range(depth):
+        sq_layer = [(q, AXES[rng.integers(0, 3)]) for q in range(n_qubits)]
+        tq_sublayers = [{"sublayer_type": name, "pairs": list(pairs)}
+                        for name, pairs in sublayers_template]
+        cycles.append({
+            "single_qubit_layer": sq_layer,
+            "two_qubit_sublayers": tq_sublayers,
+        })
+
+    return {
+        "grid_shape": (rows, cols),
+        "n_qubits": n_qubits,
+        "depth": depth,
+        "seed": seed,
+        "cycles": cycles,
+    }
 
 
 def pauli_string_init(
