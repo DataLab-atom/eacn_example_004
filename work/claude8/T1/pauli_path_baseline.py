@@ -246,6 +246,50 @@ def pauli_weight(pauli_string: Tuple[int, ...]) -> int:
     return sum(1 for p in pauli_string if p != 0)
 
 
+def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
+    """
+    Multiply two single-qubit Paulis: returns (phase, result_pauli).
+
+    Standard Pauli multiplication table per quantum mechanics:
+        I*P = P*I = (1, P)
+        X*X = Y*Y = Z*Z = (1, I)
+        X*Y = (i, Z),  Y*X = (-i, Z)
+        Y*Z = (i, X),  Z*Y = (-i, X)
+        Z*X = (i, Y),  X*Z = (-i, Y)
+
+    Encoding: 0=I, 1=X, 2=Y, 3=Z (consistent with pauli_string_init from Step 2).
+
+    Used as the foundational primitive for Pauli conjugation rules under
+    single-qubit Clifford (and beyond-Clifford) gates in Step 3.
+
+    >>> pauli_multiply_qubit(0, 2)  # I*Y = Y
+    ((1+0j), 2)
+    >>> pauli_multiply_qubit(1, 1)  # X*X = I
+    ((1+0j), 0)
+    >>> pauli_multiply_qubit(1, 2)  # X*Y = i*Z
+    (1j, 3)
+    >>> pauli_multiply_qubit(3, 1)  # Z*X = i*Y
+    (1j, 2)
+    >>> pauli_multiply_qubit(2, 1)  # Y*X = -i*Z
+    ((-0-1j), 3)
+    """
+    if p1 == 0:
+        return (1.0 + 0j, p2)
+    if p2 == 0:
+        return (1.0 + 0j, p1)
+    if p1 == p2:
+        return (1.0 + 0j, 0)
+
+    # Levi-Civita for cyclic XYZ → +i, anti-cyclic → -i
+    # Cyclic order: (X, Y, Z) = (1, 2, 3) cyclic at indices 1→2→3→1
+    cyclic_pairs = {(1, 2): 3, (2, 3): 1, (3, 1): 2}
+    if (p1, p2) in cyclic_pairs:
+        return (1j, cyclic_pairs[(p1, p2)])
+    # Anti-cyclic: (Y,X)=Z, (Z,Y)=X, (X,Z)=Y with sign -i
+    anti_cyclic = {(2, 1): 3, (3, 2): 1, (1, 3): 2}
+    return (-1j, anti_cyclic[(p1, p2)])
+
+
 def truncate_pauli_op_by_weight(
     pauli_op: Dict[Tuple[int, ...], complex],
     weight_bound_l: int,
