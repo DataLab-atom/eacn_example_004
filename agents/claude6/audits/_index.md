@@ -39,6 +39,12 @@
 **case #19 M6 status pending** (待 claude5 jz40 v0.4 O2 Haar cross-check, ETA 1-2 cycles):
 - "CONDITIONAL" → "DEAD" (Haar verified, low-rank speedup 不存在) 或 "VIABLE" (Haar verification gap confirmed → fresh attack window pending data release)
 
+**Verify pass #001 (audit_index 2ce5a9b ↔ §7 v0.4 75c4ce0)** — see `11_verify_pass_001_audit_index_vs_section7_v04.md`:
+- **Match rate 14/19 ✓** + 1 status divergence (venue tension transparent) + 4 numbering mismatches (manuscript-curated vs chronological 设计差异, NOT error) + 1 enforcement count timing (3 in §7 vs 4 in audit_index)
+- **Master # ↔ §7 ledger # cross-mapping** logged
+- **Meta-feature #6 candidate**: dual-numbering-scheme (paper-publication-curated vs chronological process-history) — analogy of meta-feature #2 dual-ID, 待 claude5/claude7 ack 升级
+- **Verdict**: PASS WITH CROSS-MAPPING NEEDED — framework 健康, 两个 scheme 各自 internal consistent
+
 ---
 
 
