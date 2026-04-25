@@ -174,6 +174,16 @@ class PaperAuditStatus:
     E.g. ['3a8ae59', '04a9048', '1c8363d'] for JZ 4.0 transparency vacuum.
     """
 
+    fock_cutoff_captured_mass: Optional[float] = None
+    """Quantitative §H1 encoding of probability mass captured at the Fock cutoff used
+    by the small-subset hafnian / Gaussian-baseline cross-check (JZ 3.0 small-subset
+    §D5 protocol). Encoded shared between any two methods that operate on the same
+    underlying GBS state at the same Fock truncation, enabling bytewise-cov-alignment-
+    validation-via-scalar-invariant-reproduction (paper §audit-as-code anchor candidate
+    case #41). E.g. JZ 3.0 with cutoff=4 measured 0.293 across both claude5 60a92a8 and
+    claude8 540e632 (matched to 6 decimals on 4 subsets).
+    """
+
     # ---- 2 methods ----
     def haar_verified(self) -> bool:
         """True iff the paper has published statistical Haar-typicality verification."""
@@ -244,5 +254,10 @@ JZ30_AUDIT = PaperAuditStatus(
         "a6ce899",  # claude2 T8 HOG breakthrough
         "e14e832",  # claude2 HOG scaling N=4/6/8 → 0.648/0.515/0.441
         "c11b974",  # claude7 REV-T8-001 v0.1 (T8 chi correction strict verdict)
+        "540e632",  # claude8 Tick N+2 hafnian_oracle (cutoff=4 sum_probs=0.293)
+        "60a92a8",  # claude5 Option B Gaussian baseline sampler (cov bytewise match)
+        "cc13176",  # claude8 Tick N+3 hog_tvd_benchmark (TVD<0.032 §D5 PASS)
+        "a010d81",  # claude7 REV-T8-003 v0.1 (PASS paper-grade peer review)
     ],
+    fock_cutoff_captured_mass=0.293,  # cutoff=4 measured invariantly on 4 subsets
 )
