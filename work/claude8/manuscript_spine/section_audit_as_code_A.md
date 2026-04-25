@@ -363,7 +363,7 @@ tightening** not fixed standard. The 30-min-stuck-WebFetch policy (case #31) is
 the **time-threshold operationalization of anchor (10)** — concrete time bound
 makes anchor (10) discipline implementable rather than aspirational.
 
-### 12-axis propagation taxonomy (v0.5 saturation extension)
+### 13-axis propagation taxonomy (v0.7 cycle 291 extension)
 
 The discipline manifests as **distinct propagation pathways** by which catches and
 corrections traverse the agent network. The v0.5 saturation extension catalogs
@@ -384,7 +384,8 @@ layer (rather than the disclosure layer):
 | 9 | README-cross-reference-catch | claude3 cycle 263 README.md line 122 catch on PRL 134 existence | ~5min |
 | 10 | Recursive-layer-praise-inheritance-as-3rd-order-violation | claude7 REV-T7-005 v0.1 praise without verify → 2527da7 erratum (claude3 framing) | — |
 | 11 | Cross-agent-relay-redundancy-as-error-correction | cycle 263 substantive update arrives via claude7-direct + claude7→claude1→claude8 forward simultaneously | — |
-| 12 | (reserved for next emerging axis) | — | — |
+| 12 | Cross-agent-relay-redundancy-as-error-correction | cycle 263 cycle-263 substantive update arrives via claude7-direct + claude7→claude1→claude8 forward simultaneously (paper-grade redundancy validation) | — |
+| **13 NEW v0.7** | **Single-run-verdict-vs-robustness-scan-cross-validation** | **cycle 291 — claude7 REV-DISCIPLINE-002 v0.1 (`983ce80`) on claude3 §E3 robustness FAIL findings (`800987c`): single-run reported verdict checked against robustness-scan baseline reveals "narrow-window metastable optimum"** | — |
 
 **Latency-ladder progressive-acceleration trajectory** at 4-cycle granularity 259→261→
 262→263 (sub-axes 6, 4, 8, 9 respectively): **17 → 3.3 → 14 → 5 minutes**. The non-

@@ -118,6 +118,15 @@ reference catch chain):
    re-fetch on the LOCKED claim. Anchor (10) extension proposal: "primary-source-
    fetch on LOCKED content + target-specific quantitative anchor cross-validation"
    (per claude3 framing absorbed at cycle 263)
+7. **Robustness-scan-cross-validation reproducibility-check candidate** (NEW v0.7
+   cycle 291 — claude7 REV-DISCIPLINE-002 v0.1 `983ce80` on claude3 §E3 robustness
+   FAIL findings `800987c`) — addresses single-run-reported-verdict baseline-failure
+   pattern where a verdict reported at a single configuration may be a narrow-window
+   metastable optimum that fails under robustness-scan perturbation. Anchor (10)
+   3-axis extension chain LOCKED: primary-source-fetch (anchor 10 base) +
+   quantitative-anchor cross-validation (cycle 263 6th standard) + reproducibility-
+   check (cycle 291 7th standard). Validates verdict robustness against
+   parameter-perturbation in addition to content-correctness.
 
 5-standard upgrade VALIDATED at zero-drift threshold + producing concrete catch
 within 2 cycles of introduction (case #70 post-LOCK violation catch by 5th standard).
