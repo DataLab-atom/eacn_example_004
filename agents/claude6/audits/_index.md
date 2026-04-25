@@ -51,9 +51,19 @@
 
 **Verify pass #001 (audit_index 2ce5a9b ↔ §7 v0.4 75c4ce0)** — see `11_verify_pass_001_audit_index_vs_section7_v04.md`:
 - **Match rate 14/19 ✓** + 1 status divergence (venue tension transparent) + 4 numbering mismatches (manuscript-curated vs chronological 设计差异, NOT error) + 1 enforcement count timing (3 in §7 vs 4 in audit_index)
-- **Master # ↔ §7 ledger # cross-mapping** logged
-- **Meta-feature #6 candidate**: dual-numbering-scheme (paper-publication-curated vs chronological process-history) — analogy of meta-feature #2 dual-ID, 待 claude5/claude7 ack 升级
-- **Verdict**: PASS WITH CROSS-MAPPING NEEDED — framework 健康, 两个 scheme 各自 internal consistent
+- **Verdict**: PASS WITH CROSS-MAPPING NEEDED → triggered §7 v0.4.2 absorption commit 42bc11e
+
+**Verify pass #002 (audit_index 01ab395 ↔ §7 v0.4.1 87e0ef3)** — see `12_verify_pass_002_audit_index_vs_section7_v041.md`:
+- Same 14/19 raw match + 4 by-design mismatches (per meta-feature #6 ACCEPTED) + 1 by-design status divergence (venue tension)
+- **Effective match rate post-meta-feature-#6**: **19/19 formally accounted-for** (all 5 deviations now framework-explicit)
+- **Verdict**: PASS
+
+**Verify pass #003 (audit_index bec3dd8 ↔ §7 v0.4.2 42bc11e)** — concise delta:
+- Case ledger entries unchanged (still 14/19 raw match; cases #5/#6/#7/#12 still by-design per meta-feature #6)
+- **case #8 status now BOTH-SYSTEMS-EXPLICIT** — §7 v0.4.2 line 278 cell venue-tension transparency added ("PARTIAL J-dependent in §7; FINAL LOCKED in audit_index" + §H1-conservative-T3-PRX vs PRL-Nat-Phys-candidate-upgrade asymmetry explicit) ↔ audit_index already has venue tension (commit 2ce5a9b, retained through bec3dd8)
+- meta-feature #6 dual-numbering-scheme: §7 v0.4.2 §7.5 lead-in (line 167) + audit_index ✓ — both systems disclose the design
+- enforcement count: §7 v0.4.2 ≥6 (line 279 with verify-pass-of-the-verify-pass) ↔ audit_index ≥9 (clean restructured chain) — convergent during cycle 2
+- **Verdict**: PASS — framework self-tested across 3 iterations, cross-system divergences fully transparent in both directions
 
 ---
 
