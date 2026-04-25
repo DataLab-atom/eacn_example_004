@@ -14,11 +14,11 @@
       "top10_cumul_pct": 88.0
     },
     {
-      "N": 16,
-      "n_terms_w4": 12357,
-      "hot_pct_pgt1": null,
-      "top10_cumul_pct": null,
-      "note": "claude4 3bb7ed2 nearby 4x4 d=4, terms reported but hot fraction not yet broken out"
+      "N": 24,
+      "n_terms_w4": 255,
+      "hot_pct_pgt1": 20.8,
+      "top10_cumul_pct": 97.0,
+      "note": "v0.6: claude4 a6b1697 wider grid (4x6) drops terms 15x vs 12q 3x4 \u2014 wider grids are HARDER for scrambling to spread, so fewer dominant Pauli terms survive truncation"
     }
   ],
   "my_verify_12q_match_with_claude4": true,

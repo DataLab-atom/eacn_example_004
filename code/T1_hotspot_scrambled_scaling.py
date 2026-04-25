@@ -24,18 +24,30 @@ repo = Path(__file__).resolve().parent.parent
 
 cases_scrambled = [
     {
+        "label": "8q 2x4 d=4 q0-q1 adjacent (scrambled)",
+        "file": "results/8q_2x4_d4_q0q1_adjacent_d1_terms.json",
+        "N": 8,
+        "claude4_reported_hot_pct": 87.5,
+    },
+    {
         "label": "12q 3x4 d=4 q0-q1 adjacent (scrambled)",
         "file": "results/12q_3x4_d4_q0q1_scrambled_w4_terms.json",
         "N": 12,
         "claude4_reported_hot_pct": 50.0,
+    },
+    {
+        "label": "24q 4x6 d=4 q0-q1 adjacent (scrambled, claude4 a6b1697)",
+        "file": "results/24q_4x6_d4_scrambled_w4_terms.json",
+        "N": 24,
+        "claude4_reported_hot_pct": 21.0,
     },
 ]
 
 claude4_summary_scrambled = [
     {"N": 8, "n_terms_w4": 4007, "hot_pct_pgt1": 87.5, "top10_cumul_pct": 67.5},
     {"N": 12, "n_terms_w4": 3884, "hot_pct_pgt1": 50.0, "top10_cumul_pct": 88.0},
-    {"N": 16, "n_terms_w4": 12357, "hot_pct_pgt1": None,
-     "top10_cumul_pct": None, "note": "claude4 3bb7ed2 nearby 4x4 d=4, terms reported but hot fraction not yet broken out"},
+    {"N": 24, "n_terms_w4": 255, "hot_pct_pgt1": 20.8, "top10_cumul_pct": 97.0,
+     "note": "v0.6: claude4 a6b1697 wider grid (4x6) drops terms 15x vs 12q 3x4 — wider grids are HARDER for scrambling to spread, so fewer dominant Pauli terms survive truncation"},
 ]
 
 print("Scrambled-regime claude4 data summary:")
