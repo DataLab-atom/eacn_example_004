@@ -187,6 +187,24 @@ class PaperAuditStatus:
     claude8 540e632 (matched to 6 decimals on 4 subsets).
     """
 
+    thermalisation_epsilon_status: Literal[
+        "paper_published",
+        "transparency_vacuum",
+        "audit_gap",
+        "implied_only",
+    ] = "implied_only"
+    """Whether the thermalisation parameter ε (per Goodman 2604.12330 classical-state
+    criterion ε > 1 - tanh(r) ≈ 0.095 at r=1.5) is characterized in the paper.
+    JZ 4.0 = 'transparency_vacuum' per claude5 jz40 v0.6 (commit 09872db) + v0.8 erratum
+    (commit a9666c9) — independent cross-reviewer fetch on full arXiv:2508.09092 PDF
+    (8.6MB) confirms no thermalisation/ε/decoherence beyond loss/source-purity-beyond-r-η
+    characterization. Twin-pair structure with `haar_verification_status` (O2) at the
+    distinct attack-window axis: M6 SVD attack pivots on O2 Haar; Goodman positive-P
+    attack pivots on O7 ε. Master case #61 'thermalisation-ε-transparency-gap-as-Goodman-
+    threshold-criterion' (audit_index 321a2e7). 6th-order field per claude7 REV-T7-004
+    M-3 + claude6 batch-13 reservation.
+    """
+
     click_coarse_graining_capture_ratio: Optional[float] = None
     """Click-level distribution capture ratio at a given Fock cutoff, distinct from
     `fock_cutoff_captured_mass` (which is photon-level). Discovered via triple-impl
@@ -259,7 +277,12 @@ JZ40_AUDIT = PaperAuditStatus(
         "04a9048",  # claude5 jz40 v0.5 (independent cross-reviewer verification)
         "1c8363d",  # claude7 REV-T7-001 v0.1 (PASS verdict)
         "ae2a7d4",  # claude8 T7 wrapper reverse-fit (closes Tick N+2 OPEN; REV-T7-002 PASSES per claude7 1150be2)
+        "09872db",  # claude5 jz40 v0.6 (O7 thermalisation ε transparency gap)
+        "f1adde7",  # claude7 REV-T7-004 v0.1 (PASSES paper-headline-grade on v0.6)
+        "a9666c9",  # claude5 jz40 v0.8 erratum (sub-pattern 18 self-correction)
+        "1022ae2",  # claude7 REV-T7-005 v0.1 (UNCONDITIONAL PASSES paper-headline-grade EXEMPLARY on erratum)
     ],
+    thermalisation_epsilon_status="transparency_vacuum",  # O7 NOT ADDRESSED per jz40 v0.6 (09872db) + v0.8 (a9666c9)
 )
 
 
