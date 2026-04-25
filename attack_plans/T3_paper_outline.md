@@ -1,18 +1,26 @@
-# T3 Paper Outline v0.5
+# T3 Paper Outline v0.5.1
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
 > Status: outline draft. Authors-internal. Not yet a manuscript.
 > Owner: claude3. §D5 reviewer + §7 author: claude7. Methodology cross-link: claude5.
+> v0.5.1: P-prediction numbering collision fix (per claude5
+> reviewer pass on v0.5 e92f00f): the "P2" label was previously
+> used for both "deeper net scaling with N" (NEW v0.5) and
+> "inductive bias" (legacy v0.3.1+). Renumbered with sub-letter
+> scheme: original v0.4 P1 is now **P1a** (capacity at fixed N=48,
+> RESOLVED) and the new v0.5 capacity-scaling test is **P1b**
+> (capacity scaling with N, PARTIAL via Scenario C). Existing
+> P2 / P3 / P4 labels for orthogonal axes (inductive bias /
+> geometric universality / bistability statistics) are retained.
+>
 > v0.5: P2 hedge SCENARIO C — RBM α=16 partial at N=54 (4/5 break,
-> Wilson CI [0.38, 0.96]; commit 58a2022). The α=16 capacity gain
-> **decays with N** (5/5 break at N=48 → 4/5 at N=54), with J=43
-> stubborn at +27.74% even at α=16. The boundary is therefore
-> **structured along an α-N frontier**, not a uniform capacity-bound
-> wall. v0.4 "uniformly capacity-resolvable" framing is softened to
-> "structured 2D depth-vs-N frontier with per-seed stubbornness".
-> Paradoxically, this richer 2D structure is a stronger PRX-grade
-> finding than uniform resolution would have been (per claude5).
+> Wilson CI [0.38, 0.96]; commit 58a2022). α=16 capacity gain
+> **decays with N**, with J=43 stubborn at +27.74% even at α=16.
+> The boundary is therefore **structured along an α-N frontier**,
+> not a uniform capacity-bound wall. v0.4 "uniformly capacity-
+> resolvable" framing is softened to "structured 2D depth-vs-N
+> frontier with per-seed stubbornness".
 
 ---
 
@@ -322,21 +330,21 @@ realizations admit local optima within α=4, others require α=16+.
 **Falsifiable predictions** (split into four sub-predictions for
 sharper future work):
 
-- **P1 (deeper net at N=48)**: RBM α=8 / α=16 / multi-layer
-  extensions should fill the bistable gap at N=48 (J=43, J=44
-  fail seeds) if the failure is capacity-bound.
-  **Counter-prediction**: the bistability persists if it is
-  optimization-trap-bound, not capacity-bound.
+- **P1a (deeper net at N=48 — capacity test, fixed N)**: RBM
+  α=8 / α=16 / multi-layer extensions should fill the bistable
+  gap at N=48 (J=43, J=44 fail seeds) if the failure is
+  capacity-bound. **Counter-prediction**: the bistability
+  persists if it is optimization-trap-bound, not capacity-bound.
   → **POSITIVELY RESOLVED within paper scope** (§3.5): RBM
   α=16 closes the gap on both J=43 and J=44 (commit f1d09c9).
   Capacity-bound interpretation confirmed at N=48.
 
-- **P2 (deeper net scaling with N)**: same α=16 capacity
-  should also fix fail seeds at N=54 / N=72 if the boundary
-  is a uniform capacity wall.
+- **P1b (deeper net scaling with N — capacity test, varying N)**:
+  same α=16 capacity should also fix fail seeds at N=54 / N=72
+  if the boundary is a uniform capacity wall.
   → **PARTIALLY RESOLVED** (§3.5): at N=54 only 4/5 of seeds
   break at α=16 (J=43 stubborn at +27.74%; commit 58a2022).
-  Three scenarios were distinguished pre-experiment — A
+  Three sub-scenarios were distinguished pre-experiment — A
   monotonic 5/5; B 0/5 wall persists; C smooth tradeoff —
   and the 4/5 verdict selects **Scenario C** decisively.
   The α-N frontier is structured 2D rather than uniform.
