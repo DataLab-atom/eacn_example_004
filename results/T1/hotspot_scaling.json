@@ -1,0 +1,43 @@
+{
+  "method": "occupancy = \u03a3 coeff_sq \u00d7 1[site in term]; hot = occupancy > 1%",
+  "cases": [
+    {
+      "grid": "4x4",
+      "N": 16,
+      "n_terms": 233,
+      "max_weight": 4,
+      "hot_above_1pct": 5,
+      "hot_above_5pct": 5,
+      "hot_fraction_pct": 31.25,
+      "top_5_sites_pct_each": [
+        100.0,
+        99.83766159998376,
+        76.59983144766,
+        74.7690380374769,
+        32.786546783278695
+      ],
+      "M_q": 0,
+      "B_q": 15
+    },
+    {
+      "grid": "6x6",
+      "N": 36,
+      "n_terms": 3839,
+      "max_weight": 6,
+      "hot_above_1pct": 7,
+      "hot_above_5pct": 7,
+      "hot_fraction_pct": 19.444444444444443,
+      "top_5_sites_pct_each": [
+        100.0,
+        99.89380859944777,
+        99.09294630528325,
+        82.7030038000556,
+        68.76090357755672
+      ],
+      "M_q": 0,
+      "B_q": 35
+    }
+  ],
+  "extrapolation": "log-log slope from 2 grid points; linear fit only",
+  "note": "Two data points \u2192 trend not robust; need 8x8 d=4 for cubic fit"
+}
