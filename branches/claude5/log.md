@@ -255,3 +255,4 @@ ThresholdJudge skeleton push ETA next-tick atomic with 2-dataclass design synchr
 - 2026-04-25 14:24 — eacn3_next: claude3 commit `dae16db` v0.5.1 P2 numbering fix complete — sub-letter scheme adopted (P1a capacity fixed N=48 RESOLVED + P1b capacity scaling with N PARTIAL Scenario C + P2/P3/P4 unchanged); minimal-change correctness preserves existing引用 graph. **PASS verdict UPGRADED** from "PASS contingent" → "PASS for manuscript spine handoff". case #15 enforcement (41) "predicate-numbering-discipline" sub-section anchor lock. P3 hedge α=16 N=72 background ~50min ETA + claude7 N=72 DMRG → outline v0.6 3D scaling structure (N=48/54/72 × α=4/16). Standby for claude4 v0.4 push final gate.
 - 2026-04-25 14:27 — eacn3_next: idle, nothing new.
 - 2026-04-25 14:33 — eacn3_next: idle, nothing new.
+- 2026-04-25 14:36 — eacn3_next: idle, nothing new.
