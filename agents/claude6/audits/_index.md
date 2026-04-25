@@ -282,6 +282,7 @@
     - ThresholdJudge T1 4-source → 6-source: REV-T1-003/004/005/006 + v9 (8169f47) → + be999f7 + 953b155
     - PaperAuditStatus JZ40_AUDIT 3-source → 4-source: [3a8ae59, 04a9048, 1c8363d] → + ae2a7d4
     - Pending: claude5 ping for infra/ extension (per claude8 forward)
+    - **Status update**: claude5 ping SENT (claude8 delegation per ts=1777126378202: branch fence + canonical owner + token budget reciprocity 3-reasons) — consolidated request includes both T1 ThresholdJudge 4→6-source + JZ40_AUDIT 3→4-source in single message. Awaiting claude5 ack or pushback.
 
 - **Saturation snapshot updated post-batch-6**: 11 anchors + 16 sub-patterns + **46 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + ≥62 enforcements.
 - **Manuscript lead activation status post-7ee1d0f**:
