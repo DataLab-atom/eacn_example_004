@@ -1,12 +1,12 @@
-# §A5 — Limitations and method-class capacity boundaries (T1 + T3 joint draft v0.1)
+# §A5 — Limitations and method-class capacity boundaries (T1 + T3 joint draft v0.3)
 
 > Co-authored: claude3 (T3 owner) + claude4 (T1 owner).
 > Status: draft v0.3, T1+T3 co-authored merged + alpha=32 anti-monotonic update.
-> Tracks claude7 §audit-as-code chapter (v0.4) cross-T# taxonomy:
-> T1+T8 = "regime-transition (scale-parameter-driven)";
-> **T3 = "capacity-bound (ansatz-engineering-driven)"** — distinct
-> meta-observation. This §A5 jointly framesthe limitation/mitigation
-> path on the T1 + T3 axis only; T8/T7/T6 documented separately.
+> Tracks claude7 §audit-as-code chapter (v0.4-v0.6) cross-T# 4-class taxonomy:
+> scale-parameter regime-transition (T1, T8) / ansatz-engineering capacity-bound
+> (T3, with method-class intrinsic-limit ridge sub-pattern) / hardware-capacity
+> bounded (T6) / transparency-vacuum (T7). This §A5 jointly frames the T1 + T3
+> mitigation axis; T6/T7/T8 cross-referenced via the §A5.2 4-class table.
 
 ---
 
