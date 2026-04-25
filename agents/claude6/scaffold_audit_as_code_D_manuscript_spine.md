@@ -25,7 +25,7 @@
 **T7 cross-cite chain**:
 - §A.6 Goodman 2604.12330 honest-scope reassessment → T7 dual-conditional 8/10 verdict (M6 SVD pending O2 + Goodman positive-P pending O7 ε)
 - §B.5 framework-validates-itself meta-loop family → REV-T7-002/003/004/005/005.1 cycle 261-263 cascade
-- Sub-pattern 18 LOCKED 2-stage erratum (η-based + PRL 134 not PRL 131) → claude5 jz40 v0.6/v0.7/v0.8 + claude7 errata cascade
+- Sub-pattern 18 LOCKED **3-stage erratum** (Stage 1 η-based + Stage 2 PRL 134 doesn't exist erroneously asserted + Stage 3 v0.9 c5875cf vindicates claude2 PRL 134, 090604 citation TWICE) → claude5 jz40 v0.6/v0.7/v0.8/v0.9 + claude7 errata cascade
 
 **T8 cross-cite chain**:
 - §A.5 5-method T8 mosaic LOCKED → §A5.4 paper-grade picture (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + claude2 a843594 NEGATIVE + claude2 f940d7e positive-P+WC)

@@ -529,6 +529,20 @@
 
   - **Saturation snapshot updated post-batch-19**: 11 anchors + 18 sub-patterns + **73 cases** + 6 meta-features + 4-class cross-T# taxonomy + **≥68 enforcements**.
 
+- **🚀 BATCH-20 absorb claude5 ts=1777150502954 REV-SCAFFOLD-BCD-v01 PASSES + sub-pattern 18 3-stage erratum lock + claude5 v0.9 c5875cf 2nd-erratum vindicates claude2 TWICE + PaperAuditStatus thermalisation_epsilon_status field IMPLEMENTED at 29cef85** (continuous-advance mode per user directive, claude5 v0.9 c5875cf + 29cef85 verified per anchor (10)):
+  - **🚨 Sub-pattern 18 LOCKED 3-stage ERRATUM ACCEPTED** (extends 2-stage from batch-19):
+    - Stage 1 (batch-18): mode-count-based → η-based disambiguation
+    - Stage 2 (batch-19): η-based stays correct + specific PRL volume citation update PRL 131 → PRL 134
+    - **Stage 3 (batch-20)**: claude5 v0.9 c5875cf vindicates claude2 PRL 134, 090604 citation TWICE — claude5's prior "PRL 134 NON-EXISTENT" claim at v0.8 was itself an error per claude3 README cross-reference catch + claude7 REV-T7-005 v0.1.1 erratum 2527da7. JZ30_AUDIT.audit_provenance updated to 9 entries with 2527da7 added.
+    - Latency-ladder progressive-acceleration: 17min (cycle 261) → 3.3min → 14min → 5min (recursion-depth axis).
+    - Layer 3 of recursive discipline cycle EXEMPLARY landmark COMPLETE — strongest possible 3-layer recursive self-application precedent.
+  - **case #61 PaperAuditStatus 6th-order field IMPLEMENTED at claude5 commit 29cef85** (closes batch-13 case #61 reservation + claude7 REV-T7-004 M-3 micro-request): `thermalisation_epsilon_status: Literal["paper_published", "transparency_vacuum", "audit_gap", "implied_only"]`; JZ40_AUDIT="transparency_vacuum"; audit_provenance 4→8 entries.
+  - **REV-SCAFFOLD-BCD-v01 verdict**: claude5 ground-truth-axis review of §B/C/D scaffolds 6feb785 PASSES paper-grade. All claude5 contributions (sub-pattern 18 LOCK + 7-axis recursive coverage layers (66)+(67) + 2-stage erratum chain + jz40 v0.6/v0.7/v0.8/v0.9 cascade) accurately cited; only update needed = 3-stage erratum reframe (now applied per this batch).
+  - **§B/C/D scaffold v0.2 fixes per claude5 update**: §C.1 wording "**3-stage erratum** locked" + §D.2 "**3-stage erratum**" reflected.
+  - **continuous-advance mode endorsement**: claude5 explicitly endorses continuous-advance + mutual-silent-maintenance OVERRIDDEN per user directive.
+
+- **claude1 dispatch availability ranking** (per ts=1777150502943): T9 IBM Nighthawk pre-research RCS-author-view review = HIGH PRIORITY accept; audit #005 critical_eta methodology = MEDIUM (Morvan-trap concerns); cross-attack boundary mapping = MEDIUM (largely absorbed); T2 Algorithmiq = LOW for him. Decision: route T9 to claude1 first (kickoff in next tick).
+
 - **claude7 cycle 263 closure ack** (claude7 ts=1777147621018, no-reply per discipline): cycle 263 commits delivered:
   - **1cb8572** REV-T1-008 v0.2 PASSES paper-headline-grade (claude4 v0.5/v0.6 paper-realization chain)
   - **2527da7** REV-T7-005 v0.1.1 erratum PRL volume sub-claim correction (PRL 134, 090604 (2025) per README + claude3 verification)

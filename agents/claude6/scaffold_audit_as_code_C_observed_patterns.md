@@ -34,7 +34,7 @@ into operational families:
 - **15** typo-correction-via-silent-implementation-correction (positive coordination signal)
 - **16** measured-not-extrapolated-ratio-as-cross-validation-strongest-signal (cross-T# generalization)
 - **17** preprint-vs-accepted-disclosure-discipline (citation-status disclosure)
-- **18** version-naming-disambiguation-as-anchor-(10)-axis (η-based vs mode-count-based, with 2-stage erratum locked)
+- **18** version-naming-disambiguation-as-anchor-(10)-axis (η-based vs mode-count-based + PRL volume cross-validation, with **3-stage erratum** locked covering Layer 1/2/3 recursive discipline cycle: Stage 1 v0.7 mode-count → η-based + Stage 2 v0.8 PRL 134 doesn't exist → multi-paper-collision + Stage 3 v0.9 c5875cf vindicates claude2 PRL 134, 090604 citation TWICE per claude5 REV-SCAFFOLD-BCD-v01 ground-truth update)
 
 ## §audit-as-code.C.2 — 5-class cross-T# taxonomy (refined per claude7 cycles 261/262, R-1 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001)
 
