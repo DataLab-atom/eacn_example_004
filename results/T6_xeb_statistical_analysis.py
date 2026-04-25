@@ -1,16 +1,22 @@
 """
-T6 Attack Line 3: XEB Statistical Detectability Analysis
-=========================================================
+T6 Attack Line 3: XEB Statistical Detectability Analysis (v2)
+=============================================================
 Adapted from claude2's T4 analysis (commit 398fa62).
+
+v2 fixes (post REV-T6-004 by claude7):
+  R-1 sample counts replaced with paper-actuals
+  R-2 ZCZ 3.0 RETRACTED (real N=4.1e8 -> SNR=5.30 detectable)
+  R-3 Sycamore label auto-resolved with N=5e6 -> SNR=4.92 detectable
 
 Key question: Can Zuchongzhi 2.0/2.1's quantum advantage claim
 be statistically verified from the number of samples collected?
 
-If SNR < 3, the XEB signal is indistinguishable from noise,
-meaning the claim is statistically unverifiable.
+If SNR < 3, the XEB signal is indistinguishable from statistical
+noise, meaning the claim is statistically unverifiable.
 
 Agent: claude1 | Branch: claude1
-Cross-ref: claude2 code/T4/approximate_sampling_analysis.py
+Cross-ref: claude2 code/T4/approximate_sampling_analysis.py (c6b515b)
+           claude7 REV-T6-004
 """
 
 import numpy as np
@@ -94,37 +100,41 @@ def main():
 
     results = {}
 
-    # Sycamore: 53 qubits, reported F_XEB = 0.2% (0.002)
-    # ~10^6 samples (Arute 2019)
+    # v2 PAPER-ACTUAL sample counts per claude7 REV-T6-004 R-1
+    # Sources: Arute 2019 supp / Wu 2021 supp / Zhu 2022 supp /
+    #          ZCZ 3.0 arXiv:2412.11924 (claude2 cac3bb5)
+
+    # Sycamore: 53q, F_XEB=2.2e-3, N=5e6 (Arute 2019 Nature 574, 505)
     results['sycamore'] = xeb_statistical_analysis(
-        "Sycamore (53q, 20c) — BROKEN",
-        53, 2.2e-3, 1e6
+        "Sycamore (53q, 20c) [BROKEN by Pan-Zhang 2022]",
+        53, 2.2e-3, 5e6
     )
 
-    # ZCZ 2.0: 56 qubits, reported XEB = 6.6e-4
-    # Wu 2021: ~10^6 samples (estimated)
+    # ZCZ 2.0: 56q, F_XEB=6.6e-4, N=5e6 (Wu 2021 PRL 127, 180501)
     results['zcz20'] = xeb_statistical_analysis(
         "Zuchongzhi 2.0 (56q, 20c)",
-        56, 6.6e-4, 1e6
+        56, 6.6e-4, 5e6
     )
 
-    # ZCZ 2.1: 60 qubits, reported XEB = 3.66e-4
-    # Zhu 2022: ~10^6 samples (estimated)
+    # ZCZ 2.1: 60q, F_XEB=3.66e-4, N=10^7 (Zhu 2022 Sci. Bull.)
     results['zcz21'] = xeb_statistical_analysis(
         "Zuchongzhi 2.1 (60q, 24c)",
-        60, 3.66e-4, 1e6
+        60, 3.66e-4, 1e7
     )
 
-    # ZCZ 3.0: 83 qubits, XEB ~0.026% (from claude2 analysis)
-    # Gao 2025: ~10^7 samples (estimated)
-    results['zcz30'] = xeb_statistical_analysis(
-        "Zuchongzhi 3.0 (83q, 32c)",
-        83, 2.6e-4, 1e7
+    # ZCZ 3.0: 83q, F_XEB=2.62e-4, N=4.1e8 (arXiv 2412.11924)
+    # NOTE: with N=4.1e8 SNR=5.30 -> DETECTABLE; previously claimed
+    # not detectable at N=10^7 was wrong. Listed for completeness only,
+    # NOT a viable T6 attack vector.
+    results['zcz30_for_reference_only'] = xeb_statistical_analysis(
+        "Zuchongzhi 3.0 (83q, 32c) [DETECTABLE — not a T6 attack]",
+        83, 2.62e-4, 4.1e8
     )
 
-    # Willow RCS: 67 qubits (estimated from Google 2024)
-    results['willow'] = xeb_statistical_analysis(
-        "Willow RCS (67q, 32c)",
+    # Willow RCS: 67q, F_XEB ~ 1e-3 (Google 2024); sample count N=10^7
+    # is still an estimate, label accordingly.
+    results['willow_estimated_N'] = xeb_statistical_analysis(
+        "Willow RCS (67q, 32c) [N=10^7 estimated]",
         67, 1e-3, 1e7
     )
 
@@ -138,15 +148,19 @@ def main():
         det = "YES" if r['detectable_3sigma'] else "NO"
         print(f"{r['label']:<35} {r['snr']:8.4f} {det:>12} {r['sample_deficit_factor']:>12.2e}")
 
-    print(f"\n--- Implications for T6 ---")
+    print(f"\n--- v2 Implications for T6 (post REV-T6-004 fix) ---")
     zcz20 = results['zcz20']
     zcz21 = results['zcz21']
-    print(f"ZCZ 2.0: SNR = {zcz20['snr']:.4f} -> {'DETECTABLE' if zcz20['detectable_3sigma'] else 'NOT DETECTABLE'}")
-    print(f"ZCZ 2.1: SNR = {zcz21['snr']:.4f} -> {'DETECTABLE' if zcz21['detectable_3sigma'] else 'NOT DETECTABLE'}")
+    sycamore = results['sycamore']
+    zcz30 = results['zcz30_for_reference_only']
+    print(f"Sycamore: SNR = {sycamore['snr']:.2f} -> DETECTABLE (consistent with experiment)")
+    print(f"ZCZ 2.0:  SNR = {zcz20['snr']:.2f} -> {'DETECTABLE' if zcz20['detectable_3sigma'] else 'MARGINAL / NOT DETECTABLE'}")
+    print(f"ZCZ 2.1:  SNR = {zcz21['snr']:.2f} -> {'DETECTABLE' if zcz21['detectable_3sigma'] else 'MARGINAL / NOT DETECTABLE'}")
+    print(f"ZCZ 3.0:  SNR = {zcz30['snr']:.2f} -> DETECTABLE (RETRACTED from T6 attack)")
     print()
-    print("NOTE: The actual sample counts are estimates (~10^6).")
-    print("If the real sample count is higher, SNR improves as sqrt(N).")
-    print("The exact sample counts should be verified from the original papers.")
+    print("T6 attack scope (v2): Statistical undetectability covers ZCZ 2.0 / 2.1")
+    print("only. ZCZ 3.0's 4.1e8-sample experiment passes 3-sigma detection.")
+    print("The T6 main line remains TN contraction extrapolation (REV-T6-002 PASSES).")
 
     outdir = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(outdir, 'T6_xeb_statistics.json'), 'w') as f:
