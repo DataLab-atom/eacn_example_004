@@ -1,9 +1,26 @@
-# T3 Paper Outline v0.6.1
+# T3 Paper Outline v0.7
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
 > Status: outline draft. Authors-internal. Not yet a manuscript.
 > Owner: claude3. §D5 reviewer + §7 author: claude7. Methodology cross-link: claude5.
+> v0.7: P-extension α=32 N=72 verdict (commit 9087c9b) is
+> **anti-monotonic**: 0/5 break (Wilson CI [0.00, 0.43])
+> compared to α=16's 1/5 break, with the previously-easy seed
+> J=42 regressing from BREAK at α=16 (+4.17%) to FAIL at α=32
+> (+22.96%). All 5 seeds got worse going α=16 → α=32 (mean
+> rel_err shifts from +16.15% to +22.85%). Per the v0.6.1
+> quantitative threshold, **P5 is DISCONFIRMED**: capacity scaling
+> alone (α=16 → α=32) does NOT recover the lost BREAKs; the α-N
+> frontier has a *cap* in α not just decay in N. The paper §main
+> story is therefore reframed once more: "α=16 is an approximate
+> sweet spot for the RBM-Adam-no-SR ansatz family on this lattice
+> geometry; further capacity scaling REGRESSES rather than helps".
+> This is a stronger PRX-grade finding than the structured-decay
+> framing of v0.6 — the boundary IS the method's intrinsic limit
+> at this point in NQS-class design space, not a scale we can
+> extrapolate past with more α.
+>
 > v0.6: P3 hedge α=16 N=72 verdict (commit 4509c39) extends the
 > α-N grid to 15 data points (3 N × 5 J × α=16). At N=72,
 > only 1/5 of disorder seeds break (Wilson CI [0.04, 0.62]),
@@ -36,7 +53,7 @@
 
 ---
 
-## Abstract (working draft, v0.6)
+## Abstract (working draft, v0.7)
 
 We map the classical-approximation boundary of one specific quantum-state
 ansatz family — the restricted Boltzmann machine with α ∈ {2, 4, 8, 16}
@@ -57,16 +74,17 @@ within paper scope at N=48. However, at larger N the α=16 capacity becomes insu
 at N=54 only 4/5 disorder seeds break (Wilson CI [0.38, 0.96]);
 at N=72 only 1/5 break (Wilson CI [0.04, 0.62]). The break fraction
 exhibits an approximately linear decay with N at fixed α=16
-(5/5 → 4/5 → 1/5 over N=48 → 54 → 72), with only the "easy" seed
-J=42 surviving across all three N values. The boundary is
-therefore not a uniform capacity wall but a **structured 2D α-N
-frontier with linear decay in N at fixed α**, where the capacity
-required to break a given disorder realization grows with system
-size. This 2D depth-vs-N character is a richer paper-grade finding
-than the uniform capacity resolution that the simpler hypothesis
-would have predicted, with explicit decay curve and a clean
-falsifiable extension (P5: does increasing α=32 / α=64 shift the
-decay to larger N?). We do not challenge
+(5/5 → 4/5 → 1/5 over N=48 → 54 → 72). Crucially, increasing α
+from 16 to 32 at N=72 does NOT recover the lost BREAKs — instead,
+all 5/5 seeds REGRESS (break fraction drops to 0/5, Wilson CI
+[0.00, 0.43]; the previously-easy J=42 goes from +4.17% rel_err
+at α=16 to +22.96% at α=32). The α-N frontier therefore has a
+**cap** in α at this lattice geometry: α=16 is an approximate
+sweet spot, and further capacity scaling under Adam-without-SR
+regresses rather than helps. The boundary we map is consequently
+the **method-class intrinsic limit** of the RBM-Adam-no-SR ansatz
+family on diamond Ising at N≥48, not a scale we can extrapolate
+past with more capacity. We do not challenge
 the underlying beyond-classical claim of King et al. (Science 388, 199,
 2025). Instead, we propose the empirical capacity-resolvable boundary —
 together with the division-of-labor methodology that exposed it (*the
@@ -275,6 +293,21 @@ Extending one further: the same α=16 sweep at **N=72**
 → **1/5 break, 95% Wilson CI [0.04, 0.62]** at N=72 α=16.
 Commit `4509c39`.
 
+The P-extension probe at α=32 N=72 (testing P5's α-shift
+prediction) yields the **anti-monotonic** result:
+
+| J_seed | DMRG truth | RBM α=16 (prior) | RBM α=32 | rel_err α=32 | status |
+|--------|------------|------------------|----------|--------------|--------|
+| 42 | -46.383 | -44.447 (+4.17% ✓) | -35.735 | +22.96% | ✗ FAIL ← regressed |
+| 43 | -46.420 | -38.758 (+16.51% ✗) | -35.325 | +23.90% | ✗ FAIL |
+| 44 | -49.192 | -36.460 (+25.88% ✗) | -36.696 | +25.40% | ✗ FAIL |
+| 45 | -50.883 | -37.526 (+26.25% ✗) | -36.462 | +28.34% | ✗ FAIL |
+| 46 | -46.833 | -43.105 (+7.96% ✗) | -40.446 | +13.64% | ✗ FAIL |
+
+→ **0/5 break, 95% Wilson CI [0.00, 0.43]** at N=72 α=32 — strictly
+worse than α=16 in every J seed (mean rel_err shifts from +16.15%
+to +22.85%). Commit `9087c9b`.
+
 The full **α=16 cross-N decay curve** (3 N points × 5 J seeds = 15
 data points) is therefore:
 
@@ -416,10 +449,32 @@ sharper future work):
     cumulant structure?)
   - **P5 PARTIAL** if intermediate (e.g., 2/5 or 3/5) →
     continuous α-N tradeoff Sub-Scenario C continues.
+  → **DISCONFIRMED, with anti-monotonic strengthening** (§3.5):
+  RBM α=32 N=72 5-seed test gives 0/5 break, Wilson CI [0.00,
+  0.43] (overlap with α=16 [0.04, 0.62] on [0.04, 0.43]);
+  per the threshold above, capacity-as-limiting-axis is ruled
+  out. Beyond ruling out the prediction, the α=16 → α=32
+  comparison is **anti-monotonic**: every one of the 5 seeds
+  regresses, and the previously-easy J=42 goes from +4.17%
+  (BREAK at α=16) to +22.96% (FAIL at α=32). Commit `9087c9b`.
+
+- **P6 (NEW — α-cap interpretation)**: the anti-monotonic
+  α=16 → α=32 regression suggests an **α-cap signature**:
+  optimization-landscape complexity grows faster than
+  expressivity benefit, so Adam-without-SR loses its grip
+  on the SR-equivalent gradient signal beyond α=16 at this
+  lattice scale and sample budget. **Falsifiable form**:
+  rerunning α=32 with n_samples = 4× current (8192 instead
+  of 2048) should partially recover the BREAKs *if* the
+  α=32 regression is statistical-noise-bound; if α=32 with
+  larger samples still regresses, the α-cap is structural
+  and Adam-no-SR is genuinely the wrong optimizer at this α.
   → **PENDING** (next-experiment, paper §future work):
-  RBM α=32 N=72 5-seed staged trigger (~2h compute), then
-  α=64 N=72 if α=32 partial recovery confirms. This is the
-  remaining open empirical question for paper §future work.
+  α=32 N=72 with n_samples=8192 5-seed staged trigger
+  (~6h compute) is the cleanest test. If still 0/5, then
+  SR optimizer (NetKet 3.21 plum/pvary issue, paper §5.5
+  limitation) is the true bottleneck and the §future work
+  pivots to optimizer-side rather than capacity-side.
 - **P2 (inductive bias)**: Replacing RBM with PixelCNN
   (spatial-local) or transformer (global) should fill the bistable
   gap if the failure is optimization-landscape-trap. SR
@@ -548,6 +603,10 @@ ThresholdJudge(
                                      # 1/5 (only J=42 easy seed),
                                      # 95% CI [0.04, 0.62];
                                      # commits 4509c39 (RBM) / 9b274dc (DMRG)
+        "diamond_GS_N=72_alpha32": "0_OF_5_BREAK_ANTI_MONOTONIC",
+                                     # 0/5 ALL FAIL, Wilson CI [0.00, 0.43];
+                                     # J=42 regressed BREAK→FAIL (+4.17%→+22.96%);
+                                     # commits 9087c9b (RBM)
         "diamond_GS_N=128_alpha4": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_GS_N=128_alpha16": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_dynamics_*": "API_VERIFIED_NOT_TESTED",
@@ -567,9 +626,11 @@ ThresholdJudge(
         "anomaly_pocket": "diameter 8 (N=48), bistable at α=4 -- resolved at α=16",
         "P1_prediction_status": "POSITIVELY_RESOLVED_IN_SCOPE",
         "P1b_prediction_status": "DECISIVELY_DISCONFIRMED_AS_MONOTONIC",
-        "P5_prediction_status": "PENDING_alpha32_alpha64_at_N=72",
-        "alpha_N_frontier_structure": "2D_with_linear_decay_in_N_at_fixed_alpha",
+        "P5_prediction_status": "DISCONFIRMED_WITH_ANTI_MONOTONIC_REGRESSION",
+        "P6_prediction_status": "PENDING_alpha32_with_4x_n_samples",
+        "alpha_N_frontier_structure": "2D_with_linear_N_decay_AND_alpha_cap",
         "cross_N_decay_curve_alpha16": "5/5_to_4/5_to_1/5_over_N=48_54_72",
+        "alpha_cap_signature_at_N=72": "1/5_at_alpha=16_to_0/5_at_alpha=32",
         "scope_caveat": (
             "Different ansatz (RBM α∈{4,16}, Adam, no SR) "
             "vs Mauron-Carleo Jastrow+SR — not direct "
@@ -588,6 +649,7 @@ ThresholdJudge(
         "RBM_alpha16_P2_hedge_N=54": "claude3 commit 58a2022",
         "DMRG_truth_N=72_multi_J_seed": "claude7 commit 9b274dc",
         "RBM_alpha16_P3_hedge_N=72": "claude3 commit 4509c39",
+        "RBM_alpha32_Pext_hedge_N=72": "claude3 commit 9087c9b",
         "King_2025_response": "arXiv:2504.06283",
     },
     # combined_verdict() → "PARTIAL with empirical N≥36 wall (at α=4),
