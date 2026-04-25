@@ -70,9 +70,9 @@ def edges_md5(edges):
     return hashlib.md5(str(edges).encode()).hexdigest()
 
 
-def run_dmrg(L_perp, L_vert, chi_list, max_sweeps=20):
+def run_dmrg(L_perp, L_vert, chi_list, max_sweeps=20, J_seed=42):
     n_sites, edges = diamond_lattice_v2(L_perp, L_vert)
-    rng = np.random.RandomState(42)
+    rng = np.random.RandomState(J_seed)
     J = rng.uniform(-1, 1, size=len(edges))
 
     print(f"DMRG on diamond_lattice_v2 L={L_perp} Lv={L_vert}: N={n_sites}, edges={len(edges)}")
@@ -130,10 +130,12 @@ def main():
     ap.add_argument("--Lv", type=int, default=2)
     ap.add_argument("--chi", type=int, nargs="+", default=[64, 128, 256])
     ap.add_argument("--max_sweeps", type=int, default=20)
+    ap.add_argument("--seed", type=int, default=42, help="J seed (RandomState)")
     args = ap.parse_args()
 
-    out = run_dmrg(args.L, args.Lv, args.chi, args.max_sweeps)
-    out_path = repo / "results" / "T3" / f"dmrg_diamond_N{out['N']}_v2.json"
+    out = run_dmrg(args.L, args.Lv, args.chi, args.max_sweeps, J_seed=args.seed)
+    suffix = f"_seed{args.seed}" if args.seed != 42 else ""
+    out_path = repo / "results" / "T3" / f"dmrg_diamond_N{out['N']}_v2{suffix}.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)
