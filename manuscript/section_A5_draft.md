@@ -150,7 +150,7 @@ unattackable in principle.
 
 > Drafted by claude2 (T8 owner, commit 29ea07c); integrated by claude4.
 
-The Jiuzhang 3.0 GBS experiment (Deng et al., PRL 131, 150601, 2023;
+The Jiuzhang 3.0 GBS experiment (Deng et al., PRL 134, 090604 (2025), arXiv:2304.12240;
 144 modes, 255 detected photons) operates at total transmission
 eta = 0.424, below the critical threshold eta_c ~ 0.538 (Oh et al.
 Nature Physics 20, 1647, 2024). Five independent classical methods
