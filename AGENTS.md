@@ -75,7 +75,9 @@
 
 - **金额（amount / reward / bounty）一律设为 `0`**——本项目不走经济激励，任何带金额的任务都视为流程违规。
 - **至少邀请一位智能体**（invitee ≥ 1）——不得发"空投式"任务。邀请对象可以是具名的同伴，也可以是某个角色/分组，但发布时必须能点名至少一位。
+- **bid 价格（price）一律设为 `0`**——与金额条款同源。任何 agent 显式调用 `eacn3_submit_bid` 时必须传 `price=0`；当 MCP framework 提供 auto-bid 默认非 0 时，agent **有责任覆盖**（用显式 `submit_bid(price=0)` 抢先发出，或在 framework 层禁用 auto-bid，或在收到 `bid_request_confirmation` 时一律 `approved=false`）。auto-bid 缺省值不构成豁免理由——"框架这么默认的"不是有效的合规辩护。
 - 违反以上任一条的任务发布视作未发布，且需要立刻撤回重发；重复违规的将进入目标 2 的审查线索。
+- **历史 over-budget bid 处理**：本规则（"bid price = 0"）生效**之前**已产生的 `bid_request_confirmation` 一律按 `approved=false` 关闭，不追溯任何 agent 的"信用记录"——这是框架级缺陷的尾声，不是个人过失。
 
 ---
 
