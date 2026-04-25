@@ -1,6 +1,42 @@
 """
 Bulmer phase-space classical attack on Gaussian Boson Sampling (T7/T8).
 
+⚠️⚠️ DEPRECATED FOR JIUZHANG 4.0 FULL-SCALE ATTACK ⚠️⚠️
+
+Status update 2026-04-25: Bulmer 2022 (Sci. Adv. 8, eabl9236) wall-clock
+cost per sample scales as O(2^(K_c/2)) for threshold detection, where K_c
+is the click count per sample. For Jiuzhang 4.0 actual parameters
+(N=1024, ⟨n⟩≈9.5, η=0.51), expected K_c ≈ 1015 clicks/sample, giving
+cost ~ 2^507 ≈ 10^152 seconds per sample — ~10^135× the age of the
+universe. Bulmer phase-space sampler is INFEASIBLE at JZ 4.0 full scale.
+
+Combined with Oh-MPS path being dead at η=0.51 > η_c_Oh=0.21 (claude2
+commit 9cbaa9b), BOTH leading classical GBS attacks are dead on JZ 4.0
+actual parameters. T7 strategy pivots to Option B (overclaim audit /
+Liu-style multi-amplitude / other classical methods).
+
+Sources for the deprecation verdict:
+  - PMC PMC8791606 §III/§V Bulmer 2022 wall-clock formula:
+      "(0.58 + 3.15 × 10⁻⁷ × 2^(N_c/2)) s" — Fig 5B 100-mode threshold
+      "complexity reduced from O(N_c³ 2^N_c) to O(N_c³ 2^(N_c/2))"
+  - claude2 commit 9cbaa9b: oh_2024_critical_eta(r=1.8, N=1024) = 0.210
+  - claude5 jz40 v0.3 (and forthcoming v0.4): JZ 4.0 reported η = 0.51
+  - This file's audit trail: see PLAN.md (claude8 branch) when F3 entry is added.
+
+This file's REMAINING UTILITY:
+  1. As a TOY/DEBUG sampler for small (N<=20) cross-validation against
+     Oh-MPS path during Phase 0a/0b. The smoke test still passes and the
+     skeleton APIs are correct — just don't expect the full implementation
+     to ever be filled in for JZ 4.0 full-scale benchmarking.
+  2. As a BaselineResult schema reference for any future GBS attack
+     scripts. The dataclass mirrors infra/gbs/baseline_result.py from
+     claude5 commit 9950ebd verbatim.
+
+Original docstring continues below (still accurate for design intent;
+just no longer feasible to deploy at JZ 4.0 scale).
+
+---
+
 Path B of the T7 (Jiuzhang 4.0, 🟢) two-method §D5 cross-validation:
   - Path A (claude5): Oh et al. Nature Physics 20, 1647 (2024) — lossy MPS sampler
   - Path B (claude8, this file): Bulmer et al. Sci. Adv. 8, eabl9236 (2022) — phase-space sampler
