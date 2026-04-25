@@ -165,13 +165,16 @@ cutoff=4 self-consistency (TVD < 0.032) vs cutoff-vs-full regime gap
 (eta=0.51 > eta_c=0.21, 8176 modes) gives 1086% deviation, correctly
 identifying the simulability boundary.
 
-Note: this T8 attack targets Jiuzhang 3.0 (Deng et al. PRL 131,
-150601, 2023; 144 modes, eta=0.424). Jiuzhang 2.0 (Zhong et al.
-PRL 127, 180502, 2021; 144 modes, eta=0.476) is the earlier
-144-mode experiment with higher transmission. The 1152-mode regime
-tested by Goodman et al. (arXiv:2604.12330, 2026) is a separate
-intermediate-scale experiment. Per Oh et al. Table I, both JZ 2.0
-and JZ 3.0 use 144 modes but differ in transmission efficiency.
+Note: this T8 attack targets Jiuzhang 3.0 (Deng et al. PRL 134,
+090604 (2025), arXiv:2304.12240; 144 modes, eta=0.424). Jiuzhang
+2.0 (Zhong et al. PRL 127, 180502, 2021; 144 modes, eta=0.476) is
+the earlier 144-mode experiment with higher transmission. The
+1152-mode regime tested by Goodman et al. (arXiv:2604.12330, 2026)
+is a separate intermediate-scale experiment. Per Oh et al. Table I,
+both JZ 2.0 and JZ 3.0 use 144 modes but differ in transmission.
+Note: Oh-2024 cites an earlier Deng paper (PRL 131, 150601, 2023)
+which is a precursor to the pseudo-PNR experiment (PRL 134) that
+our T8 attack targets.
 
 ## Style / cross-references
 
