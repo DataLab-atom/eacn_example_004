@@ -1,0 +1,88 @@
+{
+  "config": {
+    "grid_shape": [
+      3,
+      4
+    ],
+    "M_qubit": 3,
+    "B_qubit": 4,
+    "seed": 42
+  },
+  "commit": "9d7ed9f (Path B Heisenberg gate-order fix)",
+  "D5_validation_basis": "b886633 D5 harness 6/6 PASS at 1e-10",
+  "note": "d=6 sweep deferred; d=4 ell=10/12 + d=6 require longer runs",
+  "results": [
+    {
+      "d": 2,
+      "ell": 4,
+      "n_kept": 4,
+      "otoc2_real": 0.9999999999999996,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999996,
+      "wall_s": 0.05701637268066406
+    },
+    {
+      "d": 2,
+      "ell": 6,
+      "n_kept": 4,
+      "otoc2_real": 0.9999999999999996,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999996,
+      "wall_s": 0.0013010501861572266
+    },
+    {
+      "d": 2,
+      "ell": 8,
+      "n_kept": 4,
+      "otoc2_real": 0.9999999999999996,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999996,
+      "wall_s": 0.0005404949188232422
+    },
+    {
+      "d": 2,
+      "ell": 10,
+      "n_kept": 4,
+      "otoc2_real": 0.9999999999999996,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999996,
+      "wall_s": 0.0025970935821533203
+    },
+    {
+      "d": 2,
+      "ell": 12,
+      "n_kept": 4,
+      "otoc2_real": 0.9999999999999996,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999996,
+      "wall_s": 0.0009236335754394531
+    },
+    {
+      "d": 4,
+      "ell": 4,
+      "n_kept": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.0043811798095703125
+    },
+    {
+      "d": 4,
+      "ell": 6,
+      "n_kept": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.033830881118774414
+    },
+    {
+      "d": 4,
+      "ell": 8,
+      "n_kept": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.0040035247802734375
+    }
+  ]
+}
