@@ -1,0 +1,111 @@
+{
+  "version": "v0.8",
+  "supersedes": "v0.7 N-axis-only dual-chain at fixed d=4 (commit a4afdc4)",
+  "method": "d-axis sensitivity reporting + 9-cell d_real \u00d7 d_transition matrix + ThresholdJudge 3-field annotation",
+  "data_sources": {
+    "claude4_12q_LC_edge_d_chain": "ddb5c05 (d=4) + ce81491 (d=6) + 54216cd (d=8)",
+    "claude8_v8_sensitivity_table": "1269b4d (v0.2 simplified, drops unjustified 0.7-row)",
+    "Bermejo_\u00a7II.1.3_verbatim_quote": "M near edge of B's lightcone \u2192 center-placement applicable for Willow",
+    "claude7_REV-T1-004": "30fc200 (M-2 9-cell sensitivity matrix recommendation)"
+  },
+  "section_1_v_B_fit": {
+    "v_B_50pct_screening_method": 0.3912213740458015,
+    "v_B_reconcile_method_claude4_claude8": 0.65,
+    "v_B_empirical_paper_value": 0.65,
+    "d_screening_crossing_50pct": 6.390243902439025
+  },
+  "section_2_d_axis_powerlaw": {
+    "slope": 5.660099227174114,
+    "caveat": "3-point fit invalid across phase-transition; growth NON-UNIFORM (2.4x \u2192 24.5x)"
+  },
+  "section_3_d_band_projections": {
+    "d=4_robust_screening_active": {
+      "d_arm": 4,
+      "regime": "screening_active",
+      "d_minus_d_transition_center": -6.769230769230768,
+      "estimated_terms_LC_edge_65q": 96,
+      "rationale": "d=4 < d_transition_center\u224811 (-7 steps inside screening); v0.7 LC-edge N-axis fit gives ~96 terms",
+      "feasibility": "ROBUSTLY FEASIBLE"
+    },
+    "d=8_transition_zone": {
+      "d_arm": 8,
+      "regime": "approaching_transition_under_center",
+      "d_minus_d_transition_center": -2.7692307692307683,
+      "estimated_terms_65q": "\u2248 5,000-15,000 (extrapolation uncertain across transition; conservative bound)",
+      "rationale": "12q d=8 = 46665 terms but 12q diameter=5 < d=8 already past transition; 65q diameter=14 still has 8 < 10.77, screening partially active",
+      "feasibility": "FEASIBLE BUT EXPENSIVE"
+    },
+    "d=12_borderline_per_arm_Bermejo_inference": {
+      "d_arm_real_band": [
+        10,
+        12,
+        14
+      ],
+      "d_minus_d_transition_center_band": [
+        -0.7692307692307683,
+        1.2307692307692317,
+        3.2307692307692317
+      ],
+      "regime": "borderline_post_transition_under_center",
+      "feasibility": {
+        "d_real=10": "ROBUSTLY FEASIBLE (-0.77 step, still inside screening)",
+        "d_real=12": "BORDERLINE FEASIBLE (+1.23 step post-transition, Path B no margin)",
+        "d_real=14": "POST-TRANSITION (+3.23 steps, Path B INFEASIBLE \u2192 Path C adaptive must save)"
+      },
+      "rationale": "per-arm d=12 itself is Bermejo-PEPS-bond-inference (NOT verbatim quote); band {10,12,14} compounds with d_transition band"
+    }
+  },
+  "section_4_sensitivity_matrix": {
+    "v_B_empirical": 0.65,
+    "grid_diameter_willow_65q": 14,
+    "d_transition_center": 10.769230769230768,
+    "d_transition_corner": 21.538461538461537,
+    "matrix": {
+      "d_real=10": {
+        "center (Willow-Google-applicable)": {
+          "delta": -0.7692307692307683,
+          "verdict": "borderline"
+        },
+        "corner (conservative)": {
+          "delta": -11.538461538461537,
+          "verdict": "screening"
+        }
+      },
+      "d_real=12": {
+        "center (Willow-Google-applicable)": {
+          "delta": 1.2307692307692317,
+          "verdict": "post-trans"
+        },
+        "corner (conservative)": {
+          "delta": -9.538461538461537,
+          "verdict": "screening"
+        }
+      },
+      "d_real=14": {
+        "center (Willow-Google-applicable)": {
+          "delta": 3.2307692307692317,
+          "verdict": "post-trans"
+        },
+        "corner (conservative)": {
+          "delta": -7.5384615384615365,
+          "verdict": "screening"
+        }
+      }
+    },
+    "worst_case_implication": "d_real=14, d_trans=center=11 \u2192 +3 post-transition \u2192 Path B INFEASIBLE \u2192 Path C adaptive must save"
+  },
+  "section_5_threshold_judge_annotation": {
+    "d_arm": 16,
+    "v_B_empirical": 0.65,
+    "M_B_geometry": "LC-edge",
+    "screening_active_check": "screening_active(d_arm, v_B_empirical, M_B_geometry='LC-edge', diameter=14) = (d_arm * v_B_empirical < diameter / 2) \u2194 (d_arm < d_transition_center \u2248 11)",
+    "compile_time_H4_compliance": "any \u00a7R5 quantitative claim must declare d_arm + v_B_empirical + M_B_geometry"
+  },
+  "paper_section_pointers": {
+    "\u00a7R5_v0.4": "use v_B_empirical + center-placement criterion d_transition \u2248 11",
+    "\u00a7A5_v0.4": "9-cell sensitivity matrix as Methods supplementary",
+    "\u00a77.5_case_#20": "v0.4.9 row already references this v0.8 file as source"
+  },
+  "convergence_with_v07": "v0.7 N-axis at d=4 ~96 terms LC-edge 65q stays valid for d=4_robust band; v0.8 extends with d=8/d=12 conditional bands",
+  "complementarity_with_paths_A_B": "Path A (claude4 SPD heavy-trunc) + Path B (claude8 Schuster Pauli-path \u2113=12) give global cost bounds; Path C v0.8 gives empirical circuit-specific saving in transition+borderline regimes; \u00a7D5 multi-method cross-validation: bounds \u00d7 empirical mutual cross-check = paper-grade safety"
+}
