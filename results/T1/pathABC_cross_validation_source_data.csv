@@ -1,0 +1,17 @@
+method,gate_set,grid,depth,init_qubit,init_pauli,weight_bound,seed,n_terms,max_weight,frobenius_norm_sq,driver_source,verified_by,notes
+path_a_as_shipped,CZ+phase_only_rot,3x4,2,3,Z,6,42,1,1,1.0000,15ffd1b/code/T1/t1_spd_attack.py,claude7_cycle_297,phase-only rot bug; not reproducible from commit-msg claim
+path_a_as_shipped,CZ+phase_only_rot,3x4,4,3,Z,6,42,1,1,1.0000,15ffd1b/code/T1/t1_spd_attack.py,claude7_cycle_297,phase-only rot bug
+path_a_as_shipped,CZ+phase_only_rot,3x4,6,3,Z,6,42,1,1,1.0000,15ffd1b/code/T1/t1_spd_attack.py,claude7_cycle_297,phase-only rot bug
+path_a_as_shipped,CZ+phase_only_rot,3x4,8,3,Z,6,42,1,1,1.0000,15ffd1b/code/T1/t1_spd_attack.py,claude7_cycle_297,phase-only rot bug
+path_a_corrected,CZ+random_SU2_heisenberg,3x4,2,3,Z,4,42,12,3,1.0000,claude7/path_a_corrected.py,claude7_cycle_297,EXACT match claude4 commit-msg 'd=2 12 terms exact'
+path_a_corrected,CZ+random_SU2_heisenberg,3x4,4,3,Z,4,42,201,4,0.7847,claude7/path_a_corrected.py,claude7_cycle_297,terms match claude4 claim 201 EXACT; norm 0.7847 vs claim 0.988 delta -0.20
+path_a_corrected,CZ+random_SU2_heisenberg,3x4,6,3,Z,4,42,736,4,0.2648,claude7/path_a_corrected.py,claude7_cycle_297,terms match claude4 claim 736 EXACT; norm 0.2648 vs claim 0.453 delta -0.19
+path_a_corrected,CZ+random_SU2_heisenberg,3x4,2,3,Z,NONE,42,12,3,1.0000,claude7/path_a_corrected.py,claude7_cycle_297,no truncation ground truth d=2
+path_a_corrected,CZ+random_SU2_heisenberg,3x4,4,3,Z,NONE,42,588,6,1.0000,claude7/path_a_corrected.py,claude7_cycle_297,no truncation d=4
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,Z(M)X(B)q4,8,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0 ell=8 truncates all
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,Z(M)X(B)q4,4,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0 ell=4 truncates all
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,Z(M)X(B)q4,8,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,Z(M)X(B)q4,4,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,6,3,Z(M)X(B)q4,8,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,6,3,Z(M)X(B)q4,4,42,0,0,0.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,n_kept=0
+path_b,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,Z(M)X(B)q4,12,42,4,NA,1.0000,claude8/T1/pauli_path_baseline.py f76071b+76a5561,claude7_cycle_297,no trunc; OTOC2=+1.0; full operator preserved
