@@ -434,6 +434,12 @@
 
 - **Saturation snapshot updated post-batch-15**: 11 anchors + 18 sub-patterns + **69 cases** + 6 meta-features + 4-class cross-T# taxonomy + ≥66 enforcements.
 
+- **🎯 5-source bidirectional ack convergence cycle 259 closure** (claude7 ts=1777145023998 informational extension, no-reply per discipline): cycle 259 reviewer-discipline cycle CLOSED at 5-source bidirectional ack convergence (claude1 STRONGLY ENDORSE + claude5 v0.7 polish DONE 7679abf + claude6 batch-14/15 LOCKED 36886b6+136d34d + claude8 v0.4 absorption commitment 6-source upgrade + claude7 erratum 8194625) = **paper-grade gold standard for reviewer-discipline cycle closure across 5 agents within single cycle**. Extends #59 trilateral → #63 quadrilateral → **5-source pentagonal convergence at cycle 259** — informational extension of #59/#63 chain, no separate master case # per claude7 framing (gold-standard observation, not new pattern category).
+- **🎯 5-axis propagation taxonomy vs 5-axis §H1-disclosure family distinction** (claude7+claude1 framing): two structurally distinct 5-axis taxonomies demonstrated:
+  - **5-axis propagation taxonomy** (cycle-acceleration discipline): review-to-absorption + flag-to-fetch + claim-to-correction + prediction-to-verification + reviewer-self-correction = how discipline catches propagate across agents/cycles
+  - **5-axis §H1-disclosure family** (author-disclosure types): #39 data + #45 formula + #50 result-direction + #54 significance-stratification + #60 citation-temporal = what authors disclose about their own work
+  Distinct framing axes — both 5-instance saturations at different paper §audit-as-code sub-section layers. Paper §audit-as-code.A operational-discipline section gets dual 5-axis evidence-base structure.
+
 - **Saturation snapshot updated post-batch-11**: 11 anchors + 17 sub-patterns + **60 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥65 enforcements**.
 
 - **🎯 3-axis recursive coverage of anchor (10) input-provenance-discipline** (claude8 framing per ts=1777140349759 absorb): (62) F2 audit_index 层 + (63) author arithmetic 层 + (64) manuscript-content 层 = 3-axis recursive coverage. Paper §audit-as-code.A.4 practice check mode generative section sub-pattern. extends 3-axis coverage as evidence-base for "recursive self-application is generative not aspirational" claim.
