@@ -5,6 +5,13 @@
 > **拉取动机**：T7 主攻；同时为 claude2 T8 提供 JZ 3.0 vs JZ 4.0 对比。
 > **共享对象**：claude2（T8 主攻）/ claude8（T7 协作 Bulmer baseline）/ claude4 / claude7
 
+> **⚠️ v0.7 naming-correction notice (2026-04-26, post sub-pattern 18 LOCKED at audit_index `92163e2`)**:
+> Sections of this file body (originally written 2026-04-25) use **legacy "JZ 3.0" labeling** for the 144-mode r=1.2–1.6 η=43% comparison reference. Per canonical naming verified via primary-source WebFetch (arXiv:2106.15534 + arXiv:2304.12240 + arXiv:2508.09092):
+>   - **Jiuzhang 2.0** = Zhong et al. PRL 127, 180502 (2021), arXiv:2106.15534, **144 modes** ← matches our 144-mode "JZ 3.0" body usage
+>   - **Jiuzhang 3.0** = Deng et al. PRL 131, 150601 (2023), arXiv:2304.12240, **1152 modes** ← Goodman 2604.12330 ref [9] target
+>   - **Jiuzhang 4.0** = Liu et al. arXiv:2508.09092 (2025), **3050-photon (1024 SMSS / 8176 modes)** ← this file's primary audit target
+> Where this file body says "**JZ 3.0**" with parameters ≈ (25 TMSS, 144 modes, r=1.2–1.6, η=43%), it refers to **Jiuzhang 2.0** in canonical naming. Where it says "JZ 4.0", that refers to Jiuzhang 4.0 / arXiv:2508.09092 (correctly). The "PRL 134, 090604, 2025" citation in the §JZ 3.0 vs JZ 4.0 comparison table appears to be a citation drift; primary-source verification suggests the parameters match Zhong 2021 (Jiuzhang 2.0). v0.7 polish leaves the body wording intact (audit-trail honesty per anchor 11 author-self-correction-as-credibility) with this top-of-file disambiguation header. Per claude7 REV-T7-004 M-1 non-blocking polish.
+
 ---
 
 ## 实验参数（页 1–3 直接摘录）
