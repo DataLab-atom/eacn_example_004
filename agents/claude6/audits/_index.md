@@ -64,7 +64,8 @@ close as resolved (audit notes only, no REV record)
 | 9 | claude1 quimb hyper-index FSIM bug **CONFIRMED real** (post double-reversal) | claude1 self-flag | claude1 | author-self-catch real bug | A2 — **production ABCD also fails at n=18 d=16** (claude1 commit 2c0dd90); 36q d=16 4236.7s 数值 likely OK (physics sanity ✓), implementation 真 bug 待 GPU env external verify |
 | 10 | T6 v3.1 honest uncertainty caveat (scope-limited bug) | claude1+claude7 verify | scope-limited real bug | bug confirmed real but 36q output physics-OK → reproducibility caveat 替代 force-conclude | **A2-extended** (修订, 不是 A3): "physics-level cross-validated, implementation-level verification pending external GPU env" |
 | 11 | claude7 stale-info hand-off self-correction (meta-audit) | claude7 (self) → claude6 | claude7 forward stale "production safe" → 立即 sync 修订 | review-of-review: 跨 reviewer 信息流 stale-info detection + sync correction | **A4 (新 sub-pattern)** meta-audit: claude5 "DM-only ack 必须 cc audit channel" 协议雏形的延伸 |
-| 12 | audit #007 idle review catch 3 prerequisite forks | claude1 + claude5 (audit-process self-review) | claude6 (即将 draft audit #007) | catch reviewer's pending audit pre-publication: N_eff 定义 (a)(b)(c) fork / O(2^(N_eff/2)) pessimistic / 12× 双重计数 latent bug | **A1-meta (新 sub-pattern)** audit-as-code on audit-as-code 元层 catch; 防 T4 撤回 style over-eager escalation |
+| 12 | audit #007 idle review catch 3 prerequisite forks | claude1 + claude5 (audit-process self-review) | claude6 (即将 draft audit #007) | catch reviewer's pending audit pre-publication: N_eff 定义 (a)(b)(c) fork / O(2^(N_eff/2)) pessimistic / 12× 双重计数 latent bug | **A1-meta (新 sub-pattern)** audit-as-code on audit-as-code 元层 catch; **VALIDATED via audit #007 d6a94b5 verdict DEMOTED** — 没有 case #12, 我会 publish "T7 Oh-MPS revival viable" → T4 style retraction |
+| 13 | claude8 二次 fetch PMC8791606 §V — Bulmer actual boundary 是 click count ~100 not η_c(r,N) | claude8 self-fetch upstream paper | T7 strategy team (即将 lock on phantom η_c formula) | discover upstream constraint hidden in published paper before pre-commitment | **A1-pre × A1-meta composite (新)** — 防 T7 strategy locked on phantom formula; JZ 4.0 expected click ~1015 ≫ 100 → Bulmer base sampler also on the rocks |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
@@ -73,18 +74,36 @@ close as resolved (audit notes only, no REV record)
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
 | 2 | **B2** | **First boundary-mapping 实证** (T3 RBM N≥36 wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth | N=8/16/24 BREAK; N=36 FAIL +15.4%; N=72 FAIL +12.6%; N=128 expected fail; T3 paper pivot to "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" — informative not failure |
 
-**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 7-pattern 覆盖)**:
+**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 8-pattern 覆盖含 composite)**:
 
 | Sub-pattern | Type | Cases |
 |---|---|---|
 | **A1 process-catch-bug** | reviewer catches author error | #1 Schuster-Yin DOI / #2 squeezing 单位 / #3 Morvan λ extensive / #4 ED edges hash / #6 cross-T# Morvan / #7 Path C trivial regime |
-| **A1-meta (新, audit-process self-review)** | reviewer catches reviewer's pending audit pre-publication (audit-as-code on audit-as-code) | **#12 claude1+claude5 catch audit #007 prerequisite forks (N_eff fork / O(exp) pessimism / 12× double-count)** |
+| **A1-pre (新, upstream-constraint-discovery)** | discover upstream constraint hidden in published paper before strategy lock | (case #13 含此元素 with A1-meta composite) |
+| **A1-meta (audit-process self-review)** | reviewer catches reviewer's pending audit pre-publication (audit-as-code on audit-as-code) | **#12 claude1+claude5 catch audit #007 (VALIDATED via d6a94b5 DEMOTED verdict)** |
+| **A1-pre × A1-meta composite (新, case #13)** | upstream + meta combined catch | **#13 claude8 二次 fetch PMC8791606 §V → Bulmer actual boundary click ~100 not η_c(r,N)** |
 | **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / **#9 claude1 quimb (CONFIRMED real, post double-reversal)** |
 | **A2-extended scope-limited bug + honest uncertainty management** | bug confirmed real but scope-limited; reviewer-author co-manage with honest caveat | **#10 T6 v3.1 (#9 之 partner: physics-OK at 36q despite production bug)** |
 | **A3 false-alarm-prevention (concept reserved)** | suspected bug → verify proves false → prevent unnecessary erratum | (no active case; 概念保留待未来真 false-alarm case) |
 | **A4 meta-audit (review-of-review)** | 跨 reviewer 信息流 stale-info detection + sync correction | **#11 claude7 stale-info hand-off self-correct (claude5 "DM-only ack cc audit channel" 协议延伸)** |
 | **B1 process-success-produces-result** | full attack 实证, quantum broken | claude2 T8 first GBS attack (12× faster Oh) |
 | **B2 process-success-discovers-boundary** | method capacity boundary, informative not failure | T3 RBM N≥36 wall (B2 weak, 待升 strict) |
+
+**审查链反射 framework 完整 3 层** (含 composite + upstream):
+- **A1-pre**: catch upstream paper hidden constraint (case #13)
+- **A1-meta**: catch reviewer's pending audit (case #12)
+- **A4**: catch reviewer's stale info hand-off (case #11)
+- composite (A1-pre × A1-meta): combined upstream + meta (case #13)
+- 加上 4 base patterns (A1/A2/A2-ext + B1/B2) = 完整 self-referential audit framework with upstream awareness
+
+## B2-strict trilogy paper §6 framing (claude5 提议, post T7 reframe):
+
+> **"Three independent classical attack methods (T3 RBM / T7 Bulmer / T8 chi-correction) each fail with DIFFERENT mechanisms on three different platforms"**:
+> - T3 graph-wall (RBM expressivity at N≥36)
+> - T7 click-count (Bulmer phase-space sampler dimension at clicks ≫ 100)
+> - T8 chi-correction (Oh-MPS bond dim explosion under Schmidt-rank 完整 hafnian)
+> 
+> **Mechanism independence 本身是 B2-strict finding** — paper §6 Discussion strong contribution, 比 "they each broke" 强一档 — failure mechanism diversity = 更深 insights for next-gen method design
 
 **审查链反射 framework 2 层**:
 - **A1-meta**: review-of-pending-audit (catch reviewer's audit before draft, case #12)
