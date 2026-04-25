@@ -44,14 +44,41 @@
 
 ---
 
-## Summary verdict
+## v0.2 amendment — M5/M6 added per claude5 cross-check (2026-04-25)
+
+claude5 reviewer-style ask flagged that my M1 (Wigner-LB) is theoretical lower bound (NOT attack) and M4 (Barvinok) is marginal-only (NOT sample method); asked whether claude2-suggested **Quesada-Brod Hafnian Monte Carlo** + **SVD low-rank interferometer** are subsumed. WebSearch verify reveals both are GENUINELY MISSED in v0.1 — adding M5/M6:
+
+### M5. Quesada-Brod Hafnian Monte Carlo / quadratic speedup
+- **Reference**: Quesada et al. *PRX Quantum* **3**, 010306 (2022), "Quadratic speed-up for simulating Gaussian boson sampling"
+- **What it does**: Reduces the loop hafnian computation cost from O(2^N) to O(2^(N/2)) via Monte Carlo sampling techniques. Same family as Bulmer 2022 §III sieve algorithm.
+- **Applicability to T7 attack on JZ 4.0**:
+  - ⚠️ This is the **upstream theoretical work** that Bulmer 2022 implements + benchmarks
+  - Bulmer cost 2^(K_c/2) ≈ 2^508 already incorporates Quesada quadratic speedup
+  - Further speedup beyond Quesada's quadratic would require a separate breakthrough — none in literature 2022-2025
+  - Verdict: **DEAD via subsumption** — Quesada speedup is what makes Bulmer's 2^508 cost the floor; we cannot do better at JZ 4.0 K_c≈1015
+
+### M6. SVD low-rank interferometer / limited-connectivity speedup
+- **Reference**: "Speeding up the classical simulation of Gaussian boson sampling with limited connectivity", *Scientific Reports* (2024)
+- **What it does**: When the GBS interferometer has limited connectivity (sparse / band-diagonal / low-rank), classical simulation is faster
+- **Applicability to T7 attack on JZ 4.0**:
+  - JZ 4.0 explicitly uses **random Haar interferometer** (high effective rank, full connectivity expected)
+  - "Limited connectivity speedup" depends on rank reduction — JZ 4.0 doesn't have it at design
+  - **However**, if JZ 4.0's *implemented* unitary has emergent low-rank structure (wavelength dispersion / control imperfection / source spectral correlation), this attack opens
+  - This is a **cross-link to O2** (Haar verification audit gap): if O2 verifies non-Haar deviation, M6 may apply
+  - Verdict: **CONDITIONAL on O2 finding**; ETA cross-check after JZ 4.0 paper Haar randomness section is independently audited
+
+## Summary verdict (v0.2)
 
 | # | Method | Type | Applicability to JZ 4.0 |
 |---|---|---|---|
-| M1 | Wigner lower bound | Theoretical | Audit-supporting only, not attack |
+| M1 | Wigner lower bound | Theoretical | NOT attack — lower bound only |
 | M2 | MCMC Glauber on graph GBS | Algorithmic | Likely NOT (Haar-random ≠ graph) |
 | M3 | TN + high loss | Algorithmic | CROSS-OUT (subsumed by Oh) |
-| M4 | Barvinok / Wigner marginal | Algorithmic | NOT promising at N=1024 |
+| M4 | Barvinok / Wigner marginal | Algorithmic | Marginal-only — NOT sampler |
+| **M5** | **Quesada Hafnian MC quadratic speedup** | **Algorithmic** | **DEAD by subsumption (Bulmer 2^(K_c/2) already incorporates)** |
+| **M6** | **SVD low-rank / limited-connectivity** | **Algorithmic** | **CONDITIONAL on O2 Haar verification gap** |
+
+7-method scout total (5 from v0.1 + 2 from v0.2 amendment) + Liu cross-out (claude2 verdict) + Oh-MPS dead (claude2 9cbaa9b) + Bulmer dead (claude8 bd48200) = **9 distinct classical attack classes scouted/tested**, none productive at JZ 4.0 actual parameters.
 
 **Conclusion**: No fresh classical attack candidate emerges from this 5-min scout. All four methods are either (a) lower-bound theory, (b) sub-class restricted, or (c) historically subsumed by failed paths.
 
