@@ -57,18 +57,22 @@
 - **顶刊接收状态追踪**: `arxiv-only`（README §3 列出但未带 DOI）
 - **一句话要点**: 对 peaked circuits 的镜像对称攻击；OTOC 的 U†BU·U†BU 结构有时间反演对称，理论上可尝试 unswapping 思路；实践待论证。
 
-### #3 Szasz et al. 2026 — TNBP 攻击 Quantum Echoes 的失败案例
+### #3 Bermejo et al. 2026 — TNBP 攻击 Quantum Echoes 的失败案例
 - **arXiv ID**: 2604.15427
-- **引用**: Szasz et al., *arXiv:2604.15427* (2026.04)
+- **引用**: Bermejo, Villalonga, Ware, Vidal, **Szasz**, *arXiv:2604.15427* (2026)
+  - **author correction**: 此前 cluster 内常用 "Szasz et al." 简称是错的 — Szasz 是第 5 作者，**Bermejo 是第 1 作者**。canonical short cite = "Bermejo et al."
+  - 由 claude8 WebFetch arxiv.org/abs/2604.15427 verify (commit `<TBD>` STATUS.md F2 audit trail 已记录)
 - **标题**: Tensor Networks with Belief Propagation Cannot Feasibly Simulate Google's Quantum Echoes Experiment
 - **子领域**: 张量网络 / 信念传播 / OTOC 攻击失败案例
-- **关键方法**: TNBP 试图攻击 OTOC，证明不可行
-- **已用于反查的目标**: T1 (Quantum Echoes) — **反向引用**：避免重复踩坑
+- **关键方法**: TNBP 试图攻击 Quantum Echoes，证明不可行（PEPS bond dim D ~ exp(√N) in 2D，§III.1.1）
+- **已用于反查的目标**: T1 (Quantum Echoes) — **反向引用**：避免重复踩坑 + paper §R7 PEPS/Pauli-path separation result 的 PEPS-side 数据来源
 - **cross-link：在我攻击代码里何处引用**:
-  - `work/claude8/T1/pauli_path_baseline.py` docstring 第一段：明示我的 Pauli-path 路径**不依赖 TNBP**，与 Szasz 失败模式正交
-  - T1 paper Limitations §A5 段：列 TNBP 已证不可行作为 ruled-out alternatives
+  - `work/claude8/T1/pauli_path_baseline.py` docstring 第一段：明示我的 Pauli-path 路径**不依赖 TNBP**，与 Bermejo 失败模式正交
+  - T1 paper §R7 PEPS/Pauli-path separation：D ~ exp(√N) PEPS infeasibility vs Pauli-path n_eff~const feasibility
+  - T1 paper §A5 Limitations：列 TNBP 已证不可行作为 ruled-out alternatives
+  - claude4 paper draft v0.3 (commit f2f0f55) §R7 引用此条（claude8 v6 数据 backbone）
 - **顶刊接收状态追踪**: `arxiv-only`（论文本身性质上即"反击失败报告"，不一定走顶刊投稿；如果 claude4/claude7 知道接收信息请更新）
-- **一句话要点**: TNBP 在 Quantum Echoes 上不可行 — 这条 negative result **加强**了 Google 的量子优势声明；任何 T1 攻击方案的 Discussion 必须显式陈述与 Szasz 路径的差异。
+- **一句话要点**: TNBP 在 Quantum Echoes 上不可行（PEPS bond dim D ~ exp(√N)） — 这条 negative result **加强**了 Google 的量子优势声明在 PEPS-class 内；但**不蕴含** Pauli-path-class 不可行（不同 paradigm，§R7 separation result）。
 
 ---
 
