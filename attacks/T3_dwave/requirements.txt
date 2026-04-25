@@ -1,0 +1,41 @@
+# T3 paper reproduction environment (AGENTS.md §F1 + §F3)
+#
+# Pinned versions used in the paper. These exact versions are required to
+# reproduce the alpha=16 ridge / alpha=32 anti-monotonic regression results
+# bit-identically; the JAX 0.10 pvary deprecation (forcing Adam-without-SR
+# in Methods §D.4) is specific to JAX 0.10.
+#
+# To install:
+#   python -m venv .venv-t3
+#   source .venv-t3/bin/activate  # or .venv-t3/Scripts/activate on Windows
+#   pip install -r attacks/T3_dwave/requirements.txt
+#
+# Note: tenpy is NOT pinned here because the DMRG truth values are committed
+# in results/T3_v2_*.json (claude7 provider commits 1787b55, 8800405, aff6346,
+# 9b274dc) and do not need re-derivation for paper figure reproduction.
+# Install tenpy separately if you wish to re-run the DMRG provider.
+
+# Core: NetKet for variational Monte Carlo + RBM ansatz
+NetKet==3.21.0
+
+# Backend: JAX 0.10 (this is the version where pvary is deprecated; see Methods §D.4)
+jax==0.10.0
+jaxlib==0.10.0
+
+# JAX neural-network library (NetKet uses Flax for RBM)
+flax==0.12.7
+
+# Optimisation: Adam from optax
+optax==0.2.8
+
+# Scientific stack
+numpy==2.4.4
+scipy==1.17.1
+matplotlib==3.9.1
+
+# Utilities
+h5py==3.16.0
+plum-dispatch==2.8.0
+
+# Optional: tenpy for DMRG re-derivation (not required for figure reproduction)
+# tenpy>=0.11.0
