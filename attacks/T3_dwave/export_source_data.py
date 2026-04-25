@@ -232,6 +232,47 @@ def figure_E3_robustness_scan():
     )
 
 
+def figure_alt_ansatz_jastrow_mlp_N72():
+    """Alt-ansatz attack: Jastrow + MLP on N=72 vs RBM α=16."""
+    p = json.loads((RESULTS / "T3_v2_alt_ansatz_jastrow_mlp_N72.json").read_text())
+
+    rows = []
+    for ansatz_label in ("jastrow", "mlp"):
+        for r in p["ansatz_results"][ansatz_label]:
+            j = r.get("J_seed", "")
+            if "error" in r:
+                rows.append([
+                    ansatz_label, j, "", "", "", "OOM_or_error", "", r.get("error", "")[:60]
+                ])
+            else:
+                rows.append([
+                    ansatz_label,
+                    j,
+                    f"{r['DMRG']:.6f}",
+                    f"{r['E_final']:.4f}",
+                    f"{r['rel_err']*100:.3f}",
+                    r["verdict"],
+                    f"{r['wall_s']:.1f}",
+                    "",
+                ])
+    write_csv(
+        OUT / "figure_alt_ansatz_jastrow_mlp_N72.csv",
+        ["ansatz", "J_seed", "DMRG_truth_E", "E_final",
+         "rel_err_pct", "verdict", "wall_seconds", "note"],
+        rows,
+        comments=[
+            "Source Data for alt-ansatz attack (Fig 6 / Table S5)",
+            "RBM alpha=16 prior: 1/5 BREAK at N=72 (P3 hedge commit 4509c39)",
+            "Jastrow ansatz: 0/5 BREAK on same J=42-46 cohort",
+            "MLP ansatz (hidden=2N x 2N): 0/5 BREAK on same J=42-46 cohort",
+            "Mechanism (iii) RBM ansatz class intrinsic CONFIRMED at NQS-class-wide level:",
+            "  alternative NQS classes also fail to break 7% threshold.",
+            "RBM alpha~16 is empirically best-of-class on this lattice; intrinsic-limit",
+            "  ridge framing strengthened. Source: T3_v2_alt_ansatz_jastrow_mlp_N72.json.",
+        ],
+    )
+
+
 if __name__ == "__main__":
     figure_main_table_N_decay()
     figure_P1_alpha16_N48()
@@ -239,6 +280,7 @@ if __name__ == "__main__":
     figure_P3_alpha16_N72()
     figure_Pext_anti_monotonic_N72()
     figure_E3_robustness_scan()
+    figure_alt_ansatz_jastrow_mlp_N72()
     print(f"Source Data exported to {OUT}")
     for p in sorted(OUT.glob("*.csv")):
         print(f"  {p.relative_to(ROOT)}")

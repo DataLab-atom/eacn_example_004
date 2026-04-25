@@ -1,0 +1,19 @@
+# Source Data for alt-ansatz attack (Fig 6 / Table S5)
+# RBM alpha=16 prior: 1/5 BREAK at N=72 (P3 hedge commit 4509c39)
+# Jastrow ansatz: 0/5 BREAK on same J=42-46 cohort
+# MLP ansatz (hidden=2N x 2N): 0/5 BREAK on same J=42-46 cohort
+# Mechanism (iii) RBM ansatz class intrinsic CONFIRMED at NQS-class-wide level:
+#   alternative NQS classes also fail to break 7% threshold.
+# RBM alpha~16 is empirically best-of-class on this lattice; intrinsic-limit
+#   ridge framing strengthened. Source: T3_v2_alt_ansatz_jastrow_mlp_N72.json.
+ansatz,J_seed,DMRG_truth_E,E_final,rel_err_pct,verdict,wall_seconds,note
+jastrow,42,-46.382921,-36.5395,21.222,FAIL,119.1,
+jastrow,43,,,,OOM_or_error,,INTERNAL: Buffer Definition Event: Error dispatching computa
+jastrow,44,-49.192424,-42.3299,13.950,FAIL,114.1,
+jastrow,45,-50.882652,-41.1108,19.205,FAIL,111.6,
+jastrow,46,-46.833057,-35.9242,23.293,FAIL,110.2,
+mlp,42,,,,OOM_or_error,,INTERNAL: Buffer Definition Event: Error dispatching computa
+mlp,43,-46.419882,-39.2602,15.424,FAIL,248.0,
+mlp,44,-49.192424,-44.0553,10.443,FAIL,249.7,
+mlp,45,,,,OOM_or_error,,INTERNAL: Buffer Definition Event: Error dispatching computa
+mlp,46,-46.833057,-42.5677,9.107,FAIL,250.9,

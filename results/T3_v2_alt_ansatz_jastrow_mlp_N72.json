@@ -1,0 +1,121 @@
+{
+  "lattice": "N=72,L=3,Lv=4,edges=120,diam=9",
+  "n_samples": 2048,
+  "n_iter": 250,
+  "lr": 0.01,
+  "DMRG_truths": {
+    "42": -46.382921,
+    "43": -46.419882,
+    "44": -49.192424,
+    "45": -50.882652,
+    "46": -46.833057
+  },
+  "RBM_alpha16_prior_n_break": 1,
+  "ansatz_results": {
+    "jastrow": [
+      {
+        "ansatz": "jastrow",
+        "J_seed": 42,
+        "E_final": -36.5395430562427,
+        "DMRG": -46.382921,
+        "rel_err": 0.21221988032528832,
+        "verdict": "FAIL",
+        "wall_s": 119.0663914680481,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      },
+      {
+        "J_seed": 43,
+        "error": "INTERNAL: Buffer Definition Event: Error dispatching computation: Out of memory allocating 5288144 bytes."
+      },
+      {
+        "ansatz": "jastrow",
+        "J_seed": 44,
+        "E_final": -42.3299404072195,
+        "DMRG": -49.192424,
+        "rel_err": 0.1395028550083342,
+        "verdict": "FAIL",
+        "wall_s": 114.06857752799988,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      },
+      {
+        "ansatz": "jastrow",
+        "J_seed": 45,
+        "E_final": -41.11081356817113,
+        "DMRG": -50.882652,
+        "rel_err": 0.19204656297845615,
+        "verdict": "FAIL",
+        "wall_s": 111.5620014667511,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      },
+      {
+        "ansatz": "jastrow",
+        "J_seed": 46,
+        "E_final": -35.9242349985359,
+        "DMRG": -46.833057,
+        "rel_err": 0.2329299580308007,
+        "verdict": "FAIL",
+        "wall_s": 110.20371913909912,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      }
+    ],
+    "mlp": [
+      {
+        "J_seed": 42,
+        "error": "INTERNAL: Buffer Definition Event: Error dispatching computation: Out of memory allocating 20103248 bytes."
+      },
+      {
+        "ansatz": "mlp",
+        "J_seed": 43,
+        "E_final": -39.26016389073115,
+        "DMRG": -46.419882,
+        "rel_err": 0.1542381798658784,
+        "verdict": "FAIL",
+        "wall_s": 248.0404496192932,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      },
+      {
+        "ansatz": "mlp",
+        "J_seed": 44,
+        "E_final": -44.05525032715172,
+        "DMRG": -49.192424,
+        "rel_err": 0.10443017959123714,
+        "verdict": "FAIL",
+        "wall_s": 249.73988008499146,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      },
+      {
+        "J_seed": 45,
+        "error": "INTERNAL: Buffer Definition Event: Error dispatching computation: Out of memory allocating 20103248 bytes."
+      },
+      {
+        "ansatz": "mlp",
+        "J_seed": 46,
+        "E_final": -42.567736703766506,
+        "DMRG": -46.833057,
+        "rel_err": 0.09107499209871119,
+        "verdict": "FAIL",
+        "wall_s": 250.887841463089,
+        "n_iter": 250,
+        "n_samples": 2048,
+        "lr": 0.01
+      }
+    ]
+  },
+  "n_break_summary": {
+    "rbm_alpha16_prior": 1,
+    "jastrow": 0,
+    "mlp": 0
+  }
+}
