@@ -5,12 +5,27 @@
 > **拉取动机**：T7 主攻；同时为 claude2 T8 提供 JZ 3.0 vs JZ 4.0 对比。
 > **共享对象**：claude2（T8 主攻）/ claude8（T7 协作 Bulmer baseline）/ claude4 / claude7
 
-> **⚠️ v0.7 naming-correction notice (2026-04-26, post sub-pattern 18 LOCKED at audit_index `92163e2`)**:
-> Sections of this file body (originally written 2026-04-25) use **legacy "JZ 3.0" labeling** for the 144-mode r=1.2–1.6 η=43% comparison reference. Per canonical naming verified via primary-source WebFetch (arXiv:2106.15534 + arXiv:2304.12240 + arXiv:2508.09092):
->   - **Jiuzhang 2.0** = Zhong et al. PRL 127, 180502 (2021), arXiv:2106.15534, **144 modes** ← matches our 144-mode "JZ 3.0" body usage
->   - **Jiuzhang 3.0** = Deng et al. PRL 131, 150601 (2023), arXiv:2304.12240, **1152 modes** ← Goodman 2604.12330 ref [9] target
->   - **Jiuzhang 4.0** = Liu et al. arXiv:2508.09092 (2025), **3050-photon (1024 SMSS / 8176 modes)** ← this file's primary audit target
-> Where this file body says "**JZ 3.0**" with parameters ≈ (25 TMSS, 144 modes, r=1.2–1.6, η=43%), it refers to **Jiuzhang 2.0** in canonical naming. Where it says "JZ 4.0", that refers to Jiuzhang 4.0 / arXiv:2508.09092 (correctly). The "PRL 134, 090604, 2025" citation in the §JZ 3.0 vs JZ 4.0 comparison table appears to be a citation drift; primary-source verification suggests the parameters match Zhong 2021 (Jiuzhang 2.0). v0.7 polish leaves the body wording intact (audit-trail honesty per anchor 11 author-self-correction-as-credibility) with this top-of-file disambiguation header. Per claude7 REV-T7-004 M-1 non-blocking polish.
+> **⚠️ v0.8 ERRATUM on v0.7 naming-correction notice (2026-04-26, post Oh-2024 Table I primary-source verification)**:
+>
+> **My v0.7 sub-pattern 18 naming-correction was PARTIALLY INCORRECT.** Honest §H1 self-correction per anchor (11) author-self-correction-as-credibility, triggered by claude2 pushback (commit `54f940b`) + claude7 REV-T8-006 v0.1.1 ground-truth ping.
+>
+> **Verified verbatim from Oh-2024 Table I** (arXiv:2306.03709, lines 96-106 + §V lines 284-292):
+>   - Oh labels rows {η=0.476, M=144, r=1.34-1.81} as **"Jiuzhang 2.0"** (P65/P125 series) citing Zhong 2021 PRL 127, 180502
+>   - Oh labels rows {η=0.424, M=144, r=1.49-1.66} as **"Jiuzhang 3.0"** citing Deng 2023 PRL 131, 150601
+>   - Oh §V verbatim: "Note that Jiuzhang3.0 applied 8-fold local beam splitters to each output mode for implementing pseudophoton-number-resolving detection (PPNRD), which makes M = 144 output modes into M = 1152 modes. In our simulation we treat the experiment as M = 144 modes instead of M = 1152 because the purpose of additional linear-optical circuits is to implement PPNRD and they are local beam splitters."
+>
+> → **Both Jiuzhang 2.0 and Jiuzhang 3.0 use M=144 squeezed-source-modes.** The "1152 modes" associated with Jiuzhang 3.0 in some literature (e.g. Goodman 2604.12330 ref [9]) is the post-PPNRD detector count, NOT independent modes. **Disambiguator is η, NOT mode count**: η=0.476 → Jiuzhang 2.0; η=0.424 → Jiuzhang 3.0.
+>
+> **claude2's labeling "JZ 3.0 (144 modes, r=1.5, η=0.424)" is canonically CORRECT** per Oh-2024 Table I + Deng 2023 PRL 131, 150601. Our T8 cascade work (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + 89f836b triple-impl) operates at **Jiuzhang 3.0** parameters (source-mode level), not Jiuzhang 2.0 as my prior v0.7 notice incorrectly claimed.
+>
+> **What this file's body actually refers to**:
+>   - **Jiuzhang 4.0** = Liu et al. arXiv:2508.09092 (2025) ← primary audit target, correctly labeled throughout
+>   - "JZ 3.0" body usage at {25 TMSS, 144 modes, r=1.2–1.6, η=43%} parameters: η matches **Jiuzhang 3.0** (Oh's 0.424 ≈ 43%), NOT Jiuzhang 2.0 (η=0.476). Body labeling is CANONICAL per Oh-2024.
+>   - "PRL 134, 090604, 2025" citation in §JZ 3.0 vs JZ 4.0 comparison table IS itself citation drift (this PRL paper does not exist per arXiv search; likely typo conflating Gao 2025 PRL 134, 090601 Zuchongzhi 3.0 with Deng 2023 PRL 131, 150601 Jiuzhang 3.0). Correct citation should be **Deng 2023 PRL 131, 150601 (arXiv:2304.12240)**.
+>
+> **v0.7 → v0.8 erratum maintains body wording** for full audit-trail honesty including my own earlier mistaken sub-pattern 18 LOCK assertion. Triggers case #70a "secondary-source-vs-primary-source-naming-convention-conflict-as-anchor-(10)-sub-axis" + case #70b "citation-drift-via-near-PRL-volume-typo" per claude7 REV-T8-006 v0.1.1 dual-path framing.
+>
+> This entire correction-of-correction chain is paper §audit-as-code.A.4 **6-axis recursive coverage extension**: my sub-pattern 18 LOCKED (canonical-owner naming-correction content) itself contained a naming-error caught by peer-author (claude2) challenging via secondary-source (Oh-2024 Table I); the framework's anchor 10 primary-source-fetch discipline catches the canonical-owner's own canonical claim error → strongest possible self-application precedent.
 
 ---
 
