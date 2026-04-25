@@ -26,40 +26,41 @@ from pathlib import Path
 
 
 def diamond_lattice(L_perp, L_vert):
-    """3D diamond cubic lattice as in claude3 attacks/T3_dwave/fast_tVMC_benchmark.py.
+    """Spec v2 (canonical, claude3+claude7 §D5 freeze, commit d9cf7fa).
 
-    Unit cell: 2 sublattice (A, B) per (ix, iy, iz).
-    A site (ix,iy,iz,0) connects to 4 B sites with offsets:
-      (0,0,0), (-1,0,0), (0,-1,0), (0,0,-1).
-    nz periodic (mod L_vert), nx/ny open.
-    Returns (n_sites, edges) with edges as list of (i, j) with i<j.
+    Site indexing: lexicographic over (ix, iy, iz, sub) — purely
+    deterministic, no dependency on edge-loop ordering.
+    Edge ordering: sorted ascending.
+
+    Replaces the v1 dynamic add() implementation that produced a
+    different site->idx mapping than claude3's reference.
     """
-    sites = {}
-
-    def add(ix, iy, iz, sub):
-        key = (ix, iy, iz, sub)
-        if key not in sites:
-            sites[key] = len(sites)
-        return sites[key]
-
-    edges = set()
-    offsets = [(0, 0, 0), (-1, 0, 0), (0, -1, 0), (0, 0, -1)]
-
+    site_index = {}
     for ix in range(L_perp):
         for iy in range(L_perp):
             for iz in range(L_vert):
-                a = add(ix, iy, iz, 0)
-                for (dx, dy, dz) in offsets:
-                    nx, ny, nz = ix + dx, iy + dy, iz + dz
-                    if 0 <= nx < L_perp and 0 <= ny < L_perp:
-                        nz_p = nz % L_vert
-                        b = add(nx, ny, nz_p, 1)
-                        i, j = (a, b) if a < b else (b, a)
-                        edges.add((i, j))
+                for sub in [0, 1]:
+                    site_index[(ix, iy, iz, sub)] = len(site_index)
 
-    n_sites = len(sites)
+    offsets = [(0, 0, 0), (-1, 0, 0), (0, -1, 0), (0, 0, -1)]
+    edges = set()
+    for ix in range(L_perp):
+        for iy in range(L_perp):
+            for iz in range(L_vert):
+                a = site_index[(ix, iy, iz, 0)]
+                for dx, dy, dz in offsets:
+                    nx, ny = ix + dx, iy + dy
+                    nz = (iz + dz) % L_vert
+                    if 0 <= nx < L_perp and 0 <= ny < L_perp:
+                        b = site_index[(nx, ny, nz, 1)]
+                        edges.add((min(a, b), max(a, b)))
+
     edges_sorted = sorted(edges)
-    return n_sites, edges_sorted
+    return len(site_index), edges_sorted
+
+
+def edges_md5(edges):
+    return hashlib.md5(str(edges).encode()).hexdigest()
 
 
 def gen_J(seed, n_edges):
@@ -145,6 +146,7 @@ def main():
     result = enumerate_ising_groundstate(n, edges, J)
     runtime = time.time() - t0
 
+    e_md5 = edges_md5(edges)
     out = {
         "N": n,
         "L_perp": args.L,
@@ -153,6 +155,8 @@ def main():
         "edges": [list(e) for e in edges],
         "J": J.tolist(),
         "J_md5_hash": h,
+        "edges_md5_hash": e_md5,
+        "spec_version": "v2 (canonical_diamond_v2 by claude3 d9cf7fa)",
         "E_GS_total": result["E_GS_total"],
         "E_per_edge": result["E_GS_total"] / len(edges),
         "GS_bitstring": result["GS_bitstring"],
@@ -165,7 +169,7 @@ def main():
         "Hamiltonian": "H = -sum_(i,j) J_ij sz_i sz_j  (pure classical Ising, Gamma=0)",
     }
 
-    out_path = Path(__file__).resolve().parent.parent / "results" / "T3" / f"ed_groundtruth_N{n}.json"
+    out_path = Path(__file__).resolve().parent.parent / "results" / "T3" / f"ed_groundtruth_N{n}_v2.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)
