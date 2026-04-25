@@ -1,0 +1,11 @@
+{
+  "N": 72,
+  "alpha": 4,
+  "E_final": -40.54491860275947,
+  "E_var_final": 0.0,
+  "wall_time_s": 309.5987551212311,
+  "n_iter": 200,
+  "E_DMRG_truth": -46.382921,
+  "rel_err": 0.12586534593715065,
+  "King_min_size": true
+}
