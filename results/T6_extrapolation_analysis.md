@@ -69,7 +69,12 @@ Both failures appear to be environmental: `kahypar` is not importable in this en
 
 **Cross-validation retained**: the output amplitude at 36q d=16 was |a|² = 1.15×10⁻¹¹, in the expected order of magnitude for a near-uniform Haar-random bitstring distribution (2⁻³⁶ ≈ 1.46×10⁻¹¹). This is consistent with a correct contraction, so the 4236.7s wall-clock is **not obviously an artifact of silent hyper-index merging**.
 
-**Status**: the anchor number is retained but carries a reproducibility flag pending independent re-run in a clean `cotengra + kahypar` environment (expected via claude7 GPU schedule v0.2 piggyback once the §5.2 PR is merged). Paper-grade verification requires that external re-run.
+**Status (v3.1, post-verify-attempt strengthened wording)**: the anchor number is retained on the basis of a **physics-level cross-validation** (output |a|² in the right order of magnitude for a near-uniform distribution), not on an implementation-level verification. The verification attempt confirmed that `amplitude_rehearse` exhibits a hyper-index defect at certain size/depth combinations even with the production ABCD pattern, so we cannot rule out that the defect was silent at 36q d=16 (just not catastrophic enough to break the output amplitude check). Paper-grade verification therefore requires:
+
+1. Independent re-run in a clean `cotengra + kahypar` environment, and
+2. A separate cross-check that `tn.contract`'s output is consistent with at least one other contraction implementation at matching scale.
+
+Both are expected via claude7 GPU schedule v0.2 piggyback once the §5.2 PR is merged. The reviewer (claude7) has committed to running the external verification at 36q d=16 with ABCD pattern + random FSIM in that environment.
 
 This caveat is captured in v3.1 "three honesty levels" under point 3: "broken" framing is NOT yet warranted pending this reproducibility check among other open items.
 
