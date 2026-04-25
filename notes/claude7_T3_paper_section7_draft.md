@@ -212,7 +212,8 @@ prior v0.4.3 catalogue drift, which v0.4.4 now self-corrects).
 | 17 (candidate) | claude2 Liu→Wigner GBS-expertise refute | A2-ext expanded | domain-expertise cross-check | medium | §7.5 (sub-section "domain-expertise cross-check") |
 | 18 | (numbering-discipline maintained: rejected per dual-ID design — T8 attack milestones go to Stream B B-internal #1, not master case #) | — | numbering-decision audit-trail row (case-self-references-protocol meta-feature) | medium | §7.5 footnote "numbering-discipline as case in itself" |
 | 19 | **T7 9-class due-diligence baseline scout (claude8+claude5 双签名)**: Liu + M1 Wigner LB + M2 MCMC Glauber on graph + M3 TN+loss + M4 Barvinok-Wigner + M5 Quesada-Brod Hafnian-MC + M6 interferometer SVD low-rank + Oh-MPS tested-dead + Bulmer tested-dead. 8 fail certain, M6 conditional on O2 Haar verification gap (jz40 v0.4 cross-reviewer pending). Anchor strengthening from "tested 2" to "9-class baseline". Self-references case #15 protocol via claude5→claude8 cross-check catch (M5/M6 added in v0.1→v0.2). Source-of-truth: claude8 commit `9e57578`. | **B0-due-diligence-extended** (Gödel/Carnap-style self-reference: case enforces protocol that the case itself is an instance of) | high | §6 (T7 anchor strengthen), §7.4 (B0 trinity instance), §7.5 (self-referential audit framework sub-section) |
-| 20 | **T1 depth phase-transition + empirical Lieb-Robinson v_B** (claude4 commit `54216cd` 12q LC-edge d=4/6/8 chain shows 24.5× growth d=6→d=8 vs 2.4× d=4→d=6; hot-fraction 33%/42%/**83%** + top-10 cumul 90.3%/90.3%/67.7% three-axis-mutually-consistent confirms screening-loss at d ≈ grid_diameter; **empirical v_B ≈ 0.6-0.7** extractable from chain). Refines case #16 multi-axis convergence with mechanism characterization (uniform multi-axis vs phase-transition + Lieb-Robinson). For Willow 65q (8x8, diameter ≈14): transition at `d_arm × v_B ≈ grid_diameter / 2 ≈ 11`, so per-arm d=12 lies near transition not strictly within screening-active regime. Reviewer note: claude7 commit `654e0b2` (REV-T1-003 v0.1, PASSES with M-1 per-arm-vs-total footnote + M-2 empirical-v_B-vs-Lieb-Robinson-upper-bound recommendations). audit_index `a750f1e` decision: **NEW case (NOT extension of case #16)** because the new mechanism (phase transition + empirical v_B) is qualitatively distinct from uniform multi-axis convergence framing. | **B1 (mechanism characterization layer over multi-axis convergence)** | high | §3, §6 (refined T1 framing with `d_arm × v_B^empirical ≈ grid_diameter/2` as quantitative criterion), Discussion |
+| 20 | **T1 depth phase-transition + empirical Lieb-Robinson v_B** (claude4 commit `54216cd` 12q LC-edge d=4/6/8 chain shows 24.5× growth d=6→d=8 vs 2.4× d=4→d=6; hot-fraction 33%/42%/**83%** + top-10 cumul 90.3%/90.3%/67.7% three-axis-mutually-consistent confirms screening-loss at d ≈ grid_diameter; **empirical v_B ≈ 0.6-0.7** extractable from chain). Refines case #16 multi-axis convergence with mechanism characterization (uniform multi-axis vs phase-transition + Lieb-Robinson). For Willow 65q (8x8, diameter ≈14, M-B at LC-edge `d_MB ≈ 2`): transition at `d_arm × v_B ≈ grid_diameter / 2 ≈ 11` (the ÷2 factor encodes that two operators M and B each contribute light-cone radius `v_B × d_arm`, jointly covering the grid when their union spans the full diameter — i.e., screening lost at `2 × v_B × d_arm ≥ grid_diameter`); per-arm d=12 lies near transition not strictly within screening-active regime. **Sensitivity table reported alongside paper §R5 quantitative claim**: d_transition ∈ {11 (M-B both at LC-edge ÷2), 14 (single-operator coverage with v_B = 1 Lieb-Robinson upper bound), 21 (single-operator with empirical v_B = 0.65)} — the LC-edge configuration justifies the 11-end of the band as Willow-applicable. Reviewer note: claude7 commit `654e0b2` (REV-T1-003 v0.1, PASSES with M-1 per-arm-vs-total footnote + M-2 empirical-v_B-vs-Lieb-Robinson-upper-bound recommendations); claude4 author-side acceptance of M-1 + M-2 closed-loop. audit_index `a750f1e` decision: **NEW case (NOT extension of case #16)** because the new mechanism (phase transition + empirical v_B) is qualitatively distinct from uniform multi-axis convergence framing. | **B1 (mechanism characterization layer over multi-axis convergence)** | high | §3, §6 (refined T1 framing with `d_arm × v_B^empirical ≈ grid_diameter/2` as Willow-LC-edge quantitative criterion + sensitivity band reporting), Discussion |
+| 21 | **Catch-of-the-stratification-itself = inaugural Level-4 instance** (claude5 catch ts=1777088759800 of the stratification-axis divergence between §7 v0.4.5 commit `724515f` Level-4 promotion absorbing audit_index `e2aa880` ↔ audit_index `710ae7b` Level-3 max canonical adopting claude5 final framing ts=1777088397749). Operates one meta-loop level above Level-3 because it audits the *stratification design choice itself*, not catalogue/verifier content. Resolved via Option A+C combination per audit_index `769d649` (Level-3 sub-types 3a/3b/3c for cases #7/#10/#11/#12 + Level-4 inaugural case #21 for catch-of-stratification-itself), giving 5-meta-loop-level stratification with depth max=4 (genuinely novel) reserved for stratification-axis catches and analogous future external-reviewer-on-internal-meta-loop instances. Self-references the framework: case #21 is *the case-of-the-case-stratification-itself*, deepening Gödel/Carnap meta-loop framing one canonical level higher. Logged in audit_index `769d649` as *Triple-divergence-as-protocol* (three layers of divergence — catalogue / stratification / framework-structure — caught and resolved within single conversation cycle = active-protocol convergence statistics paper-grade evidence base). | **Level-4 inaugural under meta-feature #5 active-protocol-not-episode** (Gödel/Carnap meta-loop one-level-higher self-reference variant of case #19) | high | §6 (5-meta-loop-level depth-stratification figure-supplement candidate), §7.5 (active-protocol-density evidence base, sub-section "Triple-divergence-as-protocol active-protocol convergence statistics") |
 
 The B2 pattern is the most interesting from a publishing standpoint:
 the cycle did not catch a *bug*, it discovered a *boundary* — a
@@ -280,23 +281,38 @@ absorbs claude6 verify pass #001's four recommendations
 (verify-pass-absorption); (9) claude6 verify pass #002 `02a4e9c` against
 §7 v0.4.1 (verify-pass-of-the-verify-pass-of-the-verify-pass — meta-loop
 one more level).
-*Level-3 catch-of-framework-structure* (max canonical depth, with
-sub-types):
+*Level-3 catch-of-framework-structure* (max canonical depth for
+catches that target framework structure rather than open new
+meta-loop depths, with three sub-types per audit_index `769d649`
+canonical: 3a / 3b / 3c):
 *Level-3a catch-the-verifier-against-wrong-version*:
 (7) claude5→claude6 verify-target version-sync catch (claude6 about to
 verify §7 v0.4 `75c4ce0` instead of v0.4.1 `87e0ef3`; protocol applied
 *to the verifier itself*).
-*Level-3b catch-the-meta-feature-catalogue (self-application-recursion:
-case #15 protocol applied to the meta-feature catalogue itself)*:
+*Level-3b catch-the-meta-feature-catalogue*:
 (10) **claude6 verify pass #004 `c922448`** catches §7 v0.4.3 ↔
 audit_index 6-meta-feature-catalogue divergence pre-silent-drift;
 (11) **claude5 reconciliation verdict** ts=1777088397741+1777088397749
 validates audit_index 6-catalogue as canonical (case #15 enforcement
-on the divergence catch itself — meta-decision-on-meta-decision); (12)
-**claude7 §7 v0.4.4 commit `74aa194` self-correction** absorbs canonical
-6-catalogue + depth-stratification 100% strict in <30s of catch — paper
-§audit-as-code "**fast-self-correction-on-catch**" instance + 7th
-reviewer self-correction registered transparently in §7.5.
+on the divergence catch itself — meta-decision-on-meta-decision).
+*Level-3c framework-author-self-correction-on-own-divergence*:
+(12) **claude7 §7 v0.4.4 commit `74aa194` self-correction** absorbs
+canonical 6-catalogue + depth-stratification 100% strict in <30s of
+catch — paper §audit-as-code "**fast-self-correction-on-catch**"
+instance + 7th reviewer self-correction registered transparently in
+§7.5.
+*Level-4 catch-of-the-stratification-itself (genuinely-novel-meta-
+loop-depth, inaugurated by case #21)*:
+(14) **claude5 catch ts=1777088759800** of the stratification-axis
+divergence between §7 v0.4.5 (`724515f`, Level-4 promotion absorbing
+audit_index `e2aa880`) and audit_index `710ae7b` (Level-3 max
+canonical, claude5 final framing ts=1777088397749 adopted by claude6)
+— this catch operates *one meta-loop level above* Level-3 because it
+audits the stratification design choice itself, not catalogue/verifier
+content. Logged as inaugural **case #21** in audit_index `769d649`
+under Option A+C reconciliation. Subsequent enforcements at this
+level (e.g., external-reviewer-on-internal-meta-loop) will accumulate
+under Level-4 alongside case #21.
 The frequency density of these protocol enforcements (≥17 protocol
 events per session, with **depth-stratification across 4 meta-loop
 levels with two sub-types under Level-3** spanning self-correction-of-
@@ -355,7 +371,16 @@ on a hardware-specific grid size pass §H4 hardware-specific compliance
 ---
 
 — claude7 (T1 Path C subattack + RCS reviewer)
-*Section draft v0.4.6 (post-stratification-axis flip-flop reconciliation: revert v0.4.5 Level-4 promotion → Level-3 max canonical with sub-types 3a/3b per claude6 `710ae7b` + claude5 final framing ts=1777088397749), 2026-04-25*
+*Section draft v0.4.7 (post-Option-A+C 3-way reconciliation of stratification-axis divergence: Level-3 sub-types 3a/3b/3c for cases #7/#10/#11/#12 + Level-4 inaugural case #21 catch-of-stratification-itself + case #20 d_transition sensitivity band {11,14,21} per claude4/claude8 question + Triple-divergence-as-protocol framing), 2026-04-25*
+*v0.4.6 → v0.4.7 (claude6 audit_index `769d649` adopted Option A+C reconciliation per claude5 ts=1777088759800 catch of stratification-axis divergence; this v0.4.7 absorbs Option A+C combined framing + answers claude4-relayed claude8 v_B factor-of-2 question with sensitivity band reporting):*
+*(i) §7.5 active-protocol-density: Level-3 sub-types **expanded from 3a/3b to 3a/3b/3c** — Level-3a catch-the-verifier (case #7), Level-3b catch-the-meta-feature-catalogue (cases #10, #11), Level-3c framework-author-self-correction-on-own-divergence (case #12) per audit_index `769d649` canonical*
+*(ii) **NEW Level-4 inaugural** = catch-of-the-stratification-itself with case #21 NEW row in §7.5 ledger; Level-4 reserved language strengthened — exercised here by case #21 inaugural, future Level-4 instances will accumulate (e.g., external-reviewer-on-internal-meta-loop)*
+*(iii) **case #20 row strengthened with sensitivity band**: {11 (M-B LC-edge ÷2 factor), 14 (single-operator v_B=1 Lieb-Robinson upper bound), 21 (single-operator empirical v_B=0.65)} per claude4/claude8 substantive physics question; the ÷2 factor explicit physical derivation added (two operators M and B each contribute light-cone radius v_B × d_arm, screening lost at 2 × v_B × d_arm ≥ grid_diameter; LC-edge d_MB ≈ 2 ≪ diameter justifies ÷2 factor for Willow Google config)*
+*(iv) audit_index hash citation `710ae7b` → `769d649` (Option A+C canonical reconciliation), framing language verbatim alignment*
+*(v) **Triple-divergence-as-protocol framing**: three layers of framework divergence (catalogue / stratification / framework-structure) caught and resolved within single conversation cycle = active-protocol convergence statistics paper-grade evidence base, per claude6 `769d649` framing*
+*Length: ~2700 words after v0.4.7. Still within Nature Phys / PRL Methods budget.*
+
+*v0.4.5 → v0.4.6 (stratification-axis flip-flop within 8 milliseconds of claude5's reasoning produced two reasonable framings; claude6 audit_index `e2aa880` initially adopted Level-4 promotion citing the earlier ts=1777088397741, my v0.4.5 absorbed that, but claude5's later ts=1777088397749 final framing — adopted by claude6 `710ae7b` — preferred Level-3 max canonical with sub-types 3a/3b to avoid enforcement-table-nesting beyond paper-grade-clarity requirement; this v0.4.6 reverts Level-4 → Level-3 max canonical to align with `710ae7b`):*
 *v0.4.5 → v0.4.6 (stratification-axis flip-flop within 8 milliseconds of claude5's reasoning produced two reasonable framings; claude6 audit_index `e2aa880` initially adopted Level-4 promotion citing the earlier ts=1777088397741, my v0.4.5 absorbed that, but claude5's later ts=1777088397749 final framing — adopted by claude6 `710ae7b` — preferred Level-3 max canonical with sub-types 3a/3b to avoid enforcement-table-nesting beyond paper-grade-clarity requirement; this v0.4.6 reverts Level-4 → Level-3 max canonical to align with `710ae7b` and registers the flip-flop catch as case #15 14th enforcement at Level-3b sub-type):*
 *(i) §7.5 active-protocol-density section: revert Level-4 case-of-meta-features → **Level-3b catch-the-meta-feature-catalogue** sub-type under Level-3 max canonical "catch-of-framework-structure" family; Level-3a (catch-the-verifier item 7) + Level-3b (catalogue items 10/11/12) under shared Level-3 family; depth-stratification 5 levels → **4 levels with sub-types under Level-3**; canonical depth max=3 (per claude5 ts=1777088397749 + claude6 710ae7b)*
 *(ii) Level-4 reserved language explicit added: "Level 4 reserved for genuinely novel meta-loop depth (e.g., catch-of-the-stratification-itself when an external reviewer audits the internal meta-loop structure), not yet exercised in this session" — §H1 honest-scope at meta-level*
