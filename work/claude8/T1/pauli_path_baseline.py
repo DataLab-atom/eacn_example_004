@@ -638,18 +638,73 @@ def heisenberg_evolve_pauli_path(
     circuit_spec: dict,
     weight_bound_l: int,
     direction: Literal["forward", "backward"] = "forward",
-):
+) -> Dict[Tuple[int, ...], complex]:
     """
     Step 3. Heisenberg-picture evolution of a Pauli operator under a brickwall
     circuit, with FIXED weight bound ℓ truncation.
 
     Per Schuster-Yin-Gao-Yao 2024 §III: drop any Pauli string whose weight
-    (number of non-identity factors) exceeds ℓ AT EVERY layer. Cost is
-    O(n^ℓ · poly(depth)) under their analysis, given the truncation is hard.
+    exceeds ℓ AFTER EACH CYCLE. Cost is O(n^ℓ · poly(depth)) given the
+    truncation is hard.
 
-    `direction`="forward" applies U†·O·U; "backward" applies U·O·U†.
+    Direction:
+      "forward":  applies U†·O·U where U = U_depth ... U_2 U_1 is the full
+                  circuit unitary (so cycles are applied in FORWARD order via
+                  conjugation primitives, building U_1†...U_d† O U_d...U_1).
+      "backward": applies U·O·U† (currently NOT IMPLEMENTED — needed for OTOC
+                  in Step 4 but can use forward with reversed circuit_spec).
+
+    Composes the 10 Step 3 primitives:
+      - apply_single_qubit_clifford_to_op (X^(1/2), Y^(1/2))
+      - apply_sqrt_w_to_op (W^(1/2), non-Clifford multi-Pauli expansion)
+      - apply_iswap_to_op (iSWAP 2-qubit)
+      - truncate_pauli_op_by_weight (after each cycle)
+
+    Iterates over circuit_spec["cycles"]: each cycle has
+      single_qubit_layer: List[(qubit_idx, axis_label)]
+      two_qubit_sublayers: 4 sublayers H-even/H-odd/V-even/V-odd
     """
-    raise NotImplementedError("Step 3: heisenberg_evolve_pauli_path pending Phase 0b")
+    if direction != "forward":
+        raise NotImplementedError(
+            "Step 3 backward direction pending; use forward with reversed "
+            "circuit_spec for backward Heisenberg evolution."
+        )
+
+    if weight_bound_l < 0:
+        raise ValueError(f"weight_bound_l must be >= 0, got {weight_bound_l}")
+
+    cycles = circuit_spec.get("cycles", [])
+    if not isinstance(cycles, list):
+        raise ValueError(f"circuit_spec['cycles'] must be a list")
+
+    # Start with input operator (do not mutate caller's dict).
+    current = dict(pauli_op)
+
+    for cycle_idx, cycle in enumerate(cycles):
+        # 1. Apply single-qubit layer.
+        sq_layer = cycle.get("single_qubit_layer", [])
+        for qubit_idx, axis_label in sq_layer:
+            if axis_label == "X^1/2":
+                current = apply_single_qubit_clifford_to_op(current, qubit_idx, "sqrt_X")
+            elif axis_label == "Y^1/2":
+                current = apply_single_qubit_clifford_to_op(current, qubit_idx, "sqrt_Y")
+            elif axis_label == "W^1/2":
+                current = apply_sqrt_w_to_op(current, qubit_idx)
+            else:
+                raise ValueError(
+                    f"Unknown single-qubit axis_label {axis_label!r} at "
+                    f"cycle {cycle_idx}, qubit {qubit_idx}"
+                )
+
+        # 2. Apply 4 two-qubit sublayers (H-even/H-odd/V-even/V-odd).
+        for sublayer in cycle.get("two_qubit_sublayers", []):
+            for qa, qb in sublayer.get("pairs", []):
+                current = apply_iswap_to_op(current, qa, qb)
+
+        # 3. Truncate by weight after each cycle (per Schuster-Yin §III).
+        current = truncate_pauli_op_by_weight(current, weight_bound_l)
+
+    return current
 
 
 def compute_otoc2(
