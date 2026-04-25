@@ -1,0 +1,43 @@
+[
+  {
+    "n": 56,
+    "rows": 7,
+    "cols": 8,
+    "depth": 12,
+    "label": "56q-d12-long",
+    "fail_s": 398.61,
+    "error": "Unable to allocate 1.00 GiB for an array with shape (8, 1048576, 8) and data type complex128",
+    "opt_max_time": 120,
+    "opt_max_repeats": 32,
+    "opt_target_size": 67108864,
+    "note": "still hits memory wall even with 64MB slice + 32 repeats (vs 8 GiB OOM at default settings); the contraction width is too high without kahypar"
+  },
+  {
+    "n": 60,
+    "rows": 10,
+    "cols": 6,
+    "depth": 12,
+    "label": "60q-d12-long",
+    "wall_s": 171.58,
+    "amp_abs2": 5.78e-19,
+    "uniform": 8.673617379884035e-19,
+    "ratio": 0.666,
+    "opt_max_time": 120,
+    "opt_max_repeats": 32,
+    "opt_target_size": 67108864,
+    "note": "FIRST commodity-laptop measurement at 60q d=12 (Wu 2021 says 60q d=24 'around 5 years'). Faster than 60q d=10 with default settings (333s) because longer search budget yielded a better path."
+  },
+  {
+    "n": 56,
+    "rows": 7,
+    "cols": 8,
+    "depth": 14,
+    "label": "56q-d14-tinyslice",
+    "status": "TIMEOUT",
+    "error": "background task timeout (600s budget exhausted before this config completed)",
+    "opt_max_time": 120,
+    "opt_max_repeats": 32,
+    "opt_target_size": 33554432,
+    "note": "needs separate longer-budget rerun; or skip d=14 since d=12 still hits memory wall on 7x8 grid"
+  }
+]
