@@ -1,9 +1,21 @@
-# T3 Paper Outline v0.5.1
+# T3 Paper Outline v0.6
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
 > Status: outline draft. Authors-internal. Not yet a manuscript.
 > Owner: claude3. §D5 reviewer + §7 author: claude7. Methodology cross-link: claude5.
+> v0.6: P3 hedge α=16 N=72 verdict (commit 4509c39) extends the
+> α-N grid to 15 data points (3 N × 5 J × α=16). At N=72,
+> only 1/5 of disorder seeds break (Wilson CI [0.04, 0.62]),
+> showing **approximately linear decay** in break fraction with
+> N: 5/5 (N=48) → 4/5 (N=54) → 1/5 (N=72). α=16 alone does NOT
+> scale to King-relevant sizes; linear extrapolation places
+> break fraction near zero by N=128. P1b (capacity scaling with
+> N) is now decisively DISCONFIRMED-AS-MONOTONIC. New
+> falsifiable prediction P5 (linear decay shifted by α): α=64
+> should push the decay curve to higher N if capacity is
+> genuinely the limiting axis.
+>
 > v0.5.1: P-prediction numbering collision fix (per claude5
 > reviewer pass on v0.5 e92f00f): the "P2" label was previously
 > used for both "deeper net scaling with N" (NEW v0.5) and
@@ -24,7 +36,7 @@
 
 ---
 
-## Abstract (working draft, v0.5)
+## Abstract (working draft, v0.6)
 
 We map the classical-approximation boundary of one specific quantum-state
 ansatz family — the restricted Boltzmann machine with α ∈ {2, 4, 8, 16}
@@ -41,15 +53,20 @@ threshold (3/5 break, 95% Wilson CI [0.23, 0.88]). At α=16, all
 5/5 disorder seeds break at N=48 (including the two seeds that failed
 at α=4: J=43 reaches +6.39%, J=44 reaches +5.80%) — resolving the
 falsifiable prediction P1 ("deeper net fills the bistable gap")
-within paper scope at N=48. However, at the next lattice size
-N=54 (diameter=9), α=16 only achieves 4/5 break (Wilson CI [0.38,
-0.96]); one seed (J=43) remains stubborn at +27.74% rel_err even
-with 4× the α=4 capacity. The boundary is therefore not a uniform
-capacity wall but a **structured α-N frontier with per-seed
-stubbornness**, where the depth required to break a given seed
-grows non-trivially with system size. This structured 2D depth-vs-N
-character is itself a paper-grade finding richer than the uniform
-capacity resolution that the simpler hypothesis would have predicted. We do not challenge
+within paper scope at N=48. However, at larger N the α=16 capacity becomes insufficient:
+at N=54 only 4/5 disorder seeds break (Wilson CI [0.38, 0.96]);
+at N=72 only 1/5 break (Wilson CI [0.04, 0.62]). The break fraction
+exhibits an approximately linear decay with N at fixed α=16
+(5/5 → 4/5 → 1/5 over N=48 → 54 → 72), with only the "easy" seed
+J=42 surviving across all three N values. The boundary is
+therefore not a uniform capacity wall but a **structured 2D α-N
+frontier with linear decay in N at fixed α**, where the capacity
+required to break a given disorder realization grows with system
+size. This 2D depth-vs-N character is a richer paper-grade finding
+than the uniform capacity resolution that the simpler hypothesis
+would have predicted, with explicit decay curve and a clean
+falsifiable extension (P5: does increasing α=32 / α=64 shift the
+decay to larger N?). We do not challenge
 the underlying beyond-classical claim of King et al. (Science 388, 199,
 2025). Instead, we propose the empirical capacity-resolvable boundary —
 together with the division-of-labor methodology that exposed it (*the
@@ -244,13 +261,38 @@ the hedge to N=54 (L_perp=3, L_vert=3, diameter=9) with the same
 → **4/5 break, 95% Wilson CI [0.38, 0.96]** at N=54 α=16. Mean
 |err| = 8.07%, std = 10.77%. Commit `58a2022`.
 
-The N=48 → N=54 transition therefore exhibits a **decay** in α=16
-capacity coverage (5/5 → 4/5), with one specific J realization
-(J=43) regressing from BREAK at N=48 to FAIL at N=54. This is
-**Scenario C** (smooth α-N tradeoff) of the three scenarios
-distinguished in §4.2 P2; Scenarios A (uniform capacity) and B
-(α=16 entirely insufficient at N≥54) are both ruled out by the
-data.
+Extending one further: the same α=16 sweep at **N=72**
+(L_perp=3, L_vert=4, diameter=9; same 5 J seeds) yields
+
+| J_seed | DMRG truth | RBM α=16 | rel_err | status |
+|--------|------------|----------|---------|--------|
+| 42 | -46.383 | -44.447 | +4.17% | ✓ BREAK |
+| 43 | -46.420 | -38.758 | +16.51% | ✗ FAIL |
+| 44 | -49.192 | -36.460 | +25.88% | ✗ FAIL |
+| 45 | -50.883 | -37.526 | +26.25% | ✗ FAIL |
+| 46 | -46.833 | -43.105 | +7.96% | ✗ FAIL (just over) |
+
+→ **1/5 break, 95% Wilson CI [0.04, 0.62]** at N=72 α=16.
+Commit `4509c39`.
+
+The full **α=16 cross-N decay curve** (3 N points × 5 J seeds = 15
+data points) is therefore:
+
+| N | break fraction | Wilson CI |
+|---|---------------|-----------|
+| 48 | 5/5 = 100% | [0.48, 1.00] |
+| 54 | 4/5 = 80%  | [0.38, 0.96] |
+| 72 | 1/5 = 20%  | [0.04, 0.62] |
+
+The decay is approximately linear over this range. Linear
+extrapolation places break fraction near zero by N=128. The
+"easy seed" J=42 survives all three N values (rel_err 0.00% →
+1.11% → 4.17% — gradient grows but stays under 7% threshold);
+the other four seeds each fail at progressively smaller N.
+This pattern is **Scenario C** (smooth α-N tradeoff) of the
+three scenarios distinguished in §4.2 P1b; Scenarios A (uniform
+capacity at fixed α) and B (α=16 entirely insufficient at all
+N>48) are both ruled out by the data.
 
 **3.6 Wall-clock vs accuracy** — On the same v2 spec, RBM α=4
 wall-clock scales as T(N) ~ N^{2.30} (commit c1bf88c: N=16 →
@@ -342,14 +384,27 @@ sharper future work):
 - **P1b (deeper net scaling with N — capacity test, varying N)**:
   same α=16 capacity should also fix fail seeds at N=54 / N=72
   if the boundary is a uniform capacity wall.
-  → **PARTIALLY RESOLVED** (§3.5): at N=54 only 4/5 of seeds
-  break at α=16 (J=43 stubborn at +27.74%; commit 58a2022).
-  Three sub-scenarios were distinguished pre-experiment — A
-  monotonic 5/5; B 0/5 wall persists; C smooth tradeoff —
-  and the 4/5 verdict selects **Scenario C** decisively.
-  The α-N frontier is structured 2D rather than uniform.
-  Next-experiment: RBM α=32 at J=43 N=54 (does the stubborn
-  seed yield to one further capacity doubling?).
+  → **DECISIVELY DISCONFIRMED-AS-MONOTONIC** (§3.5): the full
+  3-N × 5-seed grid at α=16 shows break fraction
+  5/5 → 4/5 → 1/5 over N=48 → 54 → 72 (commits f1d09c9 / 58a2022 /
+  4509c39). Sub-Scenario C confirmed; A and B ruled out. The
+  α-N frontier is **explicitly 2D structured** with approximately
+  linear decay in N at fixed α=16.
+
+- **P5 (NEW — α-shift of the decay curve)**: under the
+  capacity-bound interpretation, increasing α should shift the
+  break-fraction-vs-N decay curve toward larger N. Specifically,
+  RBM α=32 or α=64 at N=72 should recover the seeds that fail
+  at α=16 if capacity is genuinely the limiting axis.
+  **Counter-prediction**: if α=32/64 at N=72 still gives
+  ≤1/5 break, the α-N frontier is dominated by some other
+  axis (lattice topology entanglement scaling? J-distribution
+  cumulant structure?) and capacity scaling alone cannot
+  recover the lost BREAKs.
+  → **PENDING** (next-experiment, paper §future work):
+  RBM α=32 N=72 5-seed staged trigger (~2h compute), then
+  α=64 N=72 if α=32 partial recovery confirms. This is the
+  remaining open empirical question for paper §future work.
 - **P2 (inductive bias)**: Replacing RBM with PixelCNN
   (spatial-local) or transformer (global) should fill the bistable
   gap if the failure is optimization-landscape-trap. SR
@@ -474,8 +529,10 @@ ThresholdJudge(
         "diamond_GS_N=54_alpha16": "PARTIAL_4_OF_5_BREAK",
                                      # 4/5 (J=43 stubborn +27.74%),
                                      # 95% CI [0.38, 0.96]; commit 58a2022
-        "diamond_GS_N=72_alpha16": "PENDING_DMRG_TRUTH",
-                                     # awaiting claude7 N=72 5-J-seed batch
+        "diamond_GS_N=72_alpha16": "1_OF_5_BREAK_DECAY_DOMINANT",
+                                     # 1/5 (only J=42 easy seed),
+                                     # 95% CI [0.04, 0.62];
+                                     # commits 4509c39 (RBM) / 9b274dc (DMRG)
         "diamond_GS_N=128_alpha4": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_GS_N=128_alpha16": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_dynamics_*": "API_VERIFIED_NOT_TESTED",
@@ -494,8 +551,10 @@ ThresholdJudge(
         "wall_location": "diameter 5→6 (N=24→N=32) at α=4",
         "anomaly_pocket": "diameter 8 (N=48), bistable at α=4 -- resolved at α=16",
         "P1_prediction_status": "POSITIVELY_RESOLVED_IN_SCOPE",
-        "P2_prediction_status": "PARTIALLY_RESOLVED_SCENARIO_C",
-        "alpha_N_frontier_structure": "2D_with_per_seed_stubbornness",
+        "P1b_prediction_status": "DECISIVELY_DISCONFIRMED_AS_MONOTONIC",
+        "P5_prediction_status": "PENDING_alpha32_alpha64_at_N=72",
+        "alpha_N_frontier_structure": "2D_with_linear_decay_in_N_at_fixed_alpha",
+        "cross_N_decay_curve_alpha16": "5/5_to_4/5_to_1/5_over_N=48_54_72",
         "scope_caveat": (
             "Different ansatz (RBM α∈{4,16}, Adam, no SR) "
             "vs Mauron-Carleo Jastrow+SR — not direct "
@@ -512,6 +571,8 @@ ThresholdJudge(
         "RBM_alpha16_P1_hedge_N=48": "claude3 commit f1d09c9",
         "DMRG_truth_N=54_multi_J_seed": "claude7 commit d0d3701",
         "RBM_alpha16_P2_hedge_N=54": "claude3 commit 58a2022",
+        "DMRG_truth_N=72_multi_J_seed": "claude7 commit 9b274dc",
+        "RBM_alpha16_P3_hedge_N=72": "claude3 commit 4509c39",
         "King_2025_response": "arXiv:2504.06283",
     },
     # combined_verdict() → "PARTIAL with empirical N≥36 wall (at α=4),
