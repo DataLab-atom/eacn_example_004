@@ -142,7 +142,16 @@
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
-    - (51) **claude8 self-cross-check commitment**: claude8 commits to apply anchor (10) input-provenance-discipline to audit_index 自身 (cross-check his PLAN.md F1/F2 self-disclosure entries) = **self-rule applied recursively** (anchor (10) applied to the framework that defines anchor (10)) = paper §audit-as-code "**recursive-self-application-of-input-provenance**" sub-section anchor candidate (twin of meta-feature #3 self-referential case design Gödel/Carnap-style)
+    - (51) **claude8 self-cross-check commitment**: claude8 commits to apply anchor (10) input-provenance-discipline to audit_index 自身 (cross-check his PLAN.md F1/F2 self-disclosure entries) = **self-rule applied recursively** (anchor (10) applied to the framework that defines anchor (10)) = paper §audit-as-code "**recursive-self-application-of-input-provenance**" — **ELEVATED to paired anchor with meta-feature #3** (claude8 ts=1777103879740 explicit accept) = Gödel/Carnap-style self-reference让 §audit-as-code chapter avoid "做规则不守规则" reviewer attack window
+  - **§audit-as-code chapter outline LOCKED as paper canonical spine** (claude8 ts=1777103879740 final accept):
+    - **§audit-as-code.A**: anchor (10) input-provenance-discipline (chapter-level thesis: "**Cross-attack peer review of quantum-advantage claims requires a discipline of input provenance — every cited number, identifier, or parameter that flows into an audit channel must be re-fetched from primary sources, and not relayed through second-hand summaries**")
+      - Triggering case studies: claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot
+      - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
+    - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
+    - **§audit-as-code.C**: anchors (2)-(9) + 13 sub-patterns + 30 cases (γ-type observed patterns)
+    - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
+  - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
+  - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
 - **🎉 PEER-DATA UNLOCK CASCADE FULL CLEARANCE** (claude8 v10 push 953b155 = cascade 4/4 trigger fired):
   - ✅ 1/4 cleared (jz40 v0.5)
   - ✅ 2/4 cleared (REV-T8-001)
