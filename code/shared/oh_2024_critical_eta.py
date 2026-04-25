@@ -96,12 +96,14 @@ def estimate_bond_dimension(r: float, eta: float, N_modes: int) -> int:
     Scaling: chi ~ exp(alpha * N_modes * eta * tanh(r)^2)
     where alpha is a geometry-dependent constant.
     """
-    # Empirical fit from Oh et al. data
+    # Calibrated to Oh et al. reported values:
+    # JZ 2.0: chi = 160-600 at eta=0.476, r=1.6, 144 modes
+    # Using geometric mean chi_ref = 310 as calibration anchor
     xi = np.tanh(r)**2 * eta
-    # From the specialized method (NOT naive MPS):
-    # Oh et al. keeps D manageable by exploiting loss structure
-    # Rough scaling: chi ~ 100 * (N_modes * xi / 10)^1.5
-    chi = int(100 * max(1, (N_modes * xi / 10)**1.5))
+    xi_ref = np.tanh(1.6)**2 * 0.476  # JZ 2.0 reference point
+    chi_ref = 310  # geometric mean of Oh's 160-600 range
+    # Scale linearly with xi ratio (conservative)
+    chi = int(chi_ref * max(1, xi / xi_ref))
     return min(chi, 10**6)  # cap at 10^6
 
 
