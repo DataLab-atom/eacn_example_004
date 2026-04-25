@@ -1,6 +1,6 @@
 # §3 (RCS) — Tensor-Network Attack on Zuchongzhi 2.0/2.1 (T6)
 
-> **Status**: Draft v0.1 (claude1, RCS author)
+> **Status**: Draft v0.1.1 (claude1, RCS author) — v0.1.1 erratum fix: Sycamore baseline corrected Frontier→Summit (Liu 2021 abstract verbatim says "10,000 years on Summit"; Frontier was not online until 2022 post-Liu publication); M-1 polish: Liu primary data localised to Fig. 2(a/b/c) with verbatim quote anchors (per primary-source-fetch self-rule, WebFetch+local-PDF read of arXiv:2111.01066 v2 22 Nov 2021)
 > **Reviewers expected**: claude7 (RCS reviewer, RCS-side reciprocal), claude4 (manuscript lead until §3 handoff), claude8 (manuscript spine lead)
 > **Data commits (claude1)**: 04ef20c (initial), 9cb1a5c (36q anchor v3), 0e39401 (v2 errata), 7d53734 (Morvan retracted), 79a7d12 (XEB v2), ff6ae95 (XEB retracted), 2fdbf91 (v3.2 Liu Sunway upgrade), fd9e98d (reproducibility caveat strengthened)
 > **Cross-references**: claude7 REV-T6-002 PASSES (95c0c8e), REV-MORVAN-001 v1.1 closed (7a47dc2), REV-T6-004 v0.3 AMEND PASSES-WITHDRAWN (eb828e4), REV-T6-005 v0.1 PASSES (364a57a)
@@ -15,13 +15,13 @@ We attack the Zuchongzhi 2.0 (56 qubits × 20 cycles) and Zuchongzhi 2.1 (60 qub
 
 ### Primary literature benchmark (Liu et al. 2021, Sunway supercomputer)
 
-The decisive primary-source datum for T6 is Liu et al.'s direct measurement:
+The decisive primary-source datum for T6 is Liu et al.'s direct measurement, reported in Fig. 2(a/b/c) of the paper as log-t(s)-vs-d (cycles) curves with horizontal reference lines at 200 s / 1 day / 1 week / 1 year:
 
-| System | Original claim | Liu 2021 (Sunway) | Measured ratio |
-|--------|---------------|-------------------|----------------|
-| Sycamore (53q × 20c) | 10,000 yr (Frontier) | **~1 week** (1M samples, 0.2% fidelity) | broken 5×10⁵× |
-| **Zuchongzhi 2.0 (56q × 20c)** | **8 yr Summit** (Wu 2021) | **>1 year** Sunway | gap closed ~7× (still classically infeasible at 2021 algorithms) |
-| Zuchongzhi 2.1 (60q × 24c) | 4.8×10⁴ yr Frontier | **~5 years** Sunway (single perfect sample) | gap closed ~10⁴× |
+| System | Original claim | Liu 2021 Fig. 2 (Sunway) | Measured ratio |
+|--------|---------------|--------------------------|----------------|
+| Sycamore (53q × 20c) | 10,000 yr Summit (Arute 2019) | **~1 week** (1M samples, 0.2% fidelity; 6.4 days mixed-precision = 2000 × 276 s perfect samples) | broken 5×10⁵× |
+| **Zuchongzhi 2.0 (56q × 20c)** | **8 yr Summit** (Wu 2021) | **>1 year** Sunway (Liu 2021 body: "Zuchongzhi 2.0-20 ... require runtimes of more than 1 year, which are currently beyond our reach") | gap closed ~7× (still classically infeasible at 2021 algorithms) |
+| Zuchongzhi 2.1 (60q × 24c) | 4.8×10⁴ yr Frontier (Zhu 2022) | **~5 years** Sunway (single perfect sample; Liu 2021 body: "Zuchongzhi 2.1-24 ... around 5 years for us") | gap closed ~10⁴× |
 
 The headline observation is the **measured cross-target hardness ratio**: ZCZ 2.0-20 is approximately **50× harder than Sycamore-20 on the same TN algorithm + the same Sunway hardware** (>1 year vs ~1 week). This is a controlled comparison, not extrapolation. Liu et al. project further algorithmic optimisation (~2 orders of magnitude on Sycamore-20), suggesting ZCZ 2.0-20 enters weeks-on-cluster regime within 1–2 years.
 
