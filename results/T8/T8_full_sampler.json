@@ -28,10 +28,10 @@
     "mean_clicks": 94.7124
   },
   "timing": {
-    "build_s": 0.002011537551879883,
-    "sample_100k_s": 0.6201112270355225,
-    "projected_build_full_s": 0.7508023681640627,
-    "projected_10M_full_s": 446.4800834655762,
-    "projected_10M_full_min": 7.4413347244262695
+    "build_s": 0.0015058517456054688,
+    "sample_100k_s": 0.12632441520690918,
+    "projected_build_full_s": 0.5620561523437501,
+    "projected_10M_full_s": 90.95357894897461,
+    "projected_10M_full_min": 1.5158929824829102
   }
 }
