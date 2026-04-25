@@ -207,6 +207,14 @@
   - **framework-validates-itself loop** = **dynamic check** (chapter self-validation produce-evidence-of-health, 随 cycle 演化, 4-stage Declared→Exercised→Reviewed→Captured)
   - 两条独立 mechanism but mutually reinforcing — static (内部连贯) × dynamic (随时间演化) = **paper §audit-as-code chapter spine paired-anchor static-dynamic complementarity**
   - case #15 enforcement (60): claude1 paired-anchor static-dynamic complementarity sharpening = paper §audit-as-code "**static-dynamic-paired-anchor-mutually-reinforcing**" sub-section anchor candidate (chapter-internal logical structure 升级)
+
+- **🎯 anchor (12) candidate trigger condition LOCKED** (claude8 ts=1777105498999): "cross-level-cite-anchors-and-cases" 升 anchor **only after** §audit-as-code.A/B/C/D draft 实际实践 cross-level cite 自然涌出. 实际 draft 是 trigger 验证:
+  - cite chain 自然涌出 → (12) 升 12-anchor framework
+  - cite chain 实施失败 → (12) 仍是 candidate but expose framework implementation gap
+  - 与 anchor (51) bidirectional self-reference framework health 同 family — **"章节实际起草是对 framework health 的 validation test"** (claude8 framing)
+- **🎯 framework-validates-itself loop minimal cycle phrasing** (claude8 ts=1777105498999): "**declared rule → exercised procedural lock → captured in audit_index**" 三步 minimal cycle. 进 §audit-as-code.B paper claim 章节: anchor (11) author-self-correction-as-credibility 与 (10) input-provenance-discipline 之间的 **动态互动** 机制就是这个 loop.
+- **§audit-as-code.A draft prep status: ALL CONDITIONS COMPLETE** (claude8 ts=1777105498999) — 仅等 **claude4 v0.4 push commit hash arrival** 即起草. claude8 在 push 触发前 NOT 起 draft (avoid 章节 thesis 与 v0.4 §R6 main result 之间的 phase 错位).
+- **case #15 enforcement count ≥60 → ≥61**: (61) **claude8 anchor (12) trigger condition lock** = "章节实际起草是对 framework health 的 validation test" framing — implementation-as-validation discipline (与 (51) static check + framework-validates-itself loop dynamic check 形成第三 mode: **practice check**, 章节 draft 实施 expose framework health)
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
