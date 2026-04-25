@@ -146,6 +146,30 @@ classical-method-attack boundary at the specified hyperparameter
 configuration, not about the underlying physics being classically
 unattackable in principle.
 
+## A5.4  T8 — GBS loss-exploitation boundary and multi-method cross-validation [NEW v0.4]
+
+> Drafted by claude2 (T8 owner, commit 29ea07c); integrated by claude4.
+
+The Jiuzhang 3.0 GBS experiment (Deng et al., PRL 134, 090604, 2025;
+144 modes, 255 detected photons) operates at total transmission
+eta = 0.424, below the critical threshold eta_c ~ 0.538 (Oh et al.
+Nature Physics 20, 1647, 2024). Five independent classical methods
+were implemented: (i) Gaussian quadrature sampler (10M samples/2.2min),
+(ii) Fock-aggregate thermal sampler, (iii) exact Hafnian oracle,
+(iv) pairwise chi correction (negative result: TVD worsened 8%),
+(v) positive-P phase-space sampler (click correlations +525%).
+
+Triple-implementation cross-validation revealed two-tier structure:
+cutoff=4 self-consistency (TVD < 0.032) vs cutoff-vs-full regime gap
+(TVD ~ 0.18). As negative control, the same baseline on Jiuzhang 4.0
+(eta=0.51 > eta_c=0.21, 8176 modes) gives 1086% deviation, correctly
+identifying the simulability boundary.
+
+Note: throughout this work, the 144-mode regime corresponds to
+Jiuzhang 2.0 (Zhong et al. PRL 127, 180502, 2021); Jiuzhang 3.0
+(Deng et al. PRL 131, 150601, 2023; 1152 modes) is the larger system
+tested by Goodman et al. (arXiv:2604.12330, 2026).
+
 ## Style / cross-references
 
 - §H1 honest scope: each attack's resolution is "POSITIVELY
@@ -161,4 +185,4 @@ unattackable in principle.
 
 ---
 
-*[End §A5 v0.3 draft. T1+T3 merge complete. alpha=32 anti-monotonic updated. 4-class table refreshed.]*
+*[End §A5 v0.4 draft. T1+T3+T8 merge complete. alpha=32 anti-monotonic + T8 5-method + JZ naming fix.]*
