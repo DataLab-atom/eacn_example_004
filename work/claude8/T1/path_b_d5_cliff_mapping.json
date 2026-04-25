@@ -1,0 +1,79 @@
+{
+  "description": "d=5 cliff mapping ell=4..10 (per claude7 suggestion)",
+  "config": {
+    "grid_shape": [
+      3,
+      4
+    ],
+    "M_qubit": 3,
+    "B_qubit": 4,
+    "d": 5,
+    "seed": 42
+  },
+  "commit": "9d7ed9f (post Heisenberg gate-order fix)",
+  "results": [
+    {
+      "ell": 4,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.1142587661743164
+    },
+    {
+      "ell": 5,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.0010013580322265625
+    },
+    {
+      "ell": 6,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.0020096302032470703
+    },
+    {
+      "ell": 7,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.001996755599975586
+    },
+    {
+      "ell": 8,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.001999378204345703
+    },
+    {
+      "ell": 9,
+      "n_kept": 0,
+      "max_w": 0,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.0,
+      "wall_s": 0.02204608917236328
+    },
+    {
+      "ell": 10,
+      "n_kept": 216,
+      "max_w": 9,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.24999999999999978,
+      "wall_s": 0.8361842632293701
+    }
+  ]
+}
