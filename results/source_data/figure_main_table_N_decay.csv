@@ -1,0 +1,14 @@
+# Source Data for Main Results Table (Fig 1 / Table 1)
+# RBM alpha=4 ground-state energy comparison vs DMRG truth on canonical_diamond_v2
+# Mauron-Carleo 7% threshold defines BREAK; FAIL = rel_err > 7%; BISTABLE = J-seed dependent at N=48
+# Source: results/T3_v2_netket_N{8,16,24,32,36,40,72}.json + multiseed N=48/54
+N,L_perp,L_vert,graph_diameter,DMRG_truth_E,RBM_alpha4_rel_err,RBM_alpha4_verdict
+8,2,1,4,-4.411,0.0000,BREAK
+16,2,2,4,-11.504,0.0000,BREAK
+24,2,3,5,-16.146,0.0008,BREAK
+32,2,4,6,-20.162,0.1760,FAIL
+36,3,2,6,-27.789,0.1540,FAIL
+40,2,5,7,-29.785,0.2830,FAIL
+48,2,6,8,-30.944,,BISTABLE
+54,3,3,9,-35.958,0.1900,FAIL
+72,3,4,9,-46.383,0.1260,FAIL

@@ -1,0 +1,11 @@
+# Source Data for P2 verdict (Fig 3): N=54 alpha=16 multi-seed
+# Outcome: 4/5 BREAK = PARTIAL; J=43 fails (+27.7% rel_err)
+# Source: results/T3_v2_P2_hedge_N54_alpha16_verdict.json (commit 58a2022)
+J_seed,DMRG_truth_E,RBM_alpha16_E,rel_err_pct,verdict
+42,-35.958331,-35.5589,1.111,BREAK
+43,-37.582084,-27.1556,27.743,FAIL
+44,-37.766317,-38.7205,-2.527,BREAK
+45,-35.299110,-32.8894,6.827,BREAK
+46,-33.779873,-33.0641,2.119,BREAK
+,,Wilson_CI_95_lo,0.376,
+,,Wilson_CI_95_hi,0.964,

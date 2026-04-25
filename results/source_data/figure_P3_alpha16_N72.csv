@@ -1,0 +1,9 @@
+# Source Data for P3 verdict (Fig 3 ext): N=72 alpha=16 multi-seed
+# Outcome: 1/5 BREAK; alpha=16 capacity demonstrably degraded at N=72
+# Source: results/T3_v2_P3_hedge_N72_alpha16.json (commit 4509c39)
+J_seed,DMRG_truth_E,RBM_alpha16_E,rel_err_pct,verdict
+42,-46.382921,-44.4470,4.174,BREAK
+43,-46.419882,-38.7581,16.505,FAIL
+44,-49.192424,-36.4599,25.883,FAIL
+45,-50.882652,-37.5259,26.250,FAIL
+46,-46.833057,-43.1048,7.961,FAIL

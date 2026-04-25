@@ -1,0 +1,7 @@
+# Source Data for P1 verdict (Fig 2): bistable-pocket fill at N=48 J=43,44
+# P1 falsifiable prediction: alpha=4 -> alpha=16 (4x capacity) closes bistable gap
+# Outcome: 5/5 BREAK at alpha=16 (J=42 prior + J=43,44 retested + J=45,46 prior)
+# Source: results/T3_v2_P1_hedge_alpha16.json (commit f1d09c9)
+J_seed,DMRG_truth_E,RBM_alpha4_prior_E,RBM_alpha16_E,rel_err_alpha16_pct,improvement_pp_vs_alpha4,verdict,wall_seconds
+43,-29.279701,-23.9460,-27.4073,6.395,11.821,BREAK,531.0
+44,-32.504742,-28.5950,-30.6184,5.803,6.225,BREAK,514.9

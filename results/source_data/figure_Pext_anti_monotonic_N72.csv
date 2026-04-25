@@ -1,0 +1,10 @@
+# Source Data for P-ext anti-monotonic regression (Fig 4)
+# Outcome: 0/5 BREAK at alpha=32; all 5 J-seeds worse than alpha=16
+# P5 DISCONFIRMED: capacity scaling not monotonic at this lattice scale
+# Source: results/T3_v2_Pext_hedge_N72_alpha32.json (commit 9087c9b)
+J_seed,DMRG_truth_E,RBM_alpha16_E,RBM_alpha32_E,rel_err_alpha16_pct,rel_err_alpha32_pct,verdict_alpha32,wall_seconds_alpha32
+42,-46.382921,-44.4470,-35.7348,4.174,22.957,FAIL,1992.9
+43,-46.419882,-38.7581,-35.3250,16.505,23.901,FAIL,2028.4
+44,-49.192424,-36.4599,-36.6963,25.883,25.403,FAIL,2197.1
+45,-50.882652,-37.5259,-36.4623,26.250,28.340,FAIL,2161.1
+46,-46.833057,-43.1048,-40.4458,7.961,13.638,FAIL,2222.7
