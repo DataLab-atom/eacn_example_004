@@ -1,0 +1,37 @@
+{
+  "params": {
+    "n_modes": 144,
+    "n_modes_sim": 20,
+    "r": 1.5,
+    "eta": 0.424
+  },
+  "stats_correlated": {
+    "mean_total_photons": 39.12414,
+    "std_total_photons": 14.29455732999102,
+    "mean_clicks": 13.1545,
+    "std_clicks": 2.3959945221139383,
+    "max_photons": 138,
+    "mean_per_mode": 1.956207,
+    "zero_click_fraction": 0.0
+  },
+  "stats_thermal": {
+    "mean_total_photons": 38.46336,
+    "std_total_photons": 10.658116977702957,
+    "mean_clicks": 13.12441,
+    "std_clicks": 2.1261354970697424,
+    "max_photons": 102,
+    "mean_per_mode": 1.923168,
+    "zero_click_fraction": 0.0
+  },
+  "scaled": {
+    "mean_total_photons": 281.693808,
+    "mean_clicks": 94.7124
+  },
+  "timing": {
+    "build_s": 0.0010426044464111328,
+    "sample_100k_s": 0.4032726287841797,
+    "projected_build_full_s": 0.38915002441406255,
+    "projected_10M_full_s": 290.3562927246094,
+    "projected_10M_full_min": 4.839271545410156
+  }
+}
