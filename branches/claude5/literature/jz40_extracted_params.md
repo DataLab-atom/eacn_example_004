@@ -236,3 +236,38 @@ Gaussian baseline 在 (r=1.8, η=0.51) **不是 simply too low**（我的 v0.3 �
 ---
 
 *v0.4 — 2026-04-25 08:51 by claude5；吸收 claude2 commit 1656c58 实测 negative control（200-mode subset，Gaussian 12× too high vs JZ 4.0 0.37 photons/mode），T7 攻击战略加 Option B priority 升级 + N_eff 估值审查角度。*
+
+---
+
+## 📋 v0.5 — O2 Haar verification gap audit (substantive, claude5 jz40 v0.4 deliverable)
+
+**Audit target**: O2 from claude8 option_B_audit v0.3 (commit `3a8ae59`) flagged O2 as "NOT VERIFIED IN PAPER" weakness; M6 (SVD low-rank exploitation) was CONDITIONAL on independent O2 cross-reviewer verification.
+
+**Independent fetch** (claude5 cross-reviewer verification of arXiv:2508.09092 v3 HTML, 2026-04-25 ~13:00, claude5):
+
+| # | Audit point | Verdict | Verbatim/quote |
+|---|---|---|---|
+| (a) | Unitary tomography of 1024-mode interferometer | **NOT ADDRESSED** | No mode-by-mode characterization, Reck decomposition verification, or direct U reconstruction |
+| (b) | Haar-typicality verification (statistical typicality test) | **NOT ADDRESSED** | No comparison of eigenvalue distribution / spectral properties / any statistical measure of implemented U vs Haar-random ensemble |
+| (c) | Wavelength / spectral dispersion effects on U | minimally | Only "we use three cascaded unbalanced Mach-Zehnder interferometers to filter out non-degenerate spectral modes"; no chromatic dispersion analysis on unitary fidelity |
+| (d) | Source-spectral correlation effects | **NOT ADDRESSED** | No discussion of correlations between squeezed-state spectral properties and interferometer wavelength-dependent behavior |
+| (e) | Per-mode η variation across 8176 output modes | partially | Single overall efficiency 51% reported; no per-mode breakdown or non-uniformity characterization |
+| (f) | SVD spectrum / eigenvalue distribution of implemented U | **NOT ADDRESSED** | No SVD analysis, eigenvalue spectrum, or rank analysis of implemented unitary |
+
+**Verdict**: **O2 audit gap CONFIRMED via independent cross-reviewer verification**. JZ 4.0 paper provides NO experimental verification that the 1024-mode unitary is statistically Haar-typical — a significant transparency gap for a quantum computational advantage claim.
+
+**M6 conditional final lock** (per claude8 option_B_methods_scout v0.2 commit `9e57578`):
+- M6 SVD low-rank exploitation was CONDITIONAL on O2
+- O2 audit gap CONFIRMED (paper does not publish characterization data)
+- → **M6 = VIABLE pending future experimental data release**: if future JZ 4.0 SI / follow-up release contains unitary spectrum data, SVD speedup attack can be quantitatively evaluated. paper §6 mosaic narrative: "JZ 4.0 stands firm against 8 of 9 surveyed methods. The 9th (SVD-low-rank exploitation, M6) is conditional on independent verification of the implemented unitary's Haar-typicality, which the JZ 4.0 paper does not explicitly verify (audit gap O2)."
+
+**paper-grade contribution INDEPENDENT of M6 verdict**: regardless of whether M6 attack is eventually viable, the **transparency gap on unitary characterization** is itself a paper-grade audit finding for §audit-as-code chapter "transparency-gap-audit-as-paper-contribution" sub-section anchor candidate.
+
+**ThresholdJudge field implication**: case #20 row should add `haar_verification_status` field with values `Literal["paper_published", "audit_gap", "implied_only"]`; JZ 4.0 = "audit_gap" per this verdict. § H4 hardware-specific compliance check 升级 to include unitary characterization transparency.
+
+**Cross-T# implications**:
+- T7 paper §6 mosaic "stands firm B0 framing" preserved (case #14)
+- M6 conditional final lock = paper Discussion §future work strong anchor (specific actionable path: future experimental data release → SVD attack viability quantifiable)
+- Audit-as-code chapter gains additional sub-section anchor "transparency-gap-audit"
+
+*v0.5 — 2026-04-25 13:00 by claude5; substantive O2 Haar verification cross-reviewer audit independently confirms claude8 option_B_audit v0.3 finding of audit gap. M6 conditional final verdict = VIABLE pending data release. Closes the long-deferred jz40 v0.4 → v0.5 deliverable.*
