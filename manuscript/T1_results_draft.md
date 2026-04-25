@@ -1,9 +1,11 @@
 # T1 Results Section Draft (for Nature/Science manuscript)
 
-> **Status**: Draft v0.2 — R3 reframed per REV-T1-002, LC-edge data integrated
-> **Author**: claude4 | **Reviewers**: claude3 (REV-T1-001), claude7 (REV-T1-002), claude8 (tail v5)
-> **Data commits**: 78b05aa, bc65324, 9a22484, 694d65d, 1f511ee, f265c51, b0d4cb0, 575b59b, a6b1697, 23bd653, f6d1cac, 21519b3
-> **Changelog**: v0.1→v0.2: R3 reframe (scrambled=main, trivial=baseline), LC-edge distance ladder, 24q data, tail analysis integration
+> **Status**: Draft v0.3 — all reviewer comments resolved (claude7 M1-4, claude8 REV1-5)
+> **Author**: claude4 | **Reviewers**: claude3 (REV-T1-001), claude7 (REV-T1-002 PASSES v0.2), claude8 (Approve w/ revisions v0.2→v0.3)
+> **Data commits (claude4)**: 78b05aa, bc65324, 9a22484, 694d65d, 1f511ee, f265c51, b0d4cb0, 575b59b, a6b1697, 23bd653, f6d1cac, 21519b3, ddb5c05
+> **Data commits (claude8)**: 936c5e4 (v3), 0228d7e (v4), 0ec8674 (v5), v6 (distance×size matrix)
+> **Data commits (claude7)**: a7bb9e2 (v0.6), v0.7 (dual-chain fit)
+> **Changelog**: v0.2→v0.3: REV1 hot definition explicit, REV2 scope caveat, REV3 slope citation, REV4 measurement-derived claims, REV5 weakened first-claim, M1-4 wording polish, screening effect + LC-edge slope acceleration added
 
 ---
 
@@ -30,7 +32,8 @@ approximations with monotonically decreasing error (Table 1).
 | 12q 3x4 | 4 | 6 | 0.50 | 3839 | 6 s |
 | 16q 4x4 | 4 | 4 | 0.25 | 233 | 0.3 s |
 
-To our knowledge, this is the first application of SPD to OTOC circuits.
+To our knowledge, this is the first systematic SPD evaluation of
+second-order OTOCs (OTOC^(2)) on 2D grid circuits. [REV5 weakened]
 
 ---
 
@@ -53,7 +56,9 @@ with 780 terms — a 2.5x difference in the w/n ratio despite the
 In the **experimentally relevant scrambled regime** (circuit depth
 exceeding the M-B distance), OTOC^(2) Pauli weight concentrates on
 a fraction of "hot" qubits that decreases as a power law with system
-size (Fig. 1a).
+size (Fig. 1a). (Scope: M-B adjacent, the most pessimistic scrambled
+configuration; cf. Result 4 for Google's actual lightcone-edge config
+which is significantly easier.) [REV2 scope caveat]
 
 **Table 2.** Scrambled OTOC^(2) hot-site scaling (M-B adjacent, depth 4).
 
@@ -65,8 +70,10 @@ size (Fig. 1a).
 
 The hot fraction obeys a power-law decay with log-log slope -1.30
 (3-point fit, 8q/12q/24q), projecting to ~5% (~3-4 hot sites) at
-Willow 65q scale. Term count decreases even faster (slope -2.66),
-projecting to ~23 terms at 65q (Fig. 1b).
+Willow 65q scale. Term count decreases even faster (slope -2.66,
+claude7 commit a7bb9e2 [REV3]), projecting to ~23 terms at 65q.
+Hot sites defined as qubits with occupancy >1% of total Pauli norm
+(see §A5 for definition sensitivity analysis with dual thresholds). [REV1]
 
 ---
 
@@ -95,10 +102,21 @@ edge observes maximum signal because the Pauli weight has spread to
 reach M but has not yet diffused past it — yielding high coherence
 with few active Pauli strings.
 
-**This means Google's choice of M-B placement, made to maximize
-quantum signal, simultaneously minimizes the classical simulation
-cost.** The 65q lightcone-edge OTOC^(2) at depth 4 is estimated to
-require fewer than 100 Pauli terms — well within classical tractability.
+**The attack regime actually measured on Willow coincides with the
+regime most tractable for fixed-weight SPD** [M-3 wording]. On the
+basis of (i) 12q LC-edge term count = 780, (ii) 24q LC-edge term
+count = 255 (measured, claude4 commit ddb5c05), (iii) the convergence
+between adjacent and LC-edge chains at 24q (screening effect: distance
+dependence vanishes on wide grids), the 65q LC-edge OTOC^(2) at
+depth 4 is estimated to require ≤255 Pauli terms with single-string
+concentration ≥65% and exponential tail slope ≤ -0.99 (claude8 v6).
+[REV4 measurement-derived]
+
+Notably, the LC-edge exponential tail slope accelerates with system
+size (-0.46 at 8q → -0.50 at 12q → -0.99 at 24q), suggesting
+increasingly rapid weight concentration on wider grids. Dual-chain
+fit (claude7 v0.7): adjacent projects ~23 terms, LC-edge projects
+~96 terms at 65q — both support sub-100 feasibility.
 
 ---
 
@@ -126,11 +144,12 @@ terms that are not simply exponentially damped by noise.
 
 Notably, the Pauli coefficient tails are nonetheless exponentially
 decaying (not power-law) even in the noiseless case (claude8 tail
-analysis v5, 6 cases, all R^2_exp > R^2_pow). This is an
-OTOC-specific finding that deviates from the RCS analysis of
-Schuster et al. (arXiv:2407.12768), where noiseless circuits are
-predicted to have power-law tails. The OTOC lightcone structure
-inherently limits high-weight term proliferation.
+analysis v3-v6, 8 cases, all R^2_exp > R^2_pow). The OTOC lightcone
+structure itself acts as a noise-equivalent truncation mechanism [M-3]:
+it inherently limits high-weight term proliferation regardless of
+physical noise, a finding specific to OTOC circuits that warrants
+further theoretical analysis [M-4] beyond the RCS framework of
+Schuster et al. (arXiv:2407.12768, preprint).
 
 ---
 
@@ -147,8 +166,9 @@ in a fundamentally different computational paradigm:
 
 Our data shows Pauli-path term count *decreases* with system size
 on wide grids (Table 2), while PEPS bond dimension *increases*
-exponentially. This constitutes a separation between the two
-classical attack paradigms for OTOC circuits.
+exponentially. This empirical data suggests a separation between
+the two classical attack paradigms for OTOC circuits and warrants
+further theoretical analysis. [M-4 weakened]
 
 ---
 
@@ -159,9 +179,10 @@ classical attack paradigms for OTOC circuits.
    Bermejo §II.1.3), but the exact value is unavailable (Nature
    paywall). Depth significantly affects truncation requirements.
 
-2. The 65q projections rely on power-law extrapolation from 8-24q
-   data (3 points). While the fit is tight (R^2 > 0.99), larger-scale
-   validation is needed.
+2. The 65q projections rely on formal scaling fits from 8-24q
+   data (3 points per chain, 6 total). Confidence intervals from
+   3-point fits are inherently wide; 4-5 point fits with intermediate
+   grid sizes are needed to narrow uncertainty. [M-2 R² wording]
 
 3. The adjacent (d=1) scrambled case is provided as a worst-case
    upper bound. The lightcone-edge (d=2) case matches Google's
