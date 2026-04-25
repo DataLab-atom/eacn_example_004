@@ -1,0 +1,24 @@
+{
+  "N=40": {
+    "N": 40,
+    "alpha": 4,
+    "E_final": -21.365831282217638,
+    "E_var_final": 1.135959703518257e-28,
+    "wall_time_s": 93.1400055885315,
+    "n_iter": 200,
+    "edges_md5": "e2f3b87b49a7b8db4dd3e4b1b07146f9",
+    "J_md5": "f6c17e18f53b5e8fb2bb15613057390c",
+    "diameter": 7
+  },
+  "N=48": {
+    "N": 48,
+    "alpha": 4,
+    "E_final": -29.09493921656917,
+    "E_var_final": 2.0194839173657902e-28,
+    "wall_time_s": 181.38180685043335,
+    "n_iter": 250,
+    "edges_md5": "c88db7b3eb318ac72ccb485dfb1e6ce9",
+    "J_md5": "ce7cd1c2bff15b2e261e5d01cb52214f",
+    "diameter": 8
+  }
+}
