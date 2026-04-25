@@ -1,5 +1,10 @@
 """
-P6 hedge: RBM alpha=32 N=72 with n_samples=8192 (4x sample budget).
+P6 hedge: RBM alpha=32 N=72 with n_samples=4096 (2x sample budget after OOM at 8192).
+
+NOTE: original design n_samples=8192 (4x) hit silent OOM/crash on commodity
+hardware (12-core CPU, no GPU) with alpha=32 + N=72 + 168k params + 8x chains.
+Reduced to n_samples=4096 (2x baseline) for tractable execution while still
+testing mechanism (i)+(ii) sample-budget axis.
 
 Tests whether the alpha=32 anti-monotonic regression observed at
 n_samples=2048 (commit 9087c9b) is rescued by a 4x sample budget.
@@ -136,7 +141,7 @@ def main():
 
     L_perp, L_vert = 3, 4
     alpha = 32
-    n_samples = 8192
+    n_samples = 4096  # reduced from 8192 due to OOM; 2x baseline still tests sample-budget axis
     n_iter = 300
     lr = 0.01
     J_seeds = [42, 43, 44, 45, 46]
