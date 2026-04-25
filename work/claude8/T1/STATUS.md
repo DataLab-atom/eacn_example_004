@@ -159,8 +159,49 @@
 
 ## 12. 还在 OPEN 的关键问题
 
-1. **Per-arm circuit depth (d=4 vs d=12)** — paper §R6 caveat，Bermejo body 不给数字，需 Google Nature 全文 (paywalled) 或 Bermejo §V/Methods 二次扫
-2. **Bulmer η_c(r=1.8, N=1024, n_mean=9.5) 闭式** — claude5 T7 main attack go/no-go 决定式
-3. **65q LC-edge depth=12 实测数据** — 仅 claude4 d=4 实测，d=12 未跑（OOM 风险高，可能需 streaming wrapper）
-4. **All-🔴 整合阶段** — T8 (claude2 Oh) 可能首先 🔴；T1/T3/T7 paper draft 已就位但攻击实测仍在 Phase 0b
+1. **Per-arm circuit depth (d=4 vs d=12)** — paper §R6 caveat。**partly resolved**: tail_analysis v7 (commit `30fa5df`) 量化 d=4→d=6 truncation norm 1.000→0.966，验证 ℓ ∈ [6,8] 锁定。d=8 LC-edge JSON pending claude4 后台。Per-arm depth (d=12) 仍 conditional。
+2. ~~**Bulmer η_c(r=1.8, N=1024, n_mean=9.5) 闭式**~~ — **RESOLVED but reframed**: Bulmer paper 没 η_c 闭式公式，其 boundary 是 click-count threshold ~100 (PMC PMC8791606 §V quote)。JZ 4.0 K_c≈1015 → Bulmer cost 2^508 ≈ 10^152 s/sample → DEAD (commit `bd48200` DEPRECATED notice)。
+3. ~~**65q LC-edge depth=12 实测数据**~~ — **partial resolution**: 12q d=4 + 12q d=6 直接测；65q 实测仍 OPEN，但 power-law extrapolation + slope-saturation 证据已强。
+4. **All-🔴 整合阶段** — T8 (claude2 Oh) 可能首先 🔴；T1/T3 paper drafts v0.3 PASSES (双 reviewer)；T7 转 Option B + B0 sub-pattern paper-defensible "stands firm"。
+
+---
+
+## 13. T7 Option B 9-class due-diligence baseline (重大里程碑)
+
+T7 攻击战略大转向：Oh-MPS + Bulmer 全 dead at JZ 4.0 actual params → 转 Option B = audit + scout method universe。
+
+**9 classical attack classes 全部 disposed**:
+| # | Method | Verdict | Source |
+|---|---|---|---|
+| 1 | Oh-MPS lossy | ❌ dead (η=0.51 > η_c=0.21) | claude2 9cbaa9b |
+| 2 | Bulmer phase-space | ❌ dead (cost 2^508 ≈ 10^152 s/sample) | claude8 bd48200 |
+| 3 | Liu multi-amplitude TN | ❌ NOT applicable (qubit-tensor ≠ CV Gaussian) | claude2 cross-T# |
+| 4 | M1 Wigner lower bound | ❌ NOT attack — theoretical bound | claude8 a5a9137 |
+| 5 | M2 MCMC Glauber on graph GBS | ❌ NOT applicable (Haar-random ≠ graph) | claude8 a5a9137 |
+| 6 | M3 TN + high loss | ❌ subsumed by Oh family | claude8 a5a9137 |
+| 7 | M4 Barvinok / Wigner marginal | ❌ marginal-only, NOT sample method | claude8 a5a9137 |
+| 8 | M5 Quesada Hafnian-MC quadratic | ❌ subsumed (Bulmer 2^(K_c/2) already incorporates) | claude8 9e57578 |
+| 9 | **M6 SVD low-rank / limited-connectivity** | ⚠️ **CONDITIONAL on O2 (Haar audit gap)** | claude8 9e57578 |
+
+**Paper §6 framing 二次 upgrade (claude5 + claude8 双签)**:
+> "JZ 4.0 stands firm against 8 of 9 surveyed methods. The 9th (SVD-low-rank exploitation, M6) is conditional on independent verification of the implemented unitary's Haar-typicality, which the JZ 4.0 paper does not explicitly verify (audit gap O2)."
+
+**O1-O5 audit gap 抽 (`3a8ae59` v0.3)**:
+- ✅ O1 (defended methods): paper actually tests **6 specific classical methods** (Greedy / IPS / Treewidth / squashed / thermal / MPS) — Bulmer 不在内
+- ⚠️ O2 (Haar randomness): NOT VERIFIED IN PAPER — §A4 weakness + M6 attack window 触发条件
+- ⚠️ O3 (per-mode η): aggregate 51% only, NO per-mode breakdown — §A4 audit gap
+- ✅ O4 (click count): "3050 detection events" ambiguous (total vs K_c per sample)；K_c=700 估算 Bulmer 仍 infeasible 2^350
+- ✅ O5 (dark count): 93% efficiency reported; dark count not explicit but η=0.51 absorbs detection
+
+**协作 split**:
+- claude5 jz40 v0.4 (next cycle): O2 Haar verification §SI cross-check 主线
+- claude8: option_B_audit.md v0.3 + scout v0.2 已 push；待 claude5 v0.4 dual-reviewer cross-check
+
+**Process-as-evidence 升级**:
+- case #14: B0 sub-pattern (no-feasible-attack, but absence is contribution) — claude8/claude5 双签提议给 claude6 audit_index
+- case #15: dual-reviewer paper-internal audit cross-check protocol — claude5 catch v0.1 M5/M6 漏 = case #15 实战 success
+- case #19: B0-due-diligence-extended (scout method-universe + reviewer cross-check 联合产出 N-class baseline + M conditional)
+
+**T1 paper §A5 复用 framing**:
+- "8 dimensions vindicated + 1 conditional per-arm depth" — 与 T7 "8 fail + 1 conditional" 同构 honest scope
 
