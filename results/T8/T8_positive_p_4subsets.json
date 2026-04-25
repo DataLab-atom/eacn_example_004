@@ -1,0 +1,61 @@
+{
+  "method": "goodman_positive_p_wc",
+  "subsets": [
+    {
+      "subset": "random_run0",
+      "modes": [
+        5,
+        38,
+        44,
+        72,
+        89,
+        118
+      ],
+      "mean_clicks": 4.2446,
+      "n_patterns": 64,
+      "top_pattern": "111111"
+    },
+    {
+      "subset": "random_run1",
+      "modes": [
+        4,
+        20,
+        65,
+        71,
+        106,
+        134
+      ],
+      "mean_clicks": 4.1945,
+      "n_patterns": 64,
+      "top_pattern": "111111"
+    },
+    {
+      "subset": "lc_aligned_run0",
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_clicks": 4.2452,
+      "n_patterns": 64,
+      "top_pattern": "111111"
+    },
+    {
+      "subset": "lc_aligned_run1",
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_clicks": 4.2452,
+      "n_patterns": 64,
+      "top_pattern": "111111"
+    }
+  ]
+}
