@@ -290,6 +290,47 @@ def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
     return (-1j, anti_cyclic[(p1, p2)])
 
 
+def conjugate_pauli_sqrt_w(pauli_at_qubit: int) -> Dict[int, complex]:
+    """
+    Conjugation rule for W^(1/2) gate where W = (X + Y) / sqrt(2).
+
+    W^(1/2) is NON-Clifford, so each input Pauli expands into a SUM of Paulis:
+        W^(1/2)† I W^(1/2) = +1 * I
+        W^(1/2)† X W^(1/2) = (1/2) X + (1/2) Y + (1/sqrt(2)) Z
+        W^(1/2)† Y W^(1/2) = (1/2) X + (1/2) Y - (1/sqrt(2)) Z
+        W^(1/2)† Z W^(1/2) = -(1/sqrt(2)) X + (1/sqrt(2)) Y
+
+    Verified numerically by direct matrix product of W^(1/2) = cos(pi/4)*I -
+    i*sin(pi/4)*W. All coefficients are real (no imaginary parts).
+
+    Encoding: 0=I, 1=X, 2=Y, 3=Z.
+    Returns dict {result_pauli: coefficient}, may have multiple entries (unlike
+    Clifford primitives which return single (phase, result_pauli) tuple).
+
+    >>> sorted(conjugate_pauli_sqrt_w(0).items())  # I -> +I
+    [(0, (1+0j))]
+    >>> result = conjugate_pauli_sqrt_w(3)  # Z -> -(1/sqrt(2)) X + (1/sqrt(2)) Y
+    >>> abs(result[1] + 0.7071067811865476) < 1e-10  # -1/sqrt(2) on X
+    True
+    >>> abs(result[2] - 0.7071067811865476) < 1e-10  # +1/sqrt(2) on Y
+    True
+    >>> 3 not in result  # No Z component on Z input
+    True
+    """
+    import math
+    half = 0.5 + 0j
+    inv_sqrt2 = (1.0 / math.sqrt(2.0)) + 0j
+    table = {
+        0: {0: 1.0 + 0j},                              # I -> I
+        1: {1: half, 2: half, 3: inv_sqrt2},           # X -> X/2 + Y/2 + Z/sqrt(2)
+        2: {1: half, 2: half, 3: -inv_sqrt2},          # Y -> X/2 + Y/2 - Z/sqrt(2)
+        3: {1: -inv_sqrt2, 2: inv_sqrt2},              # Z -> -X/sqrt(2) + Y/sqrt(2)
+    }
+    if pauli_at_qubit not in table:
+        raise ValueError(f"pauli_at_qubit must be in {{0,1,2,3}}, got {pauli_at_qubit}")
+    return dict(table[pauli_at_qubit])  # copy to avoid caller mutation
+
+
 def conjugate_pauli_iswap(p_qubit1: int, p_qubit2: int) -> Tuple[complex, int, int]:
     """
     Conjugation rule for iSWAP gate on two qubits.
