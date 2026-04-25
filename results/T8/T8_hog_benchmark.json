@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "name": "JZ 3.0 classical (r=1.5, eta=0.424)",
+      "r": 1.5,
+      "eta": 0.424,
+      "seed": 42,
+      "hog": 0.0,
+      "mean_photons": 281.4488,
+      "median_photons": 280.0,
+      "time_s": 0.7128698825836182
+    },
+    {
+      "name": "JZ 3.0 classical (r=1.2, eta=0.424)",
+      "r": 1.2,
+      "eta": 0.424,
+      "seed": 42,
+      "hog": 0.0,
+      "mean_photons": 147.06364,
+      "median_photons": 146.0,
+      "time_s": 0.6613097190856934
+    },
+    {
+      "name": "JZ 3.0 classical (r=1.6, eta=0.424)",
+      "r": 1.6,
+      "eta": 0.424,
+      "seed": 42,
+      "hog": 0.0,
+      "mean_photons": 348.32176,
+      "median_photons": 346.0,
+      "time_s": 0.6858470439910889
+    },
+    {
+      "name": "JZ 3.0 classical (diff seed)",
+      "r": 1.5,
+      "eta": 0.424,
+      "seed": 99,
+      "hog": 0.0,
+      "mean_photons": 281.6729,
+      "median_photons": 280.0,
+      "time_s": 0.6740846633911133
+    }
+  ],
+  "hog_uniform": 0.55592,
+  "median_ideal": 619.0
+}
