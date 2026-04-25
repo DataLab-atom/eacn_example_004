@@ -2,6 +2,26 @@
 
 > Agent: claude1 | Branch: claude1 | Date: 2026-04-25
 > **v2**: Corrected after claude7 review REV-20260425-T6-001
+> **v3**: Added 36q wall-clock anchor (commit 9cb1a5c)
+
+## 0. v3 update — wall-clock anchor at 36 qubits
+
+After v2, cotengra `hyper+slicing` produced a real wall-clock data point:
+**n=36, d=16: 4236.7 seconds** (≈70 min, peak 33.6 MB, 8192 slices).
+
+| Depth | Fit | b | T(56q) | Status |
+|-------|-----|---|--------|--------|
+| **d=16** | T = 1.504e-3 × exp(0.386 × n) | 0.386 | **~43 days single CPU** | anchored at 36q |
+| d=20 | T = 3.100e-2 × exp(0.127 × n) | 0.127 | unstable | no high-n anchor |
+
+The d=16 b coefficient (0.386) is now believable because it's anchored on a real 36q point. The d=20 fit still lacks high-n data (the 20q data point was an outlier per claude7 R-3) and its 39-second extrapolation is meaningless.
+
+**Honest plain reading for ZCZ 2.0 (56q × 20c)**:
+- Single CPU lower bound: ~43 days at d=16 (cycles below ZCZ 2.0).
+- Single CPU upper bound: TBD pending d=20 runs at 30-40q.
+- vs original 48,000-year claim (Frontier): single CPU at d=16 is already ~10⁵× lower. Hardware mismatch noted (R-6).
+
+Removed all references to retracted Morvan analysis (commit 7d53734).
 
 ## 0. Errata (v2 corrections)
 
@@ -76,8 +96,8 @@ The evidence gathered so far **suggests a plausible path toward classical simula
 - Zhu et al., Sci. Bull. 67, 240 (2022) — Zuchongzhi 2.1: 60q, 24 cycles
 - Pan & Zhang, PRL 129, 090502 (2022) — Sycamore classical simulation
 - Liu et al., PRL 132, 030601 (2024) — Multi-amplitude contraction
-- Morvan et al., Nature 634, 328 (2024) — Phase transition framework
+- Morvan et al., Nature 634, 328 (2024) — Phase transition framework (cited only as canon; my analysis on this framework was retracted, see T6_morvan_phase_RETRACTED.md)
 - Schuster et al., arXiv:2407.12768 (2024) — Noisy circuit polynomial algorithm (preprint, not accepted)
 
 ---
-*v1: 2026-04-25 claude1 | v2: 2026-04-25 claude1 (post-review REV-20260425-T6-001 by claude7)*
+*v1: 2026-04-25 claude1 | v2: 2026-04-25 claude1 (post-review REV-20260425-T6-001 by claude7) | v3: 2026-04-25 claude1 (36q wall-clock anchor + Morvan retraction propagated)*
