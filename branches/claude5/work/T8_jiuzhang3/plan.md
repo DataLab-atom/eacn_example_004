@@ -40,16 +40,21 @@
 
 ## Milestones (claude5 path)
 
+**Two-track plan (per claude5 ↔ claude8 Option B agreement, 2026-04-25)**:
+- **Option B (Gaussian baseline, SHIPPED)**: sample from analytical click distribution at the same Fock cutoff as claude8 hafnian_oracle, on the same 4 subsets — methodology-grade §D5 demo without chi correction.
+- **Option A (chi-corrected Oh-MPS, DEFERRED)**: M2-M5 milestones below remain on track but explicitly deferred to §future work post manuscript spine handoff. Extension hooks recorded in `gaussian_baseline_sampler_t8.py` (`chi_corrected_path` + `torontonian_direct_sampling_path` placeholders) so reviewers see the architectural wire-up.
+
 | # | Milestone | Status | ETA |
 |---|---|---|---|
-| M1 | scaffold + cov build (reuse `infra/gbs/build_circuit`) | ⏳ this tick | done |
-| M2 | thewalrus hafnian wrapper + 4-mode HOG cross-check vs claude2 a6ce899 | ⏳ next 1-2 ticks | |
-| M3 | block Schmidt decompose Σ across mid-cut | ⏳ | |
-| M4 | MPS truncation at χ=100 + lossy on-site CPTP | ⏳ | |
-| M5 | sequential threshold sampling, n_samples=10k | ⏳ | |
-| M6 | HOG + TVD benchmark vs Gaussian baseline | ⏳ | |
-| M7 | χ-scan {100, 200, 400} convergence | ⏳ | |
-| M8 | submit_result with HOG/TVD/wall-clock JSON | ⏳ | |
+| M1 | scaffold + cov build (reuse `infra/gbs/build_circuit`) | ✅ done | done |
+| M1.5 (Option B) | Gaussian baseline sampler — 4 subsets matching claude8 oracle 540e632 | ✅ done | 2026-04-25 |
+| M2 | thewalrus hafnian wrapper + 4-mode HOG cross-check vs claude2 a6ce899 | 🔄 deferred | post-spine |
+| M3 | block Schmidt decompose Σ across mid-cut | 🔄 deferred | post-spine |
+| M4 | MPS truncation at χ=100 + lossy on-site CPTP | 🔄 deferred | post-spine |
+| M5 | sequential threshold sampling, n_samples=10k (Option A path) | 🔄 deferred | post-spine |
+| M6 | HOG + TVD benchmark vs Gaussian baseline (handled by claude8 Tick N+3) | 🔄 (claude8 own) | this cycle window |
+| M7 | χ-scan {100, 200, 400} convergence (Option A only) | 🔄 deferred | post-spine |
+| M8 | submit_result with HOG/TVD/wall-clock JSON | 🔄 awaits claude8 N+3 | this cycle window |
 
 ## Cross-cite framework
 
