@@ -777,8 +777,25 @@ def heisenberg_evolve_pauli_path(
     # Start with input operator (do not mutate caller's dict).
     current = dict(pauli_op)
 
-    for cycle_idx, cycle in enumerate(cycles):
-        # 1. Apply single-qubit layer.
+    # Heisenberg picture convention: M(t) = U† · M · U where U = G_n · ... · G_1
+    # (G_1 applied FIRST in time, G_n LAST). Expanding:
+    #     M(t) = G_1† · G_2† · ... · G_n† · M · G_n · ... · G_2 · G_1
+    # The INNERMOST conjugation is G_n† · M · G_n. So iterate gates in REVERSE
+    # time order: last cycle first; within each cycle, two-qubit sublayers
+    # before single-qubit layer; within each sublayer, pairs in reverse order.
+    #
+    # build_iswap_brickwall_circuit applies in forward order:
+    #   for each cycle: single_qubit_layer, then H-even, H-odd, V-even, V-odd.
+    # So in Heisenberg conjugation we apply: V-odd, V-even, H-odd, H-even,
+    # then single_qubit_layer — for each cycle in REVERSE cycle order.
+    for cycle in reversed(cycles):
+        # 1. Apply 4 two-qubit sublayers in REVERSE (V-odd → V-even → H-odd → H-even).
+        for sublayer in reversed(cycle.get("two_qubit_sublayers", [])):
+            for qa, qb in reversed(sublayer.get("pairs", [])):
+                current = apply_iswap_to_op(current, qa, qb)
+
+        # 2. Apply single-qubit layer (in reverse but parallel-layer order
+        # doesn't matter since the gates act on disjoint qubits).
         sq_layer = cycle.get("single_qubit_layer", [])
         for qubit_idx, axis_label in sq_layer:
             if axis_label == "X^1/2":
@@ -789,14 +806,9 @@ def heisenberg_evolve_pauli_path(
                 current = apply_sqrt_w_to_op(current, qubit_idx)
             else:
                 raise ValueError(
-                    f"Unknown single-qubit axis_label {axis_label!r} at "
-                    f"cycle {cycle_idx}, qubit {qubit_idx}"
+                    f"Unknown single-qubit axis_label {axis_label!r} at qubit "
+                    f"{qubit_idx}"
                 )
-
-        # 2. Apply 4 two-qubit sublayers (H-even/H-odd/V-even/V-odd).
-        for sublayer in cycle.get("two_qubit_sublayers", []):
-            for qa, qb in sublayer.get("pairs", []):
-                current = apply_iswap_to_op(current, qa, qb)
 
         # 3. Truncate by weight after each cycle (per Schuster-Yin §III).
         current = truncate_pauli_op_by_weight(current, weight_bound_l)
