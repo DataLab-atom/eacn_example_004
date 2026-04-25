@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "comparison": "claude5 60a92a8 Gaussian baseline vs claude8 540e632 hafnian oracle",
+  "level": "Option B (Gaussian-baseline level \u00a7D5)",
+  "results_per_subset": [
+    {
+      "strategy": "random",
+      "run_id": 0,
+      "modes": [
+        5,
+        38,
+        44,
+        72,
+        89,
+        118
+      ],
+      "n_samples": 10000,
+      "sum_probs": 0.2928612726458068,
+      "tvd_on_shared_support": 0.029408032409438314,
+      "hog": 0.6394,
+      "n_oracle_patterns": 64,
+      "n_empirical_patterns": 64
+    },
+    {
+      "strategy": "random",
+      "run_id": 1,
+      "modes": [
+        4,
+        20,
+        65,
+        71,
+        106,
+        134
+      ],
+      "n_samples": 10000,
+      "sum_probs": 0.291654095505109,
+      "tvd_on_shared_support": 0.030312932881138704,
+      "hog": 0.6315,
+      "n_oracle_patterns": 64,
+      "n_empirical_patterns": 64
+    },
+    {
+      "strategy": "lc_aligned",
+      "run_id": 0,
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_samples": 10000,
+      "sum_probs": 0.2930815220096983,
+      "tvd_on_shared_support": 0.031525360102668924,
+      "hog": 0.6393,
+      "n_oracle_patterns": 64,
+      "n_empirical_patterns": 64
+    },
+    {
+      "strategy": "lc_aligned",
+      "run_id": 1,
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_samples": 10000,
+      "sum_probs": 0.2930815220096983,
+      "tvd_on_shared_support": 0.031264262702157146,
+      "hog": 0.6387,
+      "n_oracle_patterns": 64,
+      "n_empirical_patterns": 64
+    }
+  ],
+  "summary": {
+    "tvd_mean": 0.030627647023850776,
+    "tvd_max": 0.031525360102668924,
+    "hog_mean": 0.6372249999999999,
+    "hog_max_dev_from_half": 0.13939999999999997,
+    "n_subsets": 4,
+    "n_samples_total": 40000
+  },
+  "extension_hooks_recorded": [
+    "chi_corrected_path (Option A, deferred \u00a7future work)",
+    "torontonian_direct_sampling_path (second-tier \u00a7D5)",
+    "claude2_triple_impl_path (schema-aligned re-run required)"
+  ],
+  "honest_scope": "Option B level \u00a7D5 cross-check: validates Gaussian baseline sampler against exact hafnian oracle on captured-mass shared support (sum_probs \u2248 0.293 at Fock cutoff=4). Chi-corrected dual-impl is deferred work; framework wired up via NotImplementedError stubs."
+}
