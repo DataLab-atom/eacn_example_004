@@ -1,0 +1,86 @@
+{
+  "params": {
+    "squeezing_r": 1.5,
+    "loss_eta": 0.51,
+    "n_modes_actual": 8176
+  },
+  "n_grid": [
+    144,
+    256,
+    384,
+    512
+  ],
+  "results": [
+    {
+      "n_modes": 144,
+      "cut": 72,
+      "n_singular": 144,
+      "wall_clock_s": 3.369835615158081,
+      "wall_clock_cov_build_s": 0.49619269371032715,
+      "alpha": 0.3903821072849771,
+      "alpha_intercept": 1.1254951361897005,
+      "chi_for_50_pct_mass": 52,
+      "chi_for_99_pct_mass": 129,
+      "chi_for_999_pct_mass": 137,
+      "chi_99_over_n": 0.8958333333333334,
+      "chi_99_over_n_singular": 0.8958333333333334
+    },
+    {
+      "n_modes": 256,
+      "cut": 128,
+      "n_singular": 256,
+      "wall_clock_s": 4.679303407669067,
+      "wall_clock_cov_build_s": 0.5122172832489014,
+      "alpha": 0.33878072768112377,
+      "alpha_intercept": 1.1232113848340477,
+      "chi_for_50_pct_mass": 93,
+      "chi_for_99_pct_mass": 228,
+      "chi_for_999_pct_mass": 244,
+      "chi_99_over_n": 0.890625,
+      "chi_99_over_n_singular": 0.890625
+    },
+    {
+      "n_modes": 384,
+      "cut": 192,
+      "n_singular": 384,
+      "wall_clock_s": 11.993011474609375,
+      "wall_clock_cov_build_s": 2.1123549938201904,
+      "alpha": 0.33976647863937204,
+      "alpha_intercept": 1.2475314116349572,
+      "chi_for_50_pct_mass": 139,
+      "chi_for_99_pct_mass": 338,
+      "chi_for_999_pct_mass": 365,
+      "chi_99_over_n": 0.8802083333333334,
+      "chi_99_over_n_singular": 0.8802083333333334
+    },
+    {
+      "n_modes": 512,
+      "cut": 256,
+      "n_singular": 512,
+      "wall_clock_s": 15.541614770889282,
+      "wall_clock_cov_build_s": 5.680443048477173,
+      "alpha": 0.3441889068306046,
+      "alpha_intercept": 1.354058821985916,
+      "chi_for_50_pct_mass": 184,
+      "chi_for_99_pct_mass": 452,
+      "chi_for_999_pct_mass": 484,
+      "chi_99_over_n": 0.8828125,
+      "chi_99_over_n_singular": 0.8828125
+    }
+  ],
+  "extrapolation": {
+    "chi_99_scaling_law": "chi(99%) ~ exp(-0.043) * N^0.986",
+    "scaling_exponent_b": 0.9864417759400186,
+    "scaling_prefactor_a": 0.958331415033263,
+    "predicted_chi_at_actual_N": 6934.409774938809,
+    "predicted_chi_99_at_8176": 6934.409774938809,
+    "comparison_jz30_central_cut_chi_99": 127,
+    "comparison_oh_2024_critical_chi": 200
+  },
+  "schema_version": "1.0",
+  "wall_clock_total_s": 35.58604049682617,
+  "honest_scope": "N-mode JZ 4.0-parameter construction is a lower bound on actual JZ 4.0 chi requirement (additional source-to-output PPNRD/beam-splitter structure not modeled). Power-law extrapolation assumes scaling law holds from N=512 to N=8176; actual scaling may break (likely underestimate) due to entanglement saturation effects.",
+  "interpretation": {
+    "primary_finding_template": "JZ 4.0 (N=8176, eta=0.51) extrapolated chi(99%) = {chi_pred} via N^{exp:.2f} scaling law fit on {n_grid_size}-point logspaced grid. Compare against JZ 3.0 (N=144, eta=0.424) chi(99%)=127. Memory cost at chi={chi_pred}: ~{mem_gb:.1f} GB MPS peak (chi^2 * d * N for d=25 cutoff=4 local Hilbert dim). RTX 4060 8GB VRAM = {ratio:.0f}x shortfall."
+  }
+}
