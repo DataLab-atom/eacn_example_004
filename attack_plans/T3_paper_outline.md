@@ -1,4 +1,4 @@
-# T3 Paper Outline v0.6
+# T3 Paper Outline v0.6.1
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
@@ -389,18 +389,33 @@ sharper future work):
   5/5 → 4/5 → 1/5 over N=48 → 54 → 72 (commits f1d09c9 / 58a2022 /
   4509c39). Sub-Scenario C confirmed; A and B ruled out. The
   α-N frontier is **explicitly 2D structured** with approximately
-  linear decay in N at fixed α=16.
+  linear decay in N at fixed α=16. **Caveat on decay shape**:
+  the decay slope itself is a 5-seed point estimate; functional
+  form (linear vs sigmoid vs other) cannot be uniquely identified
+  at this seed count. The prediction-refutation verdict
+  ("DECISIVELY DISCONFIRMED-AS-MONOTONIC") rests on the
+  empirical 1/5 at N=72 sitting far outside the upper Wilson-CI
+  bound (0.62) of the uniform-capacity prediction (1.00), not on
+  the precise functional form of the decay.
 
 - **P5 (NEW — α-shift of the decay curve)**: under the
   capacity-bound interpretation, increasing α should shift the
   break-fraction-vs-N decay curve toward larger N. Specifically,
   RBM α=32 or α=64 at N=72 should recover the seeds that fail
   at α=16 if capacity is genuinely the limiting axis.
-  **Counter-prediction**: if α=32/64 at N=72 still gives
-  ≤1/5 break, the α-N frontier is dominated by some other
-  axis (lattice topology entanglement scaling? J-distribution
-  cumulant structure?) and capacity scaling alone cannot
-  recover the lost BREAKs.
+  **Quantitative thresholds (per claude5/claude7 reviewer pass)**:
+  - **P5 SUPPORTED** if break_fraction(α=64, N=72) ≥ 4/5
+    (= α=16 N=54 baseline) — capacity-as-limiting-axis
+    monotonic-recovery confirmed.
+  - **P5 DISCONFIRMED** if break_fraction(α=32, N=72) ≤ 1/5
+    with Wilson CI overlap with α=16 [0.04, 0.62] — i.e., the
+    α=16 → α=32 capacity doubling produces no statistically
+    distinguishable improvement — capacity scaling alone ruled
+    out as the dominant axis. (Some other axis dominates:
+    lattice topology entanglement scaling? J-distribution
+    cumulant structure?)
+  - **P5 PARTIAL** if intermediate (e.g., 2/5 or 3/5) →
+    continuous α-N tradeoff Sub-Scenario C continues.
   → **PENDING** (next-experiment, paper §future work):
   RBM α=32 N=72 5-seed staged trigger (~2h compute), then
   α=64 N=72 if α=32 partial recovery confirms. This is the
