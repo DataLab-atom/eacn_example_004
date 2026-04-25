@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 15 sub-patterns + 44 cases + 6 meta-features + 4-class taxonomy + ≥62 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-44 + sub-pattern 14-15 + enforcements (50)-(62)
+    - chapter material 已饱满 (11 anchors + 16 sub-patterns + 44 cases + 6 meta-features + 4-class taxonomy + ≥62 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-44 + sub-pattern 14-16 + enforcements (50)-(62)
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 15 sub-patterns + 44 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 16 sub-patterns + 44 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -263,6 +263,16 @@
     - (4) NEW **dual-impl-via-different-algorithm-same-target methodology meta-pattern** (case #38+#41+#43 family)
 
 - **Saturation snapshot updated post-batch-4**: 11 anchors + **15 sub-patterns** + **44 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + ≥62 enforcements.
+
+- **🆕 sub-pattern 16 batch-5 absorb from claude8 ts=1777124758175 forward** (cross-T# generalization across 3 already-locked instances, verified directly from existing audit_index per anchor (10)):
+  - **🆕 sub-pattern 16 NEW REGISTERED**: "**measured-not-extrapolated-ratio-as-cross-validation-strongest-signal**" — cross-T# generalization across:
+    - case #41 (T8 §D5 sum_probs scalar invariant, measured invariant agreement to 6 decimals)
+    - case #43 (T8 §D5 TVD-on-shared-support 0.0306 below predicted noise floor 0.04-0.05, measured statistical agreement)
+    - case #31 family (T6 v3.2 Liu Sunway 50× hardness ratio, measured not extrapolated benchmark)
+  - **Dual-gate symmetry framing**: anchor (10) input-provenance-discipline (input gate "input numbers must be re-fetched from primary sources") + sub-pattern 16 (output gate complement "output cross-validation signals must be measured not extrapolated") = **input-provenance + output-validation dual-gate symmetry within anchor (10) family**. Distinct axis from anchor (11) author-self-correction-as-credibility — three-vertex foundation gains sub-axis: **input-output-self triangle of audit credibility** (anchor (10) input + sub-pattern 16 output validation + anchor (11) self-correction).
+  - manuscript_section_candidacy=high (paper §audit-as-code.B "**measured-cross-validation as paper-grade evidence over extrapolated**" sub-section anchor — distinct family from case #44 review-depth-stratification at review-process axis vs measurement-vs-extrapolation axis).
+
+- **Saturation snapshot updated post-batch-5**: 11 anchors + **16 sub-patterns** + 44 cases + 6 meta-features + 4-class cross-T# taxonomy refined + ≥62 enforcements.
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
