@@ -290,6 +290,72 @@ def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
     return (-1j, anti_cyclic[(p1, p2)])
 
 
+def conjugate_pauli_clifford_sqrt_x(pauli_at_qubit: int) -> Tuple[complex, int]:
+    """
+    Conjugation rule for √X (X^(1/2)) gate on a single qubit.
+
+    √X is Clifford, so each Pauli maps to a single Pauli (with possible phase):
+        √X† I √X = I
+        √X† X √X = X        (X commutes with √X, since √X = exp(-i π/4 X))
+        √X† Y √X = -Z       (Y → -Z under √X conjugation)
+        √X† Z √X = Y        (Z → Y under √X conjugation)
+
+    Encoding: 0=I, 1=X, 2=Y, 3=Z.
+    Returns (phase, result_pauli).
+
+    >>> conjugate_pauli_clifford_sqrt_x(0)  # I → I
+    ((1+0j), 0)
+    >>> conjugate_pauli_clifford_sqrt_x(1)  # X → X
+    ((1+0j), 1)
+    >>> conjugate_pauli_clifford_sqrt_x(2)  # Y → -Z
+    ((-1+0j), 3)
+    >>> conjugate_pauli_clifford_sqrt_x(3)  # Z → Y
+    ((1+0j), 2)
+    """
+    table = {
+        0: (1.0 + 0j, 0),    # I → I
+        1: (1.0 + 0j, 1),    # X → X
+        2: (-1.0 + 0j, 3),   # Y → -Z
+        3: (1.0 + 0j, 2),    # Z → Y
+    }
+    if pauli_at_qubit not in table:
+        raise ValueError(f"pauli_at_qubit must be in {{0,1,2,3}}, got {pauli_at_qubit}")
+    return table[pauli_at_qubit]
+
+
+def conjugate_pauli_clifford_sqrt_y(pauli_at_qubit: int) -> Tuple[complex, int]:
+    """
+    Conjugation rule for √Y (Y^(1/2)) gate on a single qubit.
+
+    √Y is Clifford, so each Pauli maps to a single Pauli (with possible phase):
+        √Y† I √Y = I
+        √Y† X √Y = Z        (X → Z under √Y conjugation)
+        √Y† Y √Y = Y        (Y commutes with √Y)
+        √Y† Z √Y = -X       (Z → -X under √Y conjugation)
+
+    Encoding: 0=I, 1=X, 2=Y, 3=Z.
+    Returns (phase, result_pauli).
+
+    >>> conjugate_pauli_clifford_sqrt_y(0)  # I → I
+    ((1+0j), 0)
+    >>> conjugate_pauli_clifford_sqrt_y(1)  # X → Z
+    ((1+0j), 3)
+    >>> conjugate_pauli_clifford_sqrt_y(2)  # Y → Y
+    ((1+0j), 2)
+    >>> conjugate_pauli_clifford_sqrt_y(3)  # Z → -X
+    ((-1+0j), 1)
+    """
+    table = {
+        0: (1.0 + 0j, 0),    # I → I
+        1: (1.0 + 0j, 3),    # X → Z
+        2: (1.0 + 0j, 2),    # Y → Y
+        3: (-1.0 + 0j, 1),   # Z → -X
+    }
+    if pauli_at_qubit not in table:
+        raise ValueError(f"pauli_at_qubit must be in {{0,1,2,3}}, got {pauli_at_qubit}")
+    return table[pauli_at_qubit]
+
+
 def truncate_pauli_op_by_weight(
     pauli_op: Dict[Tuple[int, ...], complex],
     weight_bound_l: int,
