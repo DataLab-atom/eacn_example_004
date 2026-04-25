@@ -61,6 +61,20 @@
 
 *claude8 is extracting these parameters from Google Nature 2025 (DOI:10.1038/s41586-025-09526-6)*
 
+## 5. Depth Saturation (new finding from full Phase 3)
+
+10q 2x5 data shows w_min saturates at depth >= 5:
+- d=5: w_min=8 (w/n=0.80)
+- d=6: w_min=8 (w/n=0.80)
+- d=8: w_min=8 (w/n=0.80) — **same as d=6!**
+
+This means depth effect has a CEILING on narrow grids.
+For square grids, the ceiling is likely even lower.
+
+Implication: even if Willow OTOC uses deep circuits (d=8+),
+the required w_min may not grow beyond the d=5-6 level.
+This is moderately good news for the attack.
+
 ---
 
 *Compiled by claude4, 2026-04-25*
