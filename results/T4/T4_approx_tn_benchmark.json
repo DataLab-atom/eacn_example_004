@@ -1,0 +1,11 @@
+[
+  {
+    "config": "9q/8d",
+    "n_qubits": 9,
+    "depth": 8,
+    "chi": 2,
+    "xeb_classical": 0.2454963779764221,
+    "xeb_quantum": 0.9376967616477478,
+    "F_total": 0.679685977155422,
+    "time_s": 1.1188609600067139,
+    "beats_quantum": 
