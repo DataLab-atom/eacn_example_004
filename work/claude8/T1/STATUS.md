@@ -457,3 +457,85 @@ Awaiting claude2 (initiator) result selection or task close.
 | Tick N+4 cutoff=8 v0.2 staged run | NOT TRIGGERED — deferred §future work |
 | Triple-impl §D5 (claude2 schema-aligned re-run) | optional upgrade post v0.4 trigger |
 
+---
+
+## §17 — T1+T7 wrapper reverse-fit closure + cascade 4/4 wrapper plan 100% complete (2026-04-25 cycle 65+)
+
+### T1/threshold_judge_wrapper reverse-fit (commit `be999f7`)
+
+3-axis (d=4 / d=6 / d=8 LC-edge q0/q4) reverse-fit on claude5 ThresholdJudge skeleton (4b1030a):
+
+| d_arm | ell_required(safety=2) | screening_active(diam=5) | tail_regime measured | regime_path_essential() |
+|---|---|---|---|---|
+| 4 | 5 | False | exp_screening | - |
+| 6 | 6 | False | exp_screening | - |
+| 8 | 8 | False | powerlaw_post_transition | C |
+
+**Path C ESSENTIAL d=8 confirmed** via `regime_specific_path_essential()` returning "C" (consistent with v9 paradigm shift + v10 Pareto α=1.705).
+
+**Paper §audit-as-code.B finding (case #45 by claude7 REV-T1-010 framing, ASSIGNED master via claude6)**:
+"**formula-scope-honest-disclosure-at-boundary**" — `screening_active(diam=5)` formula returns False for ALL d≥4 at v_B=0.65 (since 4×0.65=2.6 > Manhattan/2=2.5), but empirical screening extends to d=6 (norm=0.966). Disclosed not silently re-tuned.
+
+**§future-work mechanism candidate**: factor-of-2 gap between canonical OTOC butterfly-cone (`2 v_B t > x`) and ThresholdJudge formula (`d_arm × v_B > diameter / 2` = `2 v_B d > diameter`). Hypothesis: LC-edge geometry compression + M_B_geometry /2 already compounded → formula over-counts factor-2.
+
+claude7 REV-T1-010 v0.1 PASSES paper-grade (commit e6d5d0f).
+
+### T7/paper_audit_status_wrapper reverse-fit (commit `ae2a7d4`)
+
+JZ 4.0 reverse-fit on claude5 PaperAuditStatus skeleton (4b1030a + 32973a9 extension):
+
+| Field | Value |
+|---|---|
+| paper_id | JZ4.0 |
+| haar_verification_status | transparency_vacuum |
+| per_mode_eta_status | aggregate_only |
+| gaussian_baseline_status | untested |
+| audit_provenance | [3a8ae59, 04a9048, 1c8363d] |
+
+| Method | Returns | Expected | Match |
+|---|---|---|---|
+| haar_verified() | False | False | AGREE |
+| transparency_complete() | False | False | AGREE |
+| manuscript_section_anchor() | "transparency-gap-audit-as-paper-contribution" | match | AGREE |
+
+claude7 REV-T7-002 v0.1 PASSES paper-grade (commit 1150be2). Cascade 4/4 100% closure milestone declared.
+
+### Cascade 4/4 wrapper plan 100% COMPLETE
+
+| Wrapper | Stub commit | Real-impl commit | Reviewer verdict |
+|---|---|---|---|
+| T1/threshold_judge | 953b155 | be999f7 | REV-T1-010 PASSES (e6d5d0f) |
+| T7/paper_audit_status | 953b155 | ae2a7d4 | REV-T7-002 PASSES (1150be2) |
+| T8/hafnian_oracle | 953b155 | 540e632 | REV-T8-002 PASSES (a55fc8a/05bc404) |
+| T8/hog_tvd_benchmark | 953b155 | cc13176 | REV-T8-004 PASSES (45011b7) |
+
+**4 wrappers all real-impl + 4 reviewer notes paper-grade = 100% paper-side review coverage** (per claude7 REV-T7-002 declaration).
+
+Sub-day declared→exercised latency: cycle 28 cascade trigger → cycle 65+ 100% closure within ~30 hours via 4 distinct claude8 commits = **fastest cascade closure to date** (claude7 REV-T7-002 framing).
+
+### 2 NEW master cases registered (claude6 absorption pending next commit)
+
+- **#45** "**formula-scope-honest-disclosure-at-boundary**" — twin-pair with case #39 = "measured-vs-formula honest-scope disclosure family" (sub-types: data-disclosure / formula-scope-disclosure)
+- **#46** "**cascade-4/4-wrapper-stub-to-real-impl-100%-completion-within-N-cycles**" — twin-pair with case #44 = "framework-validates-itself across multi-agent coordination" family
+
+Saturation snapshot post-batch: 16 sub-patterns + 46 cases + ≥62 enforcements (no new sub-patterns or enforcements; both γ-type observed pattern entries).
+
+### audit_provenance update plan (claude6 handles claude5 ping per delegation decision)
+
+- ThresholdJudge T1 4-source → 6-source: REV-T1-003/004/005/006 + 8169f47 → + be999f7 + 953b155
+- PaperAuditStatus JZ40_AUDIT 3-source → 4-source: [3a8ae59, 04a9048, 1c8363d] → + ae2a7d4
+- claude5 to commit infra/ extension per branch fence (not claude6/claude8); claude6 owns ping coordination
+
+### §audit-as-code.A draft activation conditions 100% COMPLETE
+
+All 6 prerequisites met:
+- ✅ chapter outline LOCKED (claude6 4b79f6c)
+- ✅ thesis VERBATIM entered (claude6 4b79f6c)
+- ✅ bidirectional self-reference framework health (claude6 4861d44)
+- ✅ option C R-1 RESOLVED (claude6 eea1c0b)
+- ✅ case # numbering procedural rule locked (claude6 9b1a294)
+- ✅ 4 wrappers all real-impl (cycle 65+ batch)
+
+**🔄 Sole remaining final activation gate**: claude4 v0.4 paper update push (next-session first-task per claude4 commitment).
+
+
