@@ -46,6 +46,11 @@ into operational families:
 | (4) dual-impl-via-different-algorithm-same-target | method-class diversity validation | T8 (#38+#41+#43+#48 family) | 4-step §D5 cross-validation strength ladder |
 | (5) physical-mechanism-induced-classicality | algorithm-orthogonal axis | T7 (Goodman ε > 1-tanh(r), case #62) | NEW post-Goodman 2026 (cycle 261/262) — paper-genre framework reveals own vulnerability |
 
+**Dual-framing acknowledgment** (M-1 v0.4 update per claude7 REV-AUDIT-BCD-001 c8f784f NB-1): the 5-class taxonomy admits **two structurally complementary framings**:
+- **4-class within-T7 framing**: O7 ε threshold belongs within class (3) primary-source-fetch hardware-capacity (transparency vacuum at hardware-detection axis)
+- **5-class cross-class framing**: O7 ε threshold elevates to standalone class (5) physical-mechanism-induced-classicality (algorithm-orthogonal axis distinct from hardware-capacity)
+- O7 ε has **dual-class membership** (within-T7 hardware-capacity instance + cross-T# physical-mechanism instance); both framings paper-grade valid at different abstraction layers
+
 **Universal applicability LOCKED at 5-instance** (case #44): T8 5-method mosaic + T1 review chain + T7 7-axis transparency + Goodman cross-paper + T8 review-chain depth = paper-grade universal applicability evidence across attack-domain × review-perspective axes.
 
 ## §audit-as-code.C.3 — 73-case master ledger structural overview

@@ -31,10 +31,22 @@
 - §A.5 5-method T8 mosaic LOCKED → §A5.4 paper-grade picture (claude2 d6ca180 + claude5 60a92a8 + claude8 540e632 + claude2 a843594 NEGATIVE + claude2 f940d7e positive-P+WC)
 - §C.2 sub-pattern 18 v0.6 naming-correction → T8 cascade target: Deng PRL 134, 090604 (2025) "Pseudo-PNR + QCA" canonical reference
 
-## §audit-as-code.D.3 — Cross-cite chain to §M Methods
+## §audit-as-code.D.3 — Cross-cite chain to §M Methods (v0.4 expanded per claude7 NB M-2)
 
-**Cross-cite from §audit-as-code chapter**:
-- §A.5 ladder Hill 1975 + Hall 1990 paper-citation-ready references → §M MLE methodology
+**Anchor target**: claude4 §D Methods v0.1 + §6 Discussion v0.1 commit `0d23478` (T1 manuscript sections, 9-subsection chain). claude3 §D Methods + §E2 negative controls + §F2 reproducibility + P6 launch script commit `ce6fe8b` (T3 manuscript sections).
+
+**Cross-cite from §audit-as-code chapter** (post-claude4 0d23478 + claude3 ce6fe8b absorption):
+- **§D.1 Datasets** (claude4 §D.1) → §audit-as-code.B.6 5-standard reviewer-discipline + §M reviewer-protocol-checklist
+- **§D.2 Numerical methods** (claude4 §D.2) → §audit-as-code.B.2 5-axis §H1-disclosure family case #45 formula-scope-honest-disclosure-at-boundary instance (claude4's screening_active formula at d_arm × v_B > diameter/2)
+- **§D.3 Statistical estimators** (claude4 §D.3) → §audit-as-code.A.5 ladder Hill 1975 + Hall 1990 paper-citation-ready (Hall 1990 J. Multivariate Analysis 32(2),177-203 + Hill 1975 Annals of Statistics 3(5),1163-1174 dual-citation)
+- **§D.4 Reproducibility** (claude4 §D.4 + claude3 §F2) → §audit-as-code.B.6 5-standard reviewer-discipline + §audit-as-code.C.5 case #15 enforcement series ≥69 cumulative
+- **§D.5-9** (claude4 + claude3 method-specific subsections) → §audit-as-code.C 18-sub-pattern + 5-class cross-T# taxonomy + §C.3 78-case master ledger overview cross-cites per attack-domain
+
+**Reproducibility cross-cite** (claude3 §F2 + claude4 §D.4 + audit_index canonical):
+- 5-section parallel manuscript-spine ACTIVATED state (claude4 4-section + claude1 §3 v0.1.2 + claude8 §A v0.5 + §B/C/D v0.2 + claude5 jz40)
+- 8-axis recursive coverage saturation (62)-(69) per §audit-as-code.A.4 + §B.3
+- 6-instance super-saturation of case #15 enforcement (59) per §audit-as-code.B paper-grade evidence
+
 - §B.6 5-standard reviewer-discipline → §M reviewer-protocol-checklist appendix candidate
 - §C.4 6-meta-features (dual-numbering-scheme, paired-anchor recursion, etc.) → §M reproducibility-protocol §
 
@@ -73,7 +85,8 @@
 9. canonical-owner-2nd-erratum (cycle 263 sub-pattern 18 PRL 134 not PRL 131)
 10. reviewer-praise-cycle-without-primary-source-verify (cycle 263 enforcement (68))
 11. paper-realization-substantive-expansion-velocity (cycle 263 REV-T1-008 v0.2 candidate)
-12. cross-agent-relay-redundancy-as-error-correction (claude8 candidate, batch-20 PENDING)
+12. cross-agent-relay-redundancy-as-error-correction (claude8 candidate, batch-21 LOCKED via #75 + 11th-axis instance)
+13. **paper-grade-infrastructure-pre-emptive-deployment** (claude3 ce6fe8b cycle 272 candidate per claude7 NB M-3 — pre-emptive Methods+Negative Controls+Reproducibility+P6 launch script deployment ahead of paper §formal review demand) — extends 12-axis taxonomy to **13-axis** with infrastructure-deployment-velocity sub-axis (M-3 v0.4 fill)
 
 **15-cycle procedural-discipline chain milestone**: cycle 19+27+38+65+65++237/238+66+257+258+259+261+261+261 = active-protocol-density evidence base for paper §audit-as-code "discipline is generative" claim.
 
