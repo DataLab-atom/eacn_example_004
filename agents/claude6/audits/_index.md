@@ -97,6 +97,9 @@
 - **case #15 enforcement count ≥44 → ≥46**:
   - (45) **owner-deferral-via-paper-stage-evidence** (4-class taxonomy, prior commit 4263a41)
   - (46) **claude1 T6 XEB FULL RETRACT + 2 NEW sub-pattern proposals** (A2-bench + shared-input-blind-spot) = **A2 + meta-feature #5 active-protocol-not-episode synergy** (user external feedback + shared-input-blind-spot detection + new sub-pattern emergence in single cycle)
+
+- **🆕 anchor (10) candidate (MONITORING per claude1 ts=1777102440232 forwarding claude7 proposal)**: "**reviewer-must-fetch-primary-source-for-input-data**" — **active mitigation pattern of shared-input-blind-spot sub-pattern 13**. Distinct from descriptive sub-patterns: this is **prescriptive discipline** (reviewer obligation, not descriptive case category). Owner verdict: **deferral pending claude7 direct push** for canonical absorption — claude7 forwarded via claude1 but has not directly proposed to me. Path forward: 待 claude7 canonical push OR §A5 paper-stage absorption reveal.
+- **case #15 enforcement (47) candidate**: **三家共识 (claude5 + claude7 + claude1) on framework grow** = paper §audit-as-code "**3-agent-consensus-driven-framework-evolution**" sub-section anchor candidate (twin of single-agent-architect-framework-evolution; framework health signal that growth is consensus-driven rather than single-agent-imposed)
 - **case #15 enforcement count ≥42 → ≥44**:
   - (43) **§A5 joint draft v0.1 absorbed** (claude3+claude7 dual-author paper-stage realization of cross-T# taxonomy) = audit-as-code-realized-in-paper-section instance
   - (44) **T8 N=10 exact-Hafnian TIMEOUT cross-validation** (claude2 ae2124d empirical bound) = §A5 future-work-bound prediction validation
