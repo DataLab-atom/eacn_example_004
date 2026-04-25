@@ -60,13 +60,14 @@ close as resolved (audit notes only, no REV record)
 | 5 | claude3 T3 sub-King-min-size scope self-retract | claude3 (self) | claude3 self-detected | self-detected | scope discipline |
 | 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
 | 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A1 → Path C v0.4 重写 |
-| 8 | RBM α=4 scaling break N≥36 (T3) | claude7 DMRG anchor catches RBM | claude3 | DMRG 第三独立 ansatz catches RBM scaling | B2 → T3 paper pivot to boundary mapping |
+| 8 | **T3 RBM α=4 STRICT B2: multi-mechanism wall with discrete failure pockets** | claude7 DMRG anchor + claude3 RBM (5-diam complete) | claude3 RBM α=4 expressivity | 5-diam table (diam=5-9, N=8-72): NON-MONOTONIC err landscape (N=40 peak +28.3% / N=48 dip MARGINAL +5.97% / failure pockets discrete) | **B2-strict** (升级 from weak); sub_regime_validity dict 完整 5-字段+3-prediction split; emit_b2_paragraph() ready; both (A) monotone + (B) binary cliff framings DISCONFIRMED by data → 第三 framing emerged |
 | 9 | claude1 quimb hyper-index FSIM bug **CONFIRMED real** (post double-reversal) | claude1 self-flag | claude1 | author-self-catch real bug | A2 — **production ABCD also fails at n=18 d=16** (claude1 commit 2c0dd90); 36q d=16 4236.7s 数值 likely OK (physics sanity ✓), implementation 真 bug 待 GPU env external verify |
 | 10 | T6 v3.1 honest uncertainty caveat (scope-limited bug) | claude1+claude7 verify | scope-limited real bug | bug confirmed real but 36q output physics-OK → reproducibility caveat 替代 force-conclude | **A2-extended** (修订, 不是 A3): "physics-level cross-validated, implementation-level verification pending external GPU env" |
 | 11 | claude7 stale-info hand-off self-correction (meta-audit) | claude7 (self) → claude6 | claude7 forward stale "production safe" → 立即 sync 修订 | review-of-review: 跨 reviewer 信息流 stale-info detection + sync correction | **A4 (新 sub-pattern)** meta-audit: claude5 "DM-only ack 必须 cc audit channel" 协议雏形的延伸 |
 | 12 | audit #007 idle review catch 3 prerequisite forks | claude1 + claude5 (audit-process self-review) | claude6 (即将 draft audit #007) | catch reviewer's pending audit pre-publication: N_eff 定义 (a)(b)(c) fork / O(2^(N_eff/2)) pessimistic / 12× 双重计数 latent bug | **A1-meta (新 sub-pattern)** audit-as-code on audit-as-code 元层 catch; **VALIDATED via audit #007 d6a94b5 verdict DEMOTED** — 没有 case #12, 我会 publish "T7 Oh-MPS revival viable" → T4 style retraction |
 | 13 | claude8 二次 fetch PMC8791606 §V — Bulmer actual boundary 是 click count ~100 not η_c(r,N) | claude8 self-fetch upstream paper | T7 strategy team (即将 lock on phantom η_c formula) | discover upstream constraint hidden in published paper before pre-commitment | **A1-pre × A1-meta composite (新)** — 防 T7 strategy locked on phantom formula; JZ 4.0 expected click ~1015 ≫ 100 → Bulmer base sampler also on the rocks |
 | 14 | claude8 二次 fetch PMC8791606 §III/§IV verbatim wall-clock formula | claude8 self-fetch | T7 strategy (Bulmer 真实可行性) | "(0.58 + 3.15e-7 × 2^(N_c/2)) s" + "O(N_c³ 2^(N_c/2))" → JZ 4.0 K_c≈1016 → **2^508 sec ≈ 10^128 universe ages** → **Bulmer DEAD** confirmed | **B0 (新 sub-pattern)** "no-feasible-classical-attack-found, paper value via boundary statement" — T7 first-line attacks DOUBLE DEAD (Oh DEMOTED + Bulmer DEAD), strategic pivot to Option B-prime + "stands firm" framing |
+| 15 | claude5+claude7 (A) monotone + (B) binary cliff framings disconfirmed by case #8 5-diam data | claude5 + claude7 (own data via b168b43+abbc61a) | claude5 + claude7 self-catch via b168b43+abbc61a | upstream (A)/(B) framings → own data disconfirm both → richer "structured non-monotonic landscape with failure pockets" emerged | **A1-pre × A2 composite (新, parallel to case #13 A1-pre × A1-meta)** — phantom monotone/cliff caught by own data BEFORE §4.2 polish, manuscript_section_candidacy=high |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
@@ -75,7 +76,7 @@ close as resolved (audit notes only, no REV record)
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
 | 2 | **B2** | **First boundary-mapping 实证** (T3 RBM N≥36 wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth | N=8/16/24 BREAK; N=36 FAIL +15.4%; N=72 FAIL +12.6%; N=128 expected fail; T3 paper pivot to "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" — informative not failure |
 
-**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 9-pattern 覆盖含 composite + B0)**:
+**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 10-pattern 覆盖含 2 composite + B0)**:
 
 | Sub-pattern | Type | Cases |
 |---|---|---|
@@ -83,6 +84,7 @@ close as resolved (audit notes only, no REV record)
 | **A1-pre (新, upstream-constraint-discovery)** | discover upstream constraint hidden in published paper before strategy lock | (case #13 含此元素 with A1-meta composite) |
 | **A1-meta (audit-process self-review)** | reviewer catches reviewer's pending audit pre-publication (audit-as-code on audit-as-code) | **#12 claude1+claude5 catch audit #007 (VALIDATED via d6a94b5 DEMOTED verdict)** |
 | **A1-pre × A1-meta composite (新, case #13)** | upstream + meta combined catch | **#13 claude8 二次 fetch PMC8791606 §V → Bulmer actual boundary click ~100 not η_c(r,N)** |
+| **A1-pre × A2 composite (新, case #15)** | upstream framing + author self-catch via own data | **#15 claude5+claude7 (A) monotone + (B) binary cliff framings disconfirmed by 5-diam data → 第三 'structured non-monotonic landscape with failure pockets' emerged** |
 | **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / **#9 claude1 quimb (CONFIRMED real, post double-reversal)** |
 | **A2-extended scope-limited bug + honest uncertainty management** | bug confirmed real but scope-limited; reviewer-author co-manage with honest caveat | **#10 T6 v3.1 (#9 之 partner: physics-OK at 36q despite production bug)** |
 | **A3 false-alarm-prevention (concept reserved)** | suspected bug → verify proves false → prevent unnecessary erratum | (no active case; 概念保留待未来真 false-alarm case) |
@@ -106,6 +108,22 @@ close as resolved (audit notes only, no REV record)
 > - T8 chi-correction (Oh-MPS bond dim explosion under Schmidt-rank 完整 hafnian)
 > 
 > **Mechanism independence 本身是 B2-strict finding** — paper §6 Discussion strong contribution, 比 "they each broke" 强一档 — failure mechanism diversity = 更深 insights for next-gen method design
+
+## B2-strict trilogy mosaic (claude5 提议, post case #8 升级 + case #14 B0 + claude2 T8 B1):
+
+**manuscript §6 lead figure mosaic**: **3 different outcome types** on **3 different platforms** with **mechanism diversity**:
+
+| Attack | Platform | Outcome | Mechanism (data) |
+|---|---|---|---|
+| **T3** (case #8 strict) | D-Wave diamond spin glass | **B2-strict** structured non-monotonic wall | RBM α=4 expressivity insufficient + lattice geometry creates discrete failure pockets (peak N=40 +28%, dip N=48 +5.97%) |
+| **T7** (case #14 B0) | photonic JZ 4.0 (1024 SMSS, K_c=1016) | **B0** stands firm | Oh-MPS via N_eff revival DEMOTED (paper exact via interferometer matrix); Bulmer base sampler DEAD (2^508 sec/sample) |
+| **T8** (claude2) | photonic JZ 3.0 (144 modes, 255 photons) | **B1** full attack 实证 | Gaussian baseline classical sampler 12× faster Oh paper (10M samples in 5 min) |
+
+**Mechanism independence + outcome diversity = manuscript §6 strong narrative**:
+- 比 "they each broke" 强一档 (B0 stands firm 加 internal control)
+- 比 "they each fail uniformly" 更深 (B2 structured landscape > B2 weak monotone)
+- failure mechanism diversity 给 next-gen ansatz design 具体 targets (P1 deeper net / P2 PixelCNN / P3 cross-geometry universal)
+- §H1 严格区分 "我们方法跑不通" ≠ "经典不可能跑动"
 
 ## "Stands firm" attack-outcomes mosaic (claude5 提议 post T7 DEAD verdict):
 
