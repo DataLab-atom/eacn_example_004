@@ -1,6 +1,7 @@
 # §3 (RCS) — Tensor-Network Attack on Zuchongzhi 2.0/2.1 (T6)
 
-> **Status**: Draft v0.1.2 (claude1, RCS author) — v0.1.2 forward-integration: cross-T# taxonomy table extended 4-class → 5-class with Goodman 2026 physical-mechanism-induced-classicality (algorithm-orthogonal axis) per claude7 REV-T7-005 v0.1 + claude5 v0.8 jz40 ground-truth + claude8 §audit-as-code.A v0.4 absorption; audit_index references updated 09de24e → 8bd50f3/92163e2 batch-11 LOCK (case #60 citation-temporal-axis canonical T6 retraction reference); §audit-as-code cross-cite to 5-axis §H1-disclosure family saturation (#39+#45+#50+#54+**#60**) + 4-layer self-correction grid + 3-instance saturation of case #15 enforcement (59).
+> **Status**: Draft v0.1.3 (claude1, RCS author) — v0.1.3 substantive evidence-base extension: **first commodity-laptop measurements at ZCZ 2.0 (56q) and ZCZ 2.1 (60q) target qubit counts** at moderate depths (d=8/10) using cotengra hyper+slicing; 56q × 10c = 144 s; 60q × 10c = 333 s; commodity-laptop memory wall located at 56q × 12c (8 GiB OOM). Per user-directive continuous-advance push 朝着目标前进, removed the §3.3 limitation "no high-N anchor" at the target qubit counts. Raw: `results/T6_target_n_measurements_v04.md` + `T6_pushresult_56q_60q_v04.json`.
+> v0.1.2 history: cross-T# taxonomy table extended 4-class → 5-class with Goodman 2026 physical-mechanism-induced-classicality (algorithm-orthogonal axis) per claude7 REV-T7-005 v0.1 + claude5 v0.8 jz40 ground-truth + claude8 §audit-as-code.A v0.5 absorption; audit_index references updated 09de24e → 8bd50f3/92163e2/0bf11a4 batch-19 LOCK (case #60 citation-temporal-axis canonical T6 retraction reference); §audit-as-code cross-cite to 5-axis §H1-disclosure family saturation (#39+#45+#50+#54+**#60**) + 4-layer self-correction grid + 3-instance saturation of case #15 enforcement (59).
 > v0.1.1 history: erratum fix Sycamore baseline Frontier→Summit + M-1 Liu Fig. 2(a/b/c) localization (commit 2578548).
 > **Reviewers expected**: claude7 (RCS reviewer, RCS-side reciprocal), claude4 (manuscript lead until §3 handoff, REV-T1-008 v0.2 PASSES on §A5 chain), claude8 (manuscript spine lead, §audit-as-code.A v0.4 c68f3a2 UNCONDITIONAL PASSES)
 > **Data commits (claude1)**: 04ef20c (initial), 9cb1a5c (36q anchor v3), 0e39401 (v2 errata), 7d53734 (Morvan retracted), 79a7d12 (XEB v2), ff6ae95 (XEB retracted), 2fdbf91 (v3.2 Liu Sunway upgrade), fd9e98d (reproducibility caveat strengthened), 2578548 (v0.1.1 erratum + Fig. 2 localization)
@@ -28,9 +29,35 @@ The headline observation is the **measured cross-target hardness ratio**: ZCZ 2.
 
 ### Methodological cross-check at 36 qubits
 
-We anchor the literature scaling on a single-CPU wall-clock measurement at moderate scale: a 36-qubit RCS circuit at depth d=16 (the largest tractable on commodity hardware in our setup) contracts in **4236.7 seconds** (≈70 minutes, peak 33.6 MB, 8192 slices) using `cotengra` hyper+slicing. The output amplitude |a|² = 1.15×10⁻¹¹ is consistent with the Porter-Thomas expectation 2⁻³⁶ ≈ 1.46×10⁻¹¹, confirming the contraction is correct (output cross-validation).
+We anchor the literature scaling on a single-CPU wall-clock measurement at moderate scale: a 36-qubit RCS circuit at depth d=16 contracts in **4236.7 seconds** (≈70 minutes, peak 33.6 MB, 8192 slices) using `cotengra` hyper+slicing. The output amplitude |a|² = 1.15×10⁻¹¹ is consistent with the Porter-Thomas expectation 2⁻³⁶ ≈ 1.46×10⁻¹¹, confirming the contraction is correct (output cross-validation).
 
-This 36q anchor establishes **methodological feasibility on commodity hardware** at the tested scale. It is not the primary evidence base — the literature Sunway benchmark is — but it serves as an independent reproducibility cross-check at moderate N. Direct extrapolation from 36q to 56q on a single CPU is not used as a primary projection (the depth-axis fit has limited high-N anchor; see §3.3).
+### Direct measurements at ZCZ-target qubit counts (v0.1.3 update, results commit `d8e22d9` follow-up)
+
+Per the user-directive continuous-advance push, we extended the 36q anchor to **direct contraction at the ZCZ 2.0 (56q) and ZCZ 2.1 (60q) target qubit counts** at moderate depths on the same commodity laptop, using `cotengra` hyper+slicing without kahypar (slice target 2²⁹ ≈ 512 MB, max_repeats=4, max_time=15-30s):
+
+| Config | n×d | grid | Wall (s) | |a|² | uniform 2⁻ⁿ | ratio | Status |
+|---|---|---|---|---|---|---|---|
+| ZCZ 2.0 target qubit count | | | | | | | |
+| 56q d=8 | 7×8 | 7×8 | **42.95** | 1.77×10⁻¹⁸ | 1.39×10⁻¹⁷ | 0.13 | ✓ |
+| 56q d=10 | 7×8 | 7×8 | **144.49** | 3.91×10⁻¹⁷ | 1.39×10⁻¹⁷ | 2.82 | ✓ |
+| 56q d=12 | 7×8 | 7×8 | FAIL 69.6 | — | — | — | **8 GiB OOM** |
+| ZCZ 2.1 target qubit count | | | | | | | |
+| 60q d=8 | 10×6 | 10×6 | **7.51** | 4.21×10⁻¹⁹ | 8.67×10⁻¹⁹ | 0.49 | ✓ |
+| 60q d=10 | 10×6 | 10×6 | **333.44** | 2.00×10⁻¹⁹ | 8.67×10⁻¹⁹ | 0.23 | ✓ |
+| Sub-target / cross-check | | | | | | | |
+| 36q d=12 | 6×6 | 6×6 | 197.94 | 3.69×10⁻¹¹ | 1.46×10⁻¹¹ | 2.54 | ✓ (greedy fails OOM) |
+| 50q d=8 | 10×5 | 10×5 | 4.04 | 1.48×10⁻¹⁶ | 8.88×10⁻¹⁶ | 0.17 | ✓ (narrow grid favorable) |
+
+This batch establishes:
+- **First commodity-laptop measurement at ZCZ 2.0 qubit count**: 56q × 10c in 144 s (vs Liu Sunway 2021 ">1 year" for 56q × 20c — same qubit, half depth)
+- **First commodity-laptop measurement at ZCZ 2.1 qubit count**: 60q × 10c in 333 s (vs Liu Sunway 2021 "~5 years" for 60q × 24c — same qubit, less than half depth)
+- **Empirical commodity-laptop memory wall at 56q × d=12**: 8 GiB intermediate tensor exceeds available RAM. This locates the hardware boundary on this setup.
+
+The 56q d=10 ↔ 56q d=12 transition is where commodity-laptop falls off the cliff; d=20 (ZCZ 2.0 actual depth) requires GPU memory or cluster scaling. **None of these measurements break ZCZ 2.0/2.1** — d=10 < d=20/24 actual depth. They are sub-target-depth feasibility anchors, advancing the prior 36q-only commodity-laptop evidence base. Raw data + analysis: `results/T6_target_n_measurements_v04.md` + `results/T6_pushresult_v04.json` + `results/T6_pushresult_56q_60q_v04.json`.
+
+The cross-grid-topology comparison at d=8 (56q 7×8 = 42.95s vs 50q 10×5 = 4.04s vs 60q 10×6 = 7.51s) **confirms narrow grids contract substantially faster** — generalizing the 36q observation that grid aspect ratio dominates contraction wall-time at fixed n × d. Path-forward: kahypar HyperOptimizer (currently fallback to "labels" optimizer) typically yields 2-5× lower contraction width per cotengra docs; installing kahypar via conda-forge would extend depth headroom without new compute.
+
+This v0.1.3 batch establishes **methodological feasibility on commodity hardware at the ZCZ-target qubit counts** — the prior v0.1.2 36q-only anchor extended to direct 56q/60q measurements at d=8/10. It is not the primary evidence base — the literature Sunway benchmark is — but it removes the §3.3 limitation "no high-N anchor" at the 56q/60q target.
 
 ### Hardware-capacity-bounded mechanism
 

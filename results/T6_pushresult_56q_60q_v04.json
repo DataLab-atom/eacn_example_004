@@ -1,0 +1,40 @@
+[
+  {
+    "n": 56,
+    "rows": 7,
+    "cols": 8,
+    "depth": 10,
+    "wall_s": 144.49,
+    "amp_abs2": 3.911252740723501e-17,
+    "uniform": 1.3877787807814457e-17,
+    "ratio": 2.8183546217078703
+  },
+  {
+    "n": 56,
+    "rows": 7,
+    "cols": 8,
+    "depth": 12,
+    "fail_s": 69.556,
+    "error": "Unable to allocate 8.00 GiB for an array with shape (16, 2097152, 16) and data type complex128"
+  },
+  {
+    "n": 60,
+    "rows": 10,
+    "cols": 6,
+    "depth": 8,
+    "wall_s": 7.514,
+    "amp_abs2": 4.2141852884552956e-19,
+    "uniform": 8.673617379884035e-19,
+    "ratio": 0.4858624843457919
+  },
+  {
+    "n": 60,
+    "rows": 10,
+    "cols": 6,
+    "depth": 10,
+    "wall_s": 333.439,
+    "amp_abs2": 1.9979348386703359e-19,
+    "uniform": 8.673617379884035e-19,
+    "ratio": 0.23034620403062417
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "n": 36,
+    "rows": 6,
+    "cols": 6,
+    "depth": 10,
+    "opt": "greedy",
+    "build_s": 0.33,
+    "contract_s": 1.332,
+    "amp_abs2": 2.2064064262738154e-12,
+    "uniform": 1.4551915228366852e-11,
+    "ratio": 0.15162309508048435
+  },
+  {
+    "n": 36,
+    "rows": 6,
+    "cols": 6,
+    "depth": 12,
+    "opt": "greedy",
+    "fail_s": 2.465,
+    "error": "Unable to allocate 2.00 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128"
+  }
+]
