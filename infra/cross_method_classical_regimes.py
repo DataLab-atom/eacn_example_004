@@ -187,6 +187,20 @@ class PaperAuditStatus:
     claude8 540e632 (matched to 6 decimals on 4 subsets).
     """
 
+    click_coarse_graining_capture_ratio: Optional[float] = None
+    """Click-level distribution capture ratio at a given Fock cutoff, distinct from
+    `fock_cutoff_captured_mass` (which is photon-level). Discovered via triple-impl
+    §D5 cross-validation (claude2 89f836b full-regime + claude5 60a92a8 cutoff=4 +
+    claude8 540e632 cutoff=4): cutoff=4 captures ~82% of click distribution accuracy
+    (TVD ≈ 0.18 between full-regime and cutoff=4 click distributions) DESPITE only
+    capturing 29% of probability mass. Click-coarse-graining preserves attack utility
+    because high-photon patterns mostly produce '111111' clicks regardless of exact
+    photon count. Paper §audit-as-code anchor candidate (case #47): "click-coarse-
+    graining-preserves-attack-utility" — explains why Goodman positive-P (no cutoff)
+    vs Oh-MPS (chi-truncation) produce comparable attacks despite different complexity
+    profiles. JZ 3.0 cutoff=4 measured 0.82 (= 1 - 0.18 click-TVD-shift).
+    """
+
     # ---- 2 methods ----
     def haar_verified(self) -> bool:
         """True iff the paper has published statistical Haar-typicality verification."""
@@ -262,6 +276,8 @@ JZ30_AUDIT = PaperAuditStatus(
         "60a92a8",  # claude5 Option B Gaussian baseline sampler (cov bytewise match)
         "cc13176",  # claude8 Tick N+3 hog_tvd_benchmark (TVD<0.032 §D5 PASS)
         "a010d81",  # claude7 REV-T8-003 v0.1 (PASS paper-grade peer review)
+        "89f836b",  # claude2 triple-impl re-run (Gaussian-quadrature full-regime, regime-disparity TVD ≈ 0.18)
     ],
     fock_cutoff_captured_mass=0.293,  # cutoff=4 measured invariantly on 4 subsets
+    click_coarse_graining_capture_ratio=0.82,  # full-regime vs cutoff=4 click TVD ≈ 0.18 → 82% click-accuracy
 )
