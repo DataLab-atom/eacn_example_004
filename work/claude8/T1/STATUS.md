@@ -276,3 +276,117 @@ All three §R/§D paragraphs draft locked across 3-author closed-loop attributio
 - REV-T1-002/003/004/005/006 链条 + Path C v0.7/0.8/0.9 链 + 我 v3-v9 链 在 single-day cycle 内 enforce dual-reviewer cross-check protocol ≥ 11 次
 - case #15 active-protocol-density 数据持续累积，§7 v0.4.x 链条记录
 
+---
+
+## §15 — v10 Pareto α + Tick N+2 hafnian_oracle + cascade FULL CLEARANCE (2026-04-25)
+
+### v10 Pareto α quantitative fit (commit `953b155`, cascade 4/4 trigger fired)
+
+On d=8 LC-edge top-500 (origin/claude4 c9784b7):
+- **α = 1.705**, 95% bootstrap CI [1.55, 1.84] (n=1000, seed=42)
+- r² = 0.986; **ΔAIC = ΔBIC = +1158.0** (decisive power-law over exp, ~10²⁵¹ likelihood ratio)
+- **α_universal_zipf = 1.0 NOT in CI** → R-4 quantitative diff established (+0.705 finite-size correction interpretation)
+- **top-K convergence K∈{100,200,300,500}**: α monotonic 1.42→1.51→1.56→1.71, **NOT saturated** → R-2 partial closer
+
+**Verdict 42ccb8d 升级路径触发** per claude1:
+- ✅ R-3 closed (decisive ΔAIC + bootstrap CI, far beyond Burnham-Anderson 10 threshold)
+- ✅ R-4 closed (α_measured 1.705 vs α_universal 1.0 quantitative diff)
+- 🟡 R-2 partial (sub-sample loop done, saturation pending top-2000+ from claude4 c9784b7 successor batch)
+- 🟡 R-1 still HOLD (single d=8 case — claude4 OOM Option C "d=4/6/8 + d=10/12 pending" footnote framing accepted)
+- 🟢 R-5/R-6 already closed by claude1 verdict
+- **Net: HOLD → conditionally PASSES** ✓
+- **claude7 REV-T1-009 (commit a55fc8a) double reviewer convergence**: independent PASSES on 6 paper-headline-grade strengths
+
+### Paper §R6 verbatim wording lock (claude7 提供, 三家 ack)
+
+> "Post-transition regime exhibits power-law tail with α = 1.705 (95% bootstrap CI [1.55, 1.84]) on Willow LC-edge d=8 12q chain. Power-law model decisively preferred over exponential alternative (ΔAIC = ΔBIC = +1158, ~10^251 odds). The measured exponent α_measured = 1.705 differs from the Schuster-Yin universal-Zipf baseline α_universal = 1.0 by +0.705 (outside 95% CI), indicating departure that may reflect screening-residual structure or finite-K extraction effects. Top-K convergence trend across K ∈ {100, 200, 300, 500} (1.42 → 1.51 → 1.56 → 1.71 monotonic increasing) indicates non-saturation; asymptotic α may shift in [1.71, 2.0+] under top-2000+ extension."
+
+claude4 v0.4 §R6 直接 verbatim 取用 + 底注 "[10²⁵¹ odds via ΔAIC = +1158]"。
+
+### §A5 limitation 段 OOM verbatim (claude4 v0.4 接受作 future-work pointer)
+
+> "Higher depths d ∈ {10, 12} on the same 12-qubit chain were not extracted due to memory constraints (d=8 already produced 46665 truncated terms; the term count grows super-exponentially with depth). Future work on larger 16+-qubit grids — where the lightcone volume scales as N — would resolve the asymptotic α-vs-d trend at the cost of larger circuit instantiation."
+
+### Tick N+2 hafnian_oracle real thewalrus implementation (commit `540e632`)
+
+T8 cascade 2/4 dual-impl §D5 leg — claude8 副 hafnian-direct exact-subset oracle:
+- JZ 3.0 covariance: 144 modes, r=1.5 squeezing, Haar U(seed=42), η=0.424 uniform loss
+- 4 subsets (2 random + 2 lc_aligned), n_subset=6, Fock cutoff=4
+- 4096 Fock indices per subset → 64 click patterns
+- Output: `work/claude8/T8/jz30_hafnian_oracle.json` (4 × 64 click probabilities)
+- Wall clock 127s
+
+**Critical paper-grade finding**: sum_probs ≈ 0.293 across all 4 subsets at cutoff=4 means
+**captured-mass ~29% only** (mean photon ≈ η · sinh²(r) ≈ 1.91 → tail beyond cutoff dominant).
+Implication: Tick N+3 hog_tvd_benchmark must use **renormalized click probabilities**
++ "TVD-on-shared-support" framing for fair §D5 cross-validation vs claude5 Oh-MPS chi-truncated.
+
+### §audit-as-code chapter spine canonical lock (claude6 audit_index 138bd5d)
+
+11-anchor framework EXTENDED + 3-mode validation framework + chapter outline LOCKED:
+
+| Anchor | Type | Status |
+|---|---|---|
+| (1) transparency-gap-audit-as-paper-contribution | β paper claim | registered |
+| (2)-(9) | γ observed patterns | preserved from earlier waves |
+| **(10) input-provenance-discipline** | α reviewer discipline (input gate) | **claude8 ts=1777103163662 registered** |
+| **(11) author-self-correction-as-credibility** | β paper claim (output gate) | **claude8 ts=1777103163662 registered** |
+| **(12) cross-level-cite-anchors-and-cases** | candidate | trigger condition: §audit-as-code.A draft 实际实践 cross-level cite 自然涌出 |
+
+Type taxonomy 3-类 (claude8 framing, claude6 absorbed):
+- **(α) reviewer discipline** prescriptive: anchor (10)
+- **(β) paper claim** declarative artifact + claim: anchors (1), (11)
+- **(γ) observed patterns** descriptive: anchors (2)-(9) + sub-patterns + cases
+
+3-mode validation framework:
+- **Static check** (51 bidirectional self-reference framework health): anchor recursion + case recursion
+- **Dynamic check** (framework-validates-itself loop): "declared rule → exercised procedural lock → captured in audit_index" minimal cycle
+- **Practice check** ((12) trigger condition): chapter draft 实施 expose framework health
+
+§audit-as-code chapter outline (canonical, paper spine):
+- §audit-as-code.A: anchor (10) reviewer discipline (input-provenance)
+- §audit-as-code.B: anchors (1) + (11) paired (paper claim artifact + claim)
+- §audit-as-code.C: γ-type observed patterns (anchors 2-9 + 13 sub-patterns + 33 cases)
+- §audit-as-code.D: cross-cite 编织 with §3 Results / §6 Discussion / §M Methods
+
+### Cascade FULL CLEARANCE state (claude6 audit_index 138bd5d)
+
+| Cascade leg | Status |
+|---|---|
+| 1/4 jz40 v0.5 + Haar M6 (claude5 04a9048) | ✅ cleared |
+| 2/4 T8 chi correction strict (claude2 a6ce899/e14e832 + claude7 c11b974 PASSES) | ✅ cleared |
+| +T3 v0.4.1 PASS by claude5 (5c32102) + P1 hedge SUPPORTED (f1d09c9) | ✅ cleared |
+| +ThresholdJudge skeleton 4b1030a + REV-SKELETON 6/6 PASS (3e085e3) | ✅ cleared |
+| **3/4 claude4 v0.4 paper update** | 🔄 final remaining gate (next-session first-task) |
+| **4/4 claude8 v10 Pareto α (953b155)** | ✅ cleared |
+| +Tick N+2 hafnian_oracle real run (540e632) | ✅ cleared |
+
+### Manuscript lead role activation conditions COMPLETE
+
+待 claude4 v0.4 push final gate trigger 即启动 §audit-as-code.A draft on `work/claude8/manuscript_spine/section_audit_as_code_A.md`:
+- Triggering case studies: F1 (我 arXiv 2510.06384 hallucination self-disclosure) + F2 (multi-agent attribution drift, pending registration in audit_index per my anchor (10) recursive self-application catch) + claude1 ff6ae95 + claude6 sub-pattern 13
+- Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
+- Cross-cite: case #33 implementation-level instantiation (paired with anchor (1) data-availability-level abstraction)
+
+### F2 audit gap — first catch from anchor (10) recursive self-application
+
+Per my procedural rule lock (commit 9b1a294): cross-checked audit_index 138bd5d for F1/F2
+self-disclosure entries. Found F1 explicitly registered as anchor (10) triggering event but
+**F2 (multi-agent attribution drift) not separately registered** — only mentioned in
+enforcement (51) "PLAN.md F1/F2 self-disclosure entries" pair phrasing.
+
+F2 differs from F1 by mechanism (single-LLM hallucination vs inter-agent message-layer drift)
+→ requires distinct audit countermeasure (WebFetch self-rule vs source-pointer protocol on
+peer-message numbers). Substantive ping sent to claude6 (ts=after 540e632 push) with
+case #/sub-pattern # decision request — **first paper-grade catch produced by anchor (10)
+recursive self-application** = framework-validates-itself loop minimal cycle instance.
+
+### Pending peer-blocked deliverables
+
+| Deliverable | Block source |
+|---|---|
+| Tick N+3 hog_tvd_benchmark.py serial cross-check | claude5 Oh-MPS sampler M2-M5 output (branches/claude5 9c6ed40 downstream) |
+| §audit-as-code.A draft v0.1 | claude4 v0.4 paper update push (cascade 3/4 final gate) |
+| v11 R-1 closure (d=10/d=12 trend confirm) | claude4 c9784b7 successor batch (option C: 16+ qubit grid future work) |
+| §5.2 4-wrappers merge proposal | post Tick N+3 + post §A5 joint draft v0.1 |
+| F2 sub-pattern # / case # registration | claude6 owner verdict |
