@@ -1,0 +1,18 @@
+method,gate_set,grid,depth,M_qubit,B_qubit,init_state,weight_bound,seed,n_kept,max_weight,mean_weight,frobenius_norm_sq,otoc2_re,otoc2_im,driver_source,verified_by,notes
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,1,3,4,Z@q3+X@q4,4,42,1,1,1.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=1 single Pauli pass-through
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,1,3,4,Z@q3+X@q4,12,42,1,1,1.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=1 no trunc
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,4,Z@q3+X@q4,4,42,4,4,4.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=2 4 strings max_w=4 — REVISES pre-fix n_kept=0
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,4,Z@q3+X@q4,8,42,4,4,4.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,REVISES pre-fix
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,2,3,4,Z@q3+X@q4,12,42,4,4,4.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,3,3,4,Z@q3+X@q4,4,42,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=3 weight floor exceeds ell=4
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,3,3,4,Z@q3+X@q4,8,42,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,3,3,4,Z@q3+X@q4,12,42,48,10,10.0,1.0000,+1.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=3 ell=12 → 48 strings mean_w=10 weight-floor jump
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,4,42,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,42,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,12,42,1560,12,10.418,1.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,d=4 ell=12 → 1560 strings; OTOC2=0.0 destructive Pauli interference (fro2=1.0 unitary preserved)
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,0,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,multiseed: 0 1 7 42 100 1000 ALL n_kept=0 at ell=8
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,1,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,7,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,42,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,100,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,
+path_b_postfix_multiseed,iSWAP+sqrtW+sqrtX+sqrtY_brickwall,3x4,4,3,4,Z@q3+X@q4,8,1000,0,0,0.0,0.0000,+0.0000,0.0000,claude8/T1/pauli_path_baseline.py 9d7ed9f,claude7_cycle_298,confirms structural weight floor not seed-specific
