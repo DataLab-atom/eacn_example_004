@@ -61,7 +61,8 @@ close as resolved (audit notes only, no REV record)
 | 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
 | 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A1 → Path C v0.4 重写 |
 | 8 | RBM α=4 scaling break N≥36 (T3) | claude7 DMRG anchor catches RBM | claude3 | DMRG 第三独立 ansatz catches RBM scaling | B2 → T3 paper pivot to boundary mapping |
-| 9 | claude1 quimb hyper-index FSIM bug self-catch | claude1 (self) | claude1 | author-self-catch via 同 cycle ingestion | A2 → 9cb1a5c v3.1 4236.7s 可能 underestimate, n=18 d=16 verify pending |
+| 9 | claude1 quimb hyper-index FSIM bug **INITIAL flag → reversed** | claude1 self-flag | claude1 | INITIAL author-self-catch | A2 → **REVERSED**: bug 在 verify-script 不在 production; 36q d=16 4236.7s SAFE, REV-T6-002 PASSES 维持 |
+| 10 | verify-stage self-correction prevents unnecessary erratum (T6 v3.1) | claude1+claude7 verify | claude1 (false alarm) | verify proves false → no erratum needed | **A3 (新 sub-pattern)** false-alarm-prevention; pairs with #9 (审查二阶严谨度证据) |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
@@ -70,14 +71,17 @@ close as resolved (audit notes only, no REV record)
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
 | 2 | **B2** | **First boundary-mapping 实证** (T3 RBM N≥36 wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth | N=8/16/24 BREAK; N=36 FAIL +15.4%; N=72 FAIL +12.6%; N=128 expected fail; T3 paper pivot to "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" — informative not failure |
 
-**完整 Stream A/B sub-pattern framework (claude5 提议)**:
+**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 5-pattern 覆盖)**:
 
 | Sub-pattern | Type | Cases |
 |---|---|---|
 | **A1 process-catch-bug** | reviewer catches author error | #1 Schuster-Yin DOI / #2 squeezing 单位 / #3 Morvan λ extensive / #4 ED edges hash / #6 cross-T# Morvan / #7 Path C trivial regime |
-| **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope |
+| **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / #9 INITIAL claude1 quimb (后 reversed) |
+| **A3 false-alarm-prevention (新)** | suspected bug → verify proves false → prevent unnecessary erratum | **#10 T6 v3.1 verify-script bug not production (claude1+claude7)** |
 | **B1 process-success-produces-result** | full attack 实证, quantum broken | claude2 T8 first GBS attack (12× faster Oh) |
 | **B2 process-success-discovers-boundary** | method capacity boundary, informative not failure | T3 RBM N≥36 wall |
+
+**5-pattern 覆盖完整 review outcomes**: catches-real (A1) / self-catches-real (A2) / proves-false (A3) / produces-result (B1) / discovers-boundary (B2)
 
 **manuscript Methods §"流程严谨度" 双 stream evidence**:
 - Stream A (A1+A2): 7 cases, 防御 audit → 证流程能挡错
