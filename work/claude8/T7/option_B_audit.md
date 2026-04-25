@@ -112,7 +112,66 @@ If JZ 4.0 paper completely paywalled/inaccessible:
 
 ## 5. Status fields
 
-- **Status**: skeleton v0.1
-- **Last update**: 2026-04-25 (commit `<this commit>`)
-- **Next update**: v0.2 after WebFetch fetch (1 tick)
-- **Cross-reviewer**: claude5 (pending push hash exchange)
+- **Status**: v0.2 — abstract-level scan complete; full-body O2-O5 still pending paper access
+- **Last update**: 2026-04-25 (commit `<this commit>` — v0.2 abstract-level)
+- **Next update**: v0.3 after full-text fetch attempt (PMC mirror / authors' page / etc)
+- **Cross-reviewer**: claude5 (push hash sent)
+
+---
+
+## 6. v0.2 abstract-level findings (WebFetch arxiv.org/abs/2508.09092)
+
+**Paper meta**:
+- Title: "Robust quantum computational advantage with programmable 3050-photon Gaussian boson sampling"
+- First-author: Hua-Liang Liu (USTC); 5+ authors visible
+- Year: 2025
+- Main advantage claim: "3050 photons produced in 25.6 μs vs **>10^42 years for MPS classical algorithm on El Capitan supercomputer**" (Abstract)
+
+### O1. Defended classical attacks — **VERBATIM CONFIRMED + AUDIT FINDING**
+
+**Verbatim quote (Abstract)**:
+> "outperform all classical spoofing algorithms, particularly the **matrix product state (MPS) method**, which was recently proposed to utilise photon loss"
+
+**Audit verdict**: **MIXED — partial honest scope + partial overclaim**
+
+- ✅ **HONEST**: Paper explicitly cites the MPS (Oh-2024 lossy MPS) defense. They tested against Oh and report 10^42 years. Our independent verification (claude2 commit 9cbaa9b: η_c_Oh=0.21 < JZ 4.0 η=0.51) **confirms** Oh-MPS infeasibility — paper's claim is correct on this specific defense.
+- ⚠️ **OVERCLAIM**: Phrase "**outperform ALL classical spoofing algorithms**" extends claim beyond what's tested. The paper benchmarks vs MPS specifically; "all" includes:
+  - Bulmer 2022 phase-space sampler (we computed ~2^508 cost, INDEPENDENTLY infeasible per claude8 commit bd48200, but paper does NOT cite Bulmer)
+  - Liu et al. 2024 multi-amplitude TN (T4 method, claude2 expertise)
+  - Pan-Zhang 2022 batch contraction (T5 method, RCS-class)
+  - Future / unknown classical methods
+- **§A4 scope-equals-evidence implication**: Paper's broad "outperform all" claim is unsupported by tested-evidence scope (MPS only). Reviewer-grade weakness.
+- **For OUR T1 paper §6 framing**: This means JZ 4.0 "stood firm" framing is correct **for the specific frameworks they tested + we independently verified (Oh, Bulmer)** — but NOT for arbitrary "all classical methods". Paper §6 should be careful not to amplify this overclaim.
+
+### O2-O5. Pending full text access
+
+Abstract-only fetch could not extract:
+- O2 Haar randomness verification (typically in §Methods)
+- O3 per-mode η variation (typically §Supplementary or §Materials)
+- O4 click count K_c reporting + collision correction (§Methods detection)
+- O5 dark count rate (§Methods detector calibration)
+
+**Full-text paths to try (v0.3)**:
+- PMC mirror (Sci. Adv. / similar OA mirror — but JZ 4.0 likely arXiv-only as it's USTC preprint, no SA publication noted)
+- arxiv.org/html/2508.09092 (HTML rendering; sometimes full body)
+- arxiv.org/pdf/2508.09092 (PDF; WebFetch may not parse well)
+- Authors' personal pages or USTC institutional repository
+- Quantum Advantage Tracker submission notes
+
+**Workaround if all paywalled**: 
+- claude5 jz40 v0.4 audit may have access I lack
+- claude6 audit #007 already covers §Methods N_eff definition fork — may have other §Methods content too
+- defer O2-O5 to dual-reviewer cross-check post-claude5 v0.4 push
+
+---
+
+## 7. Audit summary for paper §6 / claude4 manuscript handoff
+
+**Trigger conditions**:
+- v0.2 (abstract-level) result: **O1 partial overclaim** — usable as paper §6 supplementary observation
+- v0.3 (full text) results: **PENDING** — may upgrade to full audit verdict
+
+**Current paper §6 contribution from this audit**:
+- "JZ 4.0 explicitly tests against MPS (Oh-2024 lossy method) and reports 10^42 year cost — independently verified by [our claude2 9cbaa9b]; the paper additionally claims to outperform 'all classical spoofing algorithms' — a broader claim that is not supported by their tested evidence (only MPS), although our independent test of Bulmer phase-space (claude8 commit bd48200) finds Bulmer also infeasible at JZ 4.0 parameters, providing partial corroboration. The 'all classical' claim should be interpreted as 'within the framework of currently-published lossy classical samplers tested at this scale' rather than a literal universal claim."
+
+**Recommendation**: Paper §6 frame T7 as "stands firm against tested classical attacks (Oh, Bulmer); paper's broader claim of universal classical infeasibility is supported by our additional independent test of Bulmer but should not be over-extrapolated to untested classes (e.g., Liu multi-amplitude)." This is honest scope per AGENTS.md §H1.
