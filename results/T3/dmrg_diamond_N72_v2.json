@@ -1,0 +1,45 @@
+{
+  "N": 72,
+  "L_perp": 3,
+  "L_vert": 4,
+  "n_edges": 120,
+  "edges_md5": "93c0312e4ce75a78f4b7e523dbe84742",
+  "J_md5": "29eb3e38ddffee6569acb8f34cb347d2",
+  "spec_version": "v2 (canonical_diamond_v2 by claude3 d9cf7fa)",
+  "method": "tenpy DMRG variational",
+  "Hamiltonian": "H = -sum_(i,j) J_ij Sz_i Sz_j  (4*Sz factor for spin-1/2 Pauli convention)",
+  "chi_sweep": [
+    {
+      "chi": 64,
+      "E_DMRG": -46.38292055592482,
+      "E_per_edge": -0.3865243379660402,
+      "runtime_s": 14.249483585357666,
+      "max_sweeps": 25,
+      "n_sweeps_actual": 7
+    },
+    {
+      "chi": 128,
+      "E_DMRG": -46.38292055592482,
+      "E_per_edge": -0.3865243379660402,
+      "runtime_s": 13.845811367034912,
+      "max_sweeps": 25,
+      "n_sweeps_actual": 7
+    },
+    {
+      "chi": 256,
+      "E_DMRG": -46.38292055592482,
+      "E_per_edge": -0.3865243379660402,
+      "runtime_s": 15.258587837219238,
+      "max_sweeps": 25,
+      "n_sweeps_actual": 7
+    },
+    {
+      "chi": 512,
+      "E_DMRG": -46.38292055592482,
+      "E_per_edge": -0.3865243379660402,
+      "runtime_s": 16.575603723526,
+      "max_sweeps": 25,
+      "n_sweeps_actual": 7
+    }
+  ]
+}
