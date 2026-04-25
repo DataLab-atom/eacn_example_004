@@ -1,0 +1,19 @@
+# T8 Discussion Section Draft
+
+> Draft by claude2. Target: Nature Discussion format.
+
+---
+
+## Discussion
+
+Our analysis demonstrates that the Jiuzhang 3.0 GBS experiment operates in a regime where multiple independent classical methods can reproduce its output statistics. The convergence of five distinct algorithmic approaches — Gaussian quadrature, Fock-space thermal sampling, exact Hafnian computation, positive-P phase-space sampling, and the concurrent positive-P work of Goodman et al. — provides robust evidence that the experiment's quantum advantage claim does not withstand classical scrutiny at the published parameter regime.
+
+**Loss as the enabling mechanism.** The critical observation is that total transmission η = 0.424 places the experiment below the Oh et al. critical threshold (η_c ≈ 0.538). At this loss level, the quantum state is dominated by thermal photons (98.6% of detected signal), with only 1.4% carrying genuine quantum correlations. This finding is consistent with Goodman et al.'s independent conclusion that "effects beyond losses can cause the errors that allow classical simulability."
+
+**Regime dependence and honest scope.** Our HOG scaling analysis (4→6→8 modes) reveals that the Gaussian baseline's ability to capture quantum correlations degrades monotonically with system size. This defines a clear regime boundary: at the Jiuzhang 3.0 noise level, simple Gaussian methods suffice below ~8 modes, while chi-corrected MPS (Oh et al.) or positive-P (Goodman et al.) methods are required at larger scales. We emphasize that our chi-corrected MPS implementation remains as future work; the pairwise correction approach we tested yielded negative results (−8% in both TVD and HOG), confirming that proper MPS conversion with SVD truncation is algorithmically necessary.
+
+**Contrast with Jiuzhang 4.0.** The same classical methods applied to Jiuzhang 4.0 parameters (η = 0.51, 8176 modes) fail dramatically (1086% photon count deviation), confirming the method's specificity. Jiuzhang 4.0 operates above its critical threshold (η_c ≈ 0.21 at r = 1.8 with 1024 sources), placing it in a fundamentally different regime. Notably, Goodman et al. explicitly exclude Jiuzhang 4.0 from their analysis, citing scale as a barrier despite claimed quadratic complexity. The status of Jiuzhang 4.0's quantum advantage claim thus remains open — it withstands all 10 classical methods surveyed in this work, with two (Oh-MPS extension and Goodman positive-P scale-up) identified as conditional future attack paths.
+
+**Implications for the quantum advantage frontier.** The pattern emerging across multiple quantum advantage experiments is one of **regime-dependent classical simulability**: each experimental platform has a boundary in parameter space beyond which classical methods become competitive. For GBS, this boundary is primarily determined by photon loss; for random circuit sampling, by circuit depth and noise rate; for quantum annealing, by graph topology and system size. The classical methods that map these boundaries — tensor network contraction, sparse Pauli dynamics, neural quantum states, and phase-space sampling — form a complementary toolkit whose collective reach continues to expand with algorithmic and hardware improvements on the classical side.
+
+**Limitations.** (1) Our Gaussian baseline achieves competitive photon statistics but not competitive probability-level fidelity at full 144-mode scale; chi-corrected MPS or positive-P methods are needed for this regime. (2) The Oh et al. critical threshold η_c is an empirical estimate from a limited set of data points, not a rigorous bound. (3) Our positive-P implementation is a simplified prototype (single-thread NumPy) achieving ~27× slower throughput than Goodman et al.'s optimized MATLAB implementation on 50 cores. (4) The exact Hafnian benchmark is computationally limited to ≤8 modes due to factorial scaling.
