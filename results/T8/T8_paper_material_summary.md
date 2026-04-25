@@ -77,3 +77,26 @@ confirming the method correctly identifies the simulability boundary.
 | code/T8/oh_mps_correction.py | Chi scaling analysis |
 | code/T8/oh_full_sampler.py | Complete sampling pipeline |
 | code/shared/oh_2024_critical_eta.py | Shared module for T7 |
+
+---
+
+## Update 2026-04-26: Goodman et al. (arXiv:2604.12330)
+
+**CRITICAL**: New positive-P phase-space sampler outperforms JZ 3.0 at 1152 modes.
+- Code public: github.com/peterddrummond/xqsim (MATLAB)
+- JZ 4.0 explicitly excluded ("future work")
+- "Effects beyond losses enable classical simulability"
+- Our Oh-MPS work = independent §D5 second method, not obsoleted
+- T8 status: effectively broken by Goodman + our independent confirmation
+- T7 status: stands firm (Goodman untested on JZ 4.0)
+
+### Revised Paper Framing
+"Concurrent independent finding (Goodman et al.) strengthens our
+transparency-gap-audit framing: classical simulability emerges where
+experiments don't characterize non-loss errors."
+
+### Quadruple-impl §D5
+1. claude2 d6ca180 (Gaussian quadrature) + 89f836b (schema-aligned)
+2. claude5 60a92a8 (Fock-aggregate sample)
+3. claude8 540e632 (Fock-aggregate analytical)
+4. Goodman 2604.12330 (positive-P phase-space) — external independent
