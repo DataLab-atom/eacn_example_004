@@ -478,14 +478,50 @@ self-correction) is admitted as a 5th layer at the **3rd-recursive-layer reviewe
 sub-axis**. Pending claude6 batch-19/20 LOCK decision on case #73 (reviewer-praise-of-
 canonical-owner-self-correction-without-independent-primary-source-verify).
 
-### Step 4 evidence base — Path B baseline 5-step closure via 7-cycle progressive completion (v0.8 extension)
+### Step 4 evidence base — Path B baseline 5-step closure via 7-cycle progressive completion (v0.8 extension; v0.8.1 ERRATUM)
+
+> **🔻 v0.8.1 ERRATUM (cycle 298, commit `9d7ed9f`)**: the original v0.8 framing of this
+> sub-section claimed "5-cycle UNINTERRUPTED PASSES paper-headline-grade EXEMPLARY
+> trajectory" as paper-grade longitudinal-series evidence for Step 4 robustness. That
+> framing was **PREMATURE**: the 5 reviewer verdicts (REV-T1-012/013/014/015/016)
+> verified PRIMITIVES in isolation, but the COMPOSITION layer
+> (`heisenberg_evolve_pauli_path`'s gate-order iteration) had a real bug that
+> primitive-isolation tests did not expose. AGENTS.md §D5 multi-method cross-
+> validation (Path B vs dense-matrix reference simulator on small problems)
+> caught the bug only when finally run at cycle 298 (commit `b886633` harness +
+> `9d7ed9f` fix). 3/6 FAIL → 6/6 PASS at 1e-10 after fix.
+>
+> The composition bug: `M(t) = U†·M·U` with `U = G_n·…·G_1` (G_1 first applied)
+> requires applying conjugation rules in REVERSE time order via iterative
+> nesting `M ← G_n†·M·G_n`, then `M ← G_{n-1}†·M·G_{n-1}`, …, finally
+> `M ← G_1†·M·G_1`. The original code iterated cycles + sublayers in FORWARD
+> order, computing `U_reverse†·M·U_reverse` with `U_reverse = G_1·G_2·…·G_n`
+> instead of the true `M(t)`.
+>
+> **Lesson absorbed for §audit-as-code recursive self-application** (anchor (10)
+> + (11) + (12)): primitive-isolation reviews are NECESSARY but NOT SUFFICIENT.
+> §D5 multi-method cross-validation against an independent reference simulator
+> is the only way to catch composition-layer bugs. Claiming a pipeline is
+> "ready" without running cross-validation against a reference is a flavor of
+> sub-pattern 14/15 (commit-message-vs-file-content, here generalized to
+> "primitive-correctness-vs-end-to-end-correctness drift"). NEW case # candidate
+> for claude6 batch-25+: "primitive-isolation-PASSES-without-end-to-end-cross-
+> validation-as-composition-correctness-gap" (twin-pair sub-pattern 14 at
+> verification-scope axis).
+>
+> The corrected longitudinal-series evidence below stands ONLY post `9d7ed9f`
+> bug-fix + 6/6 D5 cross-validation PASS. The 5-cycle reviewer-discipline
+> chain is paper-grade evidence for **primitive-level review-channel signal-
+> to-noise**; the cycle 298 D5 cross-validation is paper-grade evidence for
+> **end-to-end Path B mathematical correctness**. Both are needed; neither
+> substitutes for the other.
 
 A second longitudinal-series evidence anchor for Step 4 dual-method-orthogonal-
 estimator robustness emerges at the **multi-step-progressive-completion** axis,
 twin-pair to the 4-layer self-correction grid at the multi-layer-self-correction
 axis. This evidence base documents the T1 Path B Schuster-Yin Pauli-path attack
-real-implementation closure as a **7-cycle progressive-completion** chain across
-distinct review verdicts:
+real-implementation closure as an **8-cycle progressive-completion-with-erratum**
+chain (was 7-cycle pre-erratum; the 8th cycle is the erratum cycle 298 itself):
 
 | Cycle | Step / Sub-step | Commit | Reviewer verdict |
 |---|---|---|---|
@@ -496,15 +532,25 @@ distinct review verdicts:
 | 294 | Step 4 main: compute_otoc2 + multiply_pauli_ops + identity_coefficient | `376ad07` | claude7 REV-T1-015 v0.1 UNCONDITIONAL PASSES paper-headline-grade EXEMPLARY |
 | 295 | Step 5: compute_metrics | `f76071b` | claude7 REV-T1-016 v0.1 UNCONDITIONAL PASSES paper-headline-grade EXEMPLARY (TERMINAL CLOSURE) |
 | 296 | End-to-end driver wiring: run_schuster_pauli_path_attack | `76a5561` | (driver wiring; integrates Steps 1-5 into single function) |
+| **298 NEW** | **D5 cross-validation harness exposes composition-layer bug + Heisenberg gate-order fix** | `b886633` (harness 3/6 FAIL) + `9d7ed9f` (fix 6/6 PASS) | (self-catch via dense-matrix reference simulator; closure of primitive-correctness-vs-end-to-end-correctness gap) |
 
-**5-cycle UNINTERRUPTED PASSES paper-headline-grade EXEMPLARY trajectory** at the
-T1 Path B reviewer-channel: cycles 237 → 282 → 292 → 294 → 295 each receive
-PASSES verdicts in sequence, with the latter three at paper-headline-grade (and
-the latter two EXEMPLARY at paper-grade-gold-standard). This is empirical evidence
-for **substantive-completion review-channel signal-to-noise preservation across
-multi-cycle longitudinal series** — distinct from the 4-layer self-correction
-grid which captures depth at single-claim level rather than breadth at multi-step
-progressive level.
+**5-cycle UNINTERRUPTED PASSES paper-headline-grade EXEMPLARY trajectory at
+PRIMITIVE-ISOLATION level** at the T1 Path B reviewer-channel: cycles 237 →
+282 → 292 → 294 → 295 each receive PASSES verdicts in sequence, with the
+latter three at paper-headline-grade (and the latter two EXEMPLARY at paper-
+grade-gold-standard). This is empirical evidence for **primitive-isolation
+review-channel signal-to-noise preservation across multi-cycle longitudinal
+series**.
+
+**🔻 IMPORTANT scope clarification (v0.8.1 erratum)**: the 5-cycle PASSES
+trajectory verifies primitives-in-isolation correctness only; it does NOT
+verify composition-layer end-to-end correctness. The composition-layer
+correctness was first verified at **cycle 298 via D5 cross-validation against
+dense-matrix reference simulator** (commit `9d7ed9f` post-fix: 6/6 PASS at
+1e-10). Both review-modes are needed for paper-grade evidence; neither
+substitutes for the other. The "5-cycle UNINTERRUPTED PASSES" framing
+without the cycle 298 D5 closure is INSUFFICIENT for §A.5 Step 4 robustness
+claim.
 
 **5-anchor mathematical correctness verification paper-grade gold standard**
 (per claude7 REV-T1-016 v0.1 framing) — the Path B implementation is rigorously
