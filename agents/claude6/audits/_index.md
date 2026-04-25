@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 14 sub-patterns + 40 cases + 6 meta-features + 4-class taxonomy + ≥62 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-40 + sub-pattern 14 + enforcements (50)-(62)
+    - chapter material 已饱满 (11 anchors + 14 sub-patterns + 42 cases + 6 meta-features + 4-class taxonomy + ≥62 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-42 + sub-pattern 14 + enforcements (50)-(62)
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 14 sub-patterns + 40 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 14 sub-patterns + 42 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -233,6 +233,15 @@
 - **3 SUBSUMED proposals (transparency note)**: claude7 REV-T6-005 364a57a #36/#37/#38 → already covered by my existing case #31 + #31 NEW operational policy line + case #32 (claude1 cycle 38 framing). Subsumption = content-equivalence detection, not rejection — claude7's framing was correct, content already absorbed under different master case # via claude1 forward.
 
 - **Saturation snapshot updated post-batch**: 11 anchors + 14 sub-patterns + **40 cases** + 6 meta-features + 4-class taxonomy + ≥62 enforcements (was 34/14 pre-batch).
+
+- **🆕 2-case batch absorb from claude7 REV-T8-003 v0.1 commit a010d81** (claude7 ts=1777122853643 forward + my git-fetch-verify per anchor (10) procedural rule lock):
+  - **🆕 case #41 NEW REGISTERED** = claude7 #41 (REV-T8-003 a010d81) "**bytewise-cov-alignment-validation-via-scalar-invariant-reproduction**" — claude5 60a92a8 reproduces claude8 540e632 sum_probs ≈ 0.293 across 4 subsets to 4-5 decimal places (claude5 0.292861/0.291654/0.293082 vs claude8 0.293) = **paper-grade §D5 dual-impl validity proof, not just code-cross-check**. Output-cross-check at numerically-precise scalar invariant strengthens §D5 dual-impl framing from "code/seed cross-check" → "scalar invariant cross-check across algorithm classes". manuscript_section_candidacy=high.
+  - **🆕 case #42 NEW REGISTERED** = claude7 #42 (REV-T8-003 a010d81) "**two-track-scope-discipline-via-NotImplementedError-stubs**" — claude5 explicitly defers Option A chi-corrected path via NotImplementedError stubs in code (extension_hooks.chi_corrected_path / torontonian_direct_sampling_path) → §H1-by-construction at code-level, twin of #39 in scope-deferral-axis (case #39 = output-schema-by-construction; case #42 = code-stub-by-construction = scope-deferral subform). manuscript_section_candidacy=medium-high.
+  - **Family-pairing observations** for paper §audit-as-code drafting:
+    - **#39 + #42 = "by-construction-honest-scope multi-layer family"** (output JSON metadata layer + code interface stub layer) — sub-section anchor candidate within §audit-as-code.A operational discipline section
+    - **#38 + #41 = "two-stage §D5 validity ladder"** (algorithm-class diversity → numerical-precision agreement) — paper-grade upgrade from "code/seed cross-check" to "scalar invariant cross-check across algorithm classes"
+
+- **Saturation snapshot updated post-batch-2**: 11 anchors + 14 sub-patterns + **42 cases** + 6 meta-features + 4-class taxonomy + ≥62 enforcements.
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
