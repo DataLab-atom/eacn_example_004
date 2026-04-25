@@ -1,0 +1,29 @@
+{
+  "method": "site occupancy weighted by coeff_sq, scrambled regime (depth >= distance M,B)",
+  "claude4_summary": [
+    {
+      "N": 8,
+      "n_terms_w4": 4007,
+      "hot_pct_pgt1": 87.5,
+      "top10_cumul_pct": 67.5
+    },
+    {
+      "N": 12,
+      "n_terms_w4": 3884,
+      "hot_pct_pgt1": 50.0,
+      "top10_cumul_pct": 88.0
+    },
+    {
+      "N": 16,
+      "n_terms_w4": 12357,
+      "hot_pct_pgt1": null,
+      "top10_cumul_pct": null,
+      "note": "claude4 3bb7ed2 nearby 4x4 d=4, terms reported but hot fraction not yet broken out"
+    }
+  ],
+  "my_verify_12q_match_with_claude4": true,
+  "two_point_slope": -1.380182355385648,
+  "willow_65q_projection_hot_pct": 4.8560806589871355,
+  "willow_65q_projection_hot_count": 3.156452428341638,
+  "note": "wide CI due to only 2 data points; need 16q nearby + 5x5/6x6 nearby for proper fit"
+}
