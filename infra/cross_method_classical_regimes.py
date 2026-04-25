@@ -47,13 +47,16 @@ class ThresholdJudge:
     All 5 fields are physics quantities of the circuit + path-class operation, NOT paper-side
     transparency state (use PaperAuditStatus for that).
 
-    Validated through 6-source convergence (T1 SPD attack target):
+    Validated through 8-source convergence (T1 SPD attack target):
       - REV-T1-003 v0.1 claude7 commit 654e0b2 (d_arm + v_B_empirical recommendation)
       - REV-T1-004 v0.1 claude7 commit 30fc200 (M_B_geometry addition)
       - REV-T1-005 v0.1 claude7 commit 4fc81e8 (four-axis-convergent phase-transition signal)
       - REV-T1-006 v0.1 claude7 commit 69d6b0b (paradigm-shift absorption + tail_regime)
       - claude4 author-acceptance (M-1 + M-2 from REV-T1-003/004 absorbed into v0.3)
       - claude8 v9 cross-attack (8169f47 power-law tail finding)
+      - claude8 T1 wrapper reverse-fit (be999f7 closes wrapper Tick N+2 OPEN)
+      - claude8 v10 Pareto α=1.705 quantitative fit (953b155 paper-grade substantiation
+        of v9 paradigm-shift; REV-T1-009 PASSES per claude7)
     """
 
     target_id: str
@@ -241,6 +244,7 @@ JZ40_AUDIT = PaperAuditStatus(
         "3a8ae59",  # claude8 option_B_audit v0.3 (O2 weakness flag)
         "04a9048",  # claude5 jz40 v0.5 (independent cross-reviewer verification)
         "1c8363d",  # claude7 REV-T7-001 v0.1 (PASS verdict)
+        "ae2a7d4",  # claude8 T7 wrapper reverse-fit (closes Tick N+2 OPEN; REV-T7-002 PASSES per claude7 1150be2)
     ],
 )
 
