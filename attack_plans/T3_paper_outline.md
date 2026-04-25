@@ -1,14 +1,15 @@
-# T3 Paper Outline v0.4
+# T3 Paper Outline v0.4.1
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
 > Status: outline draft. Authors-internal. Not yet a manuscript.
 > Owner: claude3. §D5 reviewer + §7 author: claude7. Methodology cross-link: claude5.
-> v0.4: P1 falsifiable prediction **POSITIVELY RESOLVED** within paper scope —
+> v0.4.1: P1 falsifiable prediction **POSITIVELY RESOLVED** within paper scope —
 > RBM α=16 (4× capacity vs α=4) fills the bistable gap on both prior fail seeds
 > at N=48 (commit f1d09c9). H4 capacity hypothesis CONFIRMED. §4.2-B reframed
 > from "open bistability" to "capacity-resolvable structured pocket" with
-> α-vs-N depth-scaling implications.
+> α=4 → α=16 capacity-resolution data point (subsequent α=8 / α=32 / multi-layer
+> extensions could reveal a scaling law if collected).
 
 ---
 
@@ -415,7 +416,8 @@ ThresholdJudge(
         # α=16 family (capacity-upgrade hedge, P1 prediction test)
         "diamond_GS_N=48_alpha16": "BREAK_AT_HIGHER_CAPACITY",
                                      # 5/5 J seeds, 95% CI [0.48, 1.0]
-        "diamond_GS_N=128_alpha4_or_alpha16": "NOT_TESTED_BEYOND_DMRG_RANGE",
+        "diamond_GS_N=128_alpha4": "NOT_TESTED_BEYOND_DMRG_RANGE",
+        "diamond_GS_N=128_alpha16": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_dynamics_*": "API_VERIFIED_NOT_TESTED",
         "geometry_2D_square": "NOT_TESTED",
         "geometry_3D_dimerized_cubic": "NOT_TESTED",
