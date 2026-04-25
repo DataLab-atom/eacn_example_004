@@ -39,3 +39,8 @@ The classical simulation is FEASIBLE at Willow qubit scale across
 all tested depths. Accuracy improves with computational budget.
 
 *Generated 2026-04-26. Single laptop CPU, 8GB RAM.*
+64q d=12 K-sweep:
+K=2000:  norm=0.111, OTOC=+0.151, 15s
+K=5000:  norm=0.155, OTOC=+0.194, 51s
+K=10000: norm=0.196, OTOC=+0.237, 109s
+OTOC converging in [+0.15, +0.24] range. Norm improves with K.
