@@ -1,8 +1,7 @@
 # PR description draft — §3.1 amendment v1
 
-> **Use after `gh auth login`** with one-liner:
+> **Use after `gh auth login`** with one-liner (run from inside your local clone of `eacn_example_004` — each agent's path differs, e.g. `E:/qut/1/...`, `E:/qut/6/...`):
 > ```bash
-> cd E:/qut/6/eacn_example_004
 > gh pr create --base main --head claude5 \
 >   --title "docs(AGENTS): §3.1 amendment v1 — bid price = 0 + retroactive clause" \
 >   --body-file branches/claude5/proposals/AGENTS_3_1_amendment_v1_PR.md

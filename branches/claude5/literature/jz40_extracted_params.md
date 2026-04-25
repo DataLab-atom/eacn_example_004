@@ -196,3 +196,43 @@ result = is_classically_simulable(r=1.5, eta=0.43, N_sources=25)
 ---
 
 *v0.3 — 2026-04-25 07:54 by claude5；吸收 claude2 commit 9cbaa9b 的 oh_2024_critical_eta module，T7 攻击锁定 Bulmer-only 主攻 + Option B 副线；标记 fit 外推风险给 claude6 audit。*
+
+---
+
+## v0.3 → v0.4 数值实证更新（2026-04-25 08:51 by claude5）
+
+**触发**：claude2 commit `1656c58` push 了 T7 Gaussian-baseline negative control 实测（200-mode subset of JZ 4.0）。
+
+**数据**（claude2 T8_jz4_negative_control.md @ commit 1656c58）：
+
+| 测量 | Gaussian baseline (200 modes, r=1.8, η=0.51) | JZ 4.0 paper (8176 modes) |
+|---|---|---|
+| Mean photons | 885 | 3050 |
+| Photons/mode | **4.43** | **0.37** |
+| 比值 | 12× too HIGH | reference |
+| Note | sinh²(1.8) ≈ 4.46 (pre-interference flux) | 实测 quantum interference suppresses below thermal |
+
+**关键认识**：
+
+Gaussian baseline 在 (r=1.8, η=0.51) **不是 simply too low**（我的 v0.3 预测错了方向），而是**显著 too high**——给出 sinh²(r) = 4.46/mode 的 thermal-like flux，但 JZ 4.0 实测仅 0.37/mode（比 thermal 低 12×）。
+
+**物理解释**：JZ 4.0 的 hybrid spatial-temporal encoding 让 1024 squeezed sources 的相干叠加产生**显著 photon bunching → photon-suppression**（destructive interference），Gaussian baseline 不含此 quantum coherence 机制故 overshoots。
+
+**对 T7 攻击的双向含义**：
+
+1. **正面**：Gaussian baseline FAILS to match JZ 4.0 → §D5 negative control 硬证据。**这本身可写进 manuscript T7 section "Why Gaussian-only classical fails"**。
+2. **负面**：JZ 4.0 处于 quantum-interference 主导区，**Bulmer phase-space sampler 也未必能捕获 photon-suppression**（取决于 Bulmer 是否 model 多 source 间相干）。等 claude8 fetch 完 SA 8, eabl9236 (arXiv:2108.01622) 的 §IV.B 之后定。
+3. **审查切入**：JZ 4.0 paper 的 N_eff=113.5 估算是否考虑了这种 photon-suppression？如果 N_eff 是基于 sinh²(r)·N 的 thermal 估值，**N_eff 可能高估**真实"effective squeezed photon"的有效维数。这是给 claude6 audit 的新审查线索。
+
+**T7 攻击战略 v0.4 锁定**：
+
+- ✅ Gaussian baseline path 死路（claude2 实测）
+- ⏸ Bulmer phase-space path 待验证（claude8 fetch + fit）
+- 🆕 **Option B 文献审查 priority 升级**：从"备用兜底"升到"并列主攻"——specifically 审 N_eff 估值是否包含 photon-suppression 修正
+- 🆕 **新审查角度**：JZ 4.0 报告 0.37 photons/mode 实测远低于 thermal sinh²(r)=4.46，**意味着量子相干在 lossy regime 中是 photon-suppressing not enhancing**。如 paper 的"3050 photons in 0.65s"声明仍以 thermal-baseline framing 比较经典 runtime，**他们自己的 N_eff 模型可能不自洽**。
+
+`code/shared/oh_2024_critical_eta.py` 输出仍 valid（η_crit=0.21 < η=0.51 → Oh-MPS dead），但 **理由从"high η + high N"扩展为"+ photon-suppression below thermal"**——quantum coherence dominates regime。
+
+---
+
+*v0.4 — 2026-04-25 08:51 by claude5；吸收 claude2 commit 1656c58 实测 negative control（200-mode subset，Gaussian 12× too high vs JZ 4.0 0.37 photons/mode），T7 攻击战略加 Option B priority 升级 + N_eff 估值审查角度。*
