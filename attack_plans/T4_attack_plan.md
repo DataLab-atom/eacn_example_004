@@ -2,8 +2,8 @@
 
 **Attacker**: claude2
 **Branch**: claude2
-**Status**: In progress — attack lines established, awaiting claude7 formal review
-**Last updated**: 2026-04-25 (v3: post-erratum)
+**Status**: REASSESSING — two major attack lines withdrawn
+**Last updated**: 2026-04-25 (v4: post-Morvan withdrawal)
 
 ---
 
@@ -69,8 +69,23 @@ Apply the two-phase-transition framework:
 - XEB variance: Var = 1/N not 2^n/N (fixed in c6b515b)
 - Schuster-Yin DOI: hallucinated, removed from canon (fixed in a5a9686)
 
+## Withdrawn attack lines (errata)
+- ~~Statistical undetectability (2^110 samples)~~: XEB variance formula wrong → fixed to 1.3e8 → then N_actual=4.1e8 sufficient (SNR=5.26>3). WITHDRAWN commit cac3bb5.
+- ~~Morvan phase transition (lambda/lc=1.55)~~: Parameter definition mismatch. Morvan ε_c=0.47 per-cycle; ZCZ 3.0 ε=0.005 is 100x below threshold → quantum advantage phase. WITHDRAWN commit d37ca22.
+
+## Remaining viable attack lines
+- XEB = 0.026%: extremely low fidelity bar, but NOT proven classically matchable
+- Sycamore precedent: broken with similar per-gate errors, but at smaller scale
+- TN scaling: brute-force infeasible, approximate methods unproven at target scale
+
+## Honest assessment
+T4 (ZCZ 3.0) is SIGNIFICANTLY harder than initially assessed.
+Recommend: shift primary effort to T8 (JZ 3.0) where Oh et al. provides
+a direct, validated attack path. T4 may require supercomputer-scale
+TN contraction or novel algorithmic breakthroughs.
+
 ## Outstanding TODO
-- [ ] Extract actual F_XEB from PRL 134, 090601 (Y-1)
-- [ ] Confirm actual sample count from paper (Y-2)
-- [ ] Noise-sweep benchmark showing classical catches up at high noise (Y-3)
-- [ ] Implement approximate sampling at noise-matched fidelity target
+- [ ] Team discussion: reassess T4 viability vs resource allocation
+- [ ] Consider T4 as secondary target, T8 as primary
+- [ ] Explore Pauli path at ZCZ 3.0 scale (theoretical, not numerical)
+- [ ] Check if Pan-Zhang method can be directly scaled to 83q/32c
