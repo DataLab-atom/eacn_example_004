@@ -50,3 +50,4 @@ K=30000: norm=0.272, OTOC=+0.323, 488s
 K=10000: norm=0.122, OTOC=+0.148, 165s
 vs noiseless K=10000: norm=0.196, OTOC=+0.237
 Noise reduces both norm and OTOC — classical target is lower.
+K=50000: norm=0.311, OTOC=+0.352, 912s (15min)
