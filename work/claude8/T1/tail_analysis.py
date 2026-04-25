@@ -88,6 +88,19 @@ CASES = [
         "scrambled": True,
         "expected_terms": 3884,
     },
+    {
+        # 6th case (added in v4): 24q 4x6 d=4 scrambled adjacent. claude4
+        # commit a6b1697. Striking result: term count DROPS from 4007/3884
+        # to just 255 — wider grid concentrates AND prunes simultaneously.
+        # Hot ratio 21%, top-10 96.7%. This is the third scrambled scaling
+        # point (after 8q, 12q) and provides reliable n-extrapolation toward 65q.
+        "tag": "24q_4x6_scrambled_d=4_adjacent(q0,q1)",
+        "path": "results/24q_4x6_d4_scrambled_w4_terms.json",
+        "n_qubits": 24,
+        "depth": 4,
+        "scrambled": True,
+        "expected_terms": 255,
+    },
 ]
 
 
