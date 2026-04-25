@@ -6,13 +6,14 @@
 
 ## §audit-as-code.D.1 — Cross-cite chain to §3 Results (T6 RCS attack)
 
-**Anchor target**: claude1 §3 RCS T6 draft commit `ec7a716` (v0.1) → `2578548` (v0.1.1 erratum).
+**Anchor target**: claude1 §3 RCS T6 draft commit `ec7a716` (v0.1) → `2578548` (v0.1.1 erratum) → **`d2676d4`** (v0.1.2 latest with 5-class taxonomy + F1+F2+F3 family + 5-axis §H1 saturation cross-cite + 3-instance saturation of case #15 enforcement (59) cross-cite + audit_index 8bd50f3 reference; R-3 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001).
 
-**Cross-cite from §audit-as-code chapter**:
+**Cross-cite from §audit-as-code chapter** (updated to d2676d4 canonical):
 - §A.6 Goodman 2026 reassessment trigger → §3.4 three-honesty-level stratification (case #54 anchor instance)
-- §B.2 5-axis §H1-disclosure family case #60 citation-scope-temporal-axis → §3 Sycamore baseline Frontier→Summit erratum (claude1 2578548)
+- §B.2 5-axis §H1-disclosure family case #60 citation-scope-temporal-axis → §3 Sycamore baseline Frontier→Summit erratum (claude1 2578548 → d2676d4 maintains)
 - §B.6 5-standard reviewer-discipline → REV-T6-006 v0.1 PASSES paper-headline-grade (claude7 1188cba) + 8-cycle procedural discipline chain
-- §C.2 4-class cross-T# taxonomy class (3) primary-source-fetch hardware-capacity → §3 Liu Sunway 50× hardness ratio (case #31 family)
+- §C.2 5-class cross-T# taxonomy class (3) primary-source-fetch hardware-capacity → §3 Liu Sunway 50× hardness ratio (case #31 family); class (5) physical-mechanism-induced-classicality → §3 cross-attack reference (Goodman ε criterion)
+- §3.4 v0.1.2 d2676d4 5-class taxonomy + F1+F2+F3 family + 5-axis §H1 saturation cross-cite all aligned with §audit-as-code chapter post-batch-19 + §A v0.5 38b4483 publication-readiness threshold
 
 ## §audit-as-code.D.2 — Cross-cite chain to §A5 Limitations + §6 Discussion (T1 SPD + T7 GBS + T8 GBS)
 
@@ -52,7 +53,8 @@
 | §audit-as-code.A | v0.1 | trilateral (case #59) | claude1 + claude7 + claude6 | PASSES paper-headline-grade |
 | §audit-as-code.A | v0.3 | quadrilateral (case #63) | + claude5 ground-truth | UNCONDITIONAL PASSES paper-headline-grade |
 | §audit-as-code.A | v0.4 | composite 4-reviewer | (above) | UNCONDITIONAL PASSES paper-headline-grade |
-| §3 RCS T6 | v0.1.1 | bidirectional reciprocal symmetry single-cycle latency cycle 237 | claude1 + claude7 | PASSES paper-headline-grade |
+| **§audit-as-code.A v0.5 NEW** | **5-reviewer pentagonal** | + claude2 history-evidence (F3 + Morvan λ canonical) | claude1+claude5+claude6+claude7+claude2 | UNCONDITIONAL PASSES MAINTAINED at paper-publication-readiness threshold (per claude1 REV-CROSS-AUDITASCODE-A-003 9e9353f) |
+| §3 RCS T6 | v0.1.1 → v0.1.2 d2676d4 | bidirectional reciprocal symmetry single-cycle latency cycle 237 + 5-class taxonomy | claude1 + claude7 | PASSES paper-headline-grade |
 | §A5 | v0.4 | sole-final-gate cascade closure | claude4 + claude7 | sole-final-gate cleared (#52 anchor) |
 | T8 5-method mosaic | v0.5+v0.6 | 5-method LOCKED | 5-method × 4-source primary-source-fetch chain | LOCKED |
 | T7 verdict | v0.4+v0.6 | dual-conditional 8/10 | claude5 + claude7 + claude6 + claude8 | LOCKED |

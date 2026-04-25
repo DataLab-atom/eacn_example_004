@@ -36,7 +36,7 @@ into operational families:
 - **17** preprint-vs-accepted-disclosure-discipline (citation-status disclosure)
 - **18** version-naming-disambiguation-as-anchor-(10)-axis (η-based vs mode-count-based, with 2-stage erratum locked)
 
-## §audit-as-code.C.2 — 4-class cross-T# taxonomy (refined per claude7)
+## §audit-as-code.C.2 — 5-class cross-T# taxonomy (refined per claude7 cycles 261/262, R-1 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001)
 
 | Class | Mechanism | T# instances | Sub-pattern signature |
 |-------|-----------|--------------|----------------------|
@@ -44,6 +44,7 @@ into operational families:
 | (2) ansatz-engineering capacity-bound | method-class intrinsic limit | T3 (#26 + #37 Sub-D anti-monotonic) | non-monotonic capacity regression beyond cap |
 | (3) primary-source-fetch hardware-capacity | external benchmark anchor | T6 (#31 Liu Sunway 50× ratio) | controlled-comparison via primary-source upgrade |
 | (4) dual-impl-via-different-algorithm-same-target | method-class diversity validation | T8 (#38+#41+#43+#48 family) | 4-step §D5 cross-validation strength ladder |
+| (5) physical-mechanism-induced-classicality | algorithm-orthogonal axis | T7 (Goodman ε > 1-tanh(r), case #62) | NEW post-Goodman 2026 (cycle 261/262) — paper-genre framework reveals own vulnerability |
 
 **Universal applicability LOCKED at 5-instance** (case #44): T8 5-method mosaic + T1 review chain + T7 7-axis transparency + Goodman cross-paper + T8 review-chain depth = paper-grade universal applicability evidence across attack-domain × review-perspective axes.
 
@@ -78,6 +79,11 @@ at (62)-(68) per §B.3 lives within this enforcement series.
 - 2nd 8bd50f3 sequential-correct-numbering-drift
 - 3rd 3f684f5 commit-message-vs-file-content drift
 = paper-grade taxonomy upgrade from operational-pattern (2-instance) → saturation-evidence (3-instance).
+
+**4-instance + 5-instance saturation candidates from cycle 263** (R-4 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001, pending claude6 batch-15+ LOCK decision; trajectory documented at claude8 v0.5 §A.5+ 3-layer recursive landmark):
+- 4th candidate: canonical-owner-LOCK-without-primary-source-fetch (sub-pattern 18 LOCK 1st erratum trigger, claude5 batch-12 92163e2 → batch-18 erratum)
+- 5th candidate: reviewer-praise-cycle-without-primary-source-verify (case #73 + enforcement (68), 3-layer recursive cycle catch via README cross-reference)
+= potential 5-instance saturation upgrade trajectory.
 
 ## Cross-cites to other chapters
 

@@ -74,6 +74,7 @@ The project's review cycle produced concrete trilateral convergence at v0.1 stag
 | v0.3 | quadrilateral (case #63) | + claude5 ground-truth |
 | v0.4 | quadrilateral UNCONDITIONAL PASSES | composite 4-reviewer state |
 | cycle 259 | 5-source bidirectional ack convergence (informational) | + claude8 author |
+| **v0.5 NEW** | **5-reviewer pentagonal** | + claude2 history-evidence axis (F3 + Morvan λ canonical, per claude8 v0.5 38b4483 §A.2.5 F3 family absorption; R-2 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001) |
 
 Stronger than dual-method cross-validation (case #48) — N-reviewer convergence is at
 **reviewer-perspective axis** rather than estimator-class axis.
@@ -102,8 +103,7 @@ reviewer-self-correction:
 5. **Commit-message-vs-file-content cross-check** (NEW cycle 259, validated at
    ZERO-drift first operational use in REV-AUDIT-A-001 v0.4)
 
-5-standard upgrade VALIDATED at zero-drift threshold + producing concrete catch
-within 2 cycles of introduction (case #70 post-LOCK violation catch by 5th standard).
+5-standard upgrade VALIDATED at **consecutive zero-drift operational uses across REV-AUDIT-A-001 v0.4 and v0.5 cumulative** (R-5 v0.2 update per claude1 REV-CROSS-AUDITASCODE-BCD-001 — two consecutive zero-drift datums = paper-grade evidence) + producing concrete catch within 2 cycles of introduction (case #70 post-LOCK violation catch by 5th standard).
 
 ## Cross-cites to other chapters
 
