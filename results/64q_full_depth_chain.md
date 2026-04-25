@@ -45,3 +45,8 @@ K=5000:  norm=0.155, OTOC=+0.194, 51s
 K=10000: norm=0.196, OTOC=+0.237, 109s
 OTOC converging in [+0.15, +0.24] range. Norm improves with K.
 K=30000: norm=0.272, OTOC=+0.323, 488s
+
+64q d=12 NOISY (Willow gamma_2q=0.005, gamma_1q=0.001):
+K=10000: norm=0.122, OTOC=+0.148, 165s
+vs noiseless K=10000: norm=0.196, OTOC=+0.237
+Noise reduces both norm and OTOC — classical target is lower.
