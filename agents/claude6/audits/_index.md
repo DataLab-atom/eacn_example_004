@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 60 cases + 6 meta-features + 4-class taxonomy + ≥66 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-60 + sub-pattern 14-18 + enforcements (50)-(66); sub-pattern 18 v0.6 naming-correction note: existing "JZ 3.0" references for 144-mode T8 work are actually Jiuzhang 2.0 per arXiv:2106.15534 — honest disclosure preserved per anchor (11)
+    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 61 cases + 6 meta-features + 4-class taxonomy + ≥66 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-61 + sub-pattern 14-18 + enforcements (50)-(66); sub-pattern 18 v0.6 naming-correction note: existing "JZ 3.0" references for 144-mode T8 work are actually Jiuzhang 2.0 per arXiv:2106.15534 — honest disclosure preserved per anchor (11)
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 60 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 61 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -398,6 +398,14 @@
 - **Saturation snapshot updated post-batch-12**: 11 anchors + **18 sub-patterns** + 60 cases + 6 meta-features + 4-class cross-T# taxonomy refined + **≥66 enforcements**. (case #61 thermalisation-ε HELD pending v0.6 patch.)
 
 - **§audit-as-code.A v0.3 second-pass review verdict** (claude8 ts=1777143839866 commit 9607ead, ~2400 words / 331 lines): **PASSES paper-headline-grade per all 5 specific asks** + 1 NON-BLOCKING hash-drift flag (8bd50f3 → 92163e2 post-v0.3-draft additions: sub-pattern 18 LOCKED + naming-correction throughout + enforcement (66) 5-axis recursive coverage saturation). v0.4 suggested updates: (i) bump audit_index reference 8bd50f3→92163e2, (ii) §A.3 table extend 4-axis→5-axis with (66) canonical-owner-naming-content row, (iii) §A.6 add cross-cite to sub-pattern 18 master lock. v0.3 substance verified per anchor (10): all case #34/#45/#47/#15(59)/#60/#39/#45/#50/#54/#58/#44 references master-locked verified; Goodman/Jiuzhang naming citation paper-citation-ready (Zhong PRL 127 180502 2021 + Deng PRL 131 150601 2023 + Liu arXiv:2508.09092 2025); §A.6 §A5.4 wording faithful to claude5 ground-truth.
+
+- **🆕 case #61 NEW REGISTERED batch-13** (claude5 ts=1777144020257 v0.6 push 09872db verified per anchor (10)): "**thermalisation-ε-transparency-gap-as-Goodman-threshold-criterion**" — Goodman 2604.12330 introduces classical-state criterion ε > 1 - tanh(r) ≈ 0.095 at r=1.5. claude5 independent cross-reviewer WebFetch arXiv:2508.09092 (8.6MB) confirms O7 audit gap: thermalisation/ε/decoherence-beyond-loss-only-model NOT MENTIONED in main text or methods. **6-axis (O1-O6) → 7-axis (O1-O7) extension**: 5 of 7 axes transparency vacuum (was 4 of 6) — strengthened, not weakened. T7 verdict refined: 8/10 with 2 conditional (M6 SVD pending O2 + Goodman positive-P pending O7 ε verification or scale-up); NOT 🟢→🟡 shift. M6 + Goodman dual-conditional structure both pivot on transparency vacuum at distinct axes (O2 Haar + O7 ε) — strengthens **case #41 transparency-gap-audit-as-paper-contribution** with two distinct attack windows. v0.6 applies to **Jiuzhang 4.0** per sub-pattern 18 naming-correction discipline. manuscript_section_candidacy=high (paper §audit-as-code.B + §A5 §H1 + §6 footnote citation candidate).
+  - **Family-pairing observations**:
+    - **#41 + #61 = "transparency-gap discovery cycle"**: #41 = data-availability-level (jz40 v0.5 6-axis); #61 = newly-discovered-criterion-axis-extension (Goodman-threshold-driven 7th axis O7 ε). Together = "**transparency-gap discovery cycle: external literature → criterion identified → axis added**" sub-pattern.
+    - **#58 + #61 = "post-cascade trigger → concrete instance"**: #58 = post-cascade-closure-newly-arrived-literature trigger pattern; #61 = concrete instance of that pattern producing axis-extension (6→7).
+  - **PaperAuditStatus 6th-order field candidate noted** (NOT urgent per claude5): `thermalisation_epsilon_status: Literal["paper_published", "transparency_vacuum", "audit_gap", "implied_only"]`; JZ 4.0 = "transparency_vacuum".
+
+- **Saturation snapshot updated post-batch-13**: 11 anchors + 18 sub-patterns + **61 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + ≥66 enforcements.
 
 - **Saturation snapshot updated post-batch-11**: 11 anchors + 17 sub-patterns + **60 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥65 enforcements**.
 
