@@ -1,4 +1,4 @@
-# T3 Paper Outline v0.7
+# T3 Paper Outline v0.7.1
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
@@ -83,8 +83,10 @@ at α=16 to +22.96% at α=32). The α-N frontier therefore has a
 sweet spot, and further capacity scaling under Adam-without-SR
 regresses rather than helps. The boundary we map is consequently
 the **method-class intrinsic limit** of the RBM-Adam-no-SR ansatz
-family on diamond Ising at N≥48, not a scale we can extrapolate
-past with more capacity. We do not challenge
+family on diamond Ising at N≥48, **at the tested sample budget
+(n_samples=2048)** — pending P6 verification (§4.2) of whether
+4× sample budget recovers the BREAKs; not a scale we can
+extrapolate past with more α capacity alone. We do not challenge
 the underlying beyond-classical claim of King et al. (Science 388, 199,
 2025). Instead, we propose the empirical capacity-resolvable boundary —
 together with the division-of-labor methodology that exposed it (*the
@@ -465,16 +467,30 @@ sharper future work):
   on the SR-equivalent gradient signal beyond α=16 at this
   lattice scale and sample budget. **Falsifiable form**:
   rerunning α=32 with n_samples = 4× current (8192 instead
-  of 2048) should partially recover the BREAKs *if* the
-  α=32 regression is statistical-noise-bound; if α=32 with
-  larger samples still regresses, the α-cap is structural
-  and Adam-no-SR is genuinely the wrong optimizer at this α.
+  of 2048) probes whether the α=32 regression is
+  statistical-noise-bound (sample-budget-limited Adam) or
+  structural (α-cap intrinsic to the ansatz/method class).
+  **Quantitative thresholds (mirroring v0.6.1 P5 pattern)**:
+  - **P6 SUPPORTED** if break_fraction(α=32, n_samples=8192,
+    N=72) ≥ 1/5 (recovers at least the J=42 baseline) →
+    α-cap is statistical-noise-bound; SR-equivalent gradient
+    signal-to-noise was the limiting factor.
+  - **P6 DISCONFIRMED** if break_fraction = 0/5 with Wilson
+    CI overlap with current α=32 result [0.00, 0.43] →
+    α-cap is structural; SR optimizer (NetKet 3.21 plum/pvary
+    blocker, §5.5) or a different ansatz class is required.
+  - **P6 PARTIAL** if 1/5 with mean-rel-err improvement vs
+    current α=32 (J=42 recovery + others remain failed) →
+    sample budget partially helps but α-cap structurally
+    exists.
   → **PENDING** (next-experiment, paper §future work):
   α=32 N=72 with n_samples=8192 5-seed staged trigger
-  (~6h compute) is the cleanest test. If still 0/5, then
-  SR optimizer (NetKet 3.21 plum/pvary issue, paper §5.5
-  limitation) is the true bottleneck and the §future work
-  pivots to optimizer-side rather than capacity-side.
+  (~6h compute) is the cleanest test, deferred until
+  manuscript spine handoff. If DISCONFIRMED, §future work
+  pivots to optimizer-side rather than capacity-side; if
+  SUPPORTED, sample-budget scaling becomes the actionable
+  knob and α-cap is reframed as a "n_samples wall" rather
+  than a method-class intrinsic limit.
 - **P2 (inductive bias)**: Replacing RBM with PixelCNN
   (spatial-local) or transformer (global) should fill the bistable
   gap if the failure is optimization-landscape-trap. SR
