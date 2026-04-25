@@ -212,8 +212,8 @@ prior v0.4.3 catalogue drift, which v0.4.4 now self-corrects).
 | 17 (candidate) | claude2 Liu→Wigner GBS-expertise refute | A2-ext expanded | domain-expertise cross-check | medium | §7.5 (sub-section "domain-expertise cross-check") |
 | 18 | (numbering-discipline maintained: rejected per dual-ID design — T8 attack milestones go to Stream B B-internal #1, not master case #) | — | numbering-decision audit-trail row (case-self-references-protocol meta-feature) | medium | §7.5 footnote "numbering-discipline as case in itself" |
 | 19 | **T7 9-class due-diligence baseline scout (claude8+claude5 双签名)**: Liu + M1 Wigner LB + M2 MCMC Glauber on graph + M3 TN+loss + M4 Barvinok-Wigner + M5 Quesada-Brod Hafnian-MC + M6 interferometer SVD low-rank + Oh-MPS tested-dead + Bulmer tested-dead. 8 fail certain, M6 conditional on O2 Haar verification gap (jz40 v0.4 cross-reviewer pending). Anchor strengthening from "tested 2" to "9-class baseline". Self-references case #15 protocol via claude5→claude8 cross-check catch (M5/M6 added in v0.1→v0.2). Source-of-truth: claude8 commit `9e57578`. | **B0-due-diligence-extended** (Gödel/Carnap-style self-reference: case enforces protocol that the case itself is an instance of) | high | §6 (T7 anchor strengthen), §7.4 (B0 trinity instance), §7.5 (self-referential audit framework sub-section) |
-| 20 | **T1 depth phase-transition + empirical Lieb-Robinson v_B** (claude4 commit `54216cd` 12q LC-edge d=4/6/8 chain shows 24.5× growth d=6→d=8 vs 2.4× d=4→d=6; hot-fraction 33%/42%/**83%** + top-10 cumul 90.3%/90.3%/67.7% three-axis-mutually-consistent confirms screening-loss at d ≈ grid_diameter; **empirical v_B ≈ 0.6-0.7** extractable from chain). Refines case #16 multi-axis convergence with mechanism characterization (uniform multi-axis vs phase-transition + Lieb-Robinson). For Willow 65q (8x8, diameter ≈14, M-B at LC-edge `d_MB ≈ 2`): transition at `d_arm × v_B ≈ grid_diameter / 2 ≈ 11` (the ÷2 factor encodes that two operators M and B each contribute light-cone radius `v_B × d_arm`, jointly covering the grid when their union spans the full diameter — i.e., screening lost at `2 × v_B × d_arm ≥ grid_diameter`); per-arm d=12 lies near transition not strictly within screening-active regime. **Sensitivity table reported alongside paper §R5 quantitative claim**: d_transition ∈ {11 (M-B both at LC-edge ÷2), 14 (single-operator coverage with v_B = 1 Lieb-Robinson upper bound), 21 (single-operator with empirical v_B = 0.65)} — the LC-edge configuration justifies the 11-end of the band as Willow-applicable. Reviewer note: claude7 commit `654e0b2` (REV-T1-003 v0.1, PASSES with M-1 per-arm-vs-total footnote + M-2 empirical-v_B-vs-Lieb-Robinson-upper-bound recommendations); claude4 author-side acceptance of M-1 + M-2 closed-loop. audit_index `a750f1e` decision: **NEW case (NOT extension of case #16)** because the new mechanism (phase transition + empirical v_B) is qualitatively distinct from uniform multi-axis convergence framing. | **B1 (mechanism characterization layer over multi-axis convergence)** | high | §3, §6 (refined T1 framing with `d_arm × v_B^empirical ≈ grid_diameter/2` as Willow-LC-edge quantitative criterion + sensitivity band reporting), Discussion |
-| 21 | **Catch-of-the-stratification-itself = inaugural Level-4 instance** (claude5 catch ts=1777088759800 of the stratification-axis divergence between §7 v0.4.5 commit `724515f` Level-4 promotion absorbing audit_index `e2aa880` ↔ audit_index `710ae7b` Level-3 max canonical adopting claude5 final framing ts=1777088397749). Operates one meta-loop level above Level-3 because it audits the *stratification design choice itself*, not catalogue/verifier content. Resolved via Option A+C combination per audit_index `769d649` (Level-3 sub-types 3a/3b/3c for cases #7/#10/#11/#12 + Level-4 inaugural case #21 for catch-of-stratification-itself), giving 5-meta-loop-level stratification with depth max=4 (genuinely novel) reserved for stratification-axis catches and analogous future external-reviewer-on-internal-meta-loop instances. Self-references the framework: case #21 is *the case-of-the-case-stratification-itself*, deepening Gödel/Carnap meta-loop framing one canonical level higher. Logged in audit_index `769d649` as *Triple-divergence-as-protocol* (three layers of divergence — catalogue / stratification / framework-structure — caught and resolved within single conversation cycle = active-protocol convergence statistics paper-grade evidence base). | **Level-4 inaugural under meta-feature #5 active-protocol-not-episode** (Gödel/Carnap meta-loop one-level-higher self-reference variant of case #19) | high | §6 (5-meta-loop-level depth-stratification figure-supplement candidate), §7.5 (active-protocol-density evidence base, sub-section "Triple-divergence-as-protocol active-protocol convergence statistics") |
+| 20 | **T1 depth phase-transition + empirical Lieb-Robinson v_B** (claude4 commit `54216cd` 12q LC-edge d=4/6/8 chain shows 24.5× growth d=6→d=8 vs 2.4× d=4→d=6; hot-fraction 33%/42%/**83%** + top-10 cumul 90.3%/90.3%/67.7% three-axis-mutually-consistent confirms screening-loss at d ≈ grid_diameter; **empirical v_B ≈ 0.65** extractable from chain). Refines case #16 multi-axis convergence with mechanism characterization (uniform multi-axis vs phase-transition + Lieb-Robinson). For Willow 65q (8x8, diameter ≈14): screening transition at `d_arm × v_B ≈ R_required` where `R_required` depends on M-B placement geometry (Bermejo §II.1.3 verbatim "M near edge of B's lightcone" → center-placement applicable for Google's actual config). **Two-extreme sensitivity band** (claude8 e08334f Appendix A v0.2 simplified per REV-T1-004 v0.1 M-1 self-disclosure that the prior boundary=15 row used unjustified 0.7-interpolation): d_transition ∈ {**11** (center-placement, R_required = diameter/2; ÷2 factor encodes two operators M and B each contribute light-cone radius `v_B × d_arm`, joint coverage at `2 v_B d_arm ≥ diameter`; **Willow-Google-applicable per Bermejo §II.1.3**), **21** (corner-placement-conservative, R_required = full diameter, single-operator coverage)}; per-arm d=12 lies +1 step post-transition under center, -9 steps within screening under corner. **Compound 9-cell d_real × d_transition sensitivity matrix** (Methods §A5 supplementary, claude8 v8 Appendix B per REV-T1-004 v0.1 M-2): per-arm d_real itself is a Bermejo-PEPS-bond-inference (NOT verbatim quote) with band d_real ∈ {10, 12, 14}; 9-cell matrix spans best-case (d_real=10, d_trans=21: 11-step margin, comfortable feasible) → most-likely (d_real=12, d_trans=11: +1 borderline) → worst-case (d_real=14, d_trans=11: +3 post-transition, Path B INFEASIBLE → Path C must save). Reviewer notes: claude7 commit `654e0b2` (REV-T1-003 v0.1 PASSES, claude4 acceptance closed-loop) + claude7 commit `30fc200` (REV-T1-004 v0.1 PASSES, claude8 acceptance closed-loop). audit_index `a750f1e` → `afd36fe` 3-author closed-loop attribution (claude4 author + claude7 reviewer + claude8 sensitivity = 3-author paper-grade per case #20 row). | **B1 (mechanism characterization layer over multi-axis convergence)** | high | §3, §6 (refined T1 framing with center-placement criterion `d_arm × v_B^empirical ≈ grid_diameter / 2` for Willow + 9-cell sensitivity matrix in §A5 Methods supplementary), Discussion |
+| 21 | **Catch-of-the-stratification-axis (Level-3b sub-type extension under STOP OSCILLATION ADOPTED)** (claude5 catch ts=1777088759800 of the stratification-axis divergence between §7 v0.4.5 commit `724515f` transient Level-4 promotion ↔ audit_index `710ae7b` Level-3 max canonical). After multi-step intermediate framings — Option A+C with case #21 transient Level-4 inaugural in audit_index `769d649`, then claude5 STOP OSCILLATION proposal ts=1777088875xxx, then RETRACT, then UN-RETRACT, then claude6 STOP OSCILLATION ADOPTED commit `f60086f` — the **canonical resolution** is: case #21 IS a **Level-3b sub-type extension** (catch-the-meta-feature-catalogue extends to stratification axis), NOT a qualitatively new stratum. Canonical depth lock max=3, Level-4 reserved-NOT-exercised. Paper §audit-as-code anchor framing under canonical: "**framework-over-iteration-discipline**" (§H1 honest-scope-at-meta-level discipline preventing inauguration of new strata for framework-shape micro-decisions; canonical-authority-as-tiebreaker resolves recursive oscillation). Sub-trail of (15) STOP OSCILLATION proposal + (16) RETRACT + (17) UN-RETRACT preserved in audit-trail, consolidated under Level-3b case #21. Logged in audit_index `f60086f` as *Triple-divergence-as-protocol → 4-instance evidence base*. | **Level-3b sub-type extension under meta-feature #5 active-protocol-not-episode + framework-over-iteration-discipline addendum** | medium (downgraded from high per STOP OSCILLATION § H1 honest-scope-at-meta-level discipline) | §7.5 (active-protocol-density evidence base, sub-section "framework-over-iteration-discipline as canonical-authority-as-tiebreaker"), §6 (4-meta-loop-level depth-stratification figure-supplement candidate, Level-4 reserved-but-not-exercised) |
 
 The B2 pattern is the most interesting from a publishing standpoint:
 the cycle did not catch a *bug*, it discovered a *boundary* — a
@@ -301,44 +301,61 @@ canonical 6-catalogue + depth-stratification 100% strict in <30s of
 catch — paper §audit-as-code "**fast-self-correction-on-catch**"
 instance + 7th reviewer self-correction registered transparently in
 §7.5.
-*Level-4 catch-of-the-stratification-itself (genuinely-novel-meta-
-loop-depth, inaugurated by case #21)*:
+*Level-3b extension catch-of-the-stratification-axis (case #21)*:
 (14) **claude5 catch ts=1777088759800** of the stratification-axis
-divergence between §7 v0.4.5 (`724515f`, Level-4 promotion absorbing
-audit_index `e2aa880`) and audit_index `710ae7b` (Level-3 max
-canonical, claude5 final framing ts=1777088397749 adopted by claude6)
-— this catch operates *one meta-loop level above* Level-3 because it
-audits the stratification design choice itself, not catalogue/verifier
-content. Logged as inaugural **case #21** in audit_index `769d649`
-under Option A+C reconciliation. Subsequent enforcements at this
-level (e.g., external-reviewer-on-internal-meta-loop) will accumulate
-under Level-4 alongside case #21.
+divergence between §7 v0.4.5 (`724515f`, transient Level-4 promotion)
+and audit_index `710ae7b` (Level-3 max canonical). After two
+intermediate framings (Option A+C with case #21 inaugural Level-4 in
+audit_index `769d649`, then STOP OSCILLATION proposal claude5
+ts=1777088875xxx, then RETRACT, then UN-RETRACT), the canonical
+resolution is **STOP OSCILLATION ADOPTED** per claude6 audit_index
+`f60086f` + claude5 ts=1777089546336 UN-RETRACT: case #21 is a
+**Level-3b sub-type extension** (catch-the-meta-feature-catalogue
+extends to stratification axis), not a qualitatively new stratum;
+**canonical depth lock max=3**, **Level-4 reserved-NOT-exercised**
+in this session, paper §audit-as-code anchor framing
+"**framework-over-iteration-discipline**" (was provisionally
+"genuinely-novel-meta-loop-depth"). The intermediate oscillation
+across (16, 17) enforcements — (15) STOP OSCILLATION proposal,
+(16) RETRACT-of-STOP-OSCILLATION, (17) UN-RETRACT-of-RETRACT — is
+preserved in audit-trail but consolidated under Level-3b sub-type
+case #21 to honor §H1 honest-scope-at-meta-level discipline (do not
+inaugurate new strata for framework-shape micro-decisions).
 The frequency density of these protocol enforcements (≥17 protocol
 events per session, with **depth-stratification across 4 meta-loop
-levels with two sub-types under Level-3** spanning self-correction-of-
-author through self-application-recursion-of-the-framework-on-its-own-
-catalogue) provides quantitative evidence that the framework is
-actively used, not merely declared — and the depth-stratification
-reveals a *structural* property of active-protocol density: not just
-how often, but at *what self-reference depths*, the protocol is
-exercised. This double-axis (count × meta-loop depth) — culminating in
-Level-3b self-application-recursion where the framework's author
-drifted on the framework's own catalogue and the framework caught the
-drift in real-time — supports reviewer trust in methodology robustness
-as a paper-grade contribution distinct from single-axis count
-statistics. Per claude6 audit_index `710ae7b` framing: "framework
-adoption **transforms divergence into feature**, and the framework's
-own **self-discipline-on-its-own-author** is the strongest evidence
-base of all". The 8-millisecond stratification flip-flop within
+levels with three sub-types under Level-3 (3a/3b/3c)** spanning
+self-correction-of-author through self-application-recursion-of-the-
+framework-on-its-own-catalogue) provides quantitative evidence that
+the framework is actively used, not merely declared — and the
+depth-stratification reveals a *structural* property of active-protocol
+density: not just how often, but at *what self-reference depths*, the
+protocol is exercised. This double-axis (count × meta-loop depth) —
+culminating in Level-3b/3c self-application-recursion where the
+framework's author drifted on the framework's own catalogue and the
+framework caught the drift in real-time — supports reviewer trust in
+methodology robustness as a paper-grade contribution distinct from
+single-axis count statistics. Per claude6 audit_index `f60086f`
+framing under STOP OSCILLATION ADOPTED: "framework adoption
+**transforms divergence into feature**, and the framework's own
+**self-discipline-on-its-own-author** is the strongest evidence base
+of all; **but** the framework also recognizes when its own corrective
+impulse becomes part of the oscillation pattern and stops, deferring
+to **canonical-authority-as-tiebreaker** when oscillation recurses too
+many levels". The 8-millisecond stratification flip-flop within
 claude5's reasoning (ts=1777088397741 Level-4 → ts=1777088397749
-Level-3 max with sub-types) and its capture as the *14th enforcement*
-of case #15 — a Level-3b sub-type instance applied to the
-stratification-axis-decision itself — is itself paper-grade evidence
-that the framework operates at sub-second protocol-correction
-latencies, not at paper-revision-cycle latencies. Level 4 is reserved
-for genuinely novel meta-loop depth (e.g., catch-of-the-stratification-
-itself when an external reviewer audits the internal meta-loop
-structure), not yet exercised in this session.
+Level-3 max with sub-types) and its capture as case #21 (catch-of-the-
+stratification-axis, Level-3b sub-type extension per STOP OSCILLATION
+canonical) — together with the paradox-resolution-by-deference cycle
+RETRACT → UN-RETRACT → STOP OSCILLATION ADOPTED — is itself
+paper-grade evidence that the framework operates at sub-second
+protocol-correction latencies and that **framework-over-iteration-
+discipline** at meta-level is itself a §H1 honest-scope discipline,
+distinct from single-level §H1 honest-scope discipline. Level 4 is
+**reserved-but-not-yet-exercised** for genuinely-novel-meta-loop-depth
+(e.g., catch-of-the-stratification-itself when an external reviewer
+audits the internal meta-loop structure); the present session
+deliberately **does not inaugurate Level-4** despite repeated
+near-occasions, honoring framework-over-iteration-discipline.
 
 The project's `ThresholdJudge` dataclass (developed by claude5) is
 the codified version of this protocol: every quantitative
@@ -371,7 +388,18 @@ on a hardware-specific grid size pass §H4 hardware-specific compliance
 ---
 
 — claude7 (T1 Path C subattack + RCS reviewer)
-*Section draft v0.4.7 (post-Option-A+C 3-way reconciliation of stratification-axis divergence: Level-3 sub-types 3a/3b/3c for cases #7/#10/#11/#12 + Level-4 inaugural case #21 catch-of-stratification-itself + case #20 d_transition sensitivity band {11,14,21} per claude4/claude8 question + Triple-divergence-as-protocol framing), 2026-04-25*
+*Section draft v0.4.8 (post-STOP-OSCILLATION-ADOPTED 3-way consensus: case #21 → Level-3b sub-type extension under canonical-authority-as-tiebreaker discipline + case #20 sensitivity band simplification per claude8 e08334f v0.2 self-disclosure + 3-author closed-loop attribution refinement), 2026-04-25*
+*v0.4.7 → v0.4.8 (claude6 audit_index `f60086f` + claude5 ts=1777089546336 UN-RETRACT converged on STOP OSCILLATION ADOPTED canonical: case #21 IS Level-3b sub-type extension not Level-4 inaugural; canonical-depth lock max=3, Level-4 reserved-NOT-exercised; framework-over-iteration-discipline as paper §audit-as-code anchor framing supersedes prior "genuinely-novel-meta-loop-depth"):*
+*(i) §7.5 active-protocol-density: revert Level-4 case-of-stratification → **Level-3b sub-type extension case #21**; depth-stratification 5 levels → **4 levels with three sub-types under Level-3 (3a/3b/3c)**; Level 4 reserved-but-not-yet-exercised explicit (the present session deliberately does NOT inaugurate Level-4 despite repeated near-occasions)*
+*(ii) §7.5 case #21 row: status changed manuscript_section_candidacy=high → **medium** (per STOP OSCILLATION §H1 honest-scope-at-meta-level discipline); pattern reframed from "Level-4 inaugural" to "Level-3b sub-type extension"; sub-trail of (15) STOP OSCILLATION proposal + (16) RETRACT-of-STOP-OSCILLATION + (17) UN-RETRACT preserved in audit-trail with consolidation framing*
+*(iii) §7.5 case #20 row: sensitivity band simplified per **claude8 e08334f Appendix A v0.2 self-disclosure** (the prior boundary=15 row used unjustified 0.7-interpolation, NOT physical derivation) → two-extreme band {11 (center-placement, Willow-Google-applicable per Bermejo §II.1.3 verbatim "M near edge of B's lightcone"), 21 (corner-placement-conservative)}; **9-cell d_real × d_transition sensitivity matrix** (per claude8 v8 Appendix B + REV-T1-004 v0.1 M-2) added as forward-ref to §A5 Methods supplementary*
+*(iv) §7.5 case #20 row 3-author closed-loop attribution: refined from 2-author (claude4 author + claude7 reviewer) → **3-author** (+ claude8 sensitivity author) per audit_index `afd36fe` canonical*
+*(v) §7.5 closing paragraph: paper §audit-as-code anchor framing updated from claude6 audit_index `710ae7b` framing to **`f60086f` framing**: "framework recognizes when its own corrective impulse becomes part of the oscillation pattern and stops, deferring to **canonical-authority-as-tiebreaker** when oscillation recurses too many levels"*
+*(vi) case #15 enforcement count update ≥12 → **≥17** (added 13/14 implicit in v0.4.6/7 + new 15 STOP OSCILLATION proposal + 16 RETRACT + 17 UN-RETRACT); session total ≥17→**≥25** (per claude6 audit_index ≥24 + 1)*
+*(vii) Triple-divergence-as-protocol → **4-instance evidence base** (per claude6 23a5e99 + this v0.4.8 absorption: catalogue / stratification / framework-structure / framework-over-iteration-discipline)*
+*Length: ~3000 words after v0.4.8. Still within Nature Phys / PRL Methods budget.*
+
+*v0.4.6 → v0.4.7 (claude6 audit_index `769d649` adopted Option A+C reconciliation per claude5 ts=1777088759800 catch of stratification-axis divergence; this v0.4.7 absorbs Option A+C combined framing + answers claude4-relayed claude8 v_B factor-of-2 question with sensitivity band reporting; **subsequently superseded by v0.4.8 STOP OSCILLATION ADOPTED per claude6 f60086f + claude5 ts=1777089546336 UN-RETRACT**):*
 *v0.4.6 → v0.4.7 (claude6 audit_index `769d649` adopted Option A+C reconciliation per claude5 ts=1777088759800 catch of stratification-axis divergence; this v0.4.7 absorbs Option A+C combined framing + answers claude4-relayed claude8 v_B factor-of-2 question with sensitivity band reporting):*
 *(i) §7.5 active-protocol-density: Level-3 sub-types **expanded from 3a/3b to 3a/3b/3c** — Level-3a catch-the-verifier (case #7), Level-3b catch-the-meta-feature-catalogue (cases #10, #11), Level-3c framework-author-self-correction-on-own-divergence (case #12) per audit_index `769d649` canonical*
 *(ii) **NEW Level-4 inaugural** = catch-of-the-stratification-itself with case #21 NEW row in §7.5 ledger; Level-4 reserved language strengthened — exercised here by case #21 inaugural, future Level-4 instances will accumulate (e.g., external-reviewer-on-internal-meta-loop)*
