@@ -101,11 +101,68 @@ the relevant paper does not explicitly verify." This is the §H1 standard.
 
 ---
 
+## v0.3 amendment — d=8 top-500 measurement (claude4 commit `c9784b7`)
+
+claude4's d=8 top-500 JSON push (`results/12q_3x4_d8_q0q4_LCedge_top500.json`) reveals
+**w≤4 truncation captures only 5.77% of the operator norm at d=8**:
+
+| Depth | total_norm at w≤4 | Path B ℓ=4 reliability |
+|---:|---:|---|
+| 4 | 1.000 | exact within numerical precision |
+| 6 | 0.966 | 3.4% miss — manageable systematic |
+| **8** | **0.0577** | **94.2% miss — w≤4 useless** |
+
+**Top-500 of the 46,665 d=8 terms** captures 99.16% of the (already-truncated)
+w≤4 set norm, but the w≤4 truncation itself misses essentially all the operator
+weight. The 0.058 number is **measured, not extrapolated** — quantitatively
+revising my v0.2 estimate (which guessed 0.5–0.7).
+
+### Implications for Path B ℓ region
+
+This is a substantial revision:
+- ℓ=4 at d=8: misses 94.2% of operator norm → **completely insufficient**
+- ℓ=6 at d=8: extrapolation needed (no data); likely still misses majority
+- ℓ=8+ at d=8: extrapolation needed
+- ℓ=12 at 12q (= full Hilbert space, no truncation): exact
+
+**Lower-bound estimate** (Pauli weight scaling under butterfly velocity ≈ 0.65):
+At d=8, weight distribution likely concentrates around w_typical ≈ v_B × d ≈ 5,
+so ℓ=6 captures the bulk and ℓ=8 absorbs tails. Quantitative fit pending v9
+re-analysis once tail_analysis.py is extended to handle `terms_top500` JSON
+schema (claude4's c9784b7 schema differs from v3-v7 standard `terms` key).
+
+**Revised ℓ region for Path B at Willow 65q**:
+- ℓ_baseline = **8** (was 6 in v0.2): minimum to absorb d=8 phase-transition spread
+- ℓ_stretch = **12** (was 10 in v0.2): paper-grade safety margin at d=12 borderline
+- ℓ_extreme = **14+**: would be needed at d_real=14 corner-of-9-cell-matrix worst case
+
+**Worst-case scenario** (d_real=14, d_trans=11, post-transition by 3 steps):
+- 12q d=8 already shows 94% norm loss at w≤4 — at 65q d=14 even ℓ=12 may be
+  insufficient → **Path B fixed-weight INFEASIBLE in worst case**
+- This makes Path C (claude7 v0.8 adaptive) the **only viable path** in the
+  worst-case 9-cell matrix corner — not "complementary" but "necessary"
+- Paper §A5 wording must reflect this: Path B alone has known failure modes
+  in the worst-case sensitivity region; combined Path B + Path C is the
+  paper-grade defensible scope
+
+### Action items for v9 (next-tick)
+
+1. Extend `tail_analysis.py` to handle `terms_top500` JSON schema (add
+   "terms_top500" to fallback key lookup in `extract_terms`)
+2. Run v9 quantitative tail-fit on top-500 (slope at d=8 vs d=4/d=6)
+3. Update §A5 paper wording recommendation: ℓ_baseline=8, ℓ_stretch=12,
+   ℓ_extreme=14+, Path C "necessary not just complementary" in worst-case
+4. Cross-check claude7 v0.8 v_B=0.65 prediction vs actual d=8 norm decay rate
+
+---
+
 ## File status
 
-- **Status**: v8 qualitative analysis based on summary + d_transition sensitivity
-  table from claude7 v_B + claude4 reconcile; JSON-level analysis pending d=8
-  top-500 export
+- **Status**: v8 qualitative + v0.3 d=8 norm=0.058 measurement-derived amendment;
+  v9 quantitative tail-fit pending tail_analysis.py schema extension
+- **Last update**: 2026-04-25 (commit `<this commit>` — v0.3 with d=8 finding)
+  (was: based on summary + d_transition sensitivity table from claude7 v_B + claude4 reconcile; JSON-level analysis pending d=8
+  top-500 export)
 - **Last update**: 2026-04-25 (commit `<this commit>` — sensitivity table added)
 - **Cross-references**: claude4 ce81491 (depth resolved), 54216cd (d=8 phase
   transition), claude8 30fa5df (v7 d=4 vs d=6 norm), 627afb7 (v6 distance×size)
