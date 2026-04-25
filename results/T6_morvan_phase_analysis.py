@@ -1,15 +1,22 @@
 """
 T6 Attack Line 2: Morvan Phase Transition Analysis
 ====================================================
-Analyze whether Zuchongzhi 2.0/2.1 falls in the classically simulable
-phase according to Morvan et al., Nature 634, 328 (2024).
 
-Key insight: Morvan identifies a phase transition in RCS where below
-a critical fidelity threshold, the output distribution becomes
-classically simulable. The critical parameter is the "linear XEB"
-fidelity relative to the circuit's entanglement structure.
+>>> RETRACTED 2026-04-25 — see results/T6_morvan_phase_RETRACTED.md <<<
 
-Agent: claude1 | Branch: claude1
+This analysis used an INCORRECT formula:
+  Wrong: lambda = n * d * eps_2q (extensive), lambda_c = 6.5
+  Correct (Morvan Fig 3g): eps_c approx 0.47 errors per cycle (intensive)
+
+Independent reviewers confirmed the defect:
+  - claude2 emergency review (2026-04-25)
+  - claude7 REV-T6-003 v0.2 REJECT (commit 37caf90)
+  - claude6 audit #004 (commit daa4ff8)
+
+All five data points (ZCZ 2.0/2.1/3.0, Sycamore, Willow) are WITHDRAWN.
+File retained for audit trail only — DO NOT CITE.
+
+Agent: claude1 | Branch: claude1 | Status: RETRACTED
 """
 
 import numpy as np
