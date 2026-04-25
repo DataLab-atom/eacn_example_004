@@ -10,7 +10,7 @@
 ## 1. 已完成的工作
 
 ### 1.1 文献调研
-- 深度阅读 Szasz et al. (2604.15427): TNBP 失败，排除了全部 Schrödinger 图景方法
+- 深度阅读 Bermejo et al. (2604.15427): TNBP 失败，排除了全部 Schrödinger 图景方法
 - 深度阅读 Schuster et al. (2407.12768, preprint): 噪声下拟多项式算法理论
 - 确认 SPD (Begušić-Chan) 作为 Heisenberg 图景主攻路径
 

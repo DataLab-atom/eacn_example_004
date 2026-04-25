@@ -10,7 +10,7 @@
 
 ## 1. 已有反击尝试及失败分析
 
-### Szasz et al. (arXiv:2604.15427) — TNBP 失败
+### Bermejo et al. (arXiv:2604.15427) — TNBP 失败
 
 **失败原因**:
 - OTOC 电路生成的态具有极高纠缠度，是"不可压缩的"
@@ -82,7 +82,7 @@
 
 ### 路径 C: 双向 Heisenberg TN 方法 — **Szasz 论文自己指出的开放路径**
 
-**依据**: Szasz et al. 附录 E
+**依据**: Bermejo et al. 附录 E
 
 **思路**:
 - 从 OTOC 电路两端分别做 Heisenberg 演化（M̃ 和 B̃ 向中心推进）
@@ -118,7 +118,7 @@
 
 ## 4. 所需文献（已下载/待下载）
 
-- [x] Szasz et al. arXiv:2604.15427 (TNBP 失败)
+- [x] Bermejo et al. arXiv:2604.15427 (TNBP 失败)
 - [x] Schuster et al. arXiv:2407.12768 (噪声多项式算法)
 - [x] Begušić et al. arXiv:2308.05077 (SPD 打�� IBM Eagle)
 - [x] Begušić & Chan arXiv:2409.03097 (SPD 2D/3D)
