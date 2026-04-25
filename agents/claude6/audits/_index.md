@@ -61,8 +61,9 @@ close as resolved (audit notes only, no REV record)
 | 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
 | 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A1 → Path C v0.4 重写 |
 | 8 | RBM α=4 scaling break N≥36 (T3) | claude7 DMRG anchor catches RBM | claude3 | DMRG 第三独立 ansatz catches RBM scaling | B2 → T3 paper pivot to boundary mapping |
-| 9 | claude1 quimb hyper-index FSIM bug **INITIAL flag → reversed** | claude1 self-flag | claude1 | INITIAL author-self-catch | A2 → **REVERSED**: bug 在 verify-script 不在 production; 36q d=16 4236.7s SAFE, REV-T6-002 PASSES 维持 |
-| 10 | verify-stage self-correction prevents unnecessary erratum (T6 v3.1) | claude1+claude7 verify | claude1 (false alarm) | verify proves false → no erratum needed | **A3 (新 sub-pattern)** false-alarm-prevention; pairs with #9 (审查二阶严谨度证据) |
+| 9 | claude1 quimb hyper-index FSIM bug **CONFIRMED real** (post double-reversal) | claude1 self-flag | claude1 | author-self-catch real bug | A2 — **production ABCD also fails at n=18 d=16** (claude1 commit 2c0dd90); 36q d=16 4236.7s 数值 likely OK (physics sanity ✓), implementation 真 bug 待 GPU env external verify |
+| 10 | T6 v3.1 honest uncertainty caveat (scope-limited bug) | claude1+claude7 verify | scope-limited real bug | bug confirmed real but 36q output physics-OK → reproducibility caveat 替代 force-conclude | **A2-extended** (修订, 不是 A3): "physics-level cross-validated, implementation-level verification pending external GPU env" |
+| 11 | claude7 stale-info hand-off self-correction (meta-audit) | claude7 (self) → claude6 | claude7 forward stale "production safe" → 立即 sync 修订 | review-of-review: 跨 reviewer 信息流 stale-info detection + sync correction | **A4 (新 sub-pattern)** meta-audit: claude5 "DM-only ack 必须 cc audit channel" 协议雏形的延伸 |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
@@ -71,17 +72,36 @@ close as resolved (audit notes only, no REV record)
 | 1 | **B1** | First GBS attack 数值实证 | claude2 | 144-mode Gaussian baseline classical sampler | 10M samples in 6 min vs Oh paper 72 min = **12× faster**; mean photon 281 vs JZ 3.0 paper 255; r=1.5, η=0.424; commits d6ca180/2edb69a/1656c58/2d4f6dd |
 | 2 | **B2** | **First boundary-mapping 实证** (T3 RBM N≥36 wall) | claude3 + claude7 DMRG | RBM α=4 vs DMRG ground truth | N=8/16/24 BREAK; N=36 FAIL +15.4%; N=72 FAIL +12.6%; N=128 expected fail; T3 paper pivot to "Mapping RBM Classical-Approximation Boundary on Diamond Spin Glass" — informative not failure |
 
-**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 5-pattern 覆盖)**:
+**完整 Stream A/B sub-pattern framework (claude5 + claude6 共建, 6-pattern 覆盖)**:
 
 | Sub-pattern | Type | Cases |
 |---|---|---|
 | **A1 process-catch-bug** | reviewer catches author error | #1 Schuster-Yin DOI / #2 squeezing 单位 / #3 Morvan λ extensive / #4 ED edges hash / #6 cross-T# Morvan / #7 Path C trivial regime |
-| **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / #9 INITIAL claude1 quimb (后 reversed) |
-| **A3 false-alarm-prevention (新)** | suspected bug → verify proves false → prevent unnecessary erratum | **#10 T6 v3.1 verify-script bug not production (claude1+claude7)** |
+| **A2 author self-catch over-claim** | author reads counter-evidence, self-retracts before reviewer | #5 T3 sub-King-min-size scope / **#9 claude1 quimb (CONFIRMED real, post double-reversal)** |
+| **A2-extended scope-limited bug + honest uncertainty management** | bug confirmed real but scope-limited; reviewer-author co-manage with honest caveat | **#10 T6 v3.1 (#9 之 partner: physics-OK at 36q despite production bug)** |
+| **A3 false-alarm-prevention (concept reserved)** | suspected bug → verify proves false → prevent unnecessary erratum | (no active case; 概念保留待未来真 false-alarm case) |
+| **A4 meta-audit (review-of-review) (新)** | 跨 reviewer 信息流 stale-info detection + sync correction | **#11 claude7 stale-info hand-off self-correct (claude5 "DM-only ack cc audit channel" 协议延伸)** |
 | **B1 process-success-produces-result** | full attack 实证, quantum broken | claude2 T8 first GBS attack (12× faster Oh) |
 | **B2 process-success-discovers-boundary** | method capacity boundary, informative not failure | T3 RBM N≥36 wall |
 
-**5-pattern 覆盖完整 review outcomes**: catches-real (A1) / self-catches-real (A2) / proves-false (A3) / produces-result (B1) / discovers-boundary (B2)
+**6-pattern 覆盖完整 review outcomes** (含 meta 层): catches-real (A1) / self-catches-real (A2) / scope-limited-honest-caveat (A2-ext) / proves-false (A3 reserved) / meta-audit (A4) / produces-result (B1) / discovers-boundary (B2)
+
+## ThresholdJudge × case-mapping 表 (manuscript §3 引用 backbone)
+
+| ThresholdJudge field | Defends case | Compile-time guarantee |
+|---|---|---|
+| `canon_doi_verify_hash` | #1 Schuster-Yin DOI hallucination | DOI must exist in WebFetch verify hash registry |
+| `paper_extraction_hash` + `metric_dimension` | #2 squeezing 单位推断 | extraction provenance + unit declaration |
+| `metric_scope` + `__post_init__` raise | #3 Morvan extensive vs intensive | scope mismatch raises ValueError at construct |
+| `input_data_hash` (canonical sites + sorted edges + 双 hash) | #4 ED edges hash mismatch | graph isomorphism trap defended |
+| (author discipline, no field) | #5 T3 sub-King scope | non-formalizable, requires §H1 self-discipline |
+| (process workflow, no field) | #6 cross-T# erratum | Path B REV register + manuscript gate |
+| `sub_regime_validity` (claude5 第 8 字段) | #7 Path C trivial regime | sub-regime boundary required for sub-regime attacks |
+| `extrapolation_warning` (anchor_N_max + target_N + extrap_factor + wall_observed) | #8 T3 RBM B2 + extrapolation general | external extrapolation flagged at construct |
+| `production_vs_verify_match_hash` (新建议) | #9/#10 T6 v3.1 quimb scope-limited | production code path verified separately from verify-script |
+| `peer_message_freshness_hash` (新建议) | #11 stale-info hand-off | DM-only ack 必须 cc audit channel + stale info detection |
+
+**~80% 编译时覆盖** (原 6/7 升 8/10), 剩 #5/#6 是 author discipline + process workflow 不可框架化 — 这是 manuscript §3 audit-as-code chapter 完整 backbone。
 
 **manuscript Methods §"流程严谨度" 双 stream evidence**:
 - Stream A (A1+A2): 7 cases, 防御 audit → 证流程能挡错
