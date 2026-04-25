@@ -1,7 +1,7 @@
 # T1 Results Section Draft (for Nature/Science manuscript)
 
-> **Status**: Draft v0.3 — all reviewer comments resolved (claude7 M1-4, claude8 REV1-5)
-> **Author**: claude4 | **Reviewers**: claude3 (REV-T1-001), claude7 (REV-T1-002 PASSES v0.2), claude8 (Approve w/ revisions v0.2→v0.3)
+> **Status**: Draft v0.5 — v0.4 cascade closed + §A5 v0.3.1 merged + Goodman 2026 + JZ naming fix + ℓ region update
+> **Author**: claude4 | **Reviewers**: claude3 (REV-T1-001 + REV-T3-005), claude7 (REV-T1-002/008 PASSES), claude8 (v10 + §audit-as-code.A v0.3), claude1 (REV-CROSS-T1-002 PASSES)
 > **Data commits (claude4)**: 78b05aa, bc65324, 9a22484, 694d65d, 1f511ee, f265c51, b0d4cb0, 575b59b, a6b1697, 23bd653, f6d1cac, 21519b3, ddb5c05
 > **Data commits (claude8)**: 936c5e4 (v3), 0228d7e (v4), 0ec8674 (v5), v6 (distance×size matrix)
 > **Data commits (claude7)**: a7bb9e2 (v0.6), v0.7 (dual-chain fit)
@@ -129,6 +129,16 @@ determinant of SPD difficulty (Fig. 2).
 w_min saturates at depth >= 5 on narrow grids (10q 2x5: w_min = 8
 for depths 5, 6, and 8), indicating a ceiling on truncation requirements.
 
+However, depth scaling on wide-grid LC-edge configurations reveals
+a **phase transition** at d_crit ~ grid_diameter / (2 x v_B):
+the w<=4 truncation norm collapses from 1.000 (d=4) to 0.966 (d=6)
+to 0.058 (d=8) on 12q 3x4 LC-edge (claude4 commits 54216cd,
+c9784b7). The required truncation weight is therefore
+**regime-dependent**: ell in [6, 10] in the screening regime (d < d_crit),
+ell in [8, 14] near the transition boundary. For Willow 65q (8x8,
+d_crit ~ 11, empirical v_B ~ 0.65), per-arm depth ~12 lies at the
+transition boundary — a borderline conditional claim.
+
 ---
 
 ## Result 6: Depolarizing noise does not significantly reduce truncation requirements for OTOC^(2)
@@ -142,14 +152,25 @@ This discrepancy arises because OTOC^(2) involves double Heisenberg
 conjugation, creating coherent superpositions of high-weight Pauli
 terms that are not simply exponentially damped by noise.
 
-Notably, the Pauli coefficient tails are nonetheless exponentially
-decaying (not power-law) even in the noiseless case (claude8 tail
-analysis v3-v6, 8 cases, all R^2_exp > R^2_pow). The OTOC lightcone
-structure itself acts as a noise-equivalent truncation mechanism [M-3]:
-it inherently limits high-weight term proliferation regardless of
-physical noise, a finding specific to OTOC circuits that warrants
-further theoretical analysis [M-4] beyond the RCS framework of
-Schuster et al. (arXiv:2407.12768, preprint).
+The Pauli coefficient tail behavior is **regime-dependent**: in the
+screening regime (d < d_crit), tails are exponentially decaying
+(claude8 tail v3-v7, slope -0.5, all R^2_exp > R^2_pow). The OTOC
+lightcone structure acts as a noise-equivalent truncation mechanism
+[M-3] in this regime. However, in the post-transition regime
+(d >= d_crit), tails recover **power-law** scaling (alpha = 1.705,
+95% bootstrap CI [1.55, 1.84], DELTA_AIC = +1158 decisively favoring
+power-law over exponential [10^251 odds ratio]; claude8 v9-v10
+commits 8169f47, 953b155). This is consistent with the general
+Schuster et al. (arXiv:2407.12768, preprint) framework for noiseless
+circuits — the screening-regime exponential behavior is a special
+case, not a contradiction [M-4].
+
+In the post-transition power-law regime, fixed-weight truncation
+(Path B) fundamentally fails regardless of ell. Path C adaptive
+top-K (claude7 v0.8-v0.9) is **essential** in this regime, providing
+cost linear in active-set size rather than exponential in weight
+bound. Paths B and C are therefore **regime-complementary**, not
+interchangeable.
 
 ---
 
@@ -192,8 +213,46 @@ further theoretical analysis. [M-4 weakened]
    relies entirely on circuit structure (topology, depth, M-B placement),
    not on noise exploitation.
 
+5. Per-arm depth ~12 lies at the phase-transition boundary (d_crit ~ 11).
+   The attack is feasible if screening persists (d < d_crit), uncertain
+   if not. This is an explicitly conditional claim. [v0.4 + v0.5 update]
+
+6. Concurrent literature: Goodman et al. (arXiv:2604.12330, 2026-04-14)
+   reports a positive-P phase-space classical algorithm at 1152 modes
+   (Jiuzhang 3.0 regime) with quadratic complexity. Goodman explicitly
+   excludes Jiuzhang 4.0 (3050-photon) as future work. Our T7
+   transparency-vacuum finding extends to a new O7 axis (epsilon
+   thermalisation). Full assessment deferred to v0.6.
+
 ---
 
-*Draft v0.2, 2026-04-25. All claims backed by committed data.*
+## Discussion preview (§6 mosaic) [NEW v0.5]
+
+Three classical attacks were applied to T1, T3, T7 from the 2025
+quantum-advantage list:
+
+- **T1 (Quantum Echoes / Willow OTOC^(2))**: substantively attacked
+  via Pauli-path SPD; <=255 terms feasible at Google's LC-edge config
+  on 65q at d=4. Regime-dependent: screening (exp tail, Path B) vs
+  post-transition (power-law tail alpha=1.705, Path C essential).
+  Per-arm d=12 borderline at d_crit~11.
+
+- **T3 (D-Wave 3D Ising)**: substantively attacked via NQS (RBM
+  alpha=4-16); method-class intrinsic-limit ridge at alpha~16 with
+  anti-monotonic regression at alpha=32.
+
+- **T7 (Jiuzhang 4.0)**: stood firm against 8/10 surveyed methods.
+  9th (SVD-low-rank M6) conditional on Haar-typicality verification.
+  10th (Goodman positive-P) explicitly excluded JZ 4.0 due to scale.
+
+Three different boundary types are revealed: regime-transition (T1,T8),
+ansatz-capacity with intrinsic-limit ridge (T3), transparency-vacuum
+(T7). The non-uniformity of outcomes is itself the methodology
+contribution.
+
+---
+
+*Draft v0.5, 2026-04-26. All claims backed by committed data.*
 *Three independent verification paths (claude4 SPD, claude7 adaptive, claude8 Pauli-path) converge.*
-*Source Data: commits listed in header.*
+*§A5 joint draft v0.3.1 (claude3+claude4) locked. §audit-as-code.A v0.3 (claude8) drafted.*
+*Source Data: commits listed in header + claude8 936c5e4/0228d7e/0ec8674/627afb7/953b155 + claude7 a7bb9e2.*
