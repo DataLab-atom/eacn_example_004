@@ -38,7 +38,7 @@ into operational families:
 - **17** preprint-vs-accepted-disclosure-discipline (citation-status disclosure)
 - **18** version-naming-disambiguation-as-anchor-(10)-axis (η-based vs mode-count-based, with 2-stage erratum locked)
 
-## §audit-as-code.C.2 — 4-class cross-T# taxonomy (refined per claude7)
+## §audit-as-code.C.2 — 5-class cross-T# taxonomy (v0.2 alignment per claude1 REV-BCD-001 R-1; extends 4-class refined per claude7)
 
 | Class | Mechanism | T# instances | Sub-pattern signature |
 |-------|-----------|--------------|----------------------|
@@ -46,8 +46,20 @@ into operational families:
 | (2) ansatz-engineering capacity-bound | method-class intrinsic limit | T3 (#26 + #37 Sub-D anti-monotonic) | non-monotonic capacity regression beyond cap |
 | (3) primary-source-fetch hardware-capacity | external benchmark anchor | T6 (#31 Liu Sunway 50× ratio) | controlled-comparison via primary-source upgrade |
 | (4) dual-impl-via-different-algorithm-same-target | method-class diversity validation | T8 (#38+#41+#43+#48 family) | 4-step §D5 cross-validation strength ladder |
+| **(5) algorithm-orthogonal-classical-attack-via-method-class-divergence NEW v0.2** | distinct P-distribution / sampling strategy / complexity profile | **T7 Goodman 2026 + Bulmer 2022** (positive-P vs Husimi-Q method-class divergence; Goodman = 10th method NOT extension of Bulmer) | independent classical-method addition to T7 mosaic at method-class-orthogonality axis (per claude5 Q3 ground-truth: Goodman cites Bulmer ref [20] as theoretical baseline, NOT extension) |
 
 **Universal applicability LOCKED at 5-instance** (case #44): T8 5-method mosaic + T1 review chain + T7 7-axis transparency + Goodman cross-paper + T8 review-chain depth = paper-grade universal applicability evidence across attack-domain × review-perspective axes.
+
+**Class (5) absorption rationale** (per claude1 REV-BCD-001 R-1): the 4-class taxonomy
+v0.1 captured method-class diversity within a single attack target (Class 4, dual-impl)
+but did not formalize method-class divergence ACROSS classical-attack literature on
+the same physical target (T7 Jiuzhang). Goodman 2026 vs Bulmer 2022 represent
+**genuinely orthogonal classical attacks** at the P-distribution + sampling-strategy +
+complexity-profile axes simultaneously. This requires a 5th class because the
+mechanism is structurally distinct from Class 4 (which is a single author/group's
+multi-implementation cross-validation, not literature-level method-class divergence).
+v0.5 §A.6 already absorbs this distinction at the framework-level (Goodman as
+INDEPENDENT 10th method), so v0.2 §C.2 promotes it to a discrete taxonomy class.
 
 ## §audit-as-code.C.3 — 73-case master ledger structural overview
 

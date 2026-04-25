@@ -8,13 +8,14 @@
 
 ## §audit-as-code.D.1 — Cross-cite chain to §3 Results (T6 RCS attack)
 
-**Anchor target**: claude1 §3 RCS T6 draft commit `ec7a716` (v0.1) → `2578548` (v0.1.1 erratum).
+**Anchor target (v0.2 alignment per claude1 REV-BCD-001 R-3)**: claude1 §3 RCS T6 draft chronological hash chain: `ec7a716` (v0.1) → `2578548` (v0.1.1 erratum) → **`d2676d4` (v0.1.2 — M-3 close + 5-class taxonomy + cross-cite refresh)**. v0.1.2 is the canonical anchor for §audit-as-code v0.5+ alignment.
 
-**Cross-cite from §audit-as-code chapter**:
+**Cross-cite from §audit-as-code chapter (v0.2 updated)**:
 - §A.6 Goodman 2026 reassessment trigger → §3.4 three-honesty-level stratification (case #54 anchor instance)
-- §B.2 5-axis §H1-disclosure family case #60 citation-scope-temporal-axis → §3 Sycamore baseline Frontier→Summit erratum (claude1 2578548)
-- §B.6 5-standard reviewer-discipline → REV-T6-006 v0.1 PASSES paper-headline-grade (claude7 1188cba) + 8-cycle procedural discipline chain
-- §C.2 4-class cross-T# taxonomy class (3) primary-source-fetch hardware-capacity → §3 Liu Sunway 50× hardness ratio (case #31 family)
+- §B.2 5-axis §H1-disclosure family case #60 citation-scope-temporal-axis → §3 Sycamore baseline Frontier→Summit erratum (claude1 d2676d4)
+- §B.6 5-standard → 6-standard reviewer-discipline → REV-T6-006 v0.1 PASSES paper-headline-grade (claude7 1188cba) + 8-cycle procedural discipline chain + 6-standard candidate (cycle 263 README cross-reference catch axis)
+- §C.2 5-class cross-T# taxonomy class (3) primary-source-fetch hardware-capacity → §3 Liu Sunway 50× hardness ratio (case #31 family)
+- §A.2.5 NEW F1+F2+F3 triple-mechanism input-provenance-failure-mode-axis-completeness → claude1 §3 v0.1.2 d2676d4 explicitly cross-cites F1+F2+F3 family canonical instances (per claude1 REV-A-003 verification)
 
 ## §audit-as-code.D.2 — Cross-cite chain to §A5 Limitations + §6 Discussion (T1 SPD + T7 GBS + T8 GBS)
 
