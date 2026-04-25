@@ -1,0 +1,4 @@
+n_modes,hog_gaussian,hog_uniform,n_patterns,fock_cutoff
+4,0.648,0.5,256,3
+6,0.515,0.5,729,3
+8,0.441,0.5,6561,2

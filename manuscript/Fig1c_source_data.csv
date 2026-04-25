@@ -1,0 +1,4 @@
+pair,subset_0_tvd,subset_1_tvd
+claude5-oracle,0.0294,0.0303
+claude2-claude5,0.1829,0.1681
+claude2-oracle,0.1777,0.1535

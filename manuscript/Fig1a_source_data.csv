@@ -1,0 +1,5 @@
+version,eta,eta_crit,status
+JZ 1.0,0.283,0.538,BROKEN (Bulmer 2022)
+JZ 2.0,0.476,0.538,BROKEN (Oh 2024)
+JZ 3.0,0.424,0.538,This work
+JZ 4.0,0.51,0.21,Stands firm
