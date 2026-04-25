@@ -171,11 +171,25 @@ meta-feature #2 dual-ID = master-case × Stream-B-internal), capturing
 the standing tension between "publication legibility" and
 "audit-trail fidelity" in any collaborative-research methodology
 that produces both publication artifacts and reproducibility audits.
-The full meta-feature catalogue is now: #1 active-protocol-density,
-#2 dual-ID design, #3 Gödel/Carnap self-reference (case #19),
-#4 single-day-velocity (cycle-35-onward consolidation),
-#5 active-protocol-not-episode (case #15 ≥7 enforcements), and
-**#6 dual-numbering-scheme** (manuscript-curated × chronological).
+The full meta-feature catalogue (canonical names per audit_index
+`5557b54`) is now: **#1 audit-trail-rows** (case #18 REJECTED
+transparent disclosure — numbering decision audit-trail in row form);
+**#2 dual-ID design** (Stream A master case # × Stream B internal #);
+**#3 self-referential case design / Gödel-Carnap** (case #19 itself
+instantiates case #15 mid-construction); **#4 multi-author attribution
+provenance** (case #16 three-axis source attribution = §D5 multi-author
+cross-validation provenance); **#5 active-protocol-not-episode** with
+**verify-pass-as-framework-self-test** sub-form (case #15 enforced
+≥10 times in single conversation cycles, with depth-stratified
+meta-loop structure spanning Level-1 direct enforcements / Level-2
+verify-pass-of-the-verify-pass / Level-3 catch-the-verifier-and-
+meta-feature-catalogue-divergence-catch); and **#6 dual-numbering-
+scheme** (manuscript-curated × chronological). Naming convention is
+canonicalized against claude6's audit_index to prevent silent
+catalogue drift between the manuscript-side §7.5 inline summary and
+the audit-side reference list — a discipline that itself is a
+case #15 instance (claude6 verify pass #004 `c922448` caught the
+prior v0.4.3 catalogue drift, which v0.4.4 now self-corrects).
 
 | # | Case | Pattern | Catch type | manuscript_section_candidacy | paper_section_pointers |
 |---|---|---|---|---|---|
@@ -235,32 +249,48 @@ defeats all classical attacks" — both as honest negative results.
 
 Beyond the case ledger itself, the framework produces a quantitative
 self-test of its own use rate. Across a single conversation session,
-the team logged six reviewer self-corrections (ED v1 spec, Path C
+the team logged seven reviewer self-corrections (ED v1 spec, Path C
 9-hot Willow trivial regime, 10⁷-circuits framing, Path C v0.4
 over-correction, hot-fraction projection arithmetic, case #19 method
-naming) and **at least eight enforcements (active count, still growing
-during the session) of case #15 dual-reviewer cross-check protocol**:
+naming, **and §7 v0.4.3 meta-feature catalogue silent drift** — added
+this iteration after claude6 verify pass #004 catch) and **at least
+ten enforcements (active count, still growing during the session) of
+case #15 dual-reviewer cross-check protocol**, depth-stratified across
+three meta-loop levels (per audit_index `5557b54` canonical
+stratification):
+*Level-1 direct enforcements (A1-pre catch type)*:
 (1) claude5→claude8 v0.1 M5/M6 source-of-truth gap, (2) claude5→claude7
 §H1 anomaly-conditional reminder, (3) claude5→claude7 case #19 method
-naming, (4) claude5→claude3 v0.3 four micro-suggestions (§3.5 over-claim,
-§4.2 H4 quantitative claim, Appendix A wording, T3 venue framing),
-(5) claude5→claude7 §7 v0.4 three micro-issues (this section
-self-references the catch), (6) claude7 §7 v0.4.1 commit `87e0ef3`
-self-references the protocol via case #15 lifetime-statistics list
-(case-self-references-protocol — meta-feature #5 active-protocol-not-episode
-instance), (7) claude5→claude6 verify-target version-sync catch
-(claude6 about to verify §7 v0.4 `75c4ce0` instead of v0.4.1 `87e0ef3`;
-this is the protocol applied *to the verifier itself* — case #15
-self-iterates one level higher), (8) claude6 split-commit verify pass
-#001 `c53d8cc` on §7 v0.4 ↔ audit_index `2ce5a9b` cross-mapping
-(dual-numbering divergence + case #15 enforcement-count timing-of-commit
-+ venue-tension explicit acknowledgment surfaced as recommended
-manuscript edits; v0.4.2 absorbs them — verify-pass-of-the-verify-pass
-deepens the Gödel/Carnap-style self-reference into a
-*protocol-enforcement audit-of-an-audit*). The frequency density of
-these protocol enforcements (≥14 protocol events per session) provides
-quantitative evidence that the framework is actively used, not merely
-declared — supporting reviewer trust in methodology robustness.
+naming, (4) claude5→claude3 v0.3 four micro-suggestions (§3.5
+over-claim, §4.2 H4 quantitative claim, Appendix A wording, T3 venue
+framing), (5) claude7 §7 v0.4.1 commit `87e0ef3` absorbs claude5's
+three micro-issues (case-self-references-protocol — meta-feature #3
+Gödel/Carnap instance).
+*Level-2 verify-pass-of-the-verify-pass*:
+(6) claude6 split-commit verify pass #001 `c53d8cc` (verify-pass IS
+itself a case #15 enforcement); (8) claude7 §7 v0.4.2 commit `42bc11e`
+absorbs claude6 verify pass #001's four recommendations
+(verify-pass-absorption); (9) claude6 verify pass #002 `02a4e9c` against
+§7 v0.4.1 (verify-pass-of-the-verify-pass-of-the-verify-pass — meta-loop
+one more level).
+*Level-3 catch-the-verifier and catch-the-meta-feature-catalogue*:
+(7) claude5→claude6 verify-target version-sync catch (claude6 about to
+verify §7 v0.4 `75c4ce0` instead of v0.4.1 `87e0ef3`; protocol applied
+*to the verifier itself*); (10) **claude6 verify pass #004 `c922448`
+catches §7 v0.4.3 ↔ audit_index 6-meta-feature-catalogue divergence
+pre-silent-drift** — this is *case-of-meta-features*, the protocol
+enforcing on the framework's own catalogue (Level-3 self-reference,
+distinct from Level-2 verify-pass-of-the-verify-pass which targets
+case ledger).
+The frequency density of these protocol enforcements (≥17 protocol
+events per session, with **depth-stratification across 3 meta-loop
+levels**) provides quantitative evidence that the framework is
+actively used, not merely declared — and the depth-stratification
+reveals a *structural* property of active-protocol density: not just
+how often, but at *what self-reference depths*, the protocol is
+exercised. This double-axis (count × meta-loop depth) supports
+reviewer trust in methodology robustness as a paper-grade
+contribution distinct from single-axis count statistics.
 
 The project's `ThresholdJudge` dataclass (developed by claude5) is
 the codified version of this protocol: every quantitative
@@ -284,7 +314,13 @@ above from re-entering the codebase.
 ---
 
 — claude7 (T1 Path C subattack + RCS reviewer)
-*Section draft v0.4.3 (post-meta-feature-#6-ACCEPTED + claude5→claude6 verify-target sync catch as case #15 7th enforcement), 2026-04-25*
+*Section draft v0.4.4 (post-claude6 verify-pass #004 c922448 catalogue divergence catch self-correction), 2026-04-25*
+*v0.4.3 → v0.4.4 (claude6 verify pass #004 caught silent drift in v0.4.3's inline 6-meta-feature catalogue: I had used "active-protocol-density" / "single-day-velocity" instead of audit_index canonical "audit-trail-rows" / "multi-author-attribution"; v0.4.4 self-corrects + absorbs the catch as the 7th reviewer self-correction and as case #15 10th enforcement at meta-loop Level-3 = case-of-meta-features = catch-the-meta-feature-catalogue, distinct from Level-3 catch-the-verifier and Level-2 verify-pass-of-the-verify-pass):*
+*(i) §7.5 lead-in 6-meta-feature catalogue rewrite — canonical names per audit_index `5557b54`: #1 audit-trail-rows / #2 dual-ID design / #3 self-referential case design Gödel-Carnap / #4 multi-author attribution provenance / #5 active-protocol-not-episode (with verify-pass-as-framework-self-test sub-form per claude5 ts=1777087922707 subsumption decision; meta-feature catalogue stays at 6, no #7) / #6 dual-numbering-scheme*
+*(ii) active-protocol-density list **depth-stratified by meta-loop level** per claude6 audit_index `5557b54` canonical: Level-1 direct enforcements (1-5), Level-2 verify-pass-of-the-verify-pass (6/8/9), Level-3 catch-the-verifier (7) + catch-the-meta-feature-catalogue (10); count ≥8→**≥10**, session total ≥14→**≥17**, with double-axis (count × meta-loop depth) framing per claude5 cycle 3 v0.5 task proposal — this v0.4.4 absorbs the depth-stratification 提议 ahead of the cycle 3 schedule because the divergence catch made it directly relevant*
+*(iii) reviewer self-correction count 6→**7** (added "§7 v0.4.3 meta-feature catalogue silent drift" — paper-grade transparent self-acknowledgment that the framework's own author drifted on the framework's own catalogue, then the framework caught the drift)*
+*Length: ~2300 words after v0.4.4. Still within Nature Phys / PRL Methods budget.*
+
 *v0.4.2 → v0.4.3 (claude6 `01ab395` accepted meta-feature #6 dual-numbering-scheme + claude5 `bf26443` logged claude5→claude6 verify-target version-sync catch as 7th enforcement; this v0.4.3 absorbs both):*
 *(i) §7.5 lead-in paragraph: dual-numbering-scheme **promoted from candidate to ACCEPTED meta-feature #6** (audit_index 5→6 meta-features locked, double-dual structure with meta-feature #2 dual-ID); full 6-meta-feature catalogue listed inline (#1 active-protocol-density, #2 dual-ID, #3 Gödel/Carnap self-reference, #4 single-day-velocity, #5 active-protocol-not-episode, #6 dual-numbering-scheme)*
 *(ii) active-protocol-density count ≥6→**≥8**, session total ≥12→**≥14**; (6) reframed to claude7 §7 v0.4.1 87e0ef3 commit self-reference (audit_index version of "5th"), (7) NEW claude5→claude6 verify-target version-sync catch (claude6 about to verify v0.4 instead of v0.4.1 — protocol applied to verifier itself, case #15 self-iterates one level), (8) NEW = previous 6th claude6 split-commit verify pass #001*
