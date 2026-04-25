@@ -245,10 +245,13 @@ quantum-advantage list:
   9th (SVD-low-rank M6) conditional on Haar-typicality verification.
   10th (Goodman positive-P) explicitly excluded JZ 4.0 due to scale.
 
-Three different boundary types are revealed: regime-transition (T1,T8),
-ansatz-capacity with intrinsic-limit ridge (T3), transparency-vacuum
-(T7). The non-uniformity of outcomes is itself the methodology
-contribution.
+Four boundary types are revealed across the full attack portfolio:
+regime-transition (T1, T8), ansatz-capacity with intrinsic-limit
+ridge (T3), hardware-capacity bounded (T6), and transparency-vacuum
+(T7). This paper's §6 mosaic covers T1+T3+T7 in detail; T6 and T8
+are canonical at the §A5 4-class taxonomy table (commits 30992af,
+d25da52) and companion sections. The non-uniformity of outcomes is
+itself the methodology contribution.
 
 ---
 
