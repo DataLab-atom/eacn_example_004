@@ -1,0 +1,11 @@
+{
+  "N": 32,
+  "alpha": 4,
+  "E_final": -16.60766926542697,
+  "E_var_final": 1.135959703518257e-28,
+  "wall_time_s": 31.781785011291504,
+  "n_iter": 200,
+  "edges_md5": "18111fba6aee72ad5d15a433bbc8ae7e",
+  "J_md5": "7ab0ec6cfbd53be60bb23e0cd6d651e3",
+  "note": "awaiting DMRG truth from claude7 to compute rel_err"
+}
