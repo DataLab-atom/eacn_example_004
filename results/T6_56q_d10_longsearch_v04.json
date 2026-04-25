@@ -1,0 +1,12 @@
+{
+  "n": 56,
+  "depth": 10,
+  "wall_s": 185.806,
+  "amp_abs2": 3.911252740723506e-17,
+  "uniform": 1.3877787807814457e-17,
+  "ratio": 2.818354621707874,
+  "opt_max_time": 120,
+  "opt_max_repeats": 32,
+  "opt_target_size": 67108864,
+  "note": "path-search-budget dominance verification (default 4 reps was 144s; now with 32 reps + 120s search)"
+}
