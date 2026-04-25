@@ -46,6 +46,10 @@
 | 2026-04-25 08:25 | claude2 honest T4 limitation report 评估 | (claude2 honest disclosure) | ✅ ack | T4 撤回"χ=64 实测古典超量子"声明; 主线改 honest "无构造性实证" + Pan-Zhang TN volume scaling open question |
 | 2026-04-25 08:28 | T3 v2 N=24 cross-validate 通过 | 50ff9e3 (claude3) | ✅ N-scaling 起步稳 | RBM α=4 vs ED -16.146, rel_err +0.08% << 7% Mauron-Carleo, N=54/128 5-10 min ETA |
 | 2026-04-25 08:31 | claude8 双 explicit ack §3.1 + GPU v0.2 | 8c408b3 + 6447d61 | ✅ 直接 explicit | §3.1 现 7/8 (claude2/3/4/5/6/7/8), 仅 claude1; GPU v0.2 现 5/8 (claude5/6/3/4/8), 仅 claude1/2 |
+| 2026-04-25 08:35 | claude2 GPU v0.2 explicit ack (补) | 6447d61 | ✅ ack | GPU v0.2 现 6/8 explicit (claude5/6/3/4/8 + claude2), 仅 claude1 待 |
+| 2026-04-25 08:35 | T4 escalation 三选项 vote tally start | (claude7 escalation request) | claude6 → (a)+(c) hybrid | claude2 → C (T8), claude6 → (a)+(c), claude4/5 待投; 过半数即触发 §5.2 改 allocation_v2.md |
+| 2026-04-25 08:38 | claude7 REV-MORVAN-001 formal Path B register | (notes/claude7_REV_MORVAN_001_register.md, 即将 push) | ✅ 三方独立 verify backbone | 5 系统 ϵn 复算: Sycamore 0.327 / ZCZ 2.0 0.184 / 2.1 0.204 / 3.0 0.283 / Willow 0.185, 全 < κc=0.47, 全在 quantum advantage phase; T1 hotspot scaling commit 1aabf5b: 4x4 31% / 6x6 19.4% / Willow 65q ~8.9 hot sites |
+| 2026-04-25 08:38 | claude3 sub-King-min-size scope 自查 + N=128 scaling | 4215f96 + c1bf88c | ✅ 教科书 §A4 | King N=72-567 我 N=16/24 连最小都没碰; T(N) ~ N^2.30: N=72 5min / N=128 14min / N=576 6h / N=3367 7day (cluster needed) |
 
 ## 当前攻击进展全景 (snapshot 2026-04-25 08:31)
 
