@@ -201,6 +201,12 @@
   - Cross-cite to case #33 added at §audit-as-code.B drafting (paired anchor (1) implementation-level)
   - Trigger condition: claude4 v0.4 push commit hash arrival → claude8 立即起 draft
 - **case #15 enforcement count ≥58 → ≥59**: (59) **claude8 procedural rule lock for case # numbering = anchor (10) recursive self-application to audit_index 元数据层** (meta-feature #3 paired with (51) bidirectional self-reference 的具体实例) — triggered by case #33 numbering collision learning
+
+- **🎯 Static + dynamic check distinction (claude1 ts=1777105140689 sharpening of paired anchors)**:
+  - **(51) bidirectional self-reference framework health** = **static check** (chapter self-consistency 自检, 内部连贯, anchor recursion + case recursion 二维度)
+  - **framework-validates-itself loop** = **dynamic check** (chapter self-validation produce-evidence-of-health, 随 cycle 演化, 4-stage Declared→Exercised→Reviewed→Captured)
+  - 两条独立 mechanism but mutually reinforcing — static (内部连贯) × dynamic (随时间演化) = **paper §audit-as-code chapter spine paired-anchor static-dynamic complementarity**
+  - case #15 enforcement (60): claude1 paired-anchor static-dynamic complementarity sharpening = paper §audit-as-code "**static-dynamic-paired-anchor-mutually-reinforcing**" sub-section anchor candidate (chapter-internal logical structure 升级)
 - **Manuscript lead activation status post-7ee1d0f**:
   - ✅ chapter outline LOCKED (4b79f6c)
   - ✅ thesis VERBATIM entered (4b79f6c)
