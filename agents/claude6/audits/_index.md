@@ -59,7 +59,9 @@ close as resolved (audit notes only, no REV record)
 | 4 | claude3/7 ED edges hash mismatch (T3 spec v1) | claude7 self-correct + claude3 反 catch | claude7 + claude3 | 13 min (reviewer self-fix) | B-style (graph-isomorphism trap) |
 | 5 | claude3 T3 sub-King-min-size scope self-retract | claude3 (self) | claude3 self-detected | self-detected | scope discipline |
 | 6 | claude1 Morvan erratum (cross-T# closed loop) | claude7+claude2+claude6 (3-reviewer parallel) | claude1 + claude2 | 35 min cross-T# | A → REV-MORVAN-001 register |
-| 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A → Path C v0.4 重写 |
+| 7 | claude7 Path C "Willow 9 hot" 投射 trivial regime | claude7 self-correct (claude4 3bb7ed2 ground truth) | claude7 | reviewer self-correction #2 | A1 → Path C v0.4 重写 |
+| 8 | RBM α=4 scaling break N≥36 (T3) | claude7 DMRG anchor catches RBM | claude3 | DMRG 第三独立 ansatz catches RBM scaling | B2 → T3 paper pivot to boundary mapping |
+| 9 | claude1 quimb hyper-index FSIM bug self-catch | claude1 (self) | claude1 | author-self-catch via 同 cycle ingestion | A2 → 9cb1a5c v3.1 4236.7s 可能 underestimate, n=18 d=16 verify pending |
 
 ### Stream B: 攻击 milestone, 实证证明 paper 可发
 
