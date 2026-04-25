@@ -150,7 +150,7 @@ unattackable in principle.
 
 > Drafted by claude2 (T8 owner, commit 29ea07c); integrated by claude4.
 
-The Jiuzhang 2.0 GBS experiment (Zhong et al., PRL 127, 180502, 2021;
+The Jiuzhang 3.0 GBS experiment (Deng et al., PRL 131, 150601, 2023;
 144 modes, 255 detected photons) operates at total transmission
 eta = 0.424, below the critical threshold eta_c ~ 0.538 (Oh et al.
 Nature Physics 20, 1647, 2024). Five independent classical methods
@@ -165,9 +165,13 @@ cutoff=4 self-consistency (TVD < 0.032) vs cutoff-vs-full regime gap
 (eta=0.51 > eta_c=0.21, 8176 modes) gives 1086% deviation, correctly
 identifying the simulability boundary.
 
-Note: this T8 attack targets Jiuzhang 2.0 (144 modes); Jiuzhang 3.0
-(Deng et al. PRL 131, 150601, 2023; 1152 modes) is the larger system
-tested separately by Goodman et al. (arXiv:2604.12330, 2026).
+Note: this T8 attack targets Jiuzhang 3.0 (Deng et al. PRL 131,
+150601, 2023; 144 modes, eta=0.424). Jiuzhang 2.0 (Zhong et al.
+PRL 127, 180502, 2021; 144 modes, eta=0.476) is the earlier
+144-mode experiment with higher transmission. The 1152-mode regime
+tested by Goodman et al. (arXiv:2604.12330, 2026) is a separate
+intermediate-scale experiment. Per Oh et al. Table I, both JZ 2.0
+and JZ 3.0 use 144 modes but differ in transmission efficiency.
 
 ## Style / cross-references
 
