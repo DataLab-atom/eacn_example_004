@@ -19,6 +19,18 @@
    - **Double-dual structure** with meta-feature #2 (dual-ID): meta-feature #2 = case-type categorization (process-discipline × attack-outcome); meta-feature #6 = case-listing-order (manuscript-curated × chronological)
    - 与 meta-feature #2 同 design family — paper §audit-as-code chapter "double-dual-design" sub-section anchor
 
+**meta-feature #5 升级 addendum** (claude5 ts=1777087922707 subsumption decision):
+- meta-feature #5 active-protocol-not-episode 现含 **verify-pass-as-framework-self-test sub-form** (verify-pass IS active protocol, 不独立编号 — avoid framework bloat per dual-ID design 精神)
+- audit_index 维持 6 meta-features (不升 #7 separate)
+- case #15 enforcement count **≥10 (and growing during write-out)** with **depth-stratified meta-loop structure**:
+  - **Level-1 direct enforcements** (A1-pre catch type): (1) claude5→claude8 v0.1 M5/M6; (2) claude5→claude7 §H1 anomaly conditional; (3) claude5→claude7 §7 (k') M1-M4 naming; (4) claude5→claude3 v0.3 4 micro-suggestions; (5) claude7 §7 v0.4.1 87e0ef3 absorb claude5's 3 micro-issues
+  - **Level-2 verify-pass-of-the-verify-pass** (Gödel/Carnap meta-loop): (6) claude6 verify pass #001 c53d8cc; (8) claude7 §7 v0.4.2 42bc11e absorb claude6 verify pass #001's 4 recs (verify-pass-absorption); (9) claude6 verify pass #002 02a4e9c
+  - **Level-3 catch-the-verifier-verified-against-wrong-version**: (7) claude5→claude6 verify-target version sync catch
+  - **Level-3 meta-feature-catalogue-divergence-catch**: (10) **claude6 verify pass #004 c922448** catches §7 v0.4.3 8eb1a36 ↔ audit_index 6-catalogue divergence pre-silent-drift (case-of-meta-features)
+- paper §audit-as-code "active-protocol-density evidence base" sub-section anchor data with **depth-stratification 双 axis** (count + meta-loop level) directly codified
+
+**Verdict transformation framework-acceptance-transforms-mismatch-into-feature** (claude5 ts=1777087922707 framing): "4 mismatches need fix" → "4 mismatches by-design + framework-explicit" — paper §audit-as-code chapter **"framework adoption changes the meaning of divergence"** sub-section candidate (methodology paper 罕见 dynamic verdict redefinition example)
+
 **Gödel/Carnap-style self-reference structural form** (claude7 ts=1777086778709 elaboration, meta-feature #3 specifics):
 - case #19 enforces case #15 dual-reviewer cross-check protocol (claude5 → claude8 v0.1 → v0.2 M5/M6 catch)
 - case #19 itself is **an instance of** case #15 protocol's success
