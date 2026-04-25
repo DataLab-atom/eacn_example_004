@@ -326,6 +326,67 @@ def multiply_pauli_strings(
     return (total_phase, tuple(result_string))
 
 
+def multiply_pauli_ops(
+    op_a: Dict[Tuple[int, ...], complex],
+    op_b: Dict[Tuple[int, ...], complex],
+) -> Dict[Tuple[int, ...], complex]:
+    """
+    Multiply two Pauli operator dicts: A · B = sum over (s_a, s_b) of
+    a_{s_a} * b_{s_b} * phase(s_a, s_b) * P_{s_a · s_b}.
+
+    Composes multiply_pauli_strings on the cross-product of input strings.
+    Coefficients are summed when distinct (s_a, s_b) pairs produce the same
+    result Pauli string (collision summing).
+
+    Used as Step 4 prep #2 for compute_otoc2 trace evaluation:
+        OTOC^(2) = Tr(M(t) · B · M(t) · B) / 2^n
+                 = identity_coefficient(M·B·M·B)
+    where identity_coefficient extracts the (0,...,0)-Pauli coefficient.
+
+    >>> # X · X = I (single-string each side)
+    >>> multiply_pauli_ops({(1, 0): 1+0j}, {(1, 0): 1+0j})
+    {(0, 0): (1+0j)}
+    >>> # (X + Y) · X = X·X + Y·X = I + (-i Z) = I - i Z
+    >>> result = multiply_pauli_ops({(1,): 1+0j, (2,): 1+0j}, {(1,): 1+0j})
+    >>> result[(0,)]  # I coefficient
+    (1+0j)
+    >>> result[(3,)]  # Z coefficient = -i (from Y·X)
+    -1j
+    """
+    if not op_a or not op_b:
+        return {}
+    result: Dict[Tuple[int, ...], complex] = {}
+    for s_a, c_a in op_a.items():
+        for s_b, c_b in op_b.items():
+            phase, s_result = multiply_pauli_strings(s_a, s_b)
+            new_coeff = c_a * c_b * phase
+            if s_result in result:
+                result[s_result] = result[s_result] + new_coeff
+            else:
+                result[s_result] = new_coeff
+    return {k: v for k, v in result.items() if abs(v) > 1e-15}
+
+
+def identity_coefficient(
+    pauli_op: Dict[Tuple[int, ...], complex],
+    n_qubits: int,
+) -> complex:
+    """
+    Extract the coefficient of the identity Pauli string (0,...,0) from a
+    Pauli operator dict.
+
+    For a Pauli operator A = sum_s a_s P_s, this returns a_{identity}.
+    Used in compute_otoc2 since Tr(P_s) = 0 for non-I Paulis and Tr(I) = 2^n,
+    so Tr(A)/2^n = a_{identity}.
+
+    >>> identity_coefficient({(0, 0, 0): 1.5+0.5j, (1, 0, 0): 2+0j}, 3)
+    (1.5+0.5j)
+    >>> identity_coefficient({(1, 0, 0): 2+0j}, 3)  # No identity component
+    0j
+    """
+    return pauli_op.get(tuple([0] * n_qubits), 0.0 + 0j)
+
+
 def conjugate_pauli_sqrt_w(pauli_at_qubit: int) -> Dict[int, complex]:
     """
     Conjugation rule for W^(1/2) gate where W = (X + Y) / sqrt(2).
@@ -747,18 +808,48 @@ def compute_otoc2(
     M_evolved_forward: Dict[Tuple[int, ...], complex],
     B_evolved_backward: Dict[Tuple[int, ...], complex],
     grid_shape: Tuple[int, int],
-):
+) -> complex:
     """
-    Step 4. Compute OTOC^(2) = Tr(O_M(t) · O_B(0) · O_M(t) · O_B(0)) / 2^n
+    Step 4. Compute OTOC^(2) = Tr(O_M(t) · O_B · O_M(t) · O_B) / 2^n
 
-    Given evolved M and B Pauli operators (in Pauli basis), the trace
-    expression collapses to a sum of products of Pauli string overlaps.
+    For Pauli operators O_M(t) = Σ_s m_s P_s and O_B = Σ_t b_t P_t:
+    Tr(O_M · O_B · O_M · O_B) = 2^n · (identity coefficient of O_M · O_B · O_M · O_B)
+    since Tr(P_s) = 0 for non-identity P_s and Tr(I) = 2^n.
+
+    Therefore OTOC^(2) = identity_coefficient(O_M · O_B · O_M · O_B).
+
+    Parameters
+    ----------
+    M_evolved_forward : Pauli operator dict
+        M(t) = U†·M·U after Heisenberg forward evolution under circuit.
+    B_evolved_backward : Pauli operator dict
+        For the simplified OTOC^(2)(t) = Tr(M(t) B M(t) B)/2^n we use the
+        ORIGINAL B operator (no time evolution); name reflects the more
+        general OTOC^(4) variant where B may also be evolved.
+    grid_shape : (rows, cols)
+        Used to determine n_qubits = rows*cols for identity_coefficient.
 
     Returns
     -------
     otoc2_value : complex
+        Should be real for Hermitian M, B (since Tr of self-adjoint product).
+
+    Composes Step 4 prep primitives:
+      multiply_pauli_ops × 3 (M·B, then ·M, then ·B) +
+      identity_coefficient (extract (0,...,0) entry)
     """
-    raise NotImplementedError("Step 4: compute_otoc2 pending Phase 0b")
+    rows, cols = grid_shape
+    n_qubits = rows * cols
+    if not M_evolved_forward or not B_evolved_backward:
+        return 0.0 + 0j
+    # M · B
+    mb = multiply_pauli_ops(M_evolved_forward, B_evolved_backward)
+    # (M · B) · M
+    mbm = multiply_pauli_ops(mb, M_evolved_forward)
+    # (M · B · M) · B
+    mbmb = multiply_pauli_ops(mbm, B_evolved_backward)
+    # Tr(MBMB)/2^n = identity coefficient of MBMB
+    return identity_coefficient(mbmb, n_qubits)
 
 
 def compute_metrics(
