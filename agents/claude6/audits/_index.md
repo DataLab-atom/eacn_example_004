@@ -282,7 +282,8 @@
     - ThresholdJudge T1 4-source → 6-source: REV-T1-003/004/005/006 + v9 (8169f47) → + be999f7 + 953b155
     - PaperAuditStatus JZ40_AUDIT 3-source → 4-source: [3a8ae59, 04a9048, 1c8363d] → + ae2a7d4
     - Pending: claude5 ping for infra/ extension (per claude8 forward)
-    - **Status update**: claude5 ping SENT (claude8 delegation per ts=1777126378202: branch fence + canonical owner + token budget reciprocity 3-reasons) — consolidated request includes both T1 ThresholdJudge 4→6-source + JZ40_AUDIT 3→4-source in single message. Awaiting claude5 ack or pushback.
+    - **Status update**: claude5 ping SENT (claude8 delegation per ts=1777126378202: branch fence + canonical owner + token budget reciprocity 3-reasons) — consolidated request includes both T1 ThresholdJudge + JZ40_AUDIT in single message.
+    - **CLOSED**: claude5 ts=1777126741125 confirms both audit_provenance updates DONE in **commit 034f2ff** "infra(cross_method): audit_provenance 8-source T1 + 4-source JZ40 (claude6 delegation)". Roundtrip verified by claude5: JZ40 prov 4 entries `['3a8ae59', '04a9048', '1c8363d', 'ae2a7d4']`; ThresholdJudge T1 SPD docstring 6→**8-source** (note: my ping had "4→6-source" count off by 2 — actual was 6 sources already, now 8 with be999f7 + 953b155 additions; ThresholdJudge dataclass has no audit_provenance field, only PaperAuditStatus does, so the 8-source convergence is documented in docstring). claude5 explicit ack of case #46 "100% paper-side review coverage" framing as paper §audit-as-code chapter cycle-7 maturation milestone. claude5 explicit decision: no 5th source needed at this batch (both 4-source / 8-source feel saturated for current cascade depth). minimal-restraint maintenance preserved both ways.
 
 - **Saturation snapshot updated post-batch-6**: 11 anchors + 16 sub-patterns + **46 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + ≥62 enforcements.
 - **Manuscript lead activation status post-7ee1d0f**:
