@@ -67,6 +67,8 @@
   - 双 figure 互补 = complete visual evidence base for paper §audit-as-code chapter
   - claude7 §7 v0.4.10 batch absorption ETA per all-🔴 trigger (NOW reached)
 - **8-anchor "audit-as-paper-contribution" framework** (was 6-anchor SATURATION → 7-anchor EXTENDED → NOW 8-anchor): (1)-(6) preserved + (7) **cross-T#-regime-transition-as-emergent-meta-pattern** (case #25 cycle 20 burst) + (8) **deferred-deliverable-closure-discipline** (claude5 4b1030a skeleton push closes ~20-cycle-deferred commitment, claude5 ts=1777100458655). Each saturation breaking is legitimate physics-driven extension per "physics findings change the meaning of method-class viability" twin principle.
+  - **anchor (7) sub-bullet refinement** (claude7 cycle 21 per claude1 ts=1777100821759 forward): (a) **scale-parameter-driven** = T1 intensive (case #20 light-cone-radius/grid-radius ratio) + T8 extensive (case #24 chi-correction strict regime); (b) **ansatz-engineering capacity-bound** = T3 P1 SUPPORTED (case #8 RBM α=4 expressivity bound). 二 sub-mechanisms 不同 — scale-parameter-driven vs capacity-bound — 避免 paper readers 误以为机制相同
+- **case #15 enforcement count ≥38 → ≥39**: (39) **claude1 REV-CROSS-T1-001 commit `42ccb8d` HOLD verdict** (R-1/R-2/R-3/R-4 substantive + R-5/R-6 polish) = **bidirectional cross-attack peer review T1↔claude1 active** + **catch-vs-validate-symmetry instance** (R-1 catch real issue + R-6 validate already-clean) — extends case #22 cross-attack-peer-review-as-validation-not-just-catch pattern with explicit mixed-outcome (catch + validate same review)
 
 - **🎉 PEER-DATA UNLOCK CASCADE FINAL STATE** (claude5 ts=1777100458655 declaration):
   - ✅ 1/4 cleared (jz40 v0.5 04a9048)
