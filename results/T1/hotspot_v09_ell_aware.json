@@ -1,0 +1,123 @@
+{
+  "version": "v0.9",
+  "supersedes": "v0.8 (commit 05278e9) \u2014 d=8 transition zone projection at fixed w<=4 was INVALID per claude4 c9784b7 norm=0.0577 measurement",
+  "self_correction_per_REV_T1_005_v01_M_1": true,
+  "method": "\u2113-truncation-aware d-band Willow 65q projections + \u2113_required mechanism criterion + 4-field ThresholdJudge annotation",
+  "data_sources_NEW": {
+    "claude4_c9784b7": "12q LC-edge d=8 norm=0.0577 at w<=4; weight peak w=5; top-500 covers 99.2% of retained norm",
+    "claude8_1c00b92_v0.3": "\u2113_baseline 6\u21928, \u2113_stretch 10\u219212, \u2113_extreme 14+",
+    "claude7_REV_T1_005": "4fc81e8 \u2014 combined review of c9784b7 + 1c00b92, M-1 self-correction action item + M-2 w_peak \u2248 d_arm \u00d7 v_B + M-3 \u00a7D5 three-way"
+  },
+  "section_1_norm_axis_chain": {
+    "d_arm": [
+      4,
+      6,
+      8
+    ],
+    "norm_w_le_4": [
+      1.0,
+      0.966,
+      0.0577
+    ],
+    "norm_pct_captured": [
+      100.0,
+      96.6,
+      5.77
+    ],
+    "interpretation": [
+      "screening active, w<=4 sufficient",
+      "screening weakening, w<=4 marginal (3.4% miss)",
+      "screening LOST, w<=4 essentially useless (94.2% miss)"
+    ],
+    "weight_distribution_d8_peak": {
+      "w_peak": 5,
+      "n_terms_at_w_peak": 26730,
+      "interpretation": "post-screening: typical operator support migrates beyond w=4 truncation threshold"
+    }
+  },
+  "section_2_ell_required_mechanism": {
+    "formula": "ell_required(d_arm) = max(4, ceil(d_arm \u00d7 v_B + safety=2))",
+    "v_B_paper": 0.65,
+    "validation": "matches claude4 d=8 measured w=5 peak + claude8 v0.3 \u2113_baseline=8/\u2113_stretch=12"
+  },
+  "section_3_d_band_projections_v09": {
+    "d=4_robust_screening_active": {
+      "d_arm": 4,
+      "regime": "screening_active (norm\u22481.000 at \u2113=4 per claude4 d=4 baseline)",
+      "ell_required": 4,
+      "ell_status": "\u2113=4 sufficient (validated by d=4 norm=1.000)",
+      "estimated_terms_LC_edge_65q": 96,
+      "rationale": "d=4 << d_transition_center\u224811 (-7 steps inside screening); v0.7 LC-edge fit valid at \u2113=4",
+      "feasibility": "ROBUSTLY FEASIBLE at \u2113=4 (UNCHANGED from v0.8)"
+    },
+    "d=8_transition_zone_REVISED_per_REV_T1_005": {
+      "d_arm": 8,
+      "regime": "approaching transition center; w<=4 captures ONLY 5.77% norm per claude4 c9784b7",
+      "ell_required": 8,
+      "ell_status": "\u2113=8 minimum required (claude8 v0.3 \u2113_baseline; matches d_arm \u00d7 v_B + safety = 7.2)",
+      "v0_8_w_le_4_projection_INVALID": "v0.8 claimed 5k-15k terms at w<=4 \u2014 INVALID because w<=4 captures only 5.77% norm at d=8",
+      "estimated_terms_65q_at_ell_required_8": "PENDING claude4 d=8 \u2113=8 data; structure ready to ingest when available",
+      "rationale": "12q d=8 already past 12q diameter=5 transition; w-distribution peaked at w=5 \u2192 \u2113=4 insufficient. Need 65q-LC-edge-d=8-\u2113=8 measurement to project.",
+      "feasibility": "FEASIBLE BUT EXPENSIVE at \u2113=8 (NUMBER PENDING, NOT v0.8's 5k-15k at w<=4)",
+      "self_correction_note": "v0.8 INCORRECT: claimed w<=4 cost projection at d=8 without acknowledging norm=0.058 floor \u2014 REV-T1-005 v0.1 M-1 self-correction action absorbed in v0.9"
+    },
+    "d=12_borderline_per_arm_Bermejo_inference": {
+      "d_arm_real_band": [
+        10,
+        12,
+        14
+      ],
+      "d_minus_d_transition_center_band": [
+        -0.7692307692307683,
+        1.2307692307692317,
+        3.2307692307692317
+      ],
+      "ell_required_band": [
+        9,
+        10,
+        12
+      ],
+      "regime": "borderline_post_transition_under_center; \u2113 scales with d_arm",
+      "feasibility": {
+        "d_real=10": "BORDERLINE-FEASIBLE at \u2113=9 (-0.77 step screening; \u2113=9 minimum, in claude8 \u2113_stretch=12 envelope)",
+        "d_real=12": "BORDERLINE FEASIBLE at \u2113=10 (+1.23 step post-trans; \u2113=10 = claude8 v0.3 \u2113_stretch matches)",
+        "d_real=14": "POST-TRANSITION at \u2113=12 (+3.23 step; \u2113=12 = claude8 \u2113_stretch but no margin \u2192 Path B INFEASIBLE; Path C adaptive may save via empirical-circuit-specific top-K within \u2113=12 budget)"
+      },
+      "rationale": "per-arm d=12 itself is Bermejo PEPS-bond inference (NOT verbatim quote); each d_real has its own \u2113_required"
+    }
+  },
+  "section_4_sensitivity_matrix_with_ell_required": {
+    "d_real=10": {
+      "ell_required": 9,
+      "delta_center": -0.7692307692307683,
+      "delta_corner": -11.538461538461537,
+      "verdict_center_geometry": "borderline (Path C adaptive helps)"
+    },
+    "d_real=12": {
+      "ell_required": 10,
+      "delta_center": 1.2307692307692317,
+      "delta_corner": -9.538461538461537,
+      "verdict_center_geometry": "post-trans (Path B INFEASIBLE if \u2113_avail<10)"
+    },
+    "d_real=14": {
+      "ell_required": 12,
+      "delta_center": 3.2307692307692317,
+      "delta_corner": -7.5384615384615365,
+      "verdict_center_geometry": "post-trans (Path B INFEASIBLE if \u2113_avail<12)"
+    }
+  },
+  "section_5_threshold_judge_4field_annotation": {
+    "d_arm": 12,
+    "v_B_empirical": 0.65,
+    "M_B_geometry": "LC-edge",
+    "ell_required_derived": 10,
+    "screening_active_check": "screening_active(d_arm=12, v_B=0.65, M_B='LC-edge', diameter=14) = (12 * 0.65 = 7.8) < (14/2 = 7) = FALSE \u2192 post-transition by 0.8 step",
+    "ell_required_check": "ell_required(d_arm=12, v_B=0.65, safety=2) = ceil(12 * 0.65 + 2) = ceil(9.8) = 10 (matches claude8 v0.3 \u2113_stretch=10 for d=12)",
+    "compile_time_H4_compliance_v09": "any \u00a7R5/\u00a7A5 quantitative claim must declare d_arm + v_B_empirical + M_B_geometry + ell_required_used (was 3 fields in v0.8; ell_required_used added per REV-T1-005 v0.1 M-1 self-correction)"
+  },
+  "section_6_paper_section_pointers": {
+    "\u00a7A5_v04_recommended_addition": "Four-axis convergent phase-transition signal (terms \u00d7 hot% \u00d7 top-K \u00d7 norm-at-fixed-\u2113) + \u2113_required \u2248 d_arm \u00d7 v_B + safety mechanism criterion + Path A/B/C three-way distinction (Path A wall / Path B discrete-\u2113 revision / Path C smooth-\u2113-scales-with-d_arm via mechanism)",
+    "\u00a77_5_case_20_5source_convergence_candidate": "claude4 54216cd + c9784b7 + claude7 654e0b2 + 30fc200 + 4fc81e8 + claude8 e08334f + 1269b4d + 1c00b92 + claude7 Path C v0.8 05278e9 + v0.9 (this file) = 5-source paper-grade convergence"
+  },
+  "self_correction_disclosure": "v0.8 (commit 05278e9) claim 'd=8 transition zone: 5,000-15,000 terms at w<=4' was INVALID because w<=4 truncation captures only 5.77% of operator norm at d=8 (claude4 c9784b7 measurement, 2026-04-25). v0.9 absorbs this by introducing \u2113_required as an explicit mandatory field; 7th reviewer self-correction (NEXT after the 7 catalogued in \u00a77.5 v0.4.9 \u2014 could be added as 8th by future \u00a77.5 update). Honors \u00a7H1 honest scope discipline: every cost projection now has explicit \u2113-truncation context."
+}
