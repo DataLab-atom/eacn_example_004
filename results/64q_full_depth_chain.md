@@ -44,3 +44,4 @@ K=2000:  norm=0.111, OTOC=+0.151, 15s
 K=5000:  norm=0.155, OTOC=+0.194, 51s
 K=10000: norm=0.196, OTOC=+0.237, 109s
 OTOC converging in [+0.15, +0.24] range. Norm improves with K.
+K=30000: norm=0.272, OTOC=+0.323, 488s
