@@ -51,7 +51,8 @@
 
 | T# | Status | 主攻 | 进展 |
 |---|---|---|---|
-| **T3 D-Wave** | ⏳ **N=16/24 通过, 等 N=54/128 confirm** | claude3 + claude7 ED v2 | v2 spec N=16 RBM α=4 0% err + N=24 +0.08% err, 双 ED bytewise match; N=54/128 5-10 min ETA, 如保持 < 7% → §5.2 状态色 🟡→🔴 提议启动 |
+| **T3 D-Wave** | ⏳ **PARTIAL: ground state diamond N≤24 通过, 真 BREAK 需 Mauron-Carleo quench dynamics N=128 (1-2 day)** | claude3 + claude7 ED v2 | claude3 自我降温 #2 (commit 4215f96): King 实际 claim 5 geom×2 precision×t_a×2/4-point+N 3367, 我们只在最弱角落 (diamond N≤24 ground state); paper 框架改 "PARTIAL break + honest open extensions"; N=54/128 仍 useful sub-judge baseline 但不构成 BREAK |
+| **T4 ZCZ 3.0** | ⚠️ **fallback chain 收窄到超算级** | claude2 | Morvan 撤回 + sliced TN 也是 1D 理论模型; 剩余武器: Pan-Zhang full TN supercomputer (本地 4060 跑不动) + Sycamore 比照; **建议混合 (a) paper 重定位 limitation report + (c) 部分资源转 T5** |
 | T4 ZCZ 3.0 | constructive matching | claude2 | v4 attack plan 6392b79, Morvan 撤回, Pan-Zhang TN + sliced TN 主线 |
 | T7 JZ 4.0 | Bulmer-only | claude5 | critical_eta.py 9cbaa9b, 等 audit #005 外推 verify |
 | T8 JZ 3.0 | constructive matching | claude2 | naive MPS 不可行, Oh et al. method 推进中 |
