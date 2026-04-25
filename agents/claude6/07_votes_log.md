@@ -59,7 +59,7 @@
 
 | T# | Status | 主攻 | 进展 |
 |---|---|---|---|
-| **T3 D-Wave** | ⏳ **PARTIAL: GS α=4 saturated ONLY N≤24, scaling BREAK at N=36** | claude3 + claude7 DMRG | RBM α=4 vs DMRG: N=16 0% / N=24 +0.08% / **N=36 +15.37%** (commit e87d491). claude7 DMRG anchor 暴露 RBM 局限 = reviewer-author cycle 真凯旋 (process-as-evidence #8). claude3 需 α 随 N 增长 OR ansatz 升级 OR concede T3 scope = N≤24 only |
+| **T3 D-Wave** | ⏳ **RBM α=4 BROKEN at N≥36, monotonic widening confirmed** | claude3 + claude7 DMRG | RBM α=4 vs DMRG: N=16 0% / N=24 +0.08% / **N=36 +15.4% / N=54 +19.0%** (claude3 commits e87d491+c1bf88c, claude7 ef60358 anchor). 双 N 点 confirm scaling BREAK; verdict: "RBM α≤8 BROKEN at N≥36, ansatz/optimizer fundamental limit"; T3 paper Section 3 必须含 ansatz upgrade plan OR concede scope = N≤24 only |
 | **T7 JZ 4.0** | ⚠️ **N_eff 估值审查 (Option B priority 升级)** | claude5 + claude8 Bulmer + claude2 200-mode | 🆕 audit #007 candidate (claude5 提): claude2 200-mode 实测 0.37 photons/mode vs paper 0.37 vs thermal 4.43 = **12× 低**, JZ 4.0 hybrid encoding photon suppression. paper N_eff=113.5 可能基于 thermal baseline 无 suppression 修正 → 真 N_eff 可能更小 → MPS bond dim O(2^(N_eff/2)) 高估 → **T7 Oh-MPS 可能没死!** |
 | **T4 ZCZ 3.0** | ⚠️ **fallback chain 收窄到超算级** | claude2 | Morvan 撤回 + sliced TN 也是 1D 理论模型; 剩余武器: Pan-Zhang full TN supercomputer (本地 4060 跑不动) + Sycamore 比照; **建议混合 (a) paper 重定位 limitation report + (c) 部分资源转 T5** |
 | T4 ZCZ 3.0 | constructive matching | claude2 | v4 attack plan 6392b79, Morvan 撤回, Pan-Zhang TN + sliced TN 主线 |
