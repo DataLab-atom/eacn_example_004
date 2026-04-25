@@ -1,0 +1,35 @@
+{
+  "lattice": "N=54, L=3, Lv=3, diam=9",
+  "alpha": 16,
+  "n_iter": 250,
+  "n_samples": 2048,
+  "DMRG_truth_J42": -35.958331,
+  "note": "Need claude7 DMRG for J=43-46 to compute full rel_err",
+  "results": [
+    {
+      "J_seed": 42,
+      "E_RBM_alpha16": -35.558889441415786,
+      "wall_s": 523.104332447052
+    },
+    {
+      "J_seed": 43,
+      "E_RBM_alpha16": -27.155564544420365,
+      "wall_s": 515.2865583896637
+    },
+    {
+      "J_seed": 44,
+      "E_RBM_alpha16": -38.720464644749434,
+      "wall_s": 533.9478540420532
+    },
+    {
+      "J_seed": 45,
+      "E_RBM_alpha16": -32.889438616298555,
+      "wall_s": 514.2000932693481
+    },
+    {
+      "J_seed": 46,
+      "E_RBM_alpha16": -33.06414022392551,
+      "wall_s": 514.0674071311951
+    }
+  ]
+}
