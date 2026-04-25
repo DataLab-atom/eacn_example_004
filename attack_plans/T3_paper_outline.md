@@ -1,4 +1,4 @@
-# T3 Paper Outline v0.3
+# T3 Paper Outline v0.3.1
 
 **Working title**: *Mapping a Classical-Approximation Boundary on the 3D Diamond Spin Glass: An RBM Case Study*
 
@@ -183,11 +183,12 @@ enough that a 30-seed extension (for supplementary material)
 would tighten the bound substantially; this is left to §future
 work.
 
-**3.5 α-scan at N=36 rules out simple capacity** — RBM at α=8,
-n_iter=300, n_samples=2048 on the same v2 N=36 Hamiltonian
-gives E = -23.383 (rel_err = +15.86%). Increasing capacity
-from α=4 to α=8 does not recover the gap; the wall is not a
-simple capacity overflow.
+**3.5 α-scan at N=36** — RBM at α=8, n_iter=300, n_samples=2048
+on the same v2 N=36 Hamiltonian gives E = -23.383 (rel_err =
++15.86%). Increasing α from 4 to 8 does not recover the wall on
+this single N=36 data point; a more complete α × N scan would be
+needed to formally rule out a capacity ceiling, but on the
+evidence presented here, the α-doubling does not close the gap.
 
 **3.6 Wall-clock vs accuracy** — On the same v2 spec, RBM α=4
 wall-clock scales as T(N) ~ N^{2.30} (commit c1bf88c: N=16 →
@@ -230,10 +231,13 @@ this picture — the cliff is not monotonic.
 **H4 (Lattice diameter exceeds RBM receptive field) — SUPPORTED**.
 The RBM's effective receptive field is bounded above by the
 layer-1 hidden-visible coupling structure (Carleo & Troyer 2017,
-Sharir et al. 2020). At α=4 we observe break at diameter 5 and
-fail at diameter ≥ 6, consistent with a receptive-field cap of
-~5 graph hops. The L_vert 3→4 transition at L_perp=2 shifts
-diameter from 5 to 6 in a single step and triggers the wall.
+Sharir et al. 2020; the precise mapping from α to a number of
+graph hops is open future work). At α=4 we observe break at
+diameter 5 and fail at diameter ≥ 6, consistent with the
+diameter-5 boundary lying within the receptive field of an α=4
+RBM and the diameter ≥ 6 lattice exceeding it. The L_vert 3→4
+transition at L_perp=2 shifts the diameter from 5 to 6 in a
+single discrete step and triggers the wall.
 
 **Distributional-bistable-pocket finding (within H4)** — N=48
 (L_perp=2, L_vert=6, diameter=8) is a *bistable pocket*:
@@ -377,7 +381,7 @@ ThresholdJudge(
         "diamond_GS_N=48": "PARTIAL_BISTABLE",  # 60% break, 40% fail
         "diamond_GS_N=54": "FAIL",
         "diamond_GS_N=72": "FAIL",
-        "diamond_GS_N=128": "EXTRAPOLATION_NOT_TESTED",
+        "diamond_GS_N=128": "NOT_TESTED_BEYOND_DMRG_RANGE",
         "diamond_dynamics_*": "API_VERIFIED_NOT_TESTED",
         "geometry_2D_square": "NOT_TESTED",
         "geometry_3D_dimerized_cubic": "NOT_TESTED",
