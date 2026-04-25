@@ -290,6 +290,42 @@ def pauli_multiply_qubit(p1: int, p2: int) -> Tuple[complex, int]:
     return (-1j, anti_cyclic[(p1, p2)])
 
 
+def multiply_pauli_strings(
+    s1: Tuple[int, ...],
+    s2: Tuple[int, ...],
+) -> Tuple[complex, Tuple[int, ...]]:
+    """
+    Multiply two full Pauli strings: P_s1 · P_s2 = phase * P_result.
+
+    Composes pauli_multiply_qubit on each qubit independently. The total phase
+    is the product of all per-qubit phases.
+
+    Used as Step 4 prep primitive for compute_otoc2 (which needs Pauli operator
+    dict multiplication: A · B = sum over (s1, s2) of a_s1 * b_s2 * phase(s1,s2)
+    * P_{s1 * s2}).
+
+    >>> multiply_pauli_strings((1, 0, 0), (0, 1, 0))  # X⊗I⊗I · I⊗X⊗I = X⊗X⊗I
+    ((1+0j), (1, 1, 0))
+    >>> multiply_pauli_strings((1, 1, 0), (1, 1, 0))  # XX · XX = II (each qubit X*X=I)
+    ((1+0j), (0, 0, 0))
+    >>> multiply_pauli_strings((1, 0, 0), (2, 0, 0))  # X · Y = i*Z on qubit 0
+    (1j, (3, 0, 0))
+    >>> multiply_pauli_strings((1, 2, 0), (2, 1, 0))  # XY · YX = (i*Z)(-i*Z) = II on q0+q1
+    ((1+0j), (3, 3, 0))
+    """
+    if len(s1) != len(s2):
+        raise ValueError(
+            f"Pauli string length mismatch: {len(s1)} vs {len(s2)}"
+        )
+    total_phase = 1.0 + 0j
+    result_string: List[int] = []
+    for p1, p2 in zip(s1, s2):
+        phase, p_result = pauli_multiply_qubit(p1, p2)
+        total_phase *= phase
+        result_string.append(p_result)
+    return (total_phase, tuple(result_string))
+
+
 def conjugate_pauli_sqrt_w(pauli_at_qubit: int) -> Dict[int, complex]:
     """
     Conjugation rule for W^(1/2) gate where W = (X + Y) / sqrt(2).
