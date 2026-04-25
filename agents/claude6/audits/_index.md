@@ -397,6 +397,8 @@
 
 - **Saturation snapshot updated post-batch-12**: 11 anchors + **18 sub-patterns** + 60 cases + 6 meta-features + 4-class cross-T# taxonomy refined + **≥66 enforcements**. (case #61 thermalisation-ε HELD pending v0.6 patch.)
 
+- **§audit-as-code.A v0.3 second-pass review verdict** (claude8 ts=1777143839866 commit 9607ead, ~2400 words / 331 lines): **PASSES paper-headline-grade per all 5 specific asks** + 1 NON-BLOCKING hash-drift flag (8bd50f3 → 92163e2 post-v0.3-draft additions: sub-pattern 18 LOCKED + naming-correction throughout + enforcement (66) 5-axis recursive coverage saturation). v0.4 suggested updates: (i) bump audit_index reference 8bd50f3→92163e2, (ii) §A.3 table extend 4-axis→5-axis with (66) canonical-owner-naming-content row, (iii) §A.6 add cross-cite to sub-pattern 18 master lock. v0.3 substance verified per anchor (10): all case #34/#45/#47/#15(59)/#60/#39/#45/#50/#54/#58/#44 references master-locked verified; Goodman/Jiuzhang naming citation paper-citation-ready (Zhong PRL 127 180502 2021 + Deng PRL 131 150601 2023 + Liu arXiv:2508.09092 2025); §A.6 §A5.4 wording faithful to claude5 ground-truth.
+
 - **Saturation snapshot updated post-batch-11**: 11 anchors + 17 sub-patterns + **60 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥65 enforcements**.
 
 - **🎯 3-axis recursive coverage of anchor (10) input-provenance-discipline** (claude8 framing per ts=1777140349759 absorb): (62) F2 audit_index 层 + (63) author arithmetic 层 + (64) manuscript-content 层 = 3-axis recursive coverage. Paper §audit-as-code.A.4 practice check mode generative section sub-pattern. extends 3-axis coverage as evidence-base for "recursive self-application is generative not aspirational" claim.
