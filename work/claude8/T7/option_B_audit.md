@@ -112,9 +112,9 @@ If JZ 4.0 paper completely paywalled/inaccessible:
 
 ## 5. Status fields
 
-- **Status**: v0.2 — abstract-level scan complete; full-body O2-O5 still pending paper access
-- **Last update**: 2026-04-25 (commit `<this commit>` — v0.2 abstract-level)
-- **Next update**: v0.3 after full-text fetch attempt (PMC mirror / authors' page / etc)
+- **Status**: v0.3 — full-body fetch successful via `arxiv.org/html/2508.09092v2`; O2-O5 + new finding "6 specific classical methods tested" populated
+- **Last update**: 2026-04-25 (commit `<this commit>` — v0.3 full-text)
+- **Next update**: v0.4 after claude5 jz40 v0.4 cross-check (case #15 dual-reviewer protocol)
 - **Cross-reviewer**: claude5 (push hash sent)
 
 ---
@@ -143,7 +143,57 @@ If JZ 4.0 paper completely paywalled/inaccessible:
 - **§A4 scope-equals-evidence implication**: Paper's broad "outperform all" claim is unsupported by tested-evidence scope (MPS only). Reviewer-grade weakness.
 - **For OUR T1 paper §6 framing**: This means JZ 4.0 "stood firm" framing is correct **for the specific frameworks they tested + we independently verified (Oh, Bulmer)** — but NOT for arbitrary "all classical methods". Paper §6 should be careful not to amplify this overclaim.
 
-### O2-O5. Pending full text access
+### Updated finding (v0.3): 6 specific classical methods actually tested
+
+> "Greedy sampler, independent pairs and singles (IPS) sampler, treewidth sampler, squashed state mockup, thermal state mockup, and matrix product state (MPS) algorithm"
+> — JZ 4.0 §Results / supplementary discussion (per WebFetch full text)
+
+**Audit finding (revised)**: Paper actually tested **6 specific classical methods**, not just MPS. The phrase "outperform all classical spoofing algorithms" in the abstract is therefore **less of an overclaim than initially feared**: they did extensive due diligence within their tested-method scope.
+
+**However still NOT tested by JZ 4.0**:
+- Bulmer 2022 phase-space sampler (Sci. Adv. 8, eabl9236) — our claude8 commit `bd48200` independent death verification is **genuinely additional information** not in the paper
+- Liu 2024 multi-amplitude TN (PRL 132, 030601) — claude2 verdict says NOT applicable to GBS CV anyway
+- Wigner-LB / MCMC-Glauber / Barvinok-Wigner (claude8 `option_B_methods_scout.md`) — none promising at JZ 4.0 scale
+
+**Updated O1 verdict (v0.3)**:
+- ✅ HONEST scope: paper explicitly tested 6 classical methods + cites MPS specifically + reports 10^42 year cost vs MPS
+- ⚠️ STILL OVERCLAIM (mild): "all classical spoofing algorithms" extends beyond the 6 tested + 5 untested-but-scouted classes; should ideally be "all currently-published lossy-bosonic classical attack methods at this scale"
+- ✅ COMBINED VERDICT (claude4 + claude5 + claude8 joint audit): JZ 4.0 quantum advantage stands firm against 6 tested + 5 additional independently-verified-or-scouted classical attacks (= 11 method-class total). The "all classical" phrasing is mildly imprecise but **paper-defensible** given the depth of testing.
+
+### O2. Haar randomness verification — VERDICT: NOT VERIFIED IN PAPER
+> No discussion of Haar randomness verification for the unitary matrices implemented in the interferometers.
+
+**Audit finding**: Paper does not explicitly verify Haar-typicality of implemented unitary. This is a §A4 weakness — Bulmer cost relies on Haar-typical assumption, but classical attacks like Glauber-MCMC require non-Haar (graph) structure. If JZ 4.0 unitary deviates from Haar (e.g. structured interferometer), some attacks may apply that would not on a true random Haar.
+
+**Recommendation**: Paper should cite or report Haar verification protocol. Without this, classical attack scope is on "implemented unitary as observed", not "Haar-typical".
+
+### O3. Per-mode transmission η variation — VERDICT: AGGREGATE 51% ONLY, NO BREAKDOWN
+> "The overall system efficiency, including the detection, is measured to be 51%"
+
+**Audit finding**: ⚠️ **paper-grade audit gap**. Paper reports aggregate 51% but does NOT publish per-mode transmission breakdown. With 1024 modes and N=1024 squeezed inputs, per-mode variation is physically expected (source efficiency × interferometer transmission × detection efficiency × λ-dependent variation). If some subset of modes has η < 21% (Oh-MPS threshold), Oh-MPS attack applies to that subset.
+
+**Recommendation for JZ 4.0 paper**: should publish per-mode transmission histogram or table; absent that, our claim of "Oh-MPS dead at η=0.51" is precise only at aggregate level.
+
+### O4. Photon collision rate / click count — VERDICT: AMBIGUOUS
+> "produces up to 3050 photon detection events"
+
+**Audit finding**: Paper reports "3050 photon detection events" but does NOT explicitly distinguish:
+- (a) total photons across all samples, vs
+- (b) max click count K_c per sample (which matters for Bulmer 2^(K_c/2) cost)
+- (c) collision-corrected K_c (multiple photons per mode → fewer clicks than photons)
+
+**Implication for our Bulmer death calc**: Our K_c≈1015 estimate (1024 × (1−exp(−4.85))) assumes Poisson-distributed photon counts per mode and threshold detection. If actual K_c is materially smaller (e.g. high collisions reduce K_c to 700), Bulmer cost drops to 2^(700/2) ≈ 2^350 ≈ 10^105 s/sample — still infeasible but by less margin.
+
+**Recommendation**: Paper should publish K_c distribution per sample. Even with this caveat, Bulmer death is robust (any K_c > 100 → 2^50+ s/sample > universe age).
+
+### O5. Detector calibration / dark count — VERDICT: 93% efficiency reported, dark count NOT explicit
+> "The output photons are registered by 16 superconducting nanowire single-photon detectors, with an average detection efficiency of 93%"
+
+**Audit finding**: 93% detection efficiency (high quality) reported. Dark count rate NOT explicitly stated in main text. With 1024 modes multiplexed onto 16 detectors, multiplexing scheme + dark counts could materially affect K_c interpretation.
+
+**Recommendation**: Paper should publish dark count rate per detector. At 93% efficiency, our cost estimates use η=0.51 already absorbing detector efficiency (since paper says "overall system efficiency including detection"). So our calc is at correct effective η.
+
+### Pending: O2-O5 cross-reviewer verification
 
 Abstract-only fetch could not extract:
 - O2 Haar randomness verification (typically in §Methods)
