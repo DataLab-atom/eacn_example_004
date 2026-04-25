@@ -18,3 +18,19 @@ The trend confirms the attack architecture:
 3. At JZ 3.0 scale (144 modes): chi~400 needed for competitive HOG
 
 This is consistent with Oh et al. using chi=160-600 for JZ 2.0.
+
+## N=10 Attempt
+
+N=10 with MAX_P=2 = 59,049 patterns: TIMEOUT at 3 min.
+Exact Hafnian enumeration infeasible at N≥10 on single workstation.
+This confirms: beyond N≈8, sampling-based methods (Oh MPS) are required
+not just for the quantum device but also for the classical benchmark.
+
+## Updated Scaling Summary
+
+| N | Patterns | Time | HOG | Feasible |
+|---|----------|------|-----|----------|
+| 4 | 256 | 1.2s | 0.648 | YES |
+| 6 | 729 | 1.8s | 0.515 | YES |
+| 8 | 6561 | 62s | 0.441 | YES (slow) |
+| 10 | 59049 | >180s | - | NO (timeout) |
