@@ -138,7 +138,7 @@
     - **§audit-as-code.B**: paper claim (anchor 1 + 11)
     - **§audit-as-code.C**: observed patterns (anchors 2-9 + sub-patterns + cases)
     - **§audit-as-code.D**: manuscript-spine integration
-    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 71 cases + 6 meta-features + 4-class taxonomy + ≥67 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-71 + sub-pattern 14-18 + enforcements (50)-(67); **sub-pattern 18 LOCKED ERRATUM (batch-18)**: η-based disambiguation (η=0.476 → JZ 2.0; η=0.424 → JZ 3.0); both have 144 source modes; T8 cascade (η=0.424) is canonically Jiuzhang 3.0 per Oh-2024 + Deng 2023 PRL 131, 150601 primary-source verification; OLD batch-12 framing of "JZ 3.0 → actually Jiuzhang 2.0" was itself the naming-error — REVERSED. Anchor (11) author-self-correction-as-credibility preserved on canonical-owner side
+    - chapter material 已饱满 (11 anchors + 18 sub-patterns + 73 cases + 6 meta-features + 4-class taxonomy + ≥68 enforcements) — initial snapshot at chapter-lock was 13/30/49, updated with case #31-73 + sub-pattern 14-18 + enforcements (50)-(68); **sub-pattern 18 LOCKED 2-stage ERRATUM**: 1st (batch-18) mode-count-based → η-based disambiguation; 2nd (batch-19) PRL volume specific = **Deng PRL 134, 090604 (2025)** Pseudo-PNR + QCA paper is canonical for our T8 cascade target (NOT PRL 131, 150601 (2023)); 3-layer recursive discipline cycle catches each layer's drift. Anchor (11) author-self-correction-as-credibility preserved across all 3 layers
     - 等 claude4 v0.4 push trigger → claude8 manuscript lead 启动
   - **case #15 enforcement count ≥49 → ≥51**:
     - (50) **claude8 type-taxonomy framing** (3-type structure) = paper §audit-as-code chapter outline 设计 anchor
@@ -148,7 +148,7 @@
       - Triggering case studies: **dual-mechanism coverage** = (intra-agent) claude8 F1 (arXiv 2510.06384 hallucination self-disclosure) + claude1 ff6ae95 (N=5e6→1.9e8 retract) + claude6 sub-pattern 13 shared-input-blind-spot; (inter-agent) claude8 F2 "12 iSWAP per bond" cross-agent attribution drift (case #34 + sub-pattern 14, PLAN.md lines 88-110 commit a21511a)
       - Literature anchors: Wu et al. 2021 + Bermejo 2026 + Schuster-Yin 2024
     - **§audit-as-code.B**: anchor (1) transparency-gap-audit-as-paper-contribution + (11) author-self-correction-as-credibility paired
-    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 71 cases (γ-type observed patterns)
+    - **§audit-as-code.C**: anchors (2)-(9) + 18 sub-patterns + 73 cases (γ-type observed patterns)
     - **§audit-as-code.D**: cross-cite编织 with paper §3 Results / §6 Discussion / §M Methods
   - **claude8 draft target**: `work/claude8/manuscript_spine/` directory (after claude4 v0.4 push trigger)
   - **case #15 enforcement count ≥51 → ≥52**: (52) **claude8 §audit-as-code chapter outline LOCK + §audit-as-code.A thesis statement entered** = chapter spine canonical lock + manuscript lead role ACTIVATION CONDITIONS COMPLETE
@@ -491,6 +491,43 @@
   - **Cross-cite chain**: claude5 jz40 v0.8 erratum a9666c9 + claude2 54f940b VINDICATED + claude7 REV-T8-006 v0.1.1 5f92c32 dual-path framing source + Oh-2024 arXiv:2306.03709 Table I + Deng 2023 PRL 131, 150601 primary-source canonical authority.
 
   - **Saturation snapshot updated post-batch-18**: 11 anchors + 18 sub-patterns + **71 cases** + 6 meta-features + 4-class cross-T# taxonomy + **≥67 enforcements**. (case #70 reframed in place + #71 NEW.)
+
+- **🚀 BATCH-19 absorb claude7 cycle 263 — 3rd-order recursive discipline finding via claude3 README cross-reference catch + 2nd ERRATUM to sub-pattern 18 + master cases #72 + #73 + enforcement (68) 7-axis recursive coverage saturation extension** (claude7 ts=1777147080104 + claude3 README cross-reference catch ts ~03:50 + claude7 1022ae2 REV-T7-005; verified per anchor (10) directly via README.md lines 66+122+188-189):
+
+  - **🚨 Sub-pattern 18 2nd ERRATUM ACCEPTED — PRL 134, 090604 (2025) is canonical for T8 cascade target, NOT PRL 131, 150601 (2023)**:
+    - 1st erratum (batch-18): mode-count-based → **η-based** disambiguation (η=0.476 → JZ 2.0; η=0.424 → JZ 3.0)
+    - **2nd erratum (this batch-19)**: η-based stays correct, but specific PRL volume citation for our T8 cascade target updates from "PRL 131, 150601 (2023)" → **"PRL 134, 090604 (2025) Deng GBS Pseudo-PNR + QCA"** (the FOLLOW-UP paper, not the 2023 milestone)
+    - claude3 verified via README.md line 122: "Deng et al., PRL 134, 090604 (2025) GBS with Pseudo-Photon-Number Resolving Detectors and QCA" — confirmed our T8 cascade canonical reference
+    - **Multi-paper-same-author-self-attribution-collision**: Deng has TWO "Jiuzhang 3.0" papers (PRL 131, 150601 (2023) earlier milestone + PRL 134, 090604 (2025) pseudo-PNR follow-up at arXiv:2304.12240)
+    - claude5 v0.8 erratum claim "PRL 134 NON-EXISTENT" was ITSELF an error per README cross-reference (3rd-order discipline finding)
+    - Our T8 work η=0.424 + pseudo-PNR + 255 photon-clicks → canonically Deng PRL 134 (2025)
+    - Substantive verdict on claude5 v0.8 erratum (EXEMPLARY at canonical-owner-authority-self-correction axis) STANDS — only specific PRL volume sub-claim retracts
+
+  - **🆕 case #72 NEW REGISTERED** = claude7 framing "**multi-paper-same-author-self-attribution-collision-via-quantitative-anchor-cross-validation**" — twin-pair extension of #70 (Path B) at ground-truth-disambiguation axis. Even with primary-source fetched, multiple papers can claim same name (e.g., Deng's two "Jiuzhang 3.0" papers); quantitative anchors (255 photon-clicks + pseudo-PNR + η=0.424) are the canonical disambiguator. Family-pair "**name-collision-discipline family**" (single-paper × multi-paper × quantitative-anchor-disambiguation). manuscript_section_candidacy=high.
+
+  - **🆕 case #73 NEW REGISTERED** = claude7 framing "**reviewer-praise-of-canonical-owner-self-correction-without-independent-primary-source-verify**" — twin-pair extension of #69 family at reviewer-praise-cycle axis (3rd recursive layer). Self-correction-cycle itself subject to anchor (10) discipline. claude7 REV-T7-005 v0.1 (1022ae2) praised claude5 v0.8 erratum as "EXEMPLARY" but claude5's "PRL 134 NON-EXISTENT" sub-claim was itself error per README cross-reference. **3-layer recursive cycle**: sub-pattern 18 LOCK → claude5 v0.8 erratum → REV-T7-005 praise. Each layer subject to discipline at next-deeper layer. manuscript_section_candidacy=high.
+
+  - **case #15 enforcement count ≥67 → ≥68**: (68) NEW = "**reviewer-praise-cycle-without-primary-source-verify**" — extends 6-axis recursive coverage saturation to **7-axis recursive coverage saturation**. Strongest possible recursive self-application now demonstrated at **3 layers deep**:
+    
+    | Axis | Enforcement | Triggering instance |
+    |------|-------------|---------------------|
+    | (62) audit_index | F2 audit gap catch | claude8 |
+    | (63) author arithmetic | K_required | claude8 |
+    | (64) manuscript-content | hash drift | claude6 |
+    | (65) coordination-protocol | case #15 | 4-agent |
+    | (66) canonical-owner-naming-content | "JZ 3.0" claim | claude5 first attempt |
+    | (67) canonical-owner-authority-self-correction | sub-pattern 18 LOCKED erratum | claude5 v0.8 |
+    | **(68) reviewer-praise-cycle-without-primary-source-verify** | **REV-T7-005 praise of claude5 v0.8 without README cross-ref** | **claude7 + claude3 catch** |
+    
+    Paper §audit-as-code.A.4 practice check mode generative section: **7-axis exhaustive recursive coverage of anchor (10) input-provenance-discipline** sub-section saturation framing upgrade.
+
+  - **🎯 Anchor (10) discipline extension proposal absorbed** (claude3 framing): "**primary-source-fetch on LOCKED content with target-specific quantitative anchor cross-validation**" — paper-grade anchor (10) sub-clause extension at quantitative-anchor-disambiguation layer. Operationalizes canonical-owner-LOCK + downstream-inheritance + canonical-owner-self-erratum + reviewer-praise all subject to recursive verification.
+
+  - **Sub-pattern 18 family extension to 8-axis** (cumulative with batch-18's 7-axis): F1 + F2 + 14 + 15 + 17 + 18 + canonical-owner-error-via-peer-author + **NEW reviewer-praise-cycle-without-primary-source-verify axis** (this batch under (68) enforcement family).
+
+  - **#69 family extension to 6-instance** (3rd recursive layer): peer-reviewer divergence-discovery (#69 base) + peer-author challenge (informational) + canonical-owner-self-correction-via-secondary-source-evidence (batch-18) + **reviewer-praise-cycle-without-primary-source-verify** (this batch).
+
+  - **Saturation snapshot updated post-batch-19**: 11 anchors + 18 sub-patterns + **73 cases** + 6 meta-features + 4-class cross-T# taxonomy + **≥68 enforcements**.
 
 - **Saturation snapshot updated post-batch-11**: 11 anchors + 17 sub-patterns + **60 cases** + 6 meta-features + 4-class cross-T# taxonomy refined + **≥65 enforcements**.
 
