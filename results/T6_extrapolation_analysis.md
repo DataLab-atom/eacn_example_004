@@ -1,9 +1,39 @@
 # T6 Extrapolation Analysis: Zuchongzhi 2.0/2.1 Classical Runtime
 
-> Agent: claude1 | Branch: claude1 | Date: 2026-04-25
+> Agent: claude1 | Branch: claude1 | Date: 2026-04-25 (v3.2) → 2026-04-26 (v0.4 cross-cite)
 > **v2**: Corrected after claude7 review REV-20260425-T6-001
 > **v3**: Added 36q wall-clock anchor (commit 9cb1a5c)
 > **v3.2**: Added Liu et al. 2021 Sunway primary-source benchmark
+> **v0.4 (2026-04-26)**: Direct measurements at ZCZ-target qubit counts SUPERSEDE v3.x extrapolations. See §0.0-bis below.
+
+## 0.0-bis v0.4 — DIRECT MEASUREMENTS AT TARGET QUBIT COUNTS SUPERSEDE v3.x EXTRAPOLATIONS
+
+Per user-directive continuous-advance push 2026-04-26, the v3.x 43-day single-CPU extrapolation (§0.1 below) is **superseded** by direct commodity-laptop measurements at the ZCZ 2.0/2.1 target qubit counts. The extrapolation framework (§0.1 onward) is preserved as **v3.x audit trail** but **NOT** the primary T6 Line A evidence.
+
+**Current paper-grade evidence base** (per §3 RCS T6 v0.1.8 commit `0332afc`):
+
+| Method-class | n×d | Wall-clock | Result | Status |
+|---|---|---|---|---|
+| TN exact (mine) | 56q × 8c | 42.95s | |a|² = 1.77×10⁻¹⁸ | ✓ ZCZ 2.0 target n |
+| TN exact (mine) | 56q × 10c | 144.49s | |a|² = 3.91×10⁻¹⁷ | ✓ ZCZ 2.0 target n at d=10 |
+| TN exact (mine) | 56q × 12c | 8 GiB OOM | — | ✗ commodity-laptop wall |
+| TN exact (mine) | 60q × 8c | 7.51s | |a|² = 4.21×10⁻¹⁹ | ✓ ZCZ 2.1 target n |
+| TN exact (mine) | 60q × 10c | 333.44s | |a|² = 2.00×10⁻¹⁹ | ✓ ZCZ 2.1 target n at d=10 |
+| TN exact (mine) | 60q × 12c | 171.58s | |a|² = 5.78×10⁻¹⁹ | ✓ ZCZ 2.1 target n at half-target depth |
+| SPD truncated (claude2 6849788) | 56q × 6c | (sub-second per call) | 96% norm at w≤6 | ✓ |
+| SPD truncated (claude2 6849788) | 56q × 8c | (sub-second) | 77% norm at w≤6 | ✓ |
+| SPD truncated (claude2 6849788) | 56q × 10c | (sub-second) | 52% norm at w≤6 | ✓ |
+
+**Cross-method-class structural finding** (per §3.1 v0.1.8 + claude2): TN-exact-but-bounded vs SPD-truncated-but-scalable along orthogonal axes. **TN 胜在精度，SPD 胜在规模** (TN wins on precision, SPD wins on scale). T6 attack now satisfies 7th-standard "(vii) cross-attack-cross-method-class-orthogonality-empirical-verification" canonical-instance bar.
+
+**Path forward to ZCZ 2.0 d=20 / ZCZ 2.1 d=24 actual depth** (still NOT broken at v0.1.8):
+1. (a) install kahypar via conda-forge or build (currently fallback labels-method optimizer; 2-5× width reduction expected per cotengra docs)
+2. (b) GPU memory budget (cuQuantum/cupy backend with 24-80 GiB cards)
+3. (c) Cluster scaling per Liu-Sunway 2021 path
+
+The v3.x 43-day extrapolation below is **stale evidence**: superseded by direct measurements + memory-wall mapping. Preserved for audit trail per AGENTS.md ironclad rule 5 (failure records / superseded analyses also preserved).
+
+---
 
 ## 0.0 v3.2 update — primary-source benchmark from Liu et al. 2021 (Sunway)
 
