@@ -1,0 +1,32 @@
+{
+  "description": "d=4 ell=12 M=q0 B=q11 corner-corner Manhattan-5 multi-seed",
+  "results": [
+    {
+      "M": 0,
+      "B": 11,
+      "seed": 0,
+      "n_kept": 144,
+      "otoc2_real": -0.4999999999999999,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999999
+    },
+    {
+      "M": 0,
+      "B": 11,
+      "seed": 42,
+      "n_kept": 324,
+      "otoc2_real": -0.49999999999999967,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999997
+    },
+    {
+      "M": 0,
+      "B": 11,
+      "seed": 1000,
+      "n_kept": 288,
+      "otoc2_real": 0.0,
+      "otoc2_imag": 0.0,
+      "frobenius_norm_sq": 0.9999999999999998
+    }
+  ]
+}

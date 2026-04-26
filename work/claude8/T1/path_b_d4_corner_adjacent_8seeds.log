@@ -1,0 +1,28 @@
+d=4 ell=12 multiseed at TWO additional (M, B) configs:
+======================================================================
+
+corner-corner M5: M=q0, B=q11
+  seed=    0: n_kept=  144, OTOC^2=-0.5000, fro^2=1.0000, t=0.4s
+  seed=    1: n_kept=  312, OTOC^2=-1.0000, fro^2=1.0000, t=2.1s
+  seed=    7: n_kept=  264, OTOC^2=-0.5000, fro^2=1.0000, t=1.5s
+  seed=   42: n_kept=  324, OTOC^2=-0.5000, fro^2=1.0000, t=2.1s
+  seed=  100: n_kept= 2484, OTOC^2=-1.0000, fro^2=1.0000, t=91.2s
+  seed= 1000: n_kept=  288, OTOC^2=+0.0000, fro^2=1.0000, t=1.3s
+  seed= 2024: n_kept=  270, OTOC^2=+0.0000, fro^2=1.0000, t=0.9s
+  seed=12345: n_kept=   64, OTOC^2=+0.0000, fro^2=1.0000, t=0.0s
+  Distinct OTOC^2: [-1.0, -0.5, 0.0]  (count: 3)
+  fro^2 range: 1.0000 to 1.0000
+
+adjacent same-row: M=q5, B=q6
+  seed=    0: n_kept=  216, OTOC^2=+0.0000, fro^2=1.0000, t=0.5s
+  seed=    1: n_kept=  270, OTOC^2=-0.5000, fro^2=1.0000, t=1.1s
+  seed=    7: n_kept=  324, OTOC^2=-1.0000, fro^2=1.0000, t=1.6s
+  seed=   42: n_kept=   32, OTOC^2=+0.0000, fro^2=1.0000, t=0.1s
+  seed=  100: n_kept= 2112, OTOC^2=-1.0000, fro^2=1.0000, t=67.6s
+  seed= 1000: n_kept=  432, OTOC^2=+0.0000, fro^2=1.0000, t=2.7s
+  seed= 2024: n_kept=  486, OTOC^2=-0.5000, fro^2=1.0000, t=3.2s
+  seed=12345: n_kept=  108, OTOC^2=-1.0000, fro^2=1.0000, t=0.2s
+  Distinct OTOC^2: [-1.0, -0.5, 0.0]  (count: 3)
+  fro^2 range: 1.0000 to 1.0000
+
+Saved.
