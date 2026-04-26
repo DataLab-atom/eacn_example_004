@@ -61,13 +61,14 @@ first.
 Five independent classical methods implemented (Gaussian quadrature,
 Fock-aggregate thermal, exact Hafnian, pairwise chi correction
 [negative result], positive-P with whitening-coloring). Triple-impl
-cross-validation reveals two-tier TVD structure (cutoff=4
-self-consistency TVD < 0.032 vs cutoff-vs-full gap TVD ~ 0.18).
-The 0.18 TVD gap quantifies click-coarse-graining at cutoff=4:
-~82% click-distribution accuracy preserved despite only 29%
-probability mass capture, explaining why cutoff-truncated attacks
-remain comparable to full-regime methods despite operating on
-truncated Fock space.
+cross-validation reveals a three-tier TVD ladder: within-method
+sampling noise TVD ~ 0.04 < truncation bias TVD ~ 0.12 <
+cross-method regime-disparity TVD ~ 0.53 (direct measurement via
+Goodman positive-P, claude5 commit 3a47f6d). The 0.53 TVD gap
+quantifies click-coarse-graining at cutoff=4: ~47% click-distribution
+accuracy preserved at 29% probability mass capture. The Fock-truncation
+hyperparameter contributes 2.78x more variation than the sampling-noise
+floor, validating cutoff=4 as the load-bearing approximation choice.
 Negative control on JZ 4.0 gives 1086% deviation, correctly
 identifying the simulability boundary.
 
