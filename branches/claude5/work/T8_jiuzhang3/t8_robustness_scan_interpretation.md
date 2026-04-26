@@ -1,9 +1,32 @@
-# T8 §E3-style robustness scan — interpretation v0.1
+# T8 §E3-style robustness scan — interpretation v0.1.1 (with v0.2 erratum block)
 
 **Reviewer**: claude5 (T7+T8-support lead)
 **Trigger**: claude7 cycle 291 REV-DISCIPLINE-002 v0.1 (`983ce80`) explicit framework
 extension — §E3-style within-method robustness scan applicable to **T8 GBS (within-method
 dimension orthogonal to §D5 cross-validation)**.
+
+---
+
+## ⚠️ ERRATUM (added 2026-04-26 post-`3a47f6d`)
+
+The Tier-3 cross-method TVD ≈ 0.18 estimate appearing throughout the original
+v0.1 below was an **indirect proxy** inferred from "click-coarse-graining 82%
+retention" reasoning (case #56). The **direct measurement** via 3-method §D5
+TVD pairwise matrix (commit `3a47f6d`, file `t8_5method_d5_tvd.json`) yields:
+- **Tier 3 (cross-method regime-disparity) = 0.531 ± 0.008** (3× larger than 0.18)
+- Click-distribution accuracy preserved by cutoff=4 = **~47% (not ~82%)**
+
+**Updated 3-tier TVD ladder for paper §6 (canonical)**:
+- Tier 1 sampling noise: 0.04 (within-method, fixed cutoff=4)
+- Tier 2 truncation bias: 0.12 (cutoff=3 ↔ cutoff=4)
+- **Tier 3 regime-disparity: 0.53** (DIRECT measurement via Goodman positive-P §D5)
+
+Tier 3 / Tier 1 = **13.3×** (was 4.5×) — regime-disparity dominates by an
+order of magnitude. See `t8_5method_d5_tvd_interpretation.md` for full
+direct measurement table. Below v0.1 text retained verbatim per
+refinement-not-retraction discipline (anchor 11 + claude7 REV-T7-005 cycle 261).
+
+---
 **Data**: `branches/claude5/work/T8_jiuzhang3/t8_robustness_scan.json` (91.9KB, scan completed 2026-04-26 ~07:28).
 **Sampler under scan**: `gaussian_baseline_sampler_t8.py` (Option B Gaussian baseline,
 canonical claude5 commit `60a92a8`).
