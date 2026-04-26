@@ -1,0 +1,140 @@
+{
+  "params": {
+    "n_modes": 144,
+    "squeezing_r": 1.5,
+    "loss_eta": 0.424
+  },
+  "n_samples": 10000,
+  "cutoff": 4,
+  "n_subset": 6,
+  "subsets_evaluated": [
+    [
+      "random",
+      0
+    ],
+    [
+      "random",
+      1
+    ],
+    [
+      "lc_aligned",
+      0
+    ],
+    [
+      "lc_aligned",
+      1
+    ]
+  ],
+  "methods": {
+    "A_gaussian_baseline": "claude5 60a92a8 Fock-aggregate-sample (cutoff=4)",
+    "B_goodman_positive_p": "claude2 927b766 reimplementation (positive-P + WC 10 iter, full-regime)",
+    "C_hafnian_oracle": "claude8 540e632 Fock-aggregate-analytical (cutoff=4, exact)"
+  },
+  "per_subset": [
+    {
+      "strategy": "random",
+      "run_id": 0,
+      "modes": [
+        5,
+        38,
+        44,
+        72,
+        89,
+        118
+      ],
+      "n_samples_gaussian_baseline": 10000,
+      "n_samples_positive_p": 10000,
+      "wall_clock_positive_p_s": 0.22242474555969238,
+      "wall_clock_analytical_s": 163.45748209953308,
+      "mean_clicks_gaussian_baseline": 3.4501,
+      "mean_clicks_positive_p": 4.9593,
+      "n_unique_patterns_gaussian_baseline": 64,
+      "n_unique_patterns_positive_p": 63,
+      "tvd_AB_gaussian_vs_positive_p_raw": 0.5261,
+      "tvd_AC_gaussian_vs_analytical_renorm": 0.0294080324094383,
+      "tvd_BC_positive_p_vs_analytical_renorm": 0.5231049687771818
+    },
+    {
+      "strategy": "random",
+      "run_id": 1,
+      "modes": [
+        4,
+        20,
+        65,
+        71,
+        106,
+        134
+      ],
+      "n_samples_gaussian_baseline": 10000,
+      "n_samples_positive_p": 10000,
+      "wall_clock_positive_p_s": 0.05519914627075195,
+      "wall_clock_analytical_s": 156.25751042366028,
+      "mean_clicks_gaussian_baseline": 3.4297,
+      "mean_clicks_positive_p": 4.9898,
+      "n_unique_patterns_gaussian_baseline": 64,
+      "n_unique_patterns_positive_p": 60,
+      "tvd_AB_gaussian_vs_positive_p_raw": 0.5373999999999999,
+      "tvd_AC_gaussian_vs_analytical_renorm": 0.030312932881138746,
+      "tvd_BC_positive_p_vs_analytical_renorm": 0.5326565386440393
+    },
+    {
+      "strategy": "lc_aligned",
+      "run_id": 0,
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_samples_gaussian_baseline": 10000,
+      "n_samples_positive_p": 10000,
+      "wall_clock_positive_p_s": 0.06605839729309082,
+      "wall_clock_analytical_s": 179.55132007598877,
+      "mean_clicks_gaussian_baseline": 3.4667,
+      "mean_clicks_positive_p": 4.9593,
+      "n_unique_patterns_gaussian_baseline": 64,
+      "n_unique_patterns_positive_p": 63,
+      "tvd_AB_gaussian_vs_positive_p_raw": 0.5232,
+      "tvd_AC_gaussian_vs_analytical_renorm": 0.03152536010266896,
+      "tvd_BC_positive_p_vs_analytical_renorm": 0.5236685691496501
+    },
+    {
+      "strategy": "lc_aligned",
+      "run_id": 1,
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_samples_gaussian_baseline": 10000,
+      "n_samples_positive_p": 10000,
+      "wall_clock_positive_p_s": 0.18507981300354004,
+      "wall_clock_analytical_s": 175.78751277923584,
+      "mean_clicks_gaussian_baseline": 3.4462,
+      "mean_clicks_positive_p": 4.9898,
+      "n_unique_patterns_gaussian_baseline": 64,
+      "n_unique_patterns_positive_p": 60,
+      "tvd_AB_gaussian_vs_positive_p_raw": 0.5390999999999999,
+      "tvd_AC_gaussian_vs_analytical_renorm": 0.03126426270215716,
+      "tvd_BC_positive_p_vs_analytical_renorm": 0.5346685691496501
+    }
+  ],
+  "aggregate": {
+    "tvd_AB_mean": 0.53145,
+    "tvd_AB_max": 0.5390999999999999,
+    "tvd_AC_mean": 0.03062764702385079,
+    "tvd_AC_max": 0.03152536010266896,
+    "tvd_BC_mean": 0.5285246614301303,
+    "tvd_BC_max": 0.5346685691496501,
+    "mean_clicks_positive_p_overall": 4.97455,
+    "mean_clicks_gaussian_overall": 3.448175
+  },
+  "schema_version": "1.0",
+  "wall_clock_total_s": 676.5685322284698,
+  "honest_scope": "3-method \u00a7D5 (claude5 / Goodman positive-P / claude8); claude2 d6ca180 Gaussian-quadrature full-regime + claude2 a843594 pairwise-chi-correction deferred (require sample-level data dumps from claude2 branch). Goodman positive-P transcribed from claude2 927b766 \u2014 algorithm-identical re-implementation, not deeper algorithmic alternative."
+}
